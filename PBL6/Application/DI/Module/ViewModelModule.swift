@@ -14,5 +14,6 @@ final class ViewModelModule{
         container.register(BaseVM.self) { _ in BaseVM()}
         container.register(HomeVM.self) { _ in HomeVM()}
         container.register(SplashVM.self) { _ in SplashVM()}
+        container.register(WelcomeVM.self) { _ in WelcomeVM()}
     }
 }

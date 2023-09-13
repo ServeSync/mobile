@@ -36,13 +36,16 @@ extension AppDelegate {
     }
     
     func windowMainConfig() {
-        windowSplashConfig()
+        var vc: UIViewController?
+        if UserDefaultHelper.shared.firstLaunchApp {
+            vc = WelcomeVC()
+        } else {
+            vc = HomeVC()
+        }
+        let nvc = BaseNVC(rootViewController: vc!)
         
-        guard let window = window else { return }
-        let vc = HomeVC()
-        let nvc = BaseNVC(rootViewController: vc)
-        
-        window.rootViewController = nvc
+        window?.rootViewController = nvc
+        window?.makeKeyAndVisible()
     }
 }
 

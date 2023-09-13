@@ -1,0 +1,17 @@
+//
+//  Localizable.swift
+//  PBL6
+//
+//  Created by KietKoy on 30/08/2023.
+//
+
+// Launch Screen
+"launch_screen_title" = "Student Community Activity Scoring System";
+
+// Welcome Screem
+"slide_title_1" = "Một điều nhỏ nhặt, một tấm lòng to lớn";
+"slide_title_2" = "Học tập vì tương lai, hành động vì cộng đồng";
+"slide_title_3" = "Hãy cùng nhau thắp sáng ngọn lửa tuổi trẻ";
+"sologan" = "ServeSync luôn đồng hành cùng bạn";
+"welcome_title" = "Hãy cùng tham gia hoạt động cộng đồng";
+"started" = "Bắt đầu";

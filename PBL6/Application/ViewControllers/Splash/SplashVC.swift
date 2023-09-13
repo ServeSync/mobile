@@ -14,14 +14,14 @@ class SplashVC: BaseVC<SplashVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            AppDelegate.shared().windowMainConfig()
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            AppDelegate.shared().windowMainConfig()
-        })
     }
     
     override func initViews() {
