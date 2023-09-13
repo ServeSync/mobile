@@ -8,12 +8,24 @@
 import Foundation
 
 private enum UserDefaultKey {
-    
+    static let firstLaunchApp = "firstLaunchApp"
 }
 
 class UserDefaultHelper {
-    
     static let shared = UserDefaultHelper()
     
-}
+    private init() {
+        if UserDefaults.standard.object(forKey: UserDefaultKey.firstLaunchApp) == nil {
+            UserDefaults.standard.set(true, forKey: UserDefaultKey.firstLaunchApp)
+        }
+    }
 
+    var firstLaunchApp: Bool {
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.firstLaunchApp)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: UserDefaultKey.firstLaunchApp)
+        }
+    }
+}

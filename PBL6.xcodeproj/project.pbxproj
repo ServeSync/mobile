@@ -46,6 +46,12 @@
 		351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C3DFE2AA33CA5004E82B7 /* UIView+Shadow.swift */; };
 		351C3E012AA33CBD004E82B7 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C3E002AA33CBD004E82B7 /* UIView+Animation.swift */; };
 		351C3E032AA33D02004E82B7 /* ScopeFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351C3E022AA33D02004E82B7 /* ScopeFunc.swift */; };
+		353233792AAF6F4500032B72 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353233772AAF6F4500032B72 /* WelcomeVC.swift */; };
+		3532337A2AAF6F4500032B72 /* WelcomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353233782AAF6F4500032B72 /* WelcomeVC.xib */; };
+		3532337C2AAF6F5100032B72 /* WelcomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532337B2AAF6F5100032B72 /* WelcomeVM.swift */; };
+		353233802AAF714300032B72 /* WelcomeSlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532337E2AAF714300032B72 /* WelcomeSlideCell.swift */; };
+		353233812AAF714300032B72 /* WelcomeSlideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3532337F2AAF714300032B72 /* WelcomeSlideCell.xib */; };
+		353233832AAF776800032B72 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353233822AAF776800032B72 /* OpenSans-Light.ttf */; };
 		35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */; };
 		35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */; };
 		35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */; };
@@ -80,7 +86,7 @@
 		356C7F9D2A9F99A000DDEDDD /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7F9C2A9F99A000DDEDDD /* Constans.swift */; };
 		356C7F9F2A9F9A0400DDEDDD /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7F9E2A9F9A0400DDEDDD /* BaseVC.swift */; };
 		356C7FA12A9F9A0F00DDEDDD /* BaseNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FA02A9F9A0F00DDEDDD /* BaseNVC.swift */; };
-		356C7FA32A9F9AAB00DDEDDD /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FA22A9F9AAB00DDEDDD /* Localizable.swift */; };
+		356C7FA32A9F9AAB00DDEDDD /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FA22A9F9AAB00DDEDDD /* Localizable.strings */; };
 		356C7FA62A9F9B2700DDEDDD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FA52A9F9B2700DDEDDD /* Post.swift */; };
 		356C7FA82A9F9B4A00DDEDDD /* RemoteRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FA72A9F9B4A00DDEDDD /* RemoteRepositoryImp.swift */; };
 		356C7FAA2A9F9B5800DDEDDD /* LocalRespositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FA92A9F9B5800DDEDDD /* LocalRespositoryImp.swift */; };
@@ -94,6 +100,7 @@
 		356C7FBF2A9F9C5500DDEDDD /* PostDAOImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FBE2A9F9C5500DDEDDD /* PostDAOImp.swift */; };
 		356C7FC12A9F9C6F00DDEDDD /* RPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FC02A9F9C6F00DDEDDD /* RPost.swift */; };
 		356C7FC52A9F9CAA00DDEDDD /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FC42A9F9CAA00DDEDDD /* PostResponse.swift */; };
+		35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7160A2AB1BBEE0089E829 /* SlideItem.swift */; };
 		35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D710FB2AA6168E00B71A34 /* JWTHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +144,12 @@
 		351C3DFE2AA33CA5004E82B7 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		351C3E002AA33CBD004E82B7 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		351C3E022AA33D02004E82B7 /* ScopeFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeFunc.swift; sourceTree = "<group>"; };
+		353233772AAF6F4500032B72 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		353233782AAF6F4500032B72 /* WelcomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeVC.xib; sourceTree = "<group>"; };
+		3532337B2AAF6F5100032B72 /* WelcomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVM.swift; sourceTree = "<group>"; };
+		3532337E2AAF714300032B72 /* WelcomeSlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSlideCell.swift; sourceTree = "<group>"; };
+		3532337F2AAF714300032B72 /* WelcomeSlideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeSlideCell.xib; sourceTree = "<group>"; };
+		353233822AAF776800032B72 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -173,7 +186,7 @@
 		356C7F9C2A9F99A000DDEDDD /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		356C7F9E2A9F9A0400DDEDDD /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		356C7FA02A9F9A0F00DDEDDD /* BaseNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNVC.swift; sourceTree = "<group>"; };
-		356C7FA22A9F9AAB00DDEDDD /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		356C7FA22A9F9AAB00DDEDDD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		356C7FA52A9F9B2700DDEDDD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		356C7FA72A9F9B4A00DDEDDD /* RemoteRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRepositoryImp.swift; sourceTree = "<group>"; };
 		356C7FA92A9F9B5800DDEDDD /* LocalRespositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRespositoryImp.swift; sourceTree = "<group>"; };
@@ -187,6 +200,7 @@
 		356C7FBE2A9F9C5500DDEDDD /* PostDAOImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDAOImp.swift; sourceTree = "<group>"; };
 		356C7FC02A9F9C6F00DDEDDD /* RPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPost.swift; sourceTree = "<group>"; };
 		356C7FC42A9F9CAA00DDEDDD /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		35B7160A2AB1BBEE0089E829 /* SlideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItem.swift; sourceTree = "<group>"; };
 		35D710FB2AA6168E00B71A34 /* JWTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		9B1A66AD3F335B6F5D956256 /* Pods_PBL6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBL6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4F47EA6852A63FE606C298 /* Pods-PBL6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.debug.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.debug.xcconfig"; sourceTree = "<group>"; };
@@ -320,9 +334,19 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		3532337D2AAF711F00032B72 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3532337E2AAF714300032B72 /* WelcomeSlideCell.swift */,
+				3532337F2AAF714300032B72 /* WelcomeSlideCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		35635D122AAE2A2D0083E3DB /* Open-Sans */ = {
 			isa = PBXGroup;
 			children = (
+				353233822AAF776800032B72 /* OpenSans-Light.ttf */,
 				35635D1B2AAE2A7F0083E3DB /* OpenSans-Regular.ttf */,
 				35635D192AAE2A750083E3DB /* OpenSans-SemiBold.ttf */,
 				35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */,
@@ -335,6 +359,10 @@
 		35635D1D2AAE2BFF0083E3DB /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				3532337D2AAF711F00032B72 /* Cell */,
+				353233772AAF6F4500032B72 /* WelcomeVC.swift */,
+				353233782AAF6F4500032B72 /* WelcomeVC.xib */,
+				3532337B2AAF6F5100032B72 /* WelcomeVM.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -429,7 +457,7 @@
 			children = (
 				356C7FA42A9F9AAE00DDEDDD /* Fonts */,
 				356C7F492A9F90C000DDEDDD /* Assets.xcassets */,
-				356C7FA22A9F9AAB00DDEDDD /* Localizable.swift */,
+				356C7FA22A9F9AAB00DDEDDD /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -566,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				356C7FA52A9F9B2700DDEDDD /* Post.swift */,
+				35B7160A2AB1BBEE0089E829 /* SlideItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -797,9 +826,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353233832AAF776800032B72 /* OpenSans-Light.ttf in Resources */,
 				35635D1C2AAE2A7F0083E3DB /* OpenSans-Regular.ttf in Resources */,
 				356C7F4D2A9F90C000DDEDDD /* LaunchScreen.storyboard in Resources */,
+				353233812AAF714300032B72 /* WelcomeSlideCell.xib in Resources */,
 				35635D1A2AAE2A750083E3DB /* OpenSans-SemiBold.ttf in Resources */,
+				3532337A2AAF6F4500032B72 /* WelcomeVC.xib in Resources */,
 				351C3DC32AA1ED44004E82B7 /* AlertVC.xib in Resources */,
 				35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */,
 				351C3DE92AA338EB004E82B7 /* SplashVC.xib in Resources */,
@@ -890,6 +922,7 @@
 				356C7F9B2A9F998200DDEDDD /* Localize.swift in Sources */,
 				351C3DBE2AA1EA6D004E82B7 /* HomeVM.swift in Sources */,
 				356C7FBD2A9F9C3A00DDEDDD /* PostDAO.swift in Sources */,
+				3532337C2AAF6F5100032B72 /* WelcomeVM.swift in Sources */,
 				356C7F8F2A9F98AB00DDEDDD /* PermissionHelper.swift in Sources */,
 				351C3DB52AA1E881004E82B7 /* ApiService.swift in Sources */,
 				356C7F7B2A9F95AD00DDEDDD /* Resolver.swift in Sources */,
@@ -913,7 +946,7 @@
 				351C3DD72AA1F130004E82B7 /* String.swift in Sources */,
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,
 				356C7FC12A9F9C6F00DDEDDD /* RPost.swift in Sources */,
-				356C7FA32A9F9AAB00DDEDDD /* Localizable.swift in Sources */,
+				356C7FA32A9F9AAB00DDEDDD /* Localizable.strings in Sources */,
 				351C3DB72AA1E89E004E82B7 /* ApiServiceImp.swift in Sources */,
 				351C3DF22AA33B6C004E82B7 /* BaseError.swift in Sources */,
 				351C3DF42AA33BA8004E82B7 /* LoggerUtils.swift in Sources */,
@@ -923,11 +956,13 @@
 				356C7F6B2A9F93AE00DDEDDD /* RemoteRespository.swift in Sources */,
 				351C3DC92AA1EF57004E82B7 /* AlertMessage.swift in Sources */,
 				356C7FB32A9F9BD100DDEDDD /* ModelConvertibleType.swift in Sources */,
+				35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */,
 				351C3E012AA33CBD004E82B7 /* UIView+Animation.swift in Sources */,
 				351C3DD92AA1F18D004E82B7 /* Cell.swift in Sources */,
 				351C3DFB2AA33C87004E82B7 /* UIView+Border+Corner.swift in Sources */,
 				351C3DAD2AA1E7F1004E82B7 /* NetworkConfig.swift in Sources */,
 				351C3DC22AA1ED44004E82B7 /* AlertVC.swift in Sources */,
+				353233792AAF6F4500032B72 /* WelcomeVC.swift in Sources */,
 				351C3DAB2AA1E7B2004E82B7 /* AppApi.swift in Sources */,
 				356C7F792A9F957000DDEDDD /* NetworkModule.swift in Sources */,
 				356C7FA12A9F9A0F00DDEDDD /* BaseNVC.swift in Sources */,
@@ -935,6 +970,7 @@
 				351C3DC52AA1EF17004E82B7 /* AlertAction.swift in Sources */,
 				351C3DC72AA1EF33004E82B7 /* AlertConstants.swift in Sources */,
 				356C7FAF2A9F9BAB00DDEDDD /* Reactive.swift in Sources */,
+				353233802AAF714300032B72 /* WelcomeSlideCell.swift in Sources */,
 				356C7F852A9F978500DDEDDD /* BaseVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
