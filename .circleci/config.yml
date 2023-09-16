@@ -1,0 +1,29 @@
+version: 2.1
+jobs:
+  build:
+    macos:
+      xcode: "12.5.0"
+    steps:
+      - checkout
+
+      # Install any dependencies (e.g., CocoaPods)
+      - run:
+          name: Install Dependencies
+          command: |
+            gem install bundler
+            bundle install
+            bundle exec pod install
+
+      # Build and archive the project
+      - run:
+          name: Build and Archive
+          command: xcodebuild archive -workspace ServeSync.xcworkspace -scheme ServeSync -configuration Release -archivePath build/ServeSync.xcarchive
+
+      # Export IPA file
+      - run:
+          name: Export IPA
+          command: xcodebuild -exportArchive -archivePath build/ServeSync.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist
+
+      # Store IPA file as an artifact
+      - store_artifacts:
+          path: build/ServeSync.ipa
