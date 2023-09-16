@@ -4,6 +4,9 @@ jobs:
   build-and-test:
     macos:
       xcode: 14.0.1
+    dependencies:
+      pre:
+      - brew update
     environment:
       FL_OUTPUT_DIR: output
       FASTLANE_LANE: test
