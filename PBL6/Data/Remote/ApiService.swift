@@ -10,4 +10,6 @@ import RxSwift
 
 protocol ApiService {
     func getPost() -> Single<[Post]>
+    
+    
 }

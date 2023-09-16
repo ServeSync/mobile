@@ -100,8 +100,15 @@
 		356C7FBF2A9F9C5500DDEDDD /* PostDAOImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FBE2A9F9C5500DDEDDD /* PostDAOImp.swift */; };
 		356C7FC12A9F9C6F00DDEDDD /* RPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FC02A9F9C6F00DDEDDD /* RPost.swift */; };
 		356C7FC52A9F9CAA00DDEDDD /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C7FC42A9F9CAA00DDEDDD /* PostResponse.swift */; };
+		356D456E2AB4C67D004227A1 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D456D2AB4C67D004227A1 /* LoginVM.swift */; };
+		356D45702AB4CEA8004227A1 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D456F2AB4CEA8004227A1 /* UITextField.swift */; };
+		356D45732AB4D4A6004227A1 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D45722AB4D4A6004227A1 /* SignInResponse.swift */; };
+		356D45772AB574D6004227A1 /* AuthenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D45762AB574D6004227A1 /* AuthenApiService.swift */; };
+		356D45792AB574E3004227A1 /* AuthenApiServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D45782AB574E3004227A1 /* AuthenApiServiceImp.swift */; };
 		35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7160A2AB1BBEE0089E829 /* SlideItem.swift */; };
 		35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D710FB2AA6168E00B71A34 /* JWTHelper.swift */; };
+		35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D78BD22AB48D83005B5109 /* LoginVC.swift */; };
+		35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D78BD32AB48D83005B5109 /* LoginVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,8 +207,15 @@
 		356C7FBE2A9F9C5500DDEDDD /* PostDAOImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDAOImp.swift; sourceTree = "<group>"; };
 		356C7FC02A9F9C6F00DDEDDD /* RPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPost.swift; sourceTree = "<group>"; };
 		356C7FC42A9F9CAA00DDEDDD /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		356D456D2AB4C67D004227A1 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		356D456F2AB4CEA8004227A1 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		356D45722AB4D4A6004227A1 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		356D45762AB574D6004227A1 /* AuthenApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenApiService.swift; sourceTree = "<group>"; };
+		356D45782AB574E3004227A1 /* AuthenApiServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenApiServiceImp.swift; sourceTree = "<group>"; };
 		35B7160A2AB1BBEE0089E829 /* SlideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItem.swift; sourceTree = "<group>"; };
 		35D710FB2AA6168E00B71A34 /* JWTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
+		35D78BD22AB48D83005B5109 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		35D78BD32AB48D83005B5109 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		9B1A66AD3F335B6F5D956256 /* Pods_PBL6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBL6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4F47EA6852A63FE606C298 /* Pods-PBL6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.debug.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4C3080F070549C0EACECE7 /* Pods-PBL6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.release.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.release.xcconfig"; sourceTree = "<group>"; };
@@ -476,6 +490,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				35D78BCF2AB48D5F005B5109 /* Login */,
 				351C3DE52AA338C7004E82B7 /* Splash */,
 				35635D1D2AAE2BFF0083E3DB /* Welcome */,
 				351C3DBC2AA1E8E9004E82B7 /* Home */,
@@ -519,6 +534,7 @@
 				351C3DCA2AA1EF85004E82B7 /* UIColor.swift */,
 				351C3DD82AA1F18D004E82B7 /* Cell.swift */,
 				351C3DEE2AA33AF1004E82B7 /* UIViewController.swift */,
+				356D456F2AB4CEA8004227A1 /* UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -573,6 +589,8 @@
 		356C7F652A9F92B800DDEDDD /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				356D45752AB574BF004227A1 /* ApiServiceImp */,
+				356D45742AB574AC004227A1 /* ApiService */,
 				351C3DA72AA1E3D7004E82B7 /* Network */,
 				356C7FC32A9F9C9D00DDEDDD /* Response */,
 				351C3DB42AA1E881004E82B7 /* ApiService.swift */,
@@ -719,9 +737,34 @@
 		356C7FC32A9F9C9D00DDEDDD /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				356D45712AB4D49A004227A1 /* Login */,
 				356C7FC42A9F9CAA00DDEDDD /* PostResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		356D45712AB4D49A004227A1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				356D45722AB4D4A6004227A1 /* SignInResponse.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		356D45742AB574AC004227A1 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				356D45762AB574D6004227A1 /* AuthenApiService.swift */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
+		356D45752AB574BF004227A1 /* ApiServiceImp */ = {
+			isa = PBXGroup;
+			children = (
+				356D45782AB574E3004227A1 /* AuthenApiServiceImp.swift */,
+			);
+			path = ApiServiceImp;
 			sourceTree = "<group>";
 		};
 		35D710F82AA6166800B71A34 /* UserDefault */ = {
@@ -746,6 +789,16 @@
 				35D710FB2AA6168E00B71A34 /* JWTHelper.swift */,
 			);
 			path = JWT;
+			sourceTree = "<group>";
+		};
+		35D78BCF2AB48D5F005B5109 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				35D78BD22AB48D83005B5109 /* LoginVC.swift */,
+				35D78BD32AB48D83005B5109 /* LoginVC.xib */,
+				356D456D2AB4C67D004227A1 /* LoginVM.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		477612EBD81A3DF22BE8BE16 /* Frameworks */ = {
@@ -826,6 +879,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */,
 				353233832AAF776800032B72 /* OpenSans-Light.ttf in Resources */,
 				35635D1C2AAE2A7F0083E3DB /* OpenSans-Regular.ttf in Resources */,
 				356C7F4D2A9F90C000DDEDDD /* LaunchScreen.storyboard in Resources */,
@@ -898,10 +952,12 @@
 				356C7F412A9F90BF00DDEDDD /* AppDelegate.swift in Sources */,
 				356C7F812A9F974500DDEDDD /* BaseTableViewCell.swift in Sources */,
 				356C7FAC2A9F9B7A00DDEDDD /* DBManager.swift in Sources */,
+				356D45792AB574E3004227A1 /* AuthenApiServiceImp.swift in Sources */,
 				351C3DD22AA1F07D004E82B7 /* ITextField.swift in Sources */,
 				356C7F932A9F98D700DDEDDD /* PermissionHelperDelegate.swift in Sources */,
 				351C3DFD2AA33C96004E82B7 /* UIView+LoadNib.swift in Sources */,
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
+				356D45772AB574D6004227A1 /* AuthenApiService.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
 				351C3DBA2AA1E8E6004E82B7 /* HomeVC.swift in Sources */,
 				351C3DD42AA1F102004E82B7 /* GradientView.swift in Sources */,
@@ -913,6 +969,8 @@
 				356C7FC52A9F9CAA00DDEDDD /* PostResponse.swift in Sources */,
 				351C3DDE2AA1F1ED004E82B7 /* ReachabilityHelper.swift in Sources */,
 				356C7FBF2A9F9C5500DDEDDD /* PostDAOImp.swift in Sources */,
+				35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */,
+				356D45702AB4CEA8004227A1 /* UITextField.swift in Sources */,
 				356C7F952A9F991E00DDEDDD /* String+Convert.swift in Sources */,
 				356C7FBA2A9F9C1400DDEDDD /* BaseDaoService.swift in Sources */,
 				356C7FB12A9F9BBC00DDEDDD /* RealmRepresentable.swift in Sources */,
@@ -938,10 +996,12 @@
 				356C7F7E2A9F96E500DDEDDD /* UserDefaultHelper.swift in Sources */,
 				356C7F8C2A9F986A00DDEDDD /* File.swift in Sources */,
 				351C3DB32AA1E84F004E82B7 /* AppNetworkImp.swift in Sources */,
+				356D45732AB4D4A6004227A1 /* SignInResponse.swift in Sources */,
 				356C7F882A9F97E400DDEDDD /* ActivityIndicator.swift in Sources */,
 				356C7F9F2A9F9A0400DDEDDD /* BaseVC.swift in Sources */,
 				356C7FB82A9F9C0900DDEDDD /* BaseDAO.swift in Sources */,
 				351C3DCD2AA1EFAF004E82B7 /* Theme.swift in Sources */,
+				356D456E2AB4C67D004227A1 /* LoginVM.swift in Sources */,
 				356C7FA62A9F9B2700DDEDDD /* Post.swift in Sources */,
 				351C3DD72AA1F130004E82B7 /* String.swift in Sources */,
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,

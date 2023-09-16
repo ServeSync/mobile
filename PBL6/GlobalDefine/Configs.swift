@@ -12,7 +12,7 @@ enum Configs {
     
     //MARK: -- Server
     enum Server {
-        static let baseURL = "https://jsonplaceholder.typicode.com/"
+        static let baseURL = "http://localhost:5050/api/"
     }
     
     //MARK: -- Network

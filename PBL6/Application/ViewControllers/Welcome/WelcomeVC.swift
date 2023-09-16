@@ -27,7 +27,8 @@ class WelcomeVC: BaseVC<WelcomeVM> {
         startButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
-                self.pushVC(HomeVC())
+//                self.pushVC(HomeVC())
+                self.pushVC(LoginVC())
                 UserDefaultHelper.shared.firstLaunchApp.toggle()
             })
             .disposed(by: bag)

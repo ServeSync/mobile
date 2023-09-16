@@ -13,6 +13,7 @@ enum AppApi {
     case posts
     case search(params: [String : String])
     //MARK: -- App
+    case signIn(usernameOrEmail: String, password: String)
 }
 
 extension AppApi: TargetType {
@@ -30,12 +31,16 @@ extension AppApi: TargetType {
             return "posts"
         case .search:
             return "novels"
+        case .signIn:
+            return "authen/sign-in"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
+        case .signIn:
+            return .post
         default:
             return .get
         }
@@ -51,6 +56,11 @@ extension AppApi: TargetType {
         switch self {
         case .search(let params):
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+//        case.signIn(let usernameOrEmail, let password):
+//            let parameters: [String: Any] = [
+//                            "userNameOrEmail": usernameOrEmail,
+//                            "password": password
+//                        ]
         default:
             return .requestPlain
         }
