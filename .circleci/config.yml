@@ -20,7 +20,6 @@ jobs:
       - run:
           name: Install Dependencies
           command: |
-            gem install bundler
             bundle install
             bundle exec pod install
 
