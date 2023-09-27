@@ -11,5 +11,8 @@ import RxSwift
 protocol ApiService {
     func getPost() -> Single<[Post]>
     
-    
+    //Authen
+    func signIn(userNameOrPassword: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>>
+    func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
+    func refreshTokenIfNeed() -> Single<Void>
 }

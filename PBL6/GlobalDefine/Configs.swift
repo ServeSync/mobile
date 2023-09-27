@@ -21,6 +21,11 @@ enum Configs {
         static let networkTimeout:Double = 30 //second
         static let appOpenAdsLoadTimeout: TimeInterval = 15
     }
+    
+    enum KeychainData {
+        static let account = "ServeSync"
+        static let service = "token"
+    }
 }
 
 //MARK: Read: AppDebug.plist or AppRelease.plist
@@ -29,6 +34,7 @@ fileprivate class AppConfigs {
     
     fileprivate static let shared = AppConfigs()
     private var servers : [String: Any] = [:]
+    private var keychainData: [String: Any] = [:]
     
     fileprivate init() {
         readAppConfigInfo()
@@ -37,6 +43,7 @@ fileprivate class AppConfigs {
     //MARK: AppConfigs read file
     private func readAppConfigInfo() {
         servers = Configs.stringValue(forKey: "Server") as! [String : Any]
+        keychainData = Configs.stringValue(forKey: "KeychainData") as! [String: Any]
     }
 }
 

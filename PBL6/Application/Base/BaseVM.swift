@@ -19,8 +19,8 @@ class BaseVM: NSObject {
     
     @Inject
     var remoteRepository: RemoteRepository
-    @Inject
-    var localRespository: LocalRespository
+//    @Inject
+//    var localRespository: LocalRespository
     
     let bag = DisposeBag()
     

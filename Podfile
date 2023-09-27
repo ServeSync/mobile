@@ -16,12 +16,12 @@ target 'PBL6' do
   #rx
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxSwiftExt'
   pod 'RxDataSources'
   
   #realm
   pod 'RealmSwift'
-  pod 'RxRealm'
+  #pod 'RxRealm'
+  pod 'RxSwiftExt'
   
   #convert json object
   pod 'ObjectMapper', '~> 4.2.0'

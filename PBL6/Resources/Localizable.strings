@@ -17,8 +17,19 @@
 "started" = "Bắt đầu";
 
 //Login
-
+"error" = "Lỗi";
+"infomation" = "Thông báo";
 "login" = "Đăng nhập";
 "email" = "Email";
 "forgot_password" = "Quên mật khẩu";
 "password" = "Mật khẩu";
+"username_or_email_warning" = "User Name or Email is Required.";
+"password_warning" = "Password is Required.";
+"role_error" = "Ứng dụng này được thiết kế dành riêng cho sinh viên. Hãy truy cập website để đăng nhập vào tài khoản của bạn!";
+"login_failed_error" = "Đăng nhập không thành công. Xin vui lòng thử lại!";
+"account_locked_error" = "Tài khoản của bạn đã bị khoá!";
+"incorrect_password" = "Mật khẩu không chính xác!";
+"username_or_email_does_not_exist" = "Tên đăng nhập hoặc email không tồn tại!";
+"login_successful" = "Đăng nhập thành công!";
+"username_or_password_validation_error" = "Username hoặc Password không được để trống!";
+"ok" = "OK";

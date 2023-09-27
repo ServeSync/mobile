@@ -11,7 +11,7 @@ import Moya
 import ObjectMapper
 
 final class ApiServiceImp: ApiService {
-
+    
     @Inject
     var appNetwork: AppNetwork
     
@@ -21,7 +21,17 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestArray(.posts, type: Post.self)
     }
     
-    //MARK: App
-
+    //MARK: Authen
     
+    func signIn(userNameOrPassword: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
+        return appNetwork.requestObject(.signIn(usernameOrEmail: userNameOrPassword, password: password), successType: AuthCredentialDto.self, errorType: ErrorResponse.self )
+    }
+    
+    func refreshTokenIfNeed() -> Single<Void> {
+        return appNetwork.refreshTokenIfNeeded()
+    }
+    
+    func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.profile, successType: UserInfoDto.self, errorType: ErrorResponse.self)
+    }
 }

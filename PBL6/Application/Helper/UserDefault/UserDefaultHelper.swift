@@ -9,6 +9,8 @@ import Foundation
 
 private enum UserDefaultKey {
     static let firstLaunchApp = "firstLaunchApp"
+    static let accessToken = "accessToken"
+    static let refreshToken = "refreshToken"
 }
 
 class UserDefaultHelper {
@@ -26,6 +28,24 @@ class UserDefaultHelper {
         }
         get {
             return UserDefaults.standard.bool(forKey: UserDefaultKey.firstLaunchApp)
+        }
+    }
+    
+    var accessToken: String? {
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.accessToken)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: UserDefaultKey.accessToken) ?? ""
+        }
+    }
+    
+    var refreshToken: String? {
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.refreshToken)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: UserDefaultKey.refreshToken)
         }
     }
 }
