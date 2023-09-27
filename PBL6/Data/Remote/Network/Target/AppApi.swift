@@ -14,6 +14,8 @@ enum AppApi {
     case search(params: [String : String])
     //MARK: -- App
     case signIn(usernameOrEmail: String, password: String)
+    case profile
+    case refreshToken(authCredentialDto: AuthCredentialDto)
 }
 
 extension AppApi: TargetType {
@@ -32,14 +34,18 @@ extension AppApi: TargetType {
         case .search:
             return "novels"
         case .signIn:
-            return "authen/sign-in"
+            return "auth/sign-in"
+        case .profile:
+            return "profile"
+        case .refreshToken:
+            return "auth/refresh-token"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn:
+        case .signIn, .refreshToken:
             return .post
         default:
             return .get
@@ -56,11 +62,28 @@ extension AppApi: TargetType {
         switch self {
         case .search(let params):
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
-//        case.signIn(let usernameOrEmail, let password):
-//            let parameters: [String: Any] = [
-//                            "userNameOrEmail": usernameOrEmail,
-//                            "password": password
-//                        ]
+        case.signIn(let usernameOrEmail, let password):
+            let body: [String: Any] = [
+                            "userNameOrEmail": usernameOrEmail,
+                            "password": password,
+                        ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .refreshToken(let authCredentialDto):
+            let body: [String: Any] = [
+                "accessToken": authCredentialDto.accessToken,
+                "refreshToken": authCredentialDto.refreshToken
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .profile:
+            return .requestPlain
         default:
             return .requestPlain
         }
@@ -68,15 +91,27 @@ extension AppApi: TargetType {
     
     //MARK: -- headers
     var headers: [String : String]? {
-        nil
+        if UserDefaultHelper.shared.accessToken!.isEmpty {
+            return [
+                "Content-Type": "application/json; charset=utf-8"
+            ]
+        } else {
+            return [
+                "Content-Type": "application/json; charset=utf-8",
+                "Authorization": "Bearer \(UserDefaultHelper.shared.accessToken!)"
+            ]
+        }
     }
     
     //MARK: -- Authorization
     var authorizationType: AuthorizationType? {
-        switch self {
-        default:
-            return nil
-        }
+        return .bearer
+//        switch self {
+//        case .profile:
+//            return .bearer
+//        default:
+//            return nil
+//        }
     }
     
     

@@ -13,6 +13,7 @@ import Alamofire
 class NetworkProvider<Target> where Target: TargetType {
     fileprivate let online: Observable<Bool>
     fileprivate let provider: MoyaProvider<Target>
+    private let authToken: String?
     
     init(endpointClosure: @escaping MoyaProvider<Target>.EndpointClosure = MoyaProvider<Target>.defaultEndpointMapping,
          requestClosure: @escaping MoyaProvider<Target>.RequestClosure = MoyaProvider<Target>.defaultRequestMapping,
@@ -20,15 +21,24 @@ class NetworkProvider<Target> where Target: TargetType {
          session: Session = MoyaProvider<Target>.defaultAlamofireSession(),
          plugins: [PluginType] = [],
          trackInflights: Bool = false,
-         online: Observable<Bool> = connectedToInternet()) {
-        
+         online: Observable<Bool> = connectedToInternet(),
+         authToken: String? = nil) {
         self.online = online
-        self.provider = MoyaProvider(endpointClosure: endpointClosure,
-                                     requestClosure: requestClosure,
-                                     stubClosure: stubClosure,
-                                     session: session,
-                                     plugins: plugins,
-                                     trackInflights: trackInflights)
+        self.authToken = authToken
+//        self.provider = MoyaProvider(endpointClosure: endpointClosure,
+//                                     requestClosure: requestClosure,
+//                                     stubClosure: stubClosure,
+//                                     session: session,
+//                                     plugins: plugins,
+//                                     trackInflights: trackInflights)
+        self.provider = MoyaProvider(endpointClosure: { (target: Target) -> Endpoint in
+            let defaultEndpoint = endpointClosure(target)
+            if let authToken = authToken {
+                return defaultEndpoint.adding(newHTTPHeaderFields: ["Authorization": "Bearer \(authToken)"])
+            } else {
+                return defaultEndpoint
+            }
+        }, requestClosure: requestClosure, stubClosure: stubClosure, session: session, plugins: plugins, trackInflights: trackInflights)
     }
     
     func request(_ token: Target) -> Single<Moya.Response> {

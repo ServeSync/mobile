@@ -14,6 +14,10 @@ import ObjectMapper
 protocol AppNetwork {
     func requestWithoutMapping(_ target: AppApi) -> Single<Moya.Response>
     func request(_ target: AppApi) -> Single<Any>
-    func requestObject<T: BaseMappable>(_ target: AppApi, type: T.Type) -> Single<T>
+    func requestObject<T: BaseMappable, U: BaseMappable>(_ target: AppApi, successType: T.Type, errorType: U.Type) -> Single<Result<T, U>>
+    func requestObjectWithTokenRefresh<T: BaseMappable, U: BaseMappable>(_ target: AppApi,
+                                                                         successType: T.Type,
+                                                                         errorType: U.Type) -> Single<Result<T, U>>
+    func refreshTokenIfNeeded() -> Single<Void>
     func requestArray<T: BaseMappable>(_ target: AppApi, type: T.Type) -> Single<[T]>
 }

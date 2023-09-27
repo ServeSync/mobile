@@ -307,8 +307,8 @@ extension AlertVC {
 }
 
 extension AlertVC {
-    static func showMessage(_ rootVC: UIViewController, message: AlertMessage) {
-        showMessage(rootVC, style: message.type, message: message.description)
+    static func showMessage(_ rootVC: UIViewController, message: AlertMessage, onClick: (() -> Void)? = nil) {
+        showMessage(rootVC, style: message.type, message: message.description, onClick: onClick)
     }
     
     static func showMessage(_ rootVC: UIViewController, title: String? = nil, style: AlertMessageType? = nil,  message: String, onClick: (() -> Void)? = nil) {

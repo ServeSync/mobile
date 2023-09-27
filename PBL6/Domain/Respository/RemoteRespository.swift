@@ -12,5 +12,8 @@ protocol RemoteRepository {
     //Demo
     func getPosts() -> Single<[Post]>
     
-    //App
+    //Authen
+    func signIn(userNameOrEmail: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>>
+    func refreshTokenIfNeed() -> Single<Void>
+    func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
 }

@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol BaseDaoService {
-    var realm: Realm { get }
-    func writeObject(executeCode: () -> ())
+//    var realm: Realm { get }
+//    func writeObject(executeCode: () -> ())
 }
 
