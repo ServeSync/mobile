@@ -82,8 +82,6 @@ extension AppApi: TargetType {
             } else {
                 return .requestPlain
             }
-        case .profile:
-            return .requestPlain
         default:
             return .requestPlain
         }
@@ -91,11 +89,12 @@ extension AppApi: TargetType {
     
     //MARK: -- headers
     var headers: [String : String]? {
-        if UserDefaultHelper.shared.accessToken!.isEmpty {
+        switch self {
+        case .signIn, .refreshToken:
             return [
                 "Content-Type": "application/json; charset=utf-8"
             ]
-        } else {
+        default:
             return [
                 "Content-Type": "application/json; charset=utf-8",
                 "Authorization": "Bearer \(UserDefaultHelper.shared.accessToken!)"
@@ -106,12 +105,6 @@ extension AppApi: TargetType {
     //MARK: -- Authorization
     var authorizationType: AuthorizationType? {
         return .bearer
-//        switch self {
-//        case .profile:
-//            return .bearer
-//        default:
-//            return nil
-//        }
     }
     
     

@@ -22,18 +22,18 @@ class LoginVM: BaseVM {
         UserDefaultHelper.shared.refreshToken = nil
     }
     
-    func handleSignIn() -> Observable<SignInStatus> {
+    func handleSignIn() -> Observable<HandleStatus> {
         return self.remoteRepository.signIn(userNameOrEmail: userNameOrEmail, password: password)
             .trackError(errorTracker)
             .trackActivity(indicatorLoading)
-            .flatMap { [weak self] result -> Observable<SignInStatus> in
+            .flatMap { [weak self] result -> Observable<HandleStatus> in
                 guard let self = self else { return .just(.Error(message: "self is nil")) }
                 switch result {
                 case .success(let data):
                     UserDefaultHelper.shared.accessToken = data.accessToken
                     UserDefaultHelper.shared.refreshToken = data.refreshToken
                     return self.remoteRepository.profile().asObservable()
-                        .flatMap { [weak self] result -> Observable<SignInStatus> in
+                        .flatMap { [weak self] result -> Observable<HandleStatus> in
                             guard let self = self else { return .just(.Error(message: "self is nil")) }
                             switch result {
                             case .success(let data):
@@ -67,7 +67,7 @@ class LoginVM: BaseVM {
     
 }
 
-enum SignInStatus {
+enum HandleStatus {
     case Success
-    case Error(message: String)
+    case Error(message: String?)
 }

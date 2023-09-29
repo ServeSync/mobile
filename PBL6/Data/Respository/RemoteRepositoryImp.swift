@@ -23,8 +23,12 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.signIn(userNameOrPassword: userNameOrEmail, password: password)
     }
     
-    func refreshTokenIfNeed() -> Single<Void> {
-        return apiService.refreshTokenIfNeed()
+//    func refreshTokenIfNeed() -> Single<Void> {
+//        return apiService.refreshTokenIfNeed()
+//    }
+    
+    func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
+        return apiService.resfreshToken(authCredentialDto: authCredentialDto)
     }
     
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {

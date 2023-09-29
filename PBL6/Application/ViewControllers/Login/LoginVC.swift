@@ -131,7 +131,7 @@ class LoginVC: BaseVC<LoginVM> {
                                 self.pushVC(HomeVC())
                             }
                         case .Error(let message):
-                            self.showError(message)
+                            self.showError(message!)
                         }
                     })
                     .disposed(by: bag)
@@ -145,9 +145,5 @@ class LoginVC: BaseVC<LoginVM> {
             })
             .disposed(by: bag)
     }
-    
-}
-
-private extension LoginVC {
     
 }

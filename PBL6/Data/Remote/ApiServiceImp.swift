@@ -27,11 +27,15 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestObject(.signIn(usernameOrEmail: userNameOrPassword, password: password), successType: AuthCredentialDto.self, errorType: ErrorResponse.self )
     }
     
-    func refreshTokenIfNeed() -> Single<Void> {
-        return appNetwork.refreshTokenIfNeeded()
-    }
+//    func refreshTokenIfNeed() -> Single<Void> {
+//        return appNetwork.refreshTokenIfNeeded()
+//    }
     
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.profile, successType: UserInfoDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
+        return appNetwork.refreshToken(.refreshToken(authCredentialDto: authCredentialDto), errorType: ErrorResponse.self)
     }
 }
