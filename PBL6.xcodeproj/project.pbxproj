@@ -124,6 +124,9 @@
 		3589057F2AC7DD03000E687C /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589057E2AC7DD03000E687C /* ProfileVM.swift */; };
 		358905812AC7EF80000E687C /* UI+Shadow+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905802AC7EF7F000E687C /* UI+Shadow+CornerRadius.swift */; };
 		358905832AC7F8B6000E687C /* StudentDetailDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905822AC7F8B6000E687C /* StudentDetailDto.swift */; };
+		358905882AC8505F000E687C /* WebviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905852AC8505F000E687C /* WebviewVC.swift */; };
+		358905892AC8505F000E687C /* WebviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358905862AC8505F000E687C /* WebviewVC.xib */; };
+		3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905872AC8505F000E687C /* WebviewVM.swift */; };
 		35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7160A2AB1BBEE0089E829 /* SlideItem.swift */; };
 		35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D710FB2AA6168E00B71A34 /* JWTHelper.swift */; };
 		35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D78BD22AB48D83005B5109 /* LoginVC.swift */; };
@@ -250,6 +253,9 @@
 		3589057E2AC7DD03000E687C /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		358905802AC7EF7F000E687C /* UI+Shadow+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Shadow+CornerRadius.swift"; sourceTree = "<group>"; };
 		358905822AC7F8B6000E687C /* StudentDetailDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailDto.swift; sourceTree = "<group>"; };
+		358905852AC8505F000E687C /* WebviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewVC.swift; sourceTree = "<group>"; };
+		358905862AC8505F000E687C /* WebviewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebviewVC.xib; sourceTree = "<group>"; };
+		358905872AC8505F000E687C /* WebviewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewVM.swift; sourceTree = "<group>"; };
 		35B7160A2AB1BBEE0089E829 /* SlideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItem.swift; sourceTree = "<group>"; };
 		35D710FB2AA6168E00B71A34 /* JWTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		35D78BD22AB48D83005B5109 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -537,6 +543,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				358905842AC8505F000E687C /* WebviewVC */,
 				358905792AC7DCBB000E687C /* Profile */,
 				358905722AC7D325000E687C /* Account */,
 				3589055D2AC753D4000E687C /* Analysis */,
@@ -856,6 +863,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		358905842AC8505F000E687C /* WebviewVC */ = {
+			isa = PBXGroup;
+			children = (
+				358905852AC8505F000E687C /* WebviewVC.swift */,
+				358905862AC8505F000E687C /* WebviewVC.xib */,
+				358905872AC8505F000E687C /* WebviewVM.swift */,
+			);
+			path = WebviewVC;
+			sourceTree = "<group>";
+		};
 		35D710F82AA6166800B71A34 /* UserDefault */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,6 +985,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358905892AC8505F000E687C /* WebviewVC.xib in Resources */,
 				3589055A2AC75340000E687C /* MainVC.xib in Resources */,
 				35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */,
 				3589057D2AC7DCF8000E687C /* ProfileVC.xib in Resources */,
@@ -1107,6 +1125,7 @@
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,
 				358905542AC752D3000E687C /* PageVC.swift in Sources */,
 				356C7FC12A9F9C6F00DDEDDD /* RPost.swift in Sources */,
+				358905882AC8505F000E687C /* WebviewVC.swift in Sources */,
 				356C7FA32A9F9AAB00DDEDDD /* Localizable.strings in Sources */,
 				351C3DB72AA1E89E004E82B7 /* ApiServiceImp.swift in Sources */,
 				351C3DF22AA33B6C004E82B7 /* BaseError.swift in Sources */,
@@ -1119,6 +1138,7 @@
 				351C3DC92AA1EF57004E82B7 /* AlertMessage.swift in Sources */,
 				356C7FB32A9F9BD100DDEDDD /* ModelConvertibleType.swift in Sources */,
 				35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */,
+				3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */,
 				351C3E012AA33CBD004E82B7 /* UIView+Animation.swift in Sources */,
 				351C3DD92AA1F18D004E82B7 /* Cell.swift in Sources */,
 				351C3DFB2AA33C87004E82B7 /* UIView+Border+Corner.swift in Sources */,
