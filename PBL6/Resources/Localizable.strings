@@ -33,3 +33,24 @@
 "login_successful" = "Đăng nhập thành công!";
 "username_or_password_validation_error" = "Username hoặc Password không được để trống!";
 "ok" = "OK";
+
+//Acount
+"account" = "Tài khoản";
+"personal_information" = "Thông tin cá nhân";
+"grading_&_regulations" = "Mức điểm & Quy định";
+"setting" = "Cài đặt";
+"help" = "Help";
+
+//Profile
+"student_ID" = "Mã sinh viên:";
+"gender" = "Giới tính:";
+"date_of_birth" = "Ngày sinh:";
+"citizen's_identity" = "CCCD:";
+"educational_system" = "Hệ đào tạo:";
+"faculty" = "Khoa:";
+"class" = "Lớp:";
+"hometown" = "Quê quán:";
+"address" = "Địa chỉ cư trú:";
+"email" = "Email:";
+"phone_number" = "Số điện thoại:";
+

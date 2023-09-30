@@ -16,6 +16,7 @@ enum AppApi {
     case signIn(usernameOrEmail: String, password: String)
     case profile
     case refreshToken(authCredentialDto: AuthCredentialDto)
+    case profileInfo
 }
 
 extension AppApi: TargetType {
@@ -39,6 +40,8 @@ extension AppApi: TargetType {
             return "profile"
         case .refreshToken:
             return "auth/refresh-token"
+        case .profileInfo:
+            return "profile/student"
         }
     }
     
@@ -81,7 +84,7 @@ extension AppApi: TargetType {
                 return .requestData(jsonBody)
             } else {
                 return .requestPlain
-            }
+            } 
         default:
             return .requestPlain
         }

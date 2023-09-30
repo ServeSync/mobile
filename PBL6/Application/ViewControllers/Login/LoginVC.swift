@@ -128,7 +128,7 @@ class LoginVC: BaseVC<LoginVM> {
                         switch status {
                         case .Success:
                             AlertVC.showMessage(self, message: AlertMessage(type: .info, description: "login_successful".localized)) {
-                                self.pushVC(HomeVC())
+                                self.pushVC(MainVC())
                             }
                         case .Error(let message):
                             self.showError(message!)
