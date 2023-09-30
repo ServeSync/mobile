@@ -36,12 +36,12 @@ class SplashVC: BaseVC<SplashVM> {
         } else if accessToken!.isEmpty {
             AppDelegate.shared().windowMainConfig(vc: LoginVC())
         } else if let tokenInfo = JWTHelper.shared.decodeAndMap(jwtToken: accessToken!, to: TokenInfo.self), !JWTHelper.shared.isTokenExpired(expirationDate: Date(timeIntervalSince1970: TimeInterval(tokenInfo.exp))) {
-            AppDelegate.shared().windowMainConfig(vc: HomeVC())
+            AppDelegate.shared().windowMainConfig(vc: MainVC())
         } else {
             viewModel.refreshToken { status in
                 switch status {
                 case .Success:
-                    AppDelegate.shared().windowMainConfig(vc: HomeVC())
+                    AppDelegate.shared().windowMainConfig(vc: MainVC())
                 case .Error(_):
                     AppDelegate.shared().windowMainConfig(vc: LoginVC())
                 }

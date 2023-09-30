@@ -12,7 +12,7 @@ enum Configs {
     
     //MARK: -- Server
     enum Server {
-        static let baseURL = "http://localhost:5050/api/"
+        static let baseURL = "http://20.42.93.128/api/"
     }
     
     //MARK: -- Network

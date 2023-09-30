@@ -16,4 +16,8 @@ protocol ApiService {
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
 //    func refreshTokenIfNeed() -> Single<Void>
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
+    
+    //Profile
+    
+//    func profileInfo() -> Single<Result<
 }
