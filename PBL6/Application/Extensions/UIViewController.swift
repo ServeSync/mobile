@@ -92,6 +92,13 @@ extension UIViewController {
     func dismissVC() {
         dismiss(animated: true)
     }
+    
+    func showWebviewVC(url: String) {
+        let webviewVC = WebviewVC()
+        webviewVC.urlString = url
+        webviewVC.modalPresentationStyle = .fullScreen
+        presentVC(webviewVC)
+    }
 }
 
 extension UIViewController {

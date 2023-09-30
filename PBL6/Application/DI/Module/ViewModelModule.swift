@@ -20,5 +20,6 @@ final class ViewModelModule{
         container.register(AnalysisVM.self) { _ in AnalysisVM()}
         container.register(AccountVM.self) { _ in AccountVM()}
         container.register(ProfileVM.self) { _ in ProfileVM()}
+        container.register(WebviewVM.self) { _ in WebviewVM()}
     }
 }
