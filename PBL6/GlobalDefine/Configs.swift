@@ -13,7 +13,7 @@ enum Configs {
     //MARK: -- Server
     enum Server {
         static let baseURL = "http://20.42.93.128/api/"
-        static let forgotPasswordURL = "http://20.42.93.128/forgetPassword"
+        static let forgotPasswordURL = "http://20.42.93.128/resetPassword"
     }
     
     //MARK: -- Network

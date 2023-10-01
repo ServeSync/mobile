@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import Moya
 
 protocol RemoteRepository {
     //Demo
@@ -17,4 +18,5 @@ protocol RemoteRepository {
 //    func refreshTokenIfNeed() -> Single<Void>
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
+    func forgotPassword(requestForgetPassword: RequestForgetPasswordDto) -> Single<Moya.Response>
 }
