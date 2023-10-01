@@ -22,5 +22,6 @@ final class ViewModelModule{
         container.register(ProfileVM.self) { _ in ProfileVM()}
         container.register(WebviewVM.self) { _ in WebviewVM()}
         container.register(ForgotPasswordVM.self) { _ in ForgotPasswordVM()}
+        container.register(EditProfileVM.self) { _ in EditProfileVM()}
     }
 }

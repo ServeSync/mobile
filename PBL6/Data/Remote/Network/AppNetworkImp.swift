@@ -64,7 +64,6 @@ class AppNetworkImp: AppNetwork {
             return self.provider.request(target)
                 .flatMap { response in
                     if 200...299 ~= response.statusCode {
-                        print("@@@")
                         return Observable.just(response)
                             .mapJSON()
                             .map { Mapper<T>().map(JSONObject: $0)! }
