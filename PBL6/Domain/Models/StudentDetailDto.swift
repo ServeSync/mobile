@@ -21,9 +21,9 @@ struct StudentDetailDto: Mappable {
     var email: String = ""
     var phone: String = ""
     var identityId: String = ""
-    var homeRoomId: String = ""
-    var educationProgramId: String = ""
-    var facultyId: String = ""
+    var faculty: FacultyDto = FacultyDto()
+    var homeRoom: HomeRoomDto = HomeRoomDto()
+    var educationProgram: EducationProgramDto = EducationProgramDto()
     
     init?(map: Map) {}
     
@@ -40,9 +40,9 @@ struct StudentDetailDto: Mappable {
         email               <- map["email"]
         phone               <- map["phone"]
         identityId          <- map["identityId"]
-        homeRoomId          <- map["homeRoomId"]
-        educationProgramId  <- map["educationProgramId"]
-        facultyId           <- map["facultyId"]
+        faculty             <- map["faculty"]
+        homeRoom            <- map["homeRoom"]
+        educationProgram    <- map["educationProgram"]
     }
     
     

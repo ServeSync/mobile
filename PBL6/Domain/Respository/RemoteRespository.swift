@@ -13,10 +13,13 @@ protocol RemoteRepository {
     //Demo
     func getPosts() -> Single<[Post]>
     
-    //Authen
+    //Auth
     func signIn(userNameOrEmail: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>>
 //    func refreshTokenIfNeed() -> Single<Void>
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
-    func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
     func forgotPassword(requestForgetPassword: RequestForgetPasswordDto) -> Single<Moya.Response>
+    
+    //Profile
+    func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
+    func getProfileDetail()-> Single<Result<StudentDetailDto, ErrorResponse>>
 }

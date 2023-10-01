@@ -131,6 +131,10 @@
 		3589058F2AC8891F000E687C /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3589058D2AC8891F000E687C /* ForgotPasswordVC.xib */; };
 		358905912AC8894B000E687C /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905902AC8894B000E687C /* ForgotPasswordVM.swift */; };
 		358905932AC89601000E687C /* RequestForgetPasswordDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905922AC89601000E687C /* RequestForgetPasswordDto.swift */; };
+		358905952AC96FEB000E687C /* FacultyDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905942AC96FEB000E687C /* FacultyDto.swift */; };
+		358905972AC9705B000E687C /* HomeRoomDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905962AC9705B000E687C /* HomeRoomDto.swift */; };
+		358905992AC970E8000E687C /* EducationProgramDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905982AC970E8000E687C /* EducationProgramDto.swift */; };
+		3589059B2AC987E3000E687C /* KingFisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589059A2AC987E3000E687C /* KingFisher.swift */; };
 		35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7160A2AB1BBEE0089E829 /* SlideItem.swift */; };
 		35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D710FB2AA6168E00B71A34 /* JWTHelper.swift */; };
 		35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D78BD22AB48D83005B5109 /* LoginVC.swift */; };
@@ -264,6 +268,10 @@
 		3589058D2AC8891F000E687C /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		358905902AC8894B000E687C /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
 		358905922AC89601000E687C /* RequestForgetPasswordDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForgetPasswordDto.swift; sourceTree = "<group>"; };
+		358905942AC96FEB000E687C /* FacultyDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyDto.swift; sourceTree = "<group>"; };
+		358905962AC9705B000E687C /* HomeRoomDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRoomDto.swift; sourceTree = "<group>"; };
+		358905982AC970E8000E687C /* EducationProgramDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationProgramDto.swift; sourceTree = "<group>"; };
+		3589059A2AC987E3000E687C /* KingFisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisher.swift; sourceTree = "<group>"; };
 		35B7160A2AB1BBEE0089E829 /* SlideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItem.swift; sourceTree = "<group>"; };
 		35D710FB2AA6168E00B71A34 /* JWTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		35D78BD22AB48D83005B5109 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -588,6 +596,7 @@
 				356C7F8D2A9F989900DDEDDD /* Permission */,
 				356C7F862A9F97DB00DDEDDD /* Rx */,
 				356C7F7C2A9F962600DDEDDD /* DataSource */,
+				3589059A2AC987E3000E687C /* KingFisher.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -686,6 +695,9 @@
 				35281C9A2ABFF10C00329260 /* TokenInfo.swift */,
 				358905822AC7F8B6000E687C /* StudentDetailDto.swift */,
 				358905922AC89601000E687C /* RequestForgetPasswordDto.swift */,
+				358905942AC96FEB000E687C /* FacultyDto.swift */,
+				358905962AC9705B000E687C /* HomeRoomDto.swift */,
+				358905982AC970E8000E687C /* EducationProgramDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1119,6 +1131,7 @@
 				3532337C2AAF6F5100032B72 /* WelcomeVM.swift in Sources */,
 				356C7F8F2A9F98AB00DDEDDD /* PermissionHelper.swift in Sources */,
 				351C3DB52AA1E881004E82B7 /* ApiService.swift in Sources */,
+				358905952AC96FEB000E687C /* FacultyDto.swift in Sources */,
 				356C7F7B2A9F95AD00DDEDDD /* Resolver.swift in Sources */,
 				356C7F712A9F94F200DDEDDD /* DI.swift in Sources */,
 				351C3DEF2AA33AF1004E82B7 /* UIViewController.swift in Sources */,
@@ -1134,6 +1147,8 @@
 				356C7F7E2A9F96E500DDEDDD /* UserDefaultHelper.swift in Sources */,
 				356C7F8C2A9F986A00DDEDDD /* File.swift in Sources */,
 				351C3DB32AA1E84F004E82B7 /* AppNetworkImp.swift in Sources */,
+				3589059B2AC987E3000E687C /* KingFisher.swift in Sources */,
+				358905972AC9705B000E687C /* HomeRoomDto.swift in Sources */,
 				356C7F882A9F97E400DDEDDD /* ActivityIndicator.swift in Sources */,
 				356D457B2AB60D39004227A1 /* AuthCredentialDto.swift in Sources */,
 				356C7F9F2A9F9A0400DDEDDD /* BaseVC.swift in Sources */,
@@ -1146,6 +1161,7 @@
 				351C3DD72AA1F130004E82B7 /* String.swift in Sources */,
 				358905662AC75429000E687C /* AnalysisVC.swift in Sources */,
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,
+				358905992AC970E8000E687C /* EducationProgramDto.swift in Sources */,
 				358905542AC752D3000E687C /* PageVC.swift in Sources */,
 				356C7FC12A9F9C6F00DDEDDD /* RPost.swift in Sources */,
 				358905882AC8505F000E687C /* WebviewVC.swift in Sources */,

@@ -16,11 +16,19 @@ class AccountVC: BaseVC<AccountVM> {
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var avtImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchData()
     }
     
     override func initViews() {
@@ -36,6 +44,40 @@ class AccountVC: BaseVC<AccountVM> {
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
                 self.pushVC(ProfileVC())
+            })
+            .disposed(by: bag)
+        
+        signOutButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                AppDelegate.shared().windowMainConfig(vc: LoginVC())
+            })
+            .disposed(by: bag)
+    }
+    
+    override func bindViewModel() {
+        super.bindViewModel()
+        
+        viewModel.messageData.asObservable()
+            .subscribe(onNext: { [weak self] alert in
+                guard let self = self else { return }
+                AlertVC.showMessage(self, message: AlertMessage(type: alert.type,
+                                                                description: alert.description)) {}
+            })
+            .disposed(by: bag)
+        
+        viewModel.loadingData.asObservable()
+            .subscribe(onNext: {[weak self] isLoading in
+                guard let self = self else { return }
+                isLoading ? self.showLoading() : self.hideLoading()
+            })
+            .disposed(by: bag)
+        
+        viewModel.profileDetailData.asObservable()
+            .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                nameLabel.text = data.fullName
+                loadImageFromURL(from: data.imageUrl, into: avtImageView)
             })
             .disposed(by: bag)
     }

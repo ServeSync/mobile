@@ -10,8 +10,7 @@ import RxSwift
 import Moya
 
 final class RemoteRepositoryImp: RemoteRepository {
-    
-        
+
     @Inject
     var apiService: ApiService!
     
@@ -32,11 +31,16 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.resfreshToken(authCredentialDto: authCredentialDto)
     }
     
-    func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
-        return apiService.profile()
-    }
-    
     func forgotPassword(requestForgetPassword: RequestForgetPasswordDto) -> Single<Moya.Response> {
         return apiService.forgetPassword(requestForgetPasswordDto: requestForgetPassword)
+    }
+    
+    //Profile
+    func getProfileDetail() -> Single<Result<StudentDetailDto, ErrorResponse>> {
+        return apiService.profileInfo()
+    }
+    
+    func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
+        return apiService.profile()
     }
 }

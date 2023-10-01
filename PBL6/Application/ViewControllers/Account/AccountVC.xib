@@ -20,8 +20,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountVC" customModule="PBL6" customModuleProvider="target">
             <connections>
+                <outlet property="avtImageView" destination="78Y-q6-YAZ" id="6rL-im-FmD"/>
                 <outlet property="headerView" destination="kVe-gP-5sO" id="S9t-Fx-2ZY"/>
                 <outlet property="helpButton" destination="UcF-SK-kbL" id="fPH-nN-njV"/>
+                <outlet property="nameLabel" destination="aPv-dL-Vhk" id="2Kh-wv-dIY"/>
                 <outlet property="personInfoButton" destination="gx1-di-BzC" id="fnH-G9-Tn0"/>
                 <outlet property="regulationsButton" destination="Omg-b8-RPd" id="7cC-k6-vLA"/>
                 <outlet property="settingButton" destination="bEr-MC-UP7" id="ByQ-hA-nTw"/>
