@@ -10,6 +10,7 @@ import Foundation
 class ProfileVM: BaseVM {
     
     let profileDetailData = PublishData<StudentDetailDto>()
+    var profileDetail: StudentDetailDto?
     
     func fetchData() {
         loadingData.accept(true)
@@ -22,6 +23,7 @@ class ProfileVM: BaseVM {
                 switch responseData {
                 case .success(let data):
                     profileDetailData.accept(data)
+                    profileDetail = data
                 case .failure(let error):
                     messageData.accept(AlertMessage(type: .error, description: error.localizedDescription))
                 }

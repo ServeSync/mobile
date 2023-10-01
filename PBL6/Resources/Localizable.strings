@@ -5,6 +5,11 @@
 //  Created by KietKoy on 30/08/2023.
 //
 
+//Genernal
+"general_error_title" = "An unknown error";
+"general_error_message" = "An error occurred, please try again later.";
+"no_network_connect_message" = "No internet connection.\nPlease check your connection again and try again later";
+
 // Launch Screen
 "launch_screen_title" = "Student Community Activity Scoring System";
 
@@ -55,6 +60,12 @@
 "phone_number" = "Số điện thoại:";
 "male" = "Nam";
 "female" = "Nữ";
+
+//Edit Profile
+"save" = "Lưu";
+"hometown_edit" = "Quê quán";
+"address_edit" = "Địa chỉ cư trú";
+"phone_number_edit" = "Số điện thoại";
 
 //Forgot Password
 "forgot_password" = "Quên mật khẩu";

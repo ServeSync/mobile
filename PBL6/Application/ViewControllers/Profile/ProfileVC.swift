@@ -15,7 +15,7 @@ class ProfileVC: BaseVC<ProfileVM> {
     @IBOutlet weak var middleView: UIView!
     
     @IBOutlet weak var backButton: UIButton!
-    
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var studentIDLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -38,6 +38,8 @@ class ProfileVC: BaseVC<ProfileVM> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("viewWillAppear@@@")
+        
         viewModel.fetchData()
     }
     
@@ -58,6 +60,16 @@ class ProfileVC: BaseVC<ProfileVM> {
             .subscribe(onNext: { [ weak self] in
                 guard let self = self else { return }
                 self.popVC()
+            })
+            .disposed(by: bag)
+        
+        editButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                let vc = EditProfileVC(profileDetail: viewModel.profileDetail!)
+                vc.modalPresentationStyle = .fullScreen
+                self.presentVC(EditProfileVC(profileDetail: viewModel.profileDetail!))
+//                self.present(vc, animated: true)
             })
             .disposed(by: bag)
     }
