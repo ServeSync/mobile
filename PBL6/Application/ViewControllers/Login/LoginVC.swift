@@ -28,7 +28,6 @@ class LoginVC: BaseVC<LoginVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     override func initViews() {
@@ -128,7 +127,9 @@ class LoginVC: BaseVC<LoginVM> {
                         switch status {
                         case .Success:
                             AlertVC.showMessage(self, message: AlertMessage(type: .info, description: "login_successful".localized)) {
+                                self.showLoading()
                                 self.pushVC(MainVC())
+                                self.hideLoading()
                             }
                         case .Error(let message):
                             self.showError(message!)

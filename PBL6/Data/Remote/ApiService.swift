@@ -21,5 +21,5 @@ protocol ApiService {
     
     //Profile
     
-//    func profileInfo() -> Single<Result<
+    func profileInfo() -> Single<Result<StudentDetailDto, ErrorResponse>>
 }

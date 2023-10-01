@@ -11,7 +11,7 @@ import Moya
 import ObjectMapper
 
 final class ApiServiceImp: ApiService {
-    
+
     @Inject
     var appNetwork: AppNetwork
     
@@ -31,15 +31,20 @@ final class ApiServiceImp: ApiService {
 //        return appNetwork.refreshTokenIfNeeded()
 //    }
     
-    func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
-        return appNetwork.requestObjectWithTokenRefresh(.profile, successType: UserInfoDto.self, errorType: ErrorResponse.self)
-    }
-    
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
         return appNetwork.refreshToken(.refreshToken(authCredentialDto: authCredentialDto), errorType: ErrorResponse.self)
     }
     
     func forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto) -> Single<Moya.Response> {
         return appNetwork.requestWithoutMapping(.forgetPassword(requestForgetPasswordDto: requestForgetPasswordDto))
+    }
+    
+    //profile
+    func profileInfo() -> RxSwift.Single<Result<StudentDetailDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.profileDetail, successType: StudentDetailDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.profile, successType: UserInfoDto.self, errorType: ErrorResponse.self)
     }
 }

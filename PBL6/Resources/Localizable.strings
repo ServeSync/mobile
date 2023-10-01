@@ -53,7 +53,8 @@
 "address" = "Địa chỉ cư trú:";
 "email_info" = "Email:";
 "phone_number" = "Số điện thoại:";
-
+"male" = "Nam";
+"female" = "Nữ";
 
 //Forgot Password
 "forgot_password" = "Quên mật khẩu";

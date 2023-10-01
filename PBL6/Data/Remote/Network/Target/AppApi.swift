@@ -16,7 +16,7 @@ enum AppApi {
     case signIn(usernameOrEmail: String, password: String)
     case profile
     case refreshToken(authCredentialDto: AuthCredentialDto)
-    case profileInfo
+    case profileDetail
     case forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto)
 }
 
@@ -41,7 +41,7 @@ extension AppApi: TargetType {
             return "profile"
         case .refreshToken:
             return "auth/refresh-token"
-        case .profileInfo:
+        case .profileDetail:
             return "profile/student"
         case .forgetPassword:
             return "auth/forget-password"
