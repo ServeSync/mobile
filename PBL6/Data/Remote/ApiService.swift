@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import Moya
 
 protocol ApiService {
     func getPost() -> Single<[Post]>
@@ -16,6 +17,7 @@ protocol ApiService {
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
 //    func refreshTokenIfNeed() -> Single<Void>
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
+    func forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto) -> Single<Moya.Response>
     
     //Profile
     

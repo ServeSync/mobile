@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import Moya
 
 final class RemoteRepositoryImp: RemoteRepository {
     
@@ -33,5 +34,9 @@ final class RemoteRepositoryImp: RemoteRepository {
     
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
         return apiService.profile()
+    }
+    
+    func forgotPassword(requestForgetPassword: RequestForgetPasswordDto) -> Single<Moya.Response> {
+        return apiService.forgetPassword(requestForgetPasswordDto: requestForgetPassword)
     }
 }

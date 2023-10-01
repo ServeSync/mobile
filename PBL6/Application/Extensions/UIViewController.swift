@@ -22,9 +22,10 @@ extension UIViewController {
     }
     
     func showToast(
-        message: String
+        message: String,
+        state: Loaf.State = .error
     ) {
-        Loaf(message, location: .top, sender: self).show()
+        Loaf(message, state: state, location: .top, sender: self).show()
     }
     
     func showGeneralError(onClick: (() -> Void)? = nil) {

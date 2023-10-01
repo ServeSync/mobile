@@ -127,6 +127,10 @@
 		358905882AC8505F000E687C /* WebviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905852AC8505F000E687C /* WebviewVC.swift */; };
 		358905892AC8505F000E687C /* WebviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358905862AC8505F000E687C /* WebviewVC.xib */; };
 		3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905872AC8505F000E687C /* WebviewVM.swift */; };
+		3589058E2AC8891F000E687C /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589058C2AC8891F000E687C /* ForgotPasswordVC.swift */; };
+		3589058F2AC8891F000E687C /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3589058D2AC8891F000E687C /* ForgotPasswordVC.xib */; };
+		358905912AC8894B000E687C /* ForgotPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905902AC8894B000E687C /* ForgotPasswordVM.swift */; };
+		358905932AC89601000E687C /* RequestForgetPasswordDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905922AC89601000E687C /* RequestForgetPasswordDto.swift */; };
 		35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7160A2AB1BBEE0089E829 /* SlideItem.swift */; };
 		35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D710FB2AA6168E00B71A34 /* JWTHelper.swift */; };
 		35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D78BD22AB48D83005B5109 /* LoginVC.swift */; };
@@ -256,6 +260,10 @@
 		358905852AC8505F000E687C /* WebviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewVC.swift; sourceTree = "<group>"; };
 		358905862AC8505F000E687C /* WebviewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebviewVC.xib; sourceTree = "<group>"; };
 		358905872AC8505F000E687C /* WebviewVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewVM.swift; sourceTree = "<group>"; };
+		3589058C2AC8891F000E687C /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		3589058D2AC8891F000E687C /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		358905902AC8894B000E687C /* ForgotPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVM.swift; sourceTree = "<group>"; };
+		358905922AC89601000E687C /* RequestForgetPasswordDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestForgetPasswordDto.swift; sourceTree = "<group>"; };
 		35B7160A2AB1BBEE0089E829 /* SlideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItem.swift; sourceTree = "<group>"; };
 		35D710FB2AA6168E00B71A34 /* JWTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		35D78BD22AB48D83005B5109 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -543,6 +551,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3589058B2AC88903000E687C /* ForgotPassword */,
 				358905842AC8505F000E687C /* WebviewVC */,
 				358905792AC7DCBB000E687C /* Profile */,
 				358905722AC7D325000E687C /* Account */,
@@ -676,6 +685,7 @@
 				35281C972ABF4A4400329260 /* ErrorResponse.swift */,
 				35281C9A2ABFF10C00329260 /* TokenInfo.swift */,
 				358905822AC7F8B6000E687C /* StudentDetailDto.swift */,
+				358905922AC89601000E687C /* RequestForgetPasswordDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -873,6 +883,16 @@
 			path = WebviewVC;
 			sourceTree = "<group>";
 		};
+		3589058B2AC88903000E687C /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				3589058C2AC8891F000E687C /* ForgotPasswordVC.swift */,
+				3589058D2AC8891F000E687C /* ForgotPasswordVC.xib */,
+				358905902AC8894B000E687C /* ForgotPasswordVM.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		35D710F82AA6166800B71A34 /* UserDefault */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,6 +1021,7 @@
 				351C3DC32AA1ED44004E82B7 /* AlertVC.xib in Resources */,
 				35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */,
 				351C3DE92AA338EB004E82B7 /* SplashVC.xib in Resources */,
+				3589058F2AC8891F000E687C /* ForgotPasswordVC.xib in Resources */,
 				35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */,
 				351C3DBB2AA1E8E6004E82B7 /* HomeVC.xib in Resources */,
 				356C7F4A2A9F90C000DDEDDD /* Assets.xcassets in Resources */,
@@ -1066,6 +1087,7 @@
 				356C7F812A9F974500DDEDDD /* BaseTableViewCell.swift in Sources */,
 				356C7FAC2A9F9B7A00DDEDDD /* DBManager.swift in Sources */,
 				351C3DD22AA1F07D004E82B7 /* ITextField.swift in Sources */,
+				358905932AC89601000E687C /* RequestForgetPasswordDto.swift in Sources */,
 				356C7F932A9F98D700DDEDDD /* PermissionHelperDelegate.swift in Sources */,
 				351C3DFD2AA33C96004E82B7 /* UIView+LoadNib.swift in Sources */,
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
@@ -1106,6 +1128,7 @@
 				351C3DF92AA33C60004E82B7 /* UIView+Visibility.swift in Sources */,
 				358905712AC7547C000E687C /* EventVM.swift in Sources */,
 				351C3DCB2AA1EF85004E82B7 /* UIColor.swift in Sources */,
+				358905912AC8894B000E687C /* ForgotPasswordVM.swift in Sources */,
 				351C3DDB2AA1F1AD004E82B7 /* Configs.swift in Sources */,
 				356C7F9D2A9F99A000DDEDDD /* Constans.swift in Sources */,
 				356C7F7E2A9F96E500DDEDDD /* UserDefaultHelper.swift in Sources */,
@@ -1143,6 +1166,7 @@
 				351C3DD92AA1F18D004E82B7 /* Cell.swift in Sources */,
 				351C3DFB2AA33C87004E82B7 /* UIView+Border+Corner.swift in Sources */,
 				358905752AC7D339000E687C /* AccountVC.swift in Sources */,
+				3589058E2AC8891F000E687C /* ForgotPasswordVC.swift in Sources */,
 				351C3DAD2AA1E7F1004E82B7 /* NetworkConfig.swift in Sources */,
 				351C3DC22AA1ED44004E82B7 /* AlertVC.swift in Sources */,
 				353233792AAF6F4500032B72 /* WelcomeVC.swift in Sources */,

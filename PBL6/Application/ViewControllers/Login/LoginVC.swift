@@ -141,7 +141,7 @@ class LoginVC: BaseVC<LoginVM> {
         forgotPasswordButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.showWebviewVC(url: Configs.Server.forgotPasswordURL)
+                self.pushVC(ForgotPasswordVC())
             })
             .disposed(by: bag)
     }

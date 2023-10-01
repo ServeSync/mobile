@@ -17,6 +17,7 @@ enum AppApi {
     case profile
     case refreshToken(authCredentialDto: AuthCredentialDto)
     case profileInfo
+    case forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto)
 }
 
 extension AppApi: TargetType {
@@ -42,13 +43,15 @@ extension AppApi: TargetType {
             return "auth/refresh-token"
         case .profileInfo:
             return "profile/student"
+        case .forgetPassword:
+            return "auth/forget-password"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken:
+        case .signIn, .refreshToken, .forgetPassword:
             return .post
         default:
             return .get
@@ -85,6 +88,16 @@ extension AppApi: TargetType {
             } else {
                 return .requestPlain
             } 
+        case .forgetPassword(let requestForgetPasswordDto):
+            let body: [String: Any] = [
+                "userNameOrEmail": requestForgetPasswordDto.userNameOrEmail,
+                "callBackUrl": requestForgetPasswordDto.callBackUrl
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
         default:
             return .requestPlain
         }

@@ -51,6 +51,14 @@
 "class" = "Lớp:";
 "hometown" = "Quê quán:";
 "address" = "Địa chỉ cư trú:";
-"email" = "Email:";
+"email_info" = "Email:";
 "phone_number" = "Số điện thoại:";
 
+
+//Forgot Password
+"forgot_password" = "Quên mật khẩu";
+"forgot_password_description" = "Để đặt lại mật khẩu, vui lòng nhập email của bạn. Một thư xác nhận sẽ được gửi đến địa chỉ đã nhập. Xin kiểm tra và làm theo hướng dẫn để hoàn tất.";
+"send" = "Gửi";
+"email_warning" = "Email không đúng định dạng";
+"email_alert" = "Email không đúng định dạng hoặc để trống!";
+"check_email" = "Vui lòng kiểm tra tin nhắn trong email của bạn!";
