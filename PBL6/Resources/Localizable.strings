@@ -30,7 +30,7 @@
 "password" = "Mật khẩu";
 "username_or_email_warning" = "User Name or Email is Required.";
 "password_warning" = "Password is Required.";
-"role_error" = "Ứng dụng này được thiết kế dành riêng cho sinh viên. Hãy truy cập website để đăng nhập vào tài khoản của bạn!";
+"permission_dont_allow_login_for_app" = "Ứng dụng này được thiết kế dành riêng cho sinh viên. Hãy truy cập website để đăng nhập vào tài khoản của bạn!";
 "login_failed_error" = "Đăng nhập không thành công. Xin vui lòng thử lại!";
 "account_locked_error" = "Tài khoản của bạn đã bị khoá!";
 "incorrect_password" = "Mật khẩu không chính xác!";
@@ -69,8 +69,8 @@
 
 //Forgot Password
 "forgot_password" = "Quên mật khẩu";
-"forgot_password_description" = "Để đặt lại mật khẩu, vui lòng nhập email của bạn. Một thư xác nhận sẽ được gửi đến địa chỉ đã nhập. Xin kiểm tra và làm theo hướng dẫn để hoàn tất.";
+"forgot_password_description" = "Để đặt lại mật khẩu, vui lòng nhập email hoặc mã số sinh viên của bạn. Một thư xác nhận sẽ được gửi đến địa chỉ đã nhập. Xin kiểm tra và làm theo hướng dẫn để hoàn tất.";
 "send" = "Gửi";
-"email_warning" = "Email không đúng định dạng";
-"email_alert" = "Email không đúng định dạng hoặc để trống!";
+"email_or_username_warning" = "Email hoặc mã sinh viên không đúng định dạng";
+"email_or_username_alert" = "Email hoặc mã sinh viên không đúng định dạng hoặc để trống!";
 "check_email" = "Vui lòng kiểm tra tin nhắn trong email của bạn!";

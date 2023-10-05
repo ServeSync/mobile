@@ -18,6 +18,7 @@ enum AppApi {
     case refreshToken(authCredentialDto: AuthCredentialDto)
     case profileDetail
     case forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto)
+    case putProfile(studentEditProfileDto: StudentEditProfileDto)
 }
 
 extension AppApi: TargetType {
@@ -41,7 +42,7 @@ extension AppApi: TargetType {
             return "profile"
         case .refreshToken:
             return "auth/refresh-token"
-        case .profileDetail:
+        case .profileDetail, .putProfile:
             return "profile/student"
         case .forgetPassword:
             return "auth/forget-password"
@@ -53,6 +54,8 @@ extension AppApi: TargetType {
         switch self {
         case .signIn, .refreshToken, .forgetPassword:
             return .post
+        case .putProfile:
+            return .put
         default:
             return .get
         }
@@ -92,6 +95,19 @@ extension AppApi: TargetType {
             let body: [String: Any] = [
                 "userNameOrEmail": requestForgetPasswordDto.userNameOrEmail,
                 "callBackUrl": requestForgetPasswordDto.callBackUrl
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .putProfile(let studentEditProfileDto):
+            let body: [String: Any] = [
+                "email": studentEditProfileDto.email,
+                "phone": studentEditProfileDto.phone,
+                "address": studentEditProfileDto.address,
+                "homeTown": studentEditProfileDto.homeTown,
+                "imageUrl": studentEditProfileDto.imageUrl
             ]
             if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
                 return .requestData(jsonBody)

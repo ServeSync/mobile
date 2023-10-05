@@ -56,9 +56,11 @@
 		353233802AAF714300032B72 /* WelcomeSlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3532337E2AAF714300032B72 /* WelcomeSlideCell.swift */; };
 		353233812AAF714300032B72 /* WelcomeSlideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3532337F2AAF714300032B72 /* WelcomeSlideCell.xib */; };
 		353233832AAF776800032B72 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353233822AAF776800032B72 /* OpenSans-Light.ttf */; };
+		35332B142ACDD0CA001B2084 /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35332B132ACDD0CA001B2084 /* FormatUtils.swift */; };
 		353D2AC92AC9D19C00C26BA3 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353D2AC72AC9D19C00C26BA3 /* EditProfileVC.swift */; };
 		353D2ACA2AC9D19C00C26BA3 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353D2AC82AC9D19C00C26BA3 /* EditProfileVC.xib */; };
 		353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353D2ACB2AC9D1A700C26BA3 /* EditProfileVM.swift */; };
+		35545EA82ACB351700734A68 /* StudentEditProfileDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */; };
 		35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */; };
 		35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */; };
 		35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */; };
@@ -194,9 +196,11 @@
 		3532337E2AAF714300032B72 /* WelcomeSlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSlideCell.swift; sourceTree = "<group>"; };
 		3532337F2AAF714300032B72 /* WelcomeSlideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeSlideCell.xib; sourceTree = "<group>"; };
 		353233822AAF776800032B72 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		35332B132ACDD0CA001B2084 /* FormatUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtils.swift; sourceTree = "<group>"; };
 		353D2AC72AC9D19C00C26BA3 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		353D2AC82AC9D19C00C26BA3 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		353D2ACB2AC9D1A700C26BA3 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
+		35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEditProfileDto.swift; sourceTree = "<group>"; };
 		35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -596,6 +600,7 @@
 			children = (
 				351C3DEC2AA33A50004E82B7 /* AppUtils.swift */,
 				351C3DF32AA33BA8004E82B7 /* LoggerUtils.swift */,
+				35332B132ACDD0CA001B2084 /* FormatUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -715,6 +720,7 @@
 				358905942AC96FEB000E687C /* FacultyDto.swift */,
 				358905962AC9705B000E687C /* HomeRoomDto.swift */,
 				358905982AC970E8000E687C /* EducationProgramDto.swift */,
+				35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1163,6 +1169,7 @@
 				358905912AC8894B000E687C /* ForgotPasswordVM.swift in Sources */,
 				351C3DDB2AA1F1AD004E82B7 /* Configs.swift in Sources */,
 				356C7F9D2A9F99A000DDEDDD /* Constans.swift in Sources */,
+				35332B142ACDD0CA001B2084 /* FormatUtils.swift in Sources */,
 				356C7F7E2A9F96E500DDEDDD /* UserDefaultHelper.swift in Sources */,
 				356C7F8C2A9F986A00DDEDDD /* File.swift in Sources */,
 				351C3DB32AA1E84F004E82B7 /* AppNetworkImp.swift in Sources */,
@@ -1211,6 +1218,7 @@
 				35281C982ABF4A4400329260 /* ErrorResponse.swift in Sources */,
 				356C7FA12A9F9A0F00DDEDDD /* BaseNVC.swift in Sources */,
 				351C3DF72AA33C47004E82B7 /* UIView.swift in Sources */,
+				35545EA82ACB351700734A68 /* StudentEditProfileDto.swift in Sources */,
 				351C3DC52AA1EF17004E82B7 /* AlertAction.swift in Sources */,
 				351C3DC72AA1EF33004E82B7 /* AlertConstants.swift in Sources */,
 				356C7FAF2A9F9BAB00DDEDDD /* Reactive.swift in Sources */,

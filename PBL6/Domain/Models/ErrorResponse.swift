@@ -14,6 +14,11 @@ struct ErrorResponse: Mappable, LocalizedError {
     
     init?(map: Map) {}
     
+    init(code: String, message: String) {
+        self.code = code
+        self.message = message
+    }
+    
     mutating func mapping(map: Map) {
         code    <- map["code"]
         message <- map["message"]

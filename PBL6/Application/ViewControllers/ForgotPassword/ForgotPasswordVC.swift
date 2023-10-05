@@ -28,7 +28,7 @@ class ForgotPasswordVC: BaseVC<ForgotPasswordVM> {
         emailTextField.setLeftPaddingPoints(24)
         emailWarningLabel.isHidden = true
     }
-
+    
     override func addEventForViews() {
         super.addEventForViews()
         
@@ -38,7 +38,7 @@ class ForgotPasswordVC: BaseVC<ForgotPasswordVM> {
                 emailTextField.rx.text
                     .subscribe(onNext: { [weak self] text in
                         guard let self = self else { return }
-                        if text!.isNotEmpty && self.isValidEmail(text!) {
+                        if text!.isNotEmpty && self.isValidEmailOrStudentIDDigits(text!) {
                             emailTextField.borderColor = UIColor(named: "Primary")
                             emailWarningLabel.isHidden = true
                             viewModel.email = text!
@@ -63,7 +63,7 @@ class ForgotPasswordVC: BaseVC<ForgotPasswordVM> {
         sendButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
-
+                
                 if isValidateEmail {
                     viewModel.handleForgetPassword()
                         .subscribe(onNext: {[weak self] status in
@@ -71,15 +71,16 @@ class ForgotPasswordVC: BaseVC<ForgotPasswordVM> {
                             switch status {
                             case .Success:
                                 self.showToast(message: "check_email".localized, state: .success)
-                            case .Error(let message):
-                                AlertVC.showMessage(self, message: AlertMessage(type: .error,
-                                                                                description: message!)) {}
+                            case .Error(let error):
+                                AlertVC.showMessage(self,
+                                                    message: AlertMessage(type: .error,
+                                                                          description: getErrorDescription(forErrorCode: error!.code))) {}
                             }
                         })
                         .disposed(by: bag)
                 } else {
                     AlertVC.showMessage(self, message: AlertMessage(type: .error,
-                                                                    description: "email_alert".localized)) {}
+                                                                    description: "email_or_username_alert".localized)) {}
                 }
                 
             })
@@ -88,8 +89,12 @@ class ForgotPasswordVC: BaseVC<ForgotPasswordVM> {
 }
 
 extension ForgotPasswordVC {
-    func isValidEmail(_ email: String) -> Bool {
+    func isValidEmailOrStudentIDDigits(_ input: String) -> Bool {
         let emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        let isEmail = NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: input)
+        
+        let isNineDigits = input.range(of: #"^\d{9}$"#, options: .regularExpression) != nil
+        
+        return isEmail || isNineDigits
     }
 }

@@ -14,6 +14,7 @@ enum Configs {
     enum Server {
         static let baseURL = "http://20.42.93.128/api/"
         static let forgotPasswordURL = "http://20.42.93.128/resetPassword"
+        static let errorCodeRequiresLogin = "Student:000006"
     }
     
     //MARK: -- Network

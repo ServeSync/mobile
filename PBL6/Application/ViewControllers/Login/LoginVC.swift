@@ -116,7 +116,8 @@ class LoginVC: BaseVC<LoginVM> {
                 guard let self = self else { return }
                 
                 if !isValidatePassword || !isValidateUserName {
-                    AlertVC.showMessage(self, message: AlertMessage(type: .error, 
+                    AlertVC.showMessage(self, 
+                                        message: AlertMessage(type: .error,
                                                                     description: "username_or_password_validation_error".localized)) {}
                     return
                 }
@@ -131,8 +132,8 @@ class LoginVC: BaseVC<LoginVM> {
                                 self.pushVC(MainVC())
                                 self.hideLoading()
                             }
-                        case .Error(let message):
-                            self.showError(message!)
+                        case .Error(let error):
+                            self.showError(getErrorDescription(forErrorCode: error!.code))
                         }
                     })
                     .disposed(by: bag)

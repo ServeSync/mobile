@@ -38,9 +38,22 @@ class ProfileVC: BaseVC<ProfileVM> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("viewWillAppear@@@")
-        
         viewModel.fetchData()
+            .subscribe(onNext: {[weak self] status in
+                guard let self = self else { return }
+                switch status {
+                case .Success:
+                    return
+                case .Error(let error):
+                    if error?.code == Configs.Server.errorCodeRequiresLogin {
+                        AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                    } else {
+                        viewModel.messageData.accept(AlertMessage(type: .error,
+                                                                  description: getErrorDescription(forErrorCode: error!.code)))
+                    }
+                }
+            })
+            .disposed(by: bag)
     }
     
     override func initViews() {
@@ -68,8 +81,7 @@ class ProfileVC: BaseVC<ProfileVM> {
                 guard let self = self else { return }
                 let vc = EditProfileVC(profileDetail: viewModel.profileDetail!)
                 vc.modalPresentationStyle = .fullScreen
-                self.presentVC(EditProfileVC(profileDetail: viewModel.profileDetail!))
-//                self.present(vc, animated: true)
+                self.presentVC(vc)
             })
             .disposed(by: bag)
     }
@@ -106,13 +118,15 @@ private extension ProfileVC {
     private func configUI(_ data: StudentDetailDto) {
         loadImageFromURL(from: data.imageUrl, into: avtImageView)
         nameLabel.text = data.fullName
-        studentIDLabel.text = data.id
+        studentIDLabel.text = data.code
         genderLabel.text = data.gender ? "female".localized : "male".localized
-        dateOfBirthLabel.text = data.dateOfBirth
+        let date = FormatUtils.formatStringToDate(data.dateOfBirth, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        let dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
+        dateOfBirthLabel.text = dateString
         citizenIDLabel.text = data.citizenId
         educationalSystemLabel.text = data.educationProgram.name
         facultyLabel.text = data.faculty.name
-        classLabel.text = data.homeRoom.id
+        classLabel.text = data.homeRoom.name
         homeTownLabel.text = data.homeTown
         addressLabel.text = data.address
         emailLabel.text = data.email
