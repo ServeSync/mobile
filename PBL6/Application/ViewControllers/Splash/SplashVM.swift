@@ -23,7 +23,7 @@ class SplashVM: BaseVM {
                     UserDefaultHelper.shared.refreshToken = data.refreshToken
                     completion(.Success)
                 case .failure(_):
-                    completion(.Error(message: nil))
+                    completion(.Error(error: nil))
                 }
             })
             .disposed(by: bag)

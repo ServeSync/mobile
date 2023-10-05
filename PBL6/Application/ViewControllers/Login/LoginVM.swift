@@ -27,14 +27,13 @@ class LoginVM: BaseVM {
             .trackError(errorTracker)
             .trackActivity(indicatorLoading)
             .flatMap { [weak self] result -> Observable<HandleStatus> in
-                guard let self = self else { return .just(.Error(message: "self is nil")) }
+                guard let self = self else { return .just(.Error(error: nil)) }
                 switch result {
                 case .success(let data):
                     UserDefaultHelper.shared.accessToken = data.accessToken
                     UserDefaultHelper.shared.refreshToken = data.refreshToken
                     return self.remoteRepository.profile().asObservable()
-                        .flatMap { [weak self] result -> Observable<HandleStatus> in
-                            guard let self = self else { return .just(.Error(message: "self is nil")) }
+                        .flatMap { result -> Observable<HandleStatus> in
                             switch result {
                             case .success(let data):
                                 if data.roles.contains("student") {
@@ -42,25 +41,15 @@ class LoginVM: BaseVM {
                                 } else {
                                     UserDefaultHelper.shared.accessToken = nil
                                     UserDefaultHelper.shared.refreshToken = nil
-                                    return .just(.Error(message: "role_error".localized))
+                                    return .just(.Error(error: ErrorResponse(code: AppError.permissionDontAllowLoginForApp.rawValue,
+                                                                             message: AppError.permissionDontAllowLoginForApp.description)))
                                 }
                             case .failure(let error):
-                                print("@@@ message \(error.localizedDescription)")
-                                return .just(.Error(message: error.localizedDescription))
+                                return .just(.Error(error: error))
                             }
                         }
                 case .failure(let error):
-                    switch error.code {
-                    case "User:000002":
-                        return .just(.Error(message: "username_or_email_does_not_exist".localized))
-                    case "User:000003":
-                        return .just(.Error(message: "account_locked_error".localized))
-                    case "User:000004":
-                        return .just(.Error(message: "incorrect_password".localized))
-                    default:
-                        print("@@@ message \(error.localizedDescription)")
-                        return .just(.Error(message: error.localizedDescription))
-                    }
+                    return .just(.Error(error: error))
                 }
             }
     }
@@ -69,5 +58,5 @@ class LoginVM: BaseVM {
 
 enum HandleStatus {
     case Success
-    case Error(message: String?)
+    case Error(error: ErrorResponse?)
 }

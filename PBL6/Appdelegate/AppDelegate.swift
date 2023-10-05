@@ -37,12 +37,14 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         window?.rootViewController = SplashVC()
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }
     
     func windowMainConfig(vc: UIViewController) {
         let navigationController = BaseNVC(rootViewController: vc)
         window?.rootViewController = navigationController
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }
 

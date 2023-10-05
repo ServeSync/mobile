@@ -22,12 +22,14 @@ class ForgotPasswordVM: BaseVM {
                 if 200...209 ~= response.statusCode {
                     return HandleStatus.Success
                 } else {
-                    return HandleStatus.Error(message: try response.mapString(atKeyPath: "message"))
+                    let errorCode = try response.mapString(atKeyPath: "code")
+                    let message = try response.mapString(atKeyPath: "message")
+                    return HandleStatus.Error(error: ErrorResponse(code: errorCode, message: message))
                 }
             }
             .catch { error in
                 self.loadingData.accept(false)
-                return Observable.just(HandleStatus.Error(message: error.localizedDescription))
+                return Observable.just(HandleStatus.Error(error: error as? ErrorResponse))
             }
             .share()
             .observe(on: MainScheduler.instance)
