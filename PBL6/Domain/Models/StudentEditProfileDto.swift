@@ -17,6 +17,14 @@ struct StudentEditProfileDto: Mappable {
     
     init?(map: ObjectMapper.Map) {}
     
+    init(email: String, phone: String, address: String, homeTown: String, imageUrl: String) {
+        self.email = email
+        self.phone = phone
+        self.address = address
+        self.homeTown = homeTown
+        self.imageUrl = imageUrl
+    }
+    
     mutating func mapping(map: ObjectMapper.Map) {
         email <-  map["email"]
         phone <- map["phone"]

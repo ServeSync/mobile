@@ -28,8 +28,8 @@
 "email" = "Email";
 "forgot_password" = "Quên mật khẩu";
 "password" = "Mật khẩu";
-"username_or_email_warning" = "User Name or Email is Required.";
-"password_warning" = "Password is Required.";
+"username_or_email_warning" = "User Name hoặc Email không được để trống";
+"password_warning" = "Password không được để trống";
 "permission_dont_allow_login_for_app" = "Ứng dụng này được thiết kế dành riêng cho sinh viên. Hãy truy cập website để đăng nhập vào tài khoản của bạn!";
 "login_failed_error" = "Đăng nhập không thành công. Xin vui lòng thử lại!";
 "account_locked_error" = "Tài khoản của bạn đã bị khoá!";
@@ -66,6 +66,12 @@
 "hometown_edit" = "Quê quán";
 "address_edit" = "Địa chỉ cư trú";
 "phone_number_edit" = "Số điện thoại";
+"hometown_textfield_warning" = "Quê quán không được để trống";
+"address_textfield_warning" = "Địa chỉ không được để trống";
+"email_textfield_warning" = "Email không được để trống hoặc không đúng định dạng";
+"phone_textfield_warning" = "Số điện thoại không được để trống hoặc không đúng định dạng";
+"data_alert_warning" = "Dữ liệu không đúng định dạng";
+"edit_success" = "Cập nhật thông tin thành công";
 
 //Forgot Password
 "forgot_password" = "Quên mật khẩu";

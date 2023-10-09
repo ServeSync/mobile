@@ -19,7 +19,7 @@ class ForgotPasswordVM: BaseVM {
             .asObservable()
             .map { response in
                 self.loadingData.accept(false)
-                if 200...209 ~= response.statusCode {
+                if 200...299 ~= response.statusCode {
                     return HandleStatus.Success
                 } else {
                     let errorCode = try response.mapString(atKeyPath: "code")
@@ -31,7 +31,5 @@ class ForgotPasswordVM: BaseVM {
                 self.loadingData.accept(false)
                 return Observable.just(HandleStatus.Error(error: error as? ErrorResponse))
             }
-            .share()
-            .observe(on: MainScheduler.instance)
     }
 }
