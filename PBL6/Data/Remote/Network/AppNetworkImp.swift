@@ -25,6 +25,34 @@ class AppNetworkImp: AppNetwork {
         return provider.request(target)
             .observe(on: MainScheduler.instance)
     }
+    func requestWithoutMappingWithRefreshToken(_ target: AppApi) -> Single<Moya.Response> {
+        return Single.deferred {
+            return self.provider.request(target)
+                .flatMap {response in
+                    if response.statusCode == 401 {
+                        let accessToken = UserDefaultHelper.shared.accessToken!
+                        let refreshToken = UserDefaultHelper.shared.refreshToken!
+                        let authCredentialDto = AuthCredentialDto(accessToken: accessToken, refreshToken: refreshToken)
+                        return self.refreshToken(.refreshToken(authCredentialDto: authCredentialDto), errorType: ErrorResponse.self)
+                            .flatMap { authCredentialResult -> Single<Moya.Response> in
+                                switch authCredentialResult {
+                                case .success(let data):
+                                    UserDefaultHelper.shared.accessToken = data.accessToken
+                                    UserDefaultHelper.shared.refreshToken = data.refreshToken
+                                    return self.requestWithoutMapping(target)
+                                case .failure(let erorr):
+                                    return Observable.just(erorr as! Response)
+                                        .asSingle()
+                                }
+                            }
+                    } else {
+                        return Observable.just(response)
+                            .asSingle()
+                    }
+                }
+                .observe(on: MainScheduler.instance)
+        }
+    }
     
     func request(_ target: AppApi) -> Single<Any> {
         return provider.request(target)

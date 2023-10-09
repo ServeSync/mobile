@@ -9,24 +9,23 @@ import Foundation
 import RxSwift
 
 class SplashVM: BaseVM {
-    func refreshToken(completion: @escaping (HandleStatus) -> Void) {
+    func refreshToken() -> Observable<HandleStatus>{
         let accessToken = UserDefaultHelper.shared.accessToken
         let refreshToken = UserDefaultHelper.shared.refreshToken
         let authCredentialDto = AuthCredentialDto(accessToken: accessToken!, refreshToken: refreshToken!)
-        remoteRepository.resfreshToken(authCredentialDto: authCredentialDto)
+        return remoteRepository.resfreshToken(authCredentialDto: authCredentialDto)
             .asObservable()
-            .subscribe(onNext: { [weak self] result in
-                guard let self = self else { return }
+            .flatMap{ result -> Observable<HandleStatus> in
                 switch result {
                 case .success(let data):
                     UserDefaultHelper.shared.accessToken = data.accessToken
                     UserDefaultHelper.shared.refreshToken = data.refreshToken
-                    completion(.Success)
-                case .failure(_):
-                    completion(.Error(error: nil))
+                    return .just(.Success)
+                case .failure(let error):
+                    return .just(.Error(error: error))
                 }
-            })
-            .disposed(by: bag)
+            }
+            .subscribe(on: MainScheduler.instance)
     }
 }
 

@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
         <array key="OpenSans-SemiBold.ttf">
             <string>OpenSans-SemiBold</string>
         </array>
@@ -18,13 +21,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProfileVC" customModule="PBL6" customModuleProvider="target">
             <connections>
                 <outlet property="addressTextField" destination="Ubk-fv-jCo" id="XXZ-5t-q43"/>
+                <outlet property="addressWarningLabel" destination="vyc-Vo-SQn" id="KML-IN-3Sl"/>
                 <outlet property="avtImageView" destination="152-3g-ulR" id="AKT-eJ-X3Q"/>
                 <outlet property="closeButton" destination="42s-Fm-mLu" id="mPW-KT-2OB"/>
                 <outlet property="emailTextField" destination="HvF-0g-fHK" id="WGT-7I-KSi"/>
+                <outlet property="emailWarningLabel" destination="hD2-Kr-1L0" id="Wjd-N6-wNP"/>
                 <outlet property="homeTownTextField" destination="8Wt-Oa-VzD" id="c4J-gT-dEI"/>
+                <outlet property="homeTownWarningLabel" destination="VSV-n7-cgI" id="M5i-pP-X57"/>
                 <outlet property="nameLabel" destination="cOY-61-Uqu" id="pLw-g7-iB9"/>
                 <outlet property="parentTopview" destination="tJ5-KS-kBD" id="3pu-Tx-5d5"/>
                 <outlet property="phoneNumberTextField" destination="grl-1d-T0y" id="7FL-zs-AIb"/>
+                <outlet property="phoneWarningLabel" destination="mmb-rJ-YVs" id="yZS-Z2-FLH"/>
                 <outlet property="pickImageButton" destination="iwd-e6-g8q" id="uhb-Q5-20G"/>
                 <outlet property="saveButton" destination="X9j-3L-6w1" id="Pta-zX-npL"/>
                 <outlet property="topView" destination="02a-JX-ugc" id="mVU-cb-ZgL"/>
@@ -82,7 +89,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="128"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yne-ya-ksT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="45.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.098039215686274508" green="0.36862745098039218" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +98,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Wt-Oa-VzD">
-                                                    <rect key="frame" x="0.0" y="80" width="366" height="48"/>
+                                                    <rect key="frame" x="0.0" y="55.333333333333314" width="366" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="rD2-0j-al1"/>
                                                     </constraints>
@@ -109,22 +116,33 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSV-n7-cgI">
+                                                    <rect key="frame" x="7.9999999999999982" y="111.33333333333331" width="30.333333333333329" height="16.666666666666671"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="hometown_textfield_warning"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="8Wt-Oa-VzD" secondAttribute="bottom" id="GpT-9N-iwy"/>
+                                                <constraint firstAttribute="bottom" secondItem="VSV-n7-cgI" secondAttribute="bottom" id="7Ff-0o-aCP"/>
                                                 <constraint firstItem="8Wt-Oa-VzD" firstAttribute="leading" secondItem="SJB-Fj-xIv" secondAttribute="leading" id="Jfd-P4-HzC"/>
                                                 <constraint firstItem="8Wt-Oa-VzD" firstAttribute="top" secondItem="yne-ya-ksT" secondAttribute="bottom" constant="10" id="PnA-aO-1ez"/>
                                                 <constraint firstItem="yne-ya-ksT" firstAttribute="top" secondItem="SJB-Fj-xIv" secondAttribute="top" id="R7a-xu-ehV"/>
                                                 <constraint firstItem="yne-ya-ksT" firstAttribute="leading" secondItem="SJB-Fj-xIv" secondAttribute="leading" id="RQX-K2-5bX"/>
+                                                <constraint firstItem="VSV-n7-cgI" firstAttribute="top" secondItem="8Wt-Oa-VzD" secondAttribute="bottom" constant="8" id="RuV-K6-sy1"/>
                                                 <constraint firstAttribute="trailing" secondItem="8Wt-Oa-VzD" secondAttribute="trailing" id="X1H-mW-yVi"/>
+                                                <constraint firstItem="VSV-n7-cgI" firstAttribute="leading" secondItem="SJB-Fj-xIv" secondAttribute="leading" constant="8" id="wMn-6P-dpP"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctk-OJ-clS">
                                             <rect key="frame" x="0.0" y="144" width="366" height="128"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJ7-uP-qvZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="45.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.098039215690000001" green="0.36862745099999999" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -133,7 +151,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ubk-fv-jCo">
-                                                    <rect key="frame" x="0.0" y="80" width="366" height="48"/>
+                                                    <rect key="frame" x="0.0" y="55.333333333333371" width="366" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="Wla-Cz-vvk"/>
                                                     </constraints>
@@ -151,22 +169,33 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyc-Vo-SQn">
+                                                    <rect key="frame" x="7.9999999999999982" y="111.33333333333337" width="30.333333333333329" height="16.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="address_textfield_warning"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="vyc-Vo-SQn" secondAttribute="bottom" id="8p5-mc-Fcu"/>
                                                 <constraint firstItem="vJ7-uP-qvZ" firstAttribute="leading" secondItem="ctk-OJ-clS" secondAttribute="leading" id="Ccq-QI-ITH"/>
                                                 <constraint firstItem="Ubk-fv-jCo" firstAttribute="leading" secondItem="ctk-OJ-clS" secondAttribute="leading" id="OEt-9r-QNA"/>
                                                 <constraint firstItem="Ubk-fv-jCo" firstAttribute="top" secondItem="vJ7-uP-qvZ" secondAttribute="bottom" constant="10" id="OVq-ld-q4o"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ubk-fv-jCo" secondAttribute="bottom" id="Sy7-Iv-Cga"/>
                                                 <constraint firstItem="vJ7-uP-qvZ" firstAttribute="top" secondItem="ctk-OJ-clS" secondAttribute="top" id="eG3-sd-7St"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ubk-fv-jCo" secondAttribute="trailing" id="gdO-cT-PfJ"/>
+                                                <constraint firstItem="vyc-Vo-SQn" firstAttribute="top" secondItem="Ubk-fv-jCo" secondAttribute="bottom" constant="8" id="ibx-fq-a9O"/>
+                                                <constraint firstItem="vyc-Vo-SQn" firstAttribute="leading" secondItem="ctk-OJ-clS" secondAttribute="leading" constant="8" id="ymS-IY-KQw"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFZ-AJ-4A2">
                                             <rect key="frame" x="0.0" y="288" width="366" height="128"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztk-rf-HcI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="45.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.098039215690000001" green="0.36862745099999999" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -175,7 +204,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HvF-0g-fHK">
-                                                    <rect key="frame" x="0.0" y="80" width="366" height="48"/>
+                                                    <rect key="frame" x="0.0" y="55.333333333333371" width="366" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="fhF-ih-cHF"/>
                                                     </constraints>
@@ -193,22 +222,33 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hD2-Kr-1L0">
+                                                    <rect key="frame" x="7.9999999999999982" y="111.33333333333337" width="30.333333333333329" height="16.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="email_textfield_warning"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="hD2-Kr-1L0" firstAttribute="leading" secondItem="QFZ-AJ-4A2" secondAttribute="leading" constant="8" id="HBg-e4-zFr"/>
                                                 <constraint firstAttribute="trailing" secondItem="HvF-0g-fHK" secondAttribute="trailing" id="Vdi-MF-onS"/>
+                                                <constraint firstItem="hD2-Kr-1L0" firstAttribute="top" secondItem="HvF-0g-fHK" secondAttribute="bottom" constant="8" id="bk7-4a-ojG"/>
                                                 <constraint firstItem="HvF-0g-fHK" firstAttribute="leading" secondItem="QFZ-AJ-4A2" secondAttribute="leading" id="dK9-cV-Ca7"/>
                                                 <constraint firstItem="Ztk-rf-HcI" firstAttribute="leading" secondItem="QFZ-AJ-4A2" secondAttribute="leading" id="goj-t4-TAg"/>
                                                 <constraint firstItem="HvF-0g-fHK" firstAttribute="top" secondItem="Ztk-rf-HcI" secondAttribute="bottom" constant="10" id="i4e-ee-lMl"/>
                                                 <constraint firstItem="Ztk-rf-HcI" firstAttribute="top" secondItem="QFZ-AJ-4A2" secondAttribute="top" id="nSe-RN-caJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="HvF-0g-fHK" secondAttribute="bottom" id="ttN-34-jYY"/>
+                                                <constraint firstAttribute="bottom" secondItem="hD2-Kr-1L0" secondAttribute="bottom" id="xR1-p5-jpl"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-1U-80S">
                                             <rect key="frame" x="0.0" y="432" width="366" height="128"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-oU-evh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="45.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" red="0.098039215690000001" green="0.36862745099999999" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -217,7 +257,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grl-1d-T0y">
-                                                    <rect key="frame" x="0.0" y="80" width="366" height="48"/>
+                                                    <rect key="frame" x="0.0" y="55.333333333333371" width="366" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="ai0-Ek-4fp"/>
                                                     </constraints>
@@ -235,15 +275,26 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmb-rJ-YVs">
+                                                    <rect key="frame" x="7.9999999999999982" y="111.33333333333337" width="30.333333333333329" height="16.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="phone_textfield_warning"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="grl-1d-T0y" secondAttribute="trailing" id="7gc-Gp-IPU"/>
                                                 <constraint firstItem="0jb-oU-evh" firstAttribute="top" secondItem="mrb-1U-80S" secondAttribute="top" id="8NW-DD-3ia"/>
                                                 <constraint firstItem="grl-1d-T0y" firstAttribute="top" secondItem="0jb-oU-evh" secondAttribute="bottom" constant="10" id="I5j-bR-QLC"/>
+                                                <constraint firstItem="mmb-rJ-YVs" firstAttribute="top" secondItem="grl-1d-T0y" secondAttribute="bottom" constant="8" id="Kzv-Ke-P5c"/>
                                                 <constraint firstItem="0jb-oU-evh" firstAttribute="leading" secondItem="mrb-1U-80S" secondAttribute="leading" id="ORg-O0-O0X"/>
-                                                <constraint firstItem="grl-1d-T0y" firstAttribute="leading" secondItem="mrb-1U-80S" secondAttribute="leading" id="T5v-Md-lMB"/>
-                                                <constraint firstAttribute="bottom" secondItem="grl-1d-T0y" secondAttribute="bottom" id="tnV-d3-G63"/>
+                                                <constraint firstItem="mmb-rJ-YVs" firstAttribute="leading" secondItem="mrb-1U-80S" secondAttribute="leading" constant="8" id="cIO-Ft-RC6"/>
+                                                <constraint firstItem="grl-1d-T0y" firstAttribute="leading" secondItem="mrb-1U-80S" secondAttribute="leading" id="m58-5W-6xi"/>
+                                                <constraint firstAttribute="bottom" secondItem="mmb-rJ-YVs" secondAttribute="bottom" id="yZv-x2-jiL"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -370,6 +421,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

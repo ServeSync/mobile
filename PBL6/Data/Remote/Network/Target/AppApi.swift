@@ -12,13 +12,17 @@ enum AppApi {
     //MARK: -- Demo
     case posts
     case search(params: [String : String])
-    //MARK: -- App
+    
+    //MARK: -- Auth
     case signIn(usernameOrEmail: String, password: String)
-    case profile
     case refreshToken(authCredentialDto: AuthCredentialDto)
-    case profileDetail
     case forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto)
+    
+    //MARK: - profile
+    case profile
+    case profileDetail
     case putProfile(studentEditProfileDto: StudentEditProfileDto)
+    case postImage(image: UIImage)
 }
 
 extension AppApi: TargetType {
@@ -46,13 +50,15 @@ extension AppApi: TargetType {
             return "profile/student"
         case .forgetPassword:
             return "auth/forget-password"
+        case .postImage:
+            return "images"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword:
+        case .signIn, .refreshToken, .forgetPassword, .postImage:
             return .post
         case .putProfile:
             return .put
@@ -114,6 +120,11 @@ extension AppApi: TargetType {
             } else {
                 return .requestPlain
             }
+        case .postImage(let image):
+            let imageData = image.jpegData(compressionQuality: 0.1)
+            let formData = MultipartFormData(provider: .data(imageData!), name: "file", fileName: "image.jpg", mimeType: "image/jpeg")
+            dump(formData)
+            return .uploadMultipart([formData])
         default:
             return .requestPlain
         }
@@ -125,6 +136,10 @@ extension AppApi: TargetType {
         case .signIn, .refreshToken:
             return [
                 "Content-Type": "application/json; charset=utf-8"
+            ]
+        case .postImage:
+            return [
+                "Content-Type": "multipart/form-data;"
             ]
         default:
             return [
@@ -138,6 +153,5 @@ extension AppApi: TargetType {
     var authorizationType: AuthorizationType? {
         return .bearer
     }
-    
     
 }

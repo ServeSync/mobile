@@ -10,7 +10,7 @@ import RxSwift
 import Moya
 
 final class RemoteRepositoryImp: RemoteRepository {
-
+    
     @Inject
     var apiService: ApiService!
     
@@ -18,14 +18,10 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.getPost()
     }
     
-    //Authen
+    //MARK: - Authen
     func signIn(userNameOrEmail: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
         return apiService.signIn(userNameOrPassword: userNameOrEmail, password: password)
     }
-    
-//    func refreshTokenIfNeed() -> Single<Void> {
-//        return apiService.refreshTokenIfNeed()
-//    }
     
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
         return apiService.resfreshToken(authCredentialDto: authCredentialDto)
@@ -35,12 +31,20 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.forgetPassword(requestForgetPasswordDto: requestForgetPassword)
     }
     
-    //Profile
+    //MARK: - Profile
     func getProfileDetail() -> Single<Result<StudentDetailDto, ErrorResponse>> {
         return apiService.profileInfo()
     }
     
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
         return apiService.profile()
+    }
+    
+    func postImage(image: UIImage) -> RxSwift.Single<Result<ImageResponse, ErrorResponse>> {
+        return apiService.postImage(image: image)
+    }
+    
+    func editProfile(studentEditProfileDto: StudentEditProfileDto) -> RxSwift.Single<Moya.Response> {
+        return apiService.editProfile(studentEditProfileDto: studentEditProfileDto)
     }
 }

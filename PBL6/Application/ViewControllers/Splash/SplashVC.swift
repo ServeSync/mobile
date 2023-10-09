@@ -38,14 +38,17 @@ class SplashVC: BaseVC<SplashVM> {
         } else if let tokenInfo = JWTHelper.shared.decodeAndMap(jwtToken: accessToken!, to: TokenInfo.self), !JWTHelper.shared.isTokenExpired(expirationDate: Date(timeIntervalSince1970: TimeInterval(tokenInfo.exp))) {
             AppDelegate.shared().windowMainConfig(vc: MainVC())
         } else {
-            viewModel.refreshToken { status in
-                switch status {
-                case .Success:
-                    AppDelegate.shared().windowMainConfig(vc: MainVC())
-                case .Error(_):
-                    AppDelegate.shared().windowMainConfig(vc: LoginVC())
-                }
-            }
+            viewModel.refreshToken()
+                .subscribe(onNext: {[weak self] status in
+                    guard let self = self else { return }
+                    switch status {
+                    case .Success:
+                        AppDelegate.shared().windowMainConfig(vc: MainVC())
+                    default:
+                        AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                    }
+                })
+                .disposed(by: bag)
         }
     }
 }

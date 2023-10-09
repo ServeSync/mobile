@@ -27,10 +27,6 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestObject(.signIn(usernameOrEmail: userNameOrPassword, password: password), successType: AuthCredentialDto.self, errorType: ErrorResponse.self )
     }
     
-//    func refreshTokenIfNeed() -> Single<Void> {
-//        return appNetwork.refreshTokenIfNeeded()
-//    }
-    
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
         return appNetwork.refreshToken(.refreshToken(authCredentialDto: authCredentialDto), errorType: ErrorResponse.self)
     }
@@ -39,12 +35,20 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestWithoutMapping(.forgetPassword(requestForgetPasswordDto: requestForgetPasswordDto))
     }
     
-    //profile
+    //MARK: - Profile
     func profileInfo() -> RxSwift.Single<Result<StudentDetailDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.profileDetail, successType: StudentDetailDto.self, errorType: ErrorResponse.self)
     }
     
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.profile, successType: UserInfoDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func postImage(image: UIImage) -> RxSwift.Single<Result<ImageResponse, ErrorResponse>> {
+        return appNetwork.requestObject(.postImage(image: image), successType: ImageResponse.self, errorType: ErrorResponse.self)
+    }
+    
+    func editProfile(studentEditProfileDto: StudentEditProfileDto) -> RxSwift.Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.putProfile(studentEditProfileDto: studentEditProfileDto))
     }
 }
