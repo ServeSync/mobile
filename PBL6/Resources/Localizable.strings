@@ -80,3 +80,18 @@
 "email_or_username_warning" = "Email hoặc mã sinh viên không đúng định dạng";
 "email_or_username_alert" = "Email hoặc mã sinh viên không đúng định dạng hoặc để trống!";
 "check_email" = "Vui lòng kiểm tra tin nhắn trong email của bạn!";
+
+//Home
+"home" = "Trang chủ";
+"favorite" = "Yêu thích";
+"happening" = "Đang diễn ra";
+"upcoming" = "Sắp diễn ra";
+"done" = "Đã tổ chức";
+"see_all" = "Xem tất cả";
+
+//Analysis
+"analysis" = "Phân tích";
+"detail" = "Chi tiết";
+
+//MyEvent
+"my_event" = "Sự kiện của tôi";

@@ -47,4 +47,10 @@ final class RemoteRepositoryImp: RemoteRepository {
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> RxSwift.Single<Moya.Response> {
         return apiService.editProfile(studentEditProfileDto: studentEditProfileDto)
     }
+    
+    //MARK: - Event
+    
+    func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getEventsByStatus(status: status, page: page)
+    }
 }

@@ -12,21 +12,6 @@ class AccountVM: BaseVM {
     let profileDetailData = PublishData<StudentDetailDto>()
     
     func fetchData() -> Observable<HandleStatus>{
-//        loadingData.accept(true)
-//        remoteRepository.getProfileDetail()
-//            .trackError(errorTracker)
-//            .trackActivity(indicatorLoading)
-//            .subscribe(onNext: { [weak self] responseData in
-//                guard let self = self else { return }
-//                loadingData.accept(false)
-//                switch responseData {
-//                case .success(let data):
-//                    profileDetailData.accept(data)
-//                case .failure(let error):
-//                    messageData.accept(AlertMessage(type: .error, description: error.localizedDescription))
-//                }
-//            })
-//            .disposed(by: bag)
         
         return remoteRepository.getProfileDetail()
             .trackError(errorTracker)

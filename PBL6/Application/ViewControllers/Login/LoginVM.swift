@@ -56,7 +56,3 @@ class LoginVM: BaseVM {
     
 }
 
-enum HandleStatus {
-    case Success
-    case Error(error: ErrorResponse?)
-}

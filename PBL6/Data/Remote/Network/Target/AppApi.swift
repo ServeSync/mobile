@@ -23,6 +23,9 @@ enum AppApi {
     case profileDetail
     case putProfile(studentEditProfileDto: StudentEditProfileDto)
     case postImage(image: UIImage)
+    
+    //MARK: - Event
+    case getEventsByStatus(status: EventStatus, page: Int)
 }
 
 extension AppApi: TargetType {
@@ -52,6 +55,8 @@ extension AppApi: TargetType {
             return "auth/forget-password"
         case .postImage:
             return "images"
+        case .getEventsByStatus:
+            return "events"
         }
     }
     
@@ -123,8 +128,13 @@ extension AppApi: TargetType {
         case .postImage(let image):
             let imageData = image.jpegData(compressionQuality: 0.1)
             let formData = MultipartFormData(provider: .data(imageData!), name: "file", fileName: "image.jpg", mimeType: "image/jpeg")
-            dump(formData)
             return .uploadMultipart([formData])
+        case .getEventsByStatus(let status, let page):
+            let params: [String: Any] = [
+                "Page": page,
+                "EventStatus": status.rawValue
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:
             return .requestPlain
         }
