@@ -51,4 +51,10 @@ final class ApiServiceImp: ApiService {
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> RxSwift.Single<Moya.Response> {
         return appNetwork.requestWithoutMappingWithRefreshToken(.putProfile(studentEditProfileDto: studentEditProfileDto))
     }
+    
+    //MARK: - Event
+    
+    func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getEventsByStatus(status: status, page: page), successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
 }

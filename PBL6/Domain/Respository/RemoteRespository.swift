@@ -23,4 +23,7 @@ protocol RemoteRepository {
     func getProfileDetail() -> Single<Result<StudentDetailDto, ErrorResponse>>
     func postImage(image: UIImage) -> Single<Result<ImageResponse, ErrorResponse>>
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> Single<Moya.Response>
+    
+    //MARK: - Event
+    func getEventsByStatus(status: EventStatus, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
 }
