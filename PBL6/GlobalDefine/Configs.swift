@@ -12,7 +12,7 @@ enum Configs {
     
     //MARK: -- Server
     enum Server {
-        static let baseURL = "https:/servesync-ubfdw.appengine.bfcplatform.vn/api/"
+        static let baseURL = "https://ronle.whitemage.tech/api/"
         static let forgotPasswordURL = "http://20.42.93.128/resetPassword"
         static let errorCodeRequiresLogin = "Student:000006"
     }

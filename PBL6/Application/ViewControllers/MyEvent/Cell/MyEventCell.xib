@@ -120,7 +120,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liên Chiểu, Đà Nẵng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGx-1v-VXX">
-                                <rect key="frame" x="7.9999999999999929" y="198.33333333333334" width="122.33333333333331" height="18"/>
+                                <rect key="frame" x="8" y="198.33333333333334" width="152" height="18"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
                                 <color key="textColor" name="Text Secondary"/>
                                 <nil key="highlightedColor"/>
@@ -129,6 +129,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HFY-Lg-DBj" secondAttribute="trailing" constant="8" id="59i-cQ-eRD"/>
+                            <constraint firstItem="QZM-Pm-OZR" firstAttribute="height" secondItem="6JD-qh-VnR" secondAttribute="height" multiplier="98:222" id="HXI-SQ-oFq"/>
+                            <constraint firstAttribute="trailing" secondItem="jGx-1v-VXX" secondAttribute="trailing" constant="8" id="HdR-8W-mGB"/>
                             <constraint firstItem="JbF-uQ-5WG" firstAttribute="top" secondItem="QZM-Pm-OZR" secondAttribute="bottom" constant="12" id="KNO-Xb-icx"/>
                             <constraint firstAttribute="trailing" secondItem="QZM-Pm-OZR" secondAttribute="trailing" id="P47-o6-ct0"/>
                             <constraint firstItem="HFY-Lg-DBj" firstAttribute="leading" secondItem="6JD-qh-VnR" secondAttribute="leading" constant="8" id="X6x-WN-C3U"/>
@@ -164,6 +166,15 @@
                 <constraint firstItem="6JD-qh-VnR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="VNt-tc-DaV"/>
                 <constraint firstItem="6JD-qh-VnR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="frU-Je-iXV"/>
             </constraints>
+            <connections>
+                <outlet property="dateEndLabel" destination="DGI-dF-hIm" id="vG8-4n-1i9"/>
+                <outlet property="dateStartLabel" destination="lct-tI-d6M" id="vFc-9s-kXz"/>
+                <outlet property="eventImage" destination="QZM-Pm-OZR" id="fGW-5a-7qd"/>
+                <outlet property="nameEventLabel" destination="JbF-uQ-5WG" id="DKr-aa-YIn"/>
+                <outlet property="placeLabel" destination="jGx-1v-VXX" id="lPs-Xt-bv7"/>
+                <outlet property="timeEndLabel" destination="dEp-Z6-XqR" id="EwK-dV-wpC"/>
+                <outlet property="timeStartLabel" destination="fM4-02-dPC" id="Iks-4c-L0W"/>
+            </connections>
             <point key="canvasLocation" x="80.916030534351137" y="19.718309859154932"/>
         </collectionViewCell>
     </objects>

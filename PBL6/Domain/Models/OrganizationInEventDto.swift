@@ -9,9 +9,12 @@ import Foundation
 import ObjectMapper
 
 struct OrganizationInEventDto: Mappable {
+    var role: String = ""
+    var representatives: [BasicRepresentativeInEventDto] = []
     var id: String = ""
     var name: String = ""
     var imageUrl: String = ""
+    var organizationId: String = ""
     
     init() {}
     
@@ -24,9 +27,11 @@ struct OrganizationInEventDto: Mappable {
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
-        imageUrl <- map["imageUrl"]
-        
+        role                <- map["role"]
+        representatives     <- map["representatives"]
+        id                  <- map["id"]
+        name                <- map["name"]
+        imageUrl            <- map["imageUrl"]
+        organizationId      <- map["organizationId"]
     }
 }

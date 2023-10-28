@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 class HomeVM: BaseVM {
     var hapeningEvents: [FlatEventDto] = []
@@ -14,44 +15,10 @@ class HomeVM: BaseVM {
     var doneEvents: [FlatEventDto] = []
     var favoriteEvents: [FlatEventDto] = []
     
-//    func fetchData() -> Observable<HandleStatus>{
-//        func fetchData() -> Observable<HandleStatus> {
-//            let happeningObservable = remoteRepository.getEventsByStatus(status: .Happening, page: 0)
-//                .trackError(errorTracker)
-//                .trackActivity(indicatorLoading)
-//            
-//            let upcomingObservable = remoteRepository.getEventsByStatus(status: .Upcoming, page: 0)
-//                .trackError(errorTracker)
-//                .trackActivity(indicatorLoading)
-//            
-//            let doneObservable = remoteRepository.getEventsByStatus(status: .Done, page: 0)
-//                .trackError(errorTracker)
-//                .trackActivity(indicatorLoading)
-//            
-//            return Observable
-//                .merge([happeningObservable, upcomingObservable, doneObservable])
-//                .subscribe(onNext: { [weak self] status in
-//                    guard let self = self else { return }
-//                    
-//                    switch status {
-//                    case .success(let data):
-//                        switch data.status {
-//                        case .Happening:
-//                            self.hapeningEvents = data.data
-//                            print("hapeningEvents \(self.hapeningEvents.count) @@@")
-//                        case .Upcoming:
-//                            self.upcomingEvents = data.data
-//                            print("upcomingEvents \(self.upcomingEvents.count) @@@")
-//                        case .Done:
-//                            self.doneEvents = data.data
-//                            print("doneEvents \(self.doneEvents.count) @@@")
-//                        }
-//                    case .failure(_):
-//                        print("123")
-//                    }
-//                })
-//                .disposed(by: bag)
-//        }
+    let happeningEventsR = PublishRelay<[FlatEventDto]>()
+    let upcomingEventsR = PublishRelay<[FlatEventDto]>()
+    let doneEventsR = PublishRelay<[FlatEventDto]>()
+    let favoriteEventsR = PublishRelay<[FlatEventDto]>()
     
     func fetchData() -> Observable<HandleStatus> {
         let happeningObservable = remoteRepository.getEventsByStatus(status: .Happening, page: 0)
@@ -62,6 +29,7 @@ class HomeVM: BaseVM {
                 case .success(let data):
                     self.hapeningEvents = data.data
                     print("hapeningEvents \(self.hapeningEvents.count) @@@")
+                    self.happeningEventsR.accept(data.data)
                     return HandleStatus.Success
                 case .failure(let error):
                     return HandleStatus.Error(error: error)
@@ -76,6 +44,7 @@ class HomeVM: BaseVM {
                 case .success(let data):
                     self.upcomingEvents = data.data
                     print("upcomingEvents \(self.upcomingEvents.count) @@@")
+                    self.upcomingEventsR.accept(data.data)
                     return HandleStatus.Success
                 case .failure(let error):
                     return HandleStatus.Error(error: error)
@@ -90,6 +59,7 @@ class HomeVM: BaseVM {
                 case .success(let data):
                     self.doneEvents = data.data
                     print("doneEvents \(self.doneEvents.count) @@@")
+                    self.doneEventsR.accept(data.data)
                     return HandleStatus.Success
                 case .failure(let error):
                     return HandleStatus.Error(error: error)
@@ -100,4 +70,15 @@ class HomeVM: BaseVM {
             .observe(on: MainScheduler.instance)
     }
 
+    func searchEvent(textSearch: String) {
+        if textSearch.isEmpty {
+            doneEventsR.accept(self.doneEvents)
+            happeningEventsR.accept(self.hapeningEvents)
+            upcomingEventsR.accept(self.upcomingEvents)
+        } else {
+            doneEventsR.accept(self.doneEvents.filter({$0.name.lowercased().contains(textSearch.lowercased())}))
+            happeningEventsR.accept(self.hapeningEvents.filter({$0.name.lowercased().contains(textSearch.lowercased())}))
+            upcomingEventsR.accept(self.upcomingEvents.filter({$0.name.lowercased().contains(textSearch.lowercased())}))
+        }
+    }
 }

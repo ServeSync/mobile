@@ -17,4 +17,5 @@ enum EventStatus: String {
     case Rejected = "Rejected"
     case Registration = "Registration"
     case Upcoming = "Upcoming"
+    case Favorite = "Favorite"
 }

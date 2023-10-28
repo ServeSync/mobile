@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RoleItemCell" customModule="PBL6" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="52"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="52"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4X6-Yn-PyL">
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="52"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEI-Xv-ayt">
+                                <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="20.666666666666668"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                <color key="textColor" red="0.015686274509803921" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJZ-pn-tpV">
+                                <rect key="frame" x="261.66666666666669" y="0.0" width="65.333333333333314" height="20.666666666666668"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                <color key="textColor" red="0.32156862745098036" green="0.37647058823529411" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-6Q-8ug">
+                                <rect key="frame" x="184.33333333333334" y="0.0" width="65.333333333333343" height="20.666666666666668"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="15"/>
+                                <color key="textColor" red="0.32156862749999998" green="0.37647058820000001" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO5-VI-V15">
+                                <rect key="frame" x="0.0" y="32.666666666666664" width="196.33333333333334" height="19.333333333333336"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.32156862745098036" green="0.37647058823529411" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GO5-VI-V15" firstAttribute="width" secondItem="pEI-Xv-ayt" secondAttribute="width" id="1we-Md-MVx"/>
+                            <constraint firstItem="pEI-Xv-ayt" firstAttribute="width" secondItem="4X6-Yn-PyL" secondAttribute="width" multiplier="0.6" id="Avb-fe-aZg"/>
+                            <constraint firstItem="GO5-VI-V15" firstAttribute="leading" secondItem="4X6-Yn-PyL" secondAttribute="leading" id="KVO-31-b4b"/>
+                            <constraint firstItem="KJZ-pn-tpV" firstAttribute="top" secondItem="4X6-Yn-PyL" secondAttribute="top" id="Q1X-A3-8Ih"/>
+                            <constraint firstAttribute="trailing" secondItem="KJZ-pn-tpV" secondAttribute="trailing" id="QMh-AF-Ka2"/>
+                            <constraint firstItem="KJZ-pn-tpV" firstAttribute="leading" secondItem="9Jw-6Q-8ug" secondAttribute="trailing" constant="12" id="T0u-Yu-2TH"/>
+                            <constraint firstItem="9Jw-6Q-8ug" firstAttribute="top" secondItem="4X6-Yn-PyL" secondAttribute="top" id="XpK-OH-XZO"/>
+                            <constraint firstItem="KJZ-pn-tpV" firstAttribute="width" secondItem="4X6-Yn-PyL" secondAttribute="width" multiplier="0.2" id="ats-Gq-3Pz"/>
+                            <constraint firstItem="pEI-Xv-ayt" firstAttribute="leading" secondItem="4X6-Yn-PyL" secondAttribute="leading" id="avL-7w-MM2"/>
+                            <constraint firstItem="pEI-Xv-ayt" firstAttribute="top" secondItem="4X6-Yn-PyL" secondAttribute="top" id="gDT-3a-nxp"/>
+                            <constraint firstAttribute="bottom" secondItem="GO5-VI-V15" secondAttribute="bottom" id="gHb-Gi-DlZ"/>
+                            <constraint firstItem="9Jw-6Q-8ug" firstAttribute="width" secondItem="4X6-Yn-PyL" secondAttribute="width" multiplier="0.2" id="nmc-06-COW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="4X6-Yn-PyL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3pg-3g-6vr"/>
+                <constraint firstItem="4X6-Yn-PyL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Q3n-yt-54T"/>
+                <constraint firstAttribute="trailing" secondItem="4X6-Yn-PyL" secondAttribute="trailing" id="QOV-jw-nQt"/>
+                <constraint firstAttribute="bottom" secondItem="4X6-Yn-PyL" secondAttribute="bottom" id="X9S-wL-s6E"/>
+            </constraints>
+            <connections>
+                <outlet property="descriptionLabel" destination="GO5-VI-V15" id="sRg-Iw-ti6"/>
+                <outlet property="nameLabel" destination="pEI-Xv-ayt" id="S9s-zv-uGR"/>
+                <outlet property="quantityLabel" destination="9Jw-6Q-8ug" id="F48-e7-KVr"/>
+                <outlet property="scoreLabel" destination="KJZ-pn-tpV" id="IkS-OT-tYL"/>
+            </connections>
+            <point key="canvasLocation" x="13.740458015267174" y="19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

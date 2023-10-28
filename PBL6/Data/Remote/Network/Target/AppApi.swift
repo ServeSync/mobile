@@ -26,6 +26,7 @@ enum AppApi {
     
     //MARK: - Event
     case getEventsByStatus(status: EventStatus, page: Int)
+    case getEventById(id: String)
 }
 
 extension AppApi: TargetType {
@@ -57,6 +58,8 @@ extension AppApi: TargetType {
             return "images"
         case .getEventsByStatus:
             return "events"
+        case .getEventById(let id):
+            return "events/\(id)"
         }
     }
     

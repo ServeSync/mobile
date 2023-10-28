@@ -6,15 +6,26 @@
 //
 
 import UIKit
+import RxDataSources
 
 class HomeVC: BaseVC<HomeVM> {
     
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
-    @IBOutlet weak var happenningCollectionView: UICollectionView!
+    @IBOutlet weak var happeningCollectionView: UICollectionView!
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     @IBOutlet weak var doneCollectionView: UICollectionView!
+    
+    @IBOutlet weak var emptyFavoriteView: UIView!
+    @IBOutlet weak var emptyHappeningView: UIView!
+    @IBOutlet weak var emptyUpcomingView: UIView!
+    @IBOutlet weak var emptyDoneView: UIView!
+    
+    @IBOutlet weak var seeAllFavoriteEventButton: UIButton!
+    @IBOutlet weak var seeAllHappeningEventButton: UIButton!
+    @IBOutlet weak var seeAllUpcomingEventButton: UIButton!
+    @IBOutlet weak var seeAllDoneEventButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +41,14 @@ class HomeVC: BaseVC<HomeVM> {
                         AppDelegate.shared().windowMainConfig(vc: LoginVC())
                     } else {
                         viewModel.messageData.accept(AlertMessage(type: .error,
-                                                                  description: getErrorDescription(forErrorCode: error!.code)))
+                                                                  description: getErrorDescription(forErrorCode: error!.code)
+                                                                 ))
                     }
                 }
             })
             .disposed(by: bag)
     }
-
+    
     override func initViews() {
         super.initViews()
         
@@ -46,58 +58,126 @@ class HomeVC: BaseVC<HomeVM> {
     override func configureListView() {
         super.configureListView()
         
-        favoriteCollectionView.dataSource = self
         favoriteCollectionView.delegate = self
         favoriteCollectionView.registerCellNib(EventItemCell.self)
         
-        happenningCollectionView.dataSource = self
-        happenningCollectionView.delegate = self
-        happenningCollectionView.registerCellNib(EventItemCell.self)
+        happeningCollectionView.delegate = self
+        happeningCollectionView.registerCellNib(EventItemCell.self)
         
-        upcomingCollectionView.dataSource = self
         upcomingCollectionView.delegate = self
         upcomingCollectionView.registerCellNib(EventItemCell.self)
         
-        doneCollectionView.dataSource = self
         doneCollectionView.delegate = self
         doneCollectionView.registerCellNib(EventItemCell.self)
     }
     
-}
-
-extension HomeVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == happenningCollectionView {
-            return viewModel.hapeningEvents.count
-        } else if collectionView == upcomingCollectionView {
-            return viewModel.upcomingEvents.count
-        } else if collectionView == doneCollectionView {
-            return viewModel.doneEvents.count
-        } else {
-            return viewModel.favoriteEvents.count
-        }
+    override func bindViewModel() {
+        super.bindViewModel()
+        
+        viewModel.happeningEventsR
+            .do { [weak self] data in
+                guard let self = self else { return }
+                if data.isEmpty {
+                    emptyHappeningView.isHidden = false
+                } else {
+                    emptyHappeningView.isHidden = true
+                }
+            }
+            .map{[SectionModel(model: (), items: $0)]}
+            .bind(to: happeningCollectionView.rx.items(dataSource: getPreviewEventItemSource()))
+            .disposed(by: bag)
+        
+        viewModel.upcomingEventsR
+            .do { [weak self] data in
+                guard let self = self else { return }
+                if data.isEmpty {
+                    emptyUpcomingView.isHidden = false
+                } else {
+                    emptyUpcomingView.isHidden = true
+                }
+            }
+            .map{[SectionModel(model: (), items: $0)]}
+            .bind(to: upcomingCollectionView.rx.items(dataSource: getPreviewEventItemSource()))
+            .disposed(by: bag)
+        
+        viewModel.doneEventsR
+            .do { [weak self] data in
+                guard let self = self else { return }
+                if data.isEmpty {
+                    emptyDoneView.isHidden = false
+                } else {
+                    emptyDoneView.isHidden = true
+                }
+            }
+            .map{[SectionModel(model: (), items: $0)]}
+            .bind(to: doneCollectionView.rx.items(dataSource: getPreviewEventItemSource()))
+            .disposed(by: bag)
+        
+        searchTextField.rx.text
+            .subscribe(onNext: {[weak self] text in
+                guard let self = self else { return }
+                
+            })
+            .disposed(by: bag)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventItemCell.identifier, for: indexPath) as! EventItemCell
+    override func addEventForViews() {
+        super.addEventForViews()
         
-        if collectionView == happenningCollectionView {
-            cell.configure(item: viewModel.hapeningEvents[indexPath.row])
-        } else if collectionView == upcomingCollectionView {
-            cell.configure(item: viewModel.upcomingEvents[indexPath.row])
-        } else if collectionView == doneCollectionView {
-            cell.configure(item: viewModel.doneEvents[indexPath.row])
-        } else {
-            cell.configure(item: viewModel.favoriteEvents[indexPath.row])
-        }
+        happeningCollectionView.rx.modelSelected(FlatEventDto.self)
+            .subscribe(onNext: {[weak self] item in
+                guard let self = self else { return }
+                self.pushVC(EventDetailVC(eventId: item.id))
+            })
+            .disposed(by: bag)
         
-        return cell
+        upcomingCollectionView.rx.modelSelected(FlatEventDto.self)
+            .subscribe(onNext: {[weak self] item in
+                guard let self = self else { return }
+                self.pushVC(EventDetailVC(eventId: item.id))
+            })
+            .disposed(by: bag)
+        
+        doneCollectionView.rx.modelSelected(FlatEventDto.self)
+            .subscribe(onNext: {[weak self] item in
+                guard let self = self else { return }
+                self.pushVC(EventDetailVC(eventId: item.id))
+            })
+            .disposed(by: bag)
+        
+        seeAllHappeningEventButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.pushVC(SeeAllEventVC(statusEvent: .Happening))
+            })
+            .disposed(by: bag)
+        
+        seeAllFavoriteEventButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.pushVC(SeeAllEventVC(statusEvent: .Favorite))
+            })
+            .disposed(by: bag)
+        
+        seeAllUpcomingEventButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.pushVC(SeeAllEventVC(statusEvent: .Upcoming))
+            })
+            .disposed(by: bag)
+        
+        seeAllDoneEventButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.pushVC(SeeAllEventVC(statusEvent: .Done))
+            })
+            .disposed(by: bag)
     }
 }
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 260, height: 256)
+        return CGSize(width: 260, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

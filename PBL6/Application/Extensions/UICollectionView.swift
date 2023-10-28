@@ -82,3 +82,59 @@ extension UICollectionView {
         backgroundView = nil
     }
 }
+
+extension UICollectionView {
+    func indicatorView() -> UIActivityIndicatorView {
+        var activityIndicatorView = UIActivityIndicatorView()
+        if self.backgroundView == nil {
+            let indicatorFrame = CGRect(x: 0, y: 0, width: self.bounds.width, height: 80)
+            activityIndicatorView = UIActivityIndicatorView(frame: indicatorFrame)
+            activityIndicatorView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+            
+            if #available(iOS 13.0, *) {
+                activityIndicatorView.style = .large
+            } else {
+                activityIndicatorView.style = .whiteLarge
+            }
+            
+            activityIndicatorView.color = "Primary500".toUIColor()
+            activityIndicatorView.hidesWhenStopped = true
+
+            self.backgroundView = activityIndicatorView
+            return activityIndicatorView
+        } else {
+            return activityIndicatorView
+        }
+    }
+
+    func addLoading(closure: @escaping (() -> Void)) {
+        indicatorView().startAnimating()
+        
+        let lastSection = self.numberOfSections - 1
+        let lastItem = self.numberOfItems(inSection: lastSection) - 1
+
+        if lastSection >= 0 && lastItem >= 0 {
+            let lastIndexPath = IndexPath(item: lastItem, section: lastSection)
+            
+            let visibleIndexPaths = self.indexPathsForVisibleItems
+            if !visibleIndexPaths.isEmpty {
+                let lastVisibleIndexPath = visibleIndexPaths.last!
+                if lastIndexPath == lastVisibleIndexPath {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        closure()
+                    }
+                }
+            }
+        }
+    }
+
+    func stopLoading() {
+        if self.backgroundView != nil {
+            self.indicatorView().stopAnimating()
+            self.backgroundView = nil
+        } else {
+            self.backgroundView = nil
+        }
+    }
+}
+
