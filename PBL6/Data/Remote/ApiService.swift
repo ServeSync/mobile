@@ -25,4 +25,5 @@ protocol ApiService {
     
     //MARK: - Event
     func getEventsByStatus(status: EventStatus, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
+    func getEventById(id: String) -> Single<Result<EventDetailDto, ErrorResponse>>
 }

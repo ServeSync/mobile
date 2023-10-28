@@ -57,4 +57,8 @@ final class ApiServiceImp: ApiService {
     func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.getEventsByStatus(status: status, page: page), successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
+    
+    func getEventById(id: String) -> Single<Result<EventDetailDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getEventById(id: id), successType: EventDetailDto.self, errorType: ErrorResponse.self)
+    }
 }

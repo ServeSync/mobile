@@ -12,7 +12,6 @@ class AccountVM: BaseVM {
     let profileDetailData = PublishData<StudentDetailDto>()
     
     func fetchData() -> Observable<HandleStatus>{
-        
         return remoteRepository.getProfileDetail()
             .trackError(errorTracker)
             .trackActivity(indicatorLoading)

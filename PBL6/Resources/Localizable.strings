@@ -88,6 +88,7 @@
 "upcoming" = "Sắp diễn ra";
 "done" = "Đã tổ chức";
 "see_all" = "Xem tất cả";
+"no_event" = "Không có sự kiện nào";
 
 //Analysis
 "analysis" = "Phân tích";
@@ -95,3 +96,12 @@
 
 //MyEvent
 "my_event" = "Sự kiện của tôi";
+
+//Event Detail
+"role" = "Vị trí";
+"score" = "Điểm";
+"quantity" = "Số lượng";
+"internal" = "Hoạt động nội bộ";
+"external"= "Hoạt động bên ngoài";
+"collaboration" = "Hoạt động hợp tác";
+"general_information" = "Thông tin chung";

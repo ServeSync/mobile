@@ -53,4 +53,8 @@ final class RemoteRepositoryImp: RemoteRepository {
     func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return apiService.getEventsByStatus(status: status, page: page)
     }
+    
+    func getEventById(id: String) -> RxSwift.Single<Result<EventDetailDto, ErrorResponse>> {
+        return apiService.getEventById(id: id)
+    }
 }
