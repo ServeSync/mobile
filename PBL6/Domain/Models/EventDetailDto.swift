@@ -30,7 +30,6 @@ struct EventDetailDto: Mappable {
     var status: String = ""
     var address: EventAddressDto = EventAddressDto()
     
-    
     init(isRegistered: Bool, isAttendance: Bool, roles: [EventRoleDto], organizations: [OrganizationInEventDto], registrationInfos: [EventRegistrationDto], attendanceInfos: [EventAttendanceInfoDto], capacity: Int, registered: Int, rating: Int, activity: BasicEventActivityDto, representativeOrganization: BasicOrganizationInEventDto, id: String, name: String, introduction: String, imageUrl: String, startAt: String, endAt: String, type: String, status: String, address: EventAddressDto) {
         self.isRegistered = isRegistered
         self.isAttendance = isAttendance
@@ -52,6 +51,11 @@ struct EventDetailDto: Mappable {
         self.type = type
         self.status = status
         self.address = address
+    }
+    
+    init(id: String, name: String) {
+        self.id = id
+        self.name = name
     }
     
     init() {}

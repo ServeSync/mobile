@@ -88,7 +88,7 @@ class SeeAllEventVC: BaseVC<SeeAllEventVM> {
         
         viewModel.eventsR
             .map{[SectionModel(model: (), items: $0)]}
-            .bind(to: collectionView.rx.items(dataSource: getEventItemSource()))
+            .bind(to: collectionView.rx.items(dataSource: getEventItemDataSource()))
             .disposed(by: bag)
         
         collectionView.rx.willDisplayCell

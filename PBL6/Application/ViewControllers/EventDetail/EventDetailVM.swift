@@ -13,6 +13,10 @@ class EventDetailVM: BaseVM {
     var eventDetailItem: EventDetailDto = EventDetailDto()
     private var rolesData = [EventRoleDto]()
     let rolesDataS = PublishData<[EventRoleDto]>()
+    
+    private var speakersData = [BasicRepresentativeInEventDto]()
+    let speakersDataS = PublishData<[BasicRepresentativeInEventDto]>()
+    
     let eventDetailItemR = PublishRelay<EventDetailDto>()
     var eventId: String = ""
     
@@ -27,6 +31,10 @@ class EventDetailVM: BaseVM {
                     eventDetailItem = data
                     eventDetailItemR.accept(data)
                     rolesDataS.accept(data.roles)
+                    for organization in eventDetailItem.organizations {
+                        speakersData.append(contentsOf: organization.representatives)
+                    }
+                    speakersDataS.accept(speakersData)
                     return .just(.Success)
                 case .failure(let error):
                     return .just(.Error(error: error))

@@ -45,7 +45,7 @@ extension AppApi: TargetType {
         case .search:
             return "novels"
         case .signIn:
-            return "auth/sign-in"
+            return "auth/student-portal/sign-in"
         case .profile:
             return "profile"
         case .refreshToken:
