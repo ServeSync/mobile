@@ -123,6 +123,13 @@
 		357192B22AE8199F009C429E /* EventAttendanceInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192B12AE8199F009C429E /* EventAttendanceInfoDto.swift */; };
 		357192B72AE8FAEA009C429E /* RoleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192B52AE8FAEA009C429E /* RoleItemCell.swift */; };
 		357192B82AE8FAEA009C429E /* RoleItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357192B62AE8FAEA009C429E /* RoleItemCell.xib */; };
+		358869E82AECE1FA00F235E5 /* SpeakerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869E62AECE1FA00F235E5 /* SpeakerItemCell.swift */; };
+		358869E92AECE1FA00F235E5 /* SpeakerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358869E72AECE1FA00F235E5 /* SpeakerItemCell.xib */; };
+		358869EB2AED4E6200F235E5 /* REvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869EA2AED4E6200F235E5 /* REvent.swift */; };
+		358869EE2AED503900F235E5 /* EventDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869ED2AED503900F235E5 /* EventDAO.swift */; };
+		358869F02AED504A00F235E5 /* EventDAOImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869EF2AED504A00F235E5 /* EventDAOImp.swift */; };
+		358869F32AEE66E600F235E5 /* OrganizationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869F12AEE66E600F235E5 /* OrganizationItemCell.swift */; };
+		358869F42AEE66E600F235E5 /* OrganizationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358869F22AEE66E600F235E5 /* OrganizationItemCell.xib */; };
 		3588F66F2AD46C5B00D8DFF5 /* EventItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3588F66D2AD46C5B00D8DFF5 /* EventItemCell.swift */; };
 		3588F6702AD46C5B00D8DFF5 /* EventItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3588F66E2AD46C5B00D8DFF5 /* EventItemCell.xib */; };
 		358905542AC752D3000E687C /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905532AC752D3000E687C /* PageVC.swift */; };
@@ -300,6 +307,13 @@
 		357192B12AE8199F009C429E /* EventAttendanceInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAttendanceInfoDto.swift; sourceTree = "<group>"; };
 		357192B52AE8FAEA009C429E /* RoleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleItemCell.swift; sourceTree = "<group>"; };
 		357192B62AE8FAEA009C429E /* RoleItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleItemCell.xib; sourceTree = "<group>"; };
+		358869E62AECE1FA00F235E5 /* SpeakerItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerItemCell.swift; sourceTree = "<group>"; };
+		358869E72AECE1FA00F235E5 /* SpeakerItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerItemCell.xib; sourceTree = "<group>"; };
+		358869EA2AED4E6200F235E5 /* REvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REvent.swift; sourceTree = "<group>"; };
+		358869ED2AED503900F235E5 /* EventDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDAO.swift; sourceTree = "<group>"; };
+		358869EF2AED504A00F235E5 /* EventDAOImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDAOImp.swift; sourceTree = "<group>"; };
+		358869F12AEE66E600F235E5 /* OrganizationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationItemCell.swift; sourceTree = "<group>"; };
+		358869F22AEE66E600F235E5 /* OrganizationItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationItemCell.xib; sourceTree = "<group>"; };
 		3588F66D2AD46C5B00D8DFF5 /* EventItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemCell.swift; sourceTree = "<group>"; };
 		3588F66E2AD46C5B00D8DFF5 /* EventItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventItemCell.xib; sourceTree = "<group>"; };
 		358905532AC752D3000E687C /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
@@ -910,6 +924,7 @@
 		356C7FB62A9F9BF400DDEDDD /* SiteDAO */ = {
 			isa = PBXGroup;
 			children = (
+				358869EC2AED502600F235E5 /* Event */,
 				356C7FBB2A9F9C3200DDEDDD /* Post */,
 			);
 			path = SiteDAO;
@@ -928,6 +943,7 @@
 			isa = PBXGroup;
 			children = (
 				356C7FC02A9F9C6F00DDEDDD /* RPost.swift */,
+				358869EA2AED4E6200F235E5 /* REvent.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -945,8 +961,21 @@
 			children = (
 				357192B52AE8FAEA009C429E /* RoleItemCell.swift */,
 				357192B62AE8FAEA009C429E /* RoleItemCell.xib */,
+				358869E62AECE1FA00F235E5 /* SpeakerItemCell.swift */,
+				358869E72AECE1FA00F235E5 /* SpeakerItemCell.xib */,
+				358869F12AEE66E600F235E5 /* OrganizationItemCell.swift */,
+				358869F22AEE66E600F235E5 /* OrganizationItemCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		358869EC2AED502600F235E5 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				358869ED2AED503900F235E5 /* EventDAO.swift */,
+				358869EF2AED504A00F235E5 /* EventDAOImp.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		3588F66C2AD462C100D8DFF5 /* Cell */ = {
@@ -1231,8 +1260,10 @@
 				35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */,
 				3589057D2AC7DCF8000E687C /* ProfileVC.xib in Resources */,
 				35FAD85D2AD99AF4003381F1 /* MyEventCell.xib in Resources */,
+				358869E92AECE1FA00F235E5 /* SpeakerItemCell.xib in Resources */,
 				353233832AAF776800032B72 /* OpenSans-Light.ttf in Resources */,
 				35635D1C2AAE2A7F0083E3DB /* OpenSans-Regular.ttf in Resources */,
+				358869F42AEE66E600F235E5 /* OrganizationItemCell.xib in Resources */,
 				356C7F4D2A9F90C000DDEDDD /* LaunchScreen.storyboard in Resources */,
 				353233812AAF714300032B72 /* WelcomeSlideCell.xib in Resources */,
 				35635D1A2AAE2A750083E3DB /* OpenSans-SemiBold.ttf in Resources */,
@@ -1322,6 +1353,7 @@
 				351C3DFD2AA33C96004E82B7 /* UIView+LoadNib.swift in Sources */,
 				35FAD8712ADB0892003381F1 /* FlatEventDto.swift in Sources */,
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
+				358869F32AEE66E600F235E5 /* OrganizationItemCell.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
 				351C3DBA2AA1E8E6004E82B7 /* HomeVC.swift in Sources */,
 				351C3DD42AA1F102004E82B7 /* GradientView.swift in Sources */,
@@ -1394,6 +1426,7 @@
 				356C7FB82A9F9C0900DDEDDD /* BaseDAO.swift in Sources */,
 				35ABB1D02AEAAA84005E1574 /* IntrinsicTableView.swift in Sources */,
 				351C3DCD2AA1EFAF004E82B7 /* Theme.swift in Sources */,
+				358869F02AED504A00F235E5 /* EventDAOImp.swift in Sources */,
 				356D456E2AB4C67D004227A1 /* LoginVM.swift in Sources */,
 				356C7FA62A9F9B2700DDEDDD /* Post.swift in Sources */,
 				351C3DD72AA1F130004E82B7 /* String.swift in Sources */,
@@ -1422,11 +1455,13 @@
 				35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */,
 				3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */,
 				351C3E012AA33CBD004E82B7 /* UIView+Animation.swift in Sources */,
+				358869EB2AED4E6200F235E5 /* REvent.swift in Sources */,
 				351C3DD92AA1F18D004E82B7 /* Cell.swift in Sources */,
 				351C3DFB2AA33C87004E82B7 /* UIView+Border+Corner.swift in Sources */,
 				358905752AC7D339000E687C /* AccountVC.swift in Sources */,
 				35FAD8772ADB19FE003381F1 /* FlatEventDtoPagedResultDto.swift in Sources */,
 				3589058E2AC8891F000E687C /* ForgotPasswordVC.swift in Sources */,
+				358869E82AECE1FA00F235E5 /* SpeakerItemCell.swift in Sources */,
 				351C3DAD2AA1E7F1004E82B7 /* NetworkConfig.swift in Sources */,
 				351C3DC22AA1ED44004E82B7 /* AlertVC.swift in Sources */,
 				353233792AAF6F4500032B72 /* WelcomeVC.swift in Sources */,
@@ -1444,6 +1479,7 @@
 				353233802AAF714300032B72 /* WelcomeSlideCell.swift in Sources */,
 				357192A52AE80F9D009C429E /* BasicEventActivityDto.swift in Sources */,
 				356C7F852A9F978500DDEDDD /* BaseVM.swift in Sources */,
+				358869EE2AED503900F235E5 /* EventDAO.swift in Sources */,
 				358905592AC75340000E687C /* MainVC.swift in Sources */,
 				35332B1D2ACF15A8001B2084 /* ImageResponse.swift in Sources */,
 				358905812AC7EF80000E687C /* UI+Shadow+CornerRadius.swift in Sources */,

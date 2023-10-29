@@ -29,7 +29,6 @@ class EventDetailVC: BaseVC<EventDetailVM> {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var capacityLabel: UILabel!
     
-    
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var speakerCollectionView: IntrinsicCollectionView!
     @IBOutlet weak var speakerCollectionViewHC: NSLayoutConstraint!
@@ -37,9 +36,15 @@ class EventDetailVC: BaseVC<EventDetailVM> {
     @IBOutlet weak var roleCollectionViewHC: NSLayoutConstraint!
     
     @IBOutlet weak var organizationalCollectionView: IntrinsicCollectionView!
-    
-    
     @IBOutlet weak var organizationalCollectionViewHC: NSLayoutConstraint!
+    
+    @IBOutlet weak var generalView: UIView!
+    @IBOutlet weak var detailView: UIView!
+    
+    @IBOutlet weak var nameOrganizationLabel: UILabel!
+    @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var PhoneLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +88,9 @@ class EventDetailVC: BaseVC<EventDetailVM> {
     override func initViews() {
         super.initViews()
         
+        generalView.isHidden = false
+        detailView.isHidden = true
+        
         contentView.roundDifferentCorners(topLeft: 24, topRight: 24)
         contentView.roundDifferentCorners(topLeft: 24, topRight: 24)
     }
@@ -96,6 +104,22 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                 self.popVC()
             })
             .disposed(by: bag)
+        
+        detailButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                generalView.isHidden = true
+                detailView.isHidden = false
+            })
+            .disposed(by: bag)
+        
+        generalInforButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                generalView.isHidden = false
+                detailView.isHidden = true
+            })
+            .disposed(by: bag)
     }
     
     override func bindViewModel() {
@@ -103,7 +127,7 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         
         viewModel.rolesDataS
             .map{ [SectionModel(model: (), items: $0)]}
-            .bind(to: roleCollectionView.rx.items(dataSource: getRoleItemSource()))
+            .bind(to: roleCollectionView.rx.items(dataSource: getRoleItemDataSource()))
             .disposed(by: bag)
         
         viewModel.eventDetailItemR
@@ -112,14 +136,23 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                 self.updateView(with: item)
             })
             .disposed(by: bag)
+        
+        viewModel.speakersDataS
+            .map { [SectionModel(model: (), items: $0)]}
+            .bind(to: speakerCollectionView.rx.items(dataSource: getSpeakerItemDataSource()))
+            .disposed(by: bag)
     }
     
     override func configureListView() {
         super.configureListView()
         
         roleCollectionView.registerCellNib(RoleItemCell.self)
-        let layout = ColumnFlowLayout(cellsPerRow: 1, ratio: 52/327, minimumLineSpacing: 8, scrollDirection: .vertical)
-        roleCollectionView.collectionViewLayout = layout
+        let layouRoleCollectionView = ColumnFlowLayout(cellsPerRow: 1, ratio: 52/327, minimumLineSpacing: 8, scrollDirection: .vertical)
+        roleCollectionView.collectionViewLayout = layouRoleCollectionView
+        
+        speakerCollectionView.registerCellNib(SpeakerItemCell.self)
+        let layoutspeakerCollectionView = ColumnFlowLayout(cellsPerRow: 1, ratio: 48/327, minimumLineSpacing: 16, scrollDirection: .vertical)
+        speakerCollectionView.collectionViewLayout = layoutspeakerCollectionView
     }
 }
 
@@ -136,6 +169,8 @@ private extension EventDetailVC {
         registeredQuantityLabel.text = "\(item.registered)"
         
         loadImageFromURL(from: item.imageUrl, into: eventImage)
+        
+        nameOrganizationLabel.text = item.representativeOrganization.name
     }
     
     private func updateStatusButton(status: String) {

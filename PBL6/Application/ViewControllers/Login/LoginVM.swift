@@ -35,15 +35,16 @@ class LoginVM: BaseVM {
                     return self.remoteRepository.profile().asObservable()
                         .flatMap { result -> Observable<HandleStatus> in
                             switch result {
-                            case .success(let data):
-                                if data.roles.contains("student") {
-                                    return .just(.Success)
-                                } else {
-                                    UserDefaultHelper.shared.accessToken = nil
-                                    UserDefaultHelper.shared.refreshToken = nil
-                                    return .just(.Error(error: ErrorResponse(code: AppError.permissionDontAllowLoginForApp.rawValue,
-                                                                             message: AppError.permissionDontAllowLoginForApp.description)))
-                                }
+                            case .success(_):
+                                return .just(.Success)
+//                                if data.roles.contains("student") {
+//                                    return .just(.Success)
+//                                } else {
+//                                    UserDefaultHelper.shared.accessToken = nil
+//                                    UserDefaultHelper.shared.refreshToken = nil
+//                                    return .just(.Error(error: ErrorResponse(code: AppError.permissionDontAllowLoginForApp.rawValue,
+//                                                                             message: AppError.permissionDontAllowLoginForApp.description)))
+//                                }
                             case .failure(let error):
                                 return .just(.Error(error: error))
                             }

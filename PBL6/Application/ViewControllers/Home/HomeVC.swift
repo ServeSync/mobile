@@ -84,7 +84,7 @@ class HomeVC: BaseVC<HomeVM> {
                 }
             }
             .map{[SectionModel(model: (), items: $0)]}
-            .bind(to: happeningCollectionView.rx.items(dataSource: getPreviewEventItemSource()))
+            .bind(to: happeningCollectionView.rx.items(dataSource: getPreviewEventItemDataSource()))
             .disposed(by: bag)
         
         viewModel.upcomingEventsR
@@ -97,7 +97,7 @@ class HomeVC: BaseVC<HomeVM> {
                 }
             }
             .map{[SectionModel(model: (), items: $0)]}
-            .bind(to: upcomingCollectionView.rx.items(dataSource: getPreviewEventItemSource()))
+            .bind(to: upcomingCollectionView.rx.items(dataSource: getPreviewEventItemDataSource()))
             .disposed(by: bag)
         
         viewModel.doneEventsR
@@ -110,7 +110,7 @@ class HomeVC: BaseVC<HomeVM> {
                 }
             }
             .map{[SectionModel(model: (), items: $0)]}
-            .bind(to: doneCollectionView.rx.items(dataSource: getPreviewEventItemSource()))
+            .bind(to: doneCollectionView.rx.items(dataSource: getPreviewEventItemDataSource()))
             .disposed(by: bag)
         
         searchTextField.rx.text
