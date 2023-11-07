@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import MKProgress
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         windowSplashConfig()
-        
+        mkProgressConfig()
         return true
     }
 
@@ -48,5 +49,10 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
 
+    private func mkProgressConfig() {
+        MKProgress.config.hudColor = .white
+        MKProgress.config.circleBorderColor = Theme.Colors.accent
+        MKProgress.config.logoImage = Bundle.main.icon?.withRoundedCorners()
+    }
 }
 

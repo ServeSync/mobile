@@ -13,16 +13,13 @@ struct OrganizationInEventDto: Mappable {
     var representatives: [BasicRepresentativeInEventDto] = []
     var id: String = ""
     var name: String = ""
+    var email: String = ""
+    var phoneNumber: String = ""
+    var address: String = ""
     var imageUrl: String = ""
     var organizationId: String = ""
     
     init() {}
-    
-    init(id: String, name: String, imageUrl: String) {
-        self.id = id
-        self.name = name
-        self.imageUrl = imageUrl
-    }
     
     init?(map: Map) {}
     
@@ -31,6 +28,9 @@ struct OrganizationInEventDto: Mappable {
         representatives     <- map["representatives"]
         id                  <- map["id"]
         name                <- map["name"]
+        address                <- map["address"]
+        email               <- map["email"]
+        phoneNumber         <- map["phoneNumber"]
         imageUrl            <- map["imageUrl"]
         organizationId      <- map["organizationId"]
     }

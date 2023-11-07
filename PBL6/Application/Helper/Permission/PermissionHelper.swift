@@ -83,6 +83,9 @@ class PermissionHelper: NSObject {
             case .contact:
                 title = "contact_permission_is_not_granted_title".localized
                 message = "contact_permission_is_not_granted_message".localized
+            case .location:
+                title = "location_permission_is_not_granted_title".localized
+                message = "location_permission_is_not_granted_message".localized
             }
         }
         

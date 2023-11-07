@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="161.66666666666666" width="260" height="94.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mùa thu vàng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z33-sN-mDl">
-                                        <rect key="frame" x="12" y="0.0" width="93" height="20"/>
+                                        <rect key="frame" x="12" y="0.0" width="236" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="mKQ-x2-tza"/>
                                         </constraints>
@@ -113,6 +113,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="M1v-5N-NCh" secondAttribute="bottom" constant="16" id="1h0-zK-wBC"/>
+                                    <constraint firstAttribute="trailing" secondItem="z33-sN-mDl" secondAttribute="trailing" constant="12" id="Cwg-er-s9I"/>
                                     <constraint firstItem="Cd1-Td-Jrg" firstAttribute="top" secondItem="z33-sN-mDl" secondAttribute="bottom" constant="8" id="KVX-i0-buy"/>
                                     <constraint firstItem="M1v-5N-NCh" firstAttribute="leading" secondItem="YRo-n6-eKE" secondAttribute="leading" constant="12" id="MiL-ng-aRW"/>
                                     <constraint firstItem="M1v-5N-NCh" firstAttribute="top" secondItem="Cd1-Td-Jrg" secondAttribute="bottom" constant="8" id="N2x-TG-VHM"/>

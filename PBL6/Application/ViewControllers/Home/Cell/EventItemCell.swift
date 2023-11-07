@@ -22,10 +22,24 @@ class EventItemCell: BaseCollectionViewCell {
     }
     
     func configure(item: FlatEventDto) {
-        loadImageFromURL(from: item.imageUrl, into: thumbImage)
+        thumbImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
         nameEventLabel.text = item.name
         
-        timeLabel.text = item.startAt
+        let date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        let dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
+        timeLabel.text = dateString
+        
+        placeLabel.text = item.address.fullAddress
+    }
+    
+    func configureFavoriteItem(item: EventDetailDto) {
+        thumbImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
+        nameEventLabel.text = item.name
+        
+        let date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        let dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
+        timeLabel.text = dateString
+        
         placeLabel.text = item.address.fullAddress
     }
 }

@@ -20,7 +20,7 @@ target 'PBL6' do
   
   #realm
   pod 'RealmSwift'
-  #pod 'RxRealm'
+  pod 'RxRealm'
   pod 'RxSwiftExt'
   
   #convert json object
@@ -44,6 +44,9 @@ target 'PBL6' do
 
   #jwt
   pod 'JWTDecode'
+
+  #scan QR
+  pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
   
   post_install do |pi|
       pi.pods_project.targets.each do |target|

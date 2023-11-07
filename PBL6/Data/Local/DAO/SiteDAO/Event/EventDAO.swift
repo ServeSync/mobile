@@ -10,9 +10,10 @@ import RxSwift
 import Realm
 
 protocol EventDAO {
-    func findAll() -> Observable<[EventDetailDto]>
-    func find(withId id: Int) -> Observable<EventDetailDto?>
-    func delete(withId id: Int) -> Observable<Void>
-    func update(_ entity: RPost) -> Observable<EventDetailDto>
-    func save(_ entity: RPost) -> Observable<EventDetailDto>
+    func findAll() -> Observable<[FlatEventDto]>
+    func find(withId id: String) -> Observable<FlatEventDto?>
+    func delete(withId id: String) -> Observable<Void>
+    func update(_ entity: REvent) -> Observable<FlatEventDto>
+    func save(_ entity: REvent) -> Observable<FlatEventDto>
+    func deleteAll() -> Observable<Void>
 }

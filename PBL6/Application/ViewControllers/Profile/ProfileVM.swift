@@ -30,4 +30,14 @@ class ProfileVM: BaseVM {
                 }
             }
     }
+    
+    func updateData(studentEditProfileDto: StudentEditProfileDto) {
+        profileDetail?.imageUrl = studentEditProfileDto.imageUrl
+        profileDetail?.phone = studentEditProfileDto.phone
+        profileDetail?.address = studentEditProfileDto.address
+        profileDetail?.homeTown = studentEditProfileDto.homeTown
+        profileDetail?.email = studentEditProfileDto.email
+        
+        profileDetailData.accept(profileDetail)
+    }
 }

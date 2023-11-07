@@ -61,4 +61,16 @@ final class ApiServiceImp: ApiService {
     func getEventById(id: String) -> Single<Result<EventDetailDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.getEventById(id: id), successType: EventDetailDto.self, errorType: ErrorResponse.self)
     }
+    
+    func registerEvent(eventRegisterDto: EventRegisterDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.registerEvent(eventRegisterDto: eventRegisterDto))
+    }
+    
+    func rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.rollcallEvent(studentAttendEventDto: studentAttendEventDto, eventId: eventId))
+    }
+    
+    func searchEvent(keyword: String, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.searchEvent(keyword: keyword, page: page), successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
 }

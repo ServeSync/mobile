@@ -27,6 +27,7 @@
                 <outlet property="emptyUpcomingView" destination="dZl-na-bML" id="MuU-ox-sgw"/>
                 <outlet property="favoriteCollectionView" destination="95N-br-xD6" id="keZ-Wm-5cb"/>
                 <outlet property="happeningCollectionView" destination="YJC-YM-mi7" id="L4H-n7-AlB"/>
+                <outlet property="searchButton" destination="3Df-rT-7Uz" id="B1u-hR-H2a"/>
                 <outlet property="searchTextField" destination="MGJ-ZJ-fhc" id="5yX-tD-tRy"/>
                 <outlet property="seeAllDoneEventButton" destination="jLi-iz-mq9" id="ycT-Uh-7wk"/>
                 <outlet property="seeAllFavoriteEventButton" destination="ED0-6m-fBr" id="9SE-qN-p34"/>
@@ -91,16 +92,24 @@
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal" image="ic_search_gray"/>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Df-rT-7Uz">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="48"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="MGJ-ZJ-fhc" firstAttribute="top" secondItem="Rwk-vF-zjc" secondAttribute="top" id="4Ne-bw-7pd"/>
                                         <constraint firstItem="yC2-U2-xqq" firstAttribute="leading" secondItem="Rwk-vF-zjc" secondAttribute="leading" constant="16" id="4yz-WP-tX9"/>
+                                        <constraint firstItem="3Df-rT-7Uz" firstAttribute="leading" secondItem="Rwk-vF-zjc" secondAttribute="leading" id="8UH-Ot-YbB"/>
                                         <constraint firstAttribute="trailing" secondItem="MGJ-ZJ-fhc" secondAttribute="trailing" id="C5X-4m-Gnr"/>
                                         <constraint firstItem="yC2-U2-xqq" firstAttribute="centerY" secondItem="Rwk-vF-zjc" secondAttribute="centerY" id="QYq-TK-XE4"/>
                                         <constraint firstAttribute="height" constant="48" id="ZjO-dk-4M6"/>
                                         <constraint firstItem="MGJ-ZJ-fhc" firstAttribute="leading" secondItem="Rwk-vF-zjc" secondAttribute="leading" id="eKy-qb-oTV"/>
+                                        <constraint firstAttribute="bottom" secondItem="3Df-rT-7Uz" secondAttribute="bottom" id="kwA-IU-Kga"/>
+                                        <constraint firstAttribute="trailing" secondItem="3Df-rT-7Uz" secondAttribute="trailing" id="vMf-XS-oNU"/>
                                         <constraint firstAttribute="bottom" secondItem="MGJ-ZJ-fhc" secondAttribute="bottom" id="wp4-VV-kJJ"/>
+                                        <constraint firstItem="3Df-rT-7Uz" firstAttribute="top" secondItem="Rwk-vF-zjc" secondAttribute="top" id="zVY-dP-YHC"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -120,7 +129,7 @@
                                 <constraint firstItem="Rwk-vF-zjc" firstAttribute="top" secondItem="T45-2M-si7" secondAttribute="bottom" constant="14" id="qaR-o7-6BH"/>
                             </constraints>
                         </view>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZC-q0-ltJ">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZC-q0-ltJ">
                             <rect key="frame" x="0.0" y="182" width="414" height="680"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpx-eT-7sC">
@@ -165,7 +174,7 @@
                                                                 <constraint firstItem="ED0-6m-fBr" firstAttribute="centerY" secondItem="IrN-h0-AdJ" secondAttribute="centerY" id="oZi-xv-F0h"/>
                                                             </constraints>
                                                         </view>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="95N-br-xD6">
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="95N-br-xD6">
                                                             <rect key="frame" x="16" y="52" width="398" height="256"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
@@ -254,7 +263,7 @@
                                                                 <constraint firstItem="f3f-3R-Psb" firstAttribute="centerY" secondItem="FE7-Ef-sqq" secondAttribute="centerY" id="t5s-wA-iTO"/>
                                                             </constraints>
                                                         </view>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YJC-YM-mi7">
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YJC-YM-mi7">
                                                             <rect key="frame" x="16" y="52" width="398" height="256"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
@@ -343,7 +352,7 @@
                                                                 <constraint firstItem="Gve-Ky-g8H" firstAttribute="centerY" secondItem="CO8-Nl-0B9" secondAttribute="centerY" id="tgj-Du-nYc"/>
                                                             </constraints>
                                                         </view>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vGK-55-8rZ">
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vGK-55-8rZ">
                                                             <rect key="frame" x="16" y="52" width="398" height="256"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
@@ -432,7 +441,7 @@
                                                                 <constraint firstItem="jLi-iz-mq9" firstAttribute="centerY" secondItem="iwJ-0a-Dv8" secondAttribute="centerY" id="xJe-a1-z3e"/>
                                                             </constraints>
                                                         </view>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="b2n-Zh-TNv">
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="b2n-Zh-TNv">
                                                             <rect key="frame" x="16" y="52" width="398" height="256"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>

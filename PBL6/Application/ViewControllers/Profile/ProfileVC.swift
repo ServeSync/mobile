@@ -28,15 +28,11 @@ class ProfileVC: BaseVC<ProfileVM> {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
-    
     @IBOutlet weak var avtImageView: UIImageView!
     
+    weak var delegate: EditProfileDelegate!
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         viewModel.fetchData()
             .subscribe(onNext: {[weak self] status in
@@ -54,6 +50,11 @@ class ProfileVC: BaseVC<ProfileVM> {
                 }
             })
             .disposed(by: bag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func initViews() {
@@ -81,6 +82,7 @@ class ProfileVC: BaseVC<ProfileVM> {
                 guard let self = self else { return }
                 let vc = EditProfileVC(profileDetail: viewModel.profileDetail!)
                 vc.modalPresentationStyle = .fullScreen
+                vc.delegate = self
                 self.presentVC(vc)
             })
             .disposed(by: bag)
@@ -117,6 +119,7 @@ class ProfileVC: BaseVC<ProfileVM> {
 private extension ProfileVC {
     private func configUI(_ data: StudentDetailDto) {
         loadImageFromURL(from: data.imageUrl, into: avtImageView)
+        
         nameLabel.text = data.fullName
         studentIDLabel.text = data.code
         genderLabel.text = data.gender ? "female".localized : "male".localized
@@ -131,5 +134,18 @@ private extension ProfileVC {
         addressLabel.text = data.address
         emailLabel.text = data.email
         phoneNumberLabel.text = data.phone
+    }
+}
+
+extension ProfileVC: EditProfileDelegate {
+    func updateView(studentEditProfileDto: StudentEditProfileDto) {
+        loadImageFromURL(from: studentEditProfileDto.imageUrl, into: avtImageView)
+        addressLabel.text = studentEditProfileDto.address
+        emailLabel.text = studentEditProfileDto.email
+        phoneNumberLabel.text = studentEditProfileDto.phone
+        homeTownLabel.text = studentEditProfileDto.homeTown
+        viewModel.updateData(studentEditProfileDto: studentEditProfileDto)
+        
+        delegate.updateView(studentEditProfileDto: studentEditProfileDto)
     }
 }

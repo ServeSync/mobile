@@ -26,11 +26,12 @@ class HomeVC: BaseVC<HomeVM> {
     @IBOutlet weak var seeAllHappeningEventButton: UIButton!
     @IBOutlet weak var seeAllUpcomingEventButton: UIButton!
     @IBOutlet weak var seeAllDoneEventButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.fetchData()
+        viewModel.fetchDataRemote()
             .subscribe(onNext: {[weak self] status in
                 guard let self = self else { return }
                 switch status {
@@ -47,6 +48,12 @@ class HomeVC: BaseVC<HomeVM> {
                 }
             })
             .disposed(by: bag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchDataLocal()
     }
     
     override func initViews() {
@@ -113,11 +120,17 @@ class HomeVC: BaseVC<HomeVM> {
             .bind(to: doneCollectionView.rx.items(dataSource: getPreviewEventItemDataSource()))
             .disposed(by: bag)
         
-        searchTextField.rx.text
-            .subscribe(onNext: {[weak self] text in
+        viewModel.favoriteEventsR
+            .do{ [weak self] data in
                 guard let self = self else { return }
-                
-            })
+                if data.isEmpty {
+                    emptyFavoriteView.isHidden = false
+                } else {
+                    emptyFavoriteView.isHidden = true
+                }
+            }
+            .map{[SectionModel(model: (), items: $0)]}
+            .bind(to: favoriteCollectionView.rx.items(dataSource: getPreviewEventItemDataSource()))
             .disposed(by: bag)
     }
     
@@ -139,6 +152,13 @@ class HomeVC: BaseVC<HomeVM> {
             .disposed(by: bag)
         
         doneCollectionView.rx.modelSelected(FlatEventDto.self)
+            .subscribe(onNext: {[weak self] item in
+                guard let self = self else { return }
+                self.pushVC(EventDetailVC(eventId: item.id))
+            })
+            .disposed(by: bag)
+        
+        favoriteCollectionView.rx.modelSelected(FlatEventDto.self)
             .subscribe(onNext: {[weak self] item in
                 guard let self = self else { return }
                 self.pushVC(EventDetailVC(eventId: item.id))
@@ -170,6 +190,13 @@ class HomeVC: BaseVC<HomeVM> {
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
                 self.pushVC(SeeAllEventVC(statusEvent: .Done))
+            })
+            .disposed(by: bag)
+        
+        searchButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.pushVC(SearchVC())
             })
             .disposed(by: bag)
     }

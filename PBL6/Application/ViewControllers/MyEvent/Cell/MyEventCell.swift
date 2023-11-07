@@ -22,7 +22,7 @@ class MyEventCell: BaseCollectionViewCell {
     }
     
     func configure(_ item: FlatEventDto) {
-        loadImageFromURL(from: item.imageUrl, into: eventImage)
+        eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
         nameEventLabel.text = item.name
         var date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
         var dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")

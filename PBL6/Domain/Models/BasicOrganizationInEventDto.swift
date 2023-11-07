@@ -11,15 +11,11 @@ import ObjectMapper
 struct BasicOrganizationInEventDto: Mappable {
     var id: String = ""
     var name: String = ""
+    var email: String = ""
+    var phoneNumber: String = ""
+    var address: String = ""
     var imageUrl: String = ""
     var organizationId: String = ""
-    
-    init(id: String, name: String, imgUrl: String, organizationId: String) {
-        self.id = id
-        self.name = name
-        self.imageUrl = imgUrl
-        self.organizationId = organizationId
-    }
     
     init() {}
     
@@ -30,5 +26,8 @@ struct BasicOrganizationInEventDto: Mappable {
         name                <- map["name"]
         imageUrl            <- map["imageUrl"]
         organizationId      <- map["organizationId"]
+        email               <- map["email"]
+        phoneNumber         <- map["phoneNumber"]
+        address             <- map["address"]
     }
 }
