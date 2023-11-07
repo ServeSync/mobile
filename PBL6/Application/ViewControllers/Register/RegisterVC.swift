@@ -42,7 +42,7 @@ class RegisterVC: BaseVC<RegisterVM> {
     override func initViews() {
         super.initViews()
         
-        textView.placeHolder("self_introduce".localized)
+        textView.placeHolder("self_introduce_placeholder".localized)
     }
     
     override func viewWillLayoutSubviews() {
