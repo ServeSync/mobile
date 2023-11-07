@@ -120,8 +120,10 @@
 "self_introduce" = "Tự giới thiệu";
 "confirm" = "Xác nhận";
 "cancel" = "Huỷ";
-"self_introduce" = "Kinh nghiệm, ...";
+"self_introduce" = "Tự giới thiệu";
+"self_introduce_placeholder" = "Kinh nghiệm, ...";
 "register_success" = "Đăng ký thành công";
+
 //Roll Call
 "location_permission_is_not_granted_title" = "Location access permission is not granted";
 
