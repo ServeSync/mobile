@@ -20,7 +20,7 @@ class HomeVM: BaseVM {
     let doneEventsR = PublishRelay<[FlatEventDto]>()
     let favoriteEventsR = PublishRelay<[FlatEventDto]>()
     
-    func fetchData() -> Observable<HandleStatus> {
+    func fetchDataRemote() -> Observable<HandleStatus> {
         let happeningObservable = remoteRepository.getEventsByStatus(status: .Happening, page: 0)
             .trackError(errorTracker)
             .trackActivity(indicatorLoading)
@@ -28,7 +28,6 @@ class HomeVM: BaseVM {
                 switch status {
                 case .success(let data):
                     self.hapeningEvents = data.data
-                    print("hapeningEvents \(self.hapeningEvents.count) @@@")
                     self.happeningEventsR.accept(data.data)
                     return HandleStatus.Success
                 case .failure(let error):
@@ -43,7 +42,6 @@ class HomeVM: BaseVM {
                 switch status {
                 case .success(let data):
                     self.upcomingEvents = data.data
-                    print("upcomingEvents \(self.upcomingEvents.count) @@@")
                     self.upcomingEventsR.accept(data.data)
                     return HandleStatus.Success
                 case .failure(let error):
@@ -58,7 +56,6 @@ class HomeVM: BaseVM {
                 switch status {
                 case .success(let data):
                     self.doneEvents = data.data
-                    print("doneEvents \(self.doneEvents.count) @@@")
                     self.doneEventsR.accept(data.data)
                     return HandleStatus.Success
                 case .failure(let error):
@@ -68,6 +65,16 @@ class HomeVM: BaseVM {
         
         return Observable.merge(happeningObservable, upcomingObservable, doneObservable)
             .observe(on: MainScheduler.instance)
+    }
+    
+    func fetchDataLocal() {
+        return localRespository.getEvents()
+            .subscribe(onNext: {[weak self] data in
+                guard let self = self else { return }
+                self.favoriteEvents = data
+                self.favoriteEventsR.accept(self.favoriteEvents)
+            })
+            .disposed(by: bag)
     }
 
     func searchEvent(textSearch: String) {

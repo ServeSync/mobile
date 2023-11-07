@@ -14,24 +14,18 @@ struct EventAttendanceInfoDto: Mappable {
     var qrCodeUrl: String = ""
     var startAt: String = ""
     var endAt: String = ""
-    
-    init(id: String, code: String, qrCodeUrl: String, startAt: String, endAt: String) {
-        self.id = id
-        self.code = code
-        self.qrCodeUrl = qrCodeUrl
-        self.startAt = startAt
-        self.endAt = endAt
-    }
+    var status: String = ""
     
     init?(map: Map) {}
     
     init() {}
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        code <- map["code"]
-        qrCodeUrl <- map["qrCodeUrl"]
-        startAt <- map["startAt"]
-        endAt <- map["endAt"]
+        id          <- map["id"]
+        code        <- map["code"]
+        qrCodeUrl   <- map["qrCodeUrl"]
+        startAt     <- map["startAt"]
+        endAt       <- map["endAt"]
+        status      <- map["status"]
     }
 }

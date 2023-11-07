@@ -11,4 +11,5 @@ enum Permission: CaseIterable {
     case photo
     case camera
     case contact
+    case location
 }

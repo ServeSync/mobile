@@ -12,12 +12,7 @@ struct EventRegistrationDto: Mappable {
     var id: String = ""
     var startAt: String = ""
     var endAt: String = ""
-    
-    init(id: String, startAt: String, endAt: String) {
-        self.id = id
-        self.startAt = startAt
-        self.endAt = endAt
-    }
+    var status: String = ""
     
     init() {}
     
@@ -27,5 +22,6 @@ struct EventRegistrationDto: Mappable {
         id <- map["id"]
         startAt <- map["startAt"]
         endAt <- map["endAt"]
+        status <- map["status"]
     }
 }

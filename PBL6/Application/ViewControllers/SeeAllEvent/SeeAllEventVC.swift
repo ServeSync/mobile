@@ -13,6 +13,8 @@ class SeeAllEventVC: BaseVC<SeeAllEventVM> {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
+    
     private var refreshControl = UIRefreshControl()
     
     init(statusEvent: EventStatus?) {
@@ -87,6 +89,13 @@ class SeeAllEventVC: BaseVC<SeeAllEventVM> {
             .disposed(by: bag)
         
         viewModel.eventsR
+            .do { data in
+                if data.isEmpty {
+                    self.emptyView.isHidden = false
+                } else {
+                    self.emptyView.isHidden = true
+                }
+            }
             .map{[SectionModel(model: (), items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: getEventItemDataSource()))
             .disposed(by: bag)
@@ -94,6 +103,9 @@ class SeeAllEventVC: BaseVC<SeeAllEventVM> {
         collectionView.rx.willDisplayCell
             .subscribe(onNext: {[weak self] cell, indexPath in
                 guard let self = self else { return }
+                if viewModel.eventStatus == .Favorite {
+                    return
+                }
                 if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
                     self.viewModel.loadMore()
                         .subscribe(onNext: {[weak self] status in
@@ -129,14 +141,6 @@ class SeeAllEventVC: BaseVC<SeeAllEventVM> {
             .subscribe(onNext: {[weak self] item in
                 guard let self = self else { return }
                 self.pushVC(EventDetailVC(eventId: item.id))
-            })
-            .disposed(by: bag)
-        
-        collectionView.rx
-            .modelSelected(FlatEventDto.self)
-            .subscribe(onNext: {[weak self] item in
-                guard let self = self else { return }
-                
             })
             .disposed(by: bag)
     }

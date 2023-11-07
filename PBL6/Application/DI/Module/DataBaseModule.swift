@@ -13,7 +13,9 @@ import RealmSwift
 final class DatabaseModule {
     
     func register(container: Container, config: Realm.Configuration!) {
-//        container.register(PostDAO.self) { _ in PostDAOImp(config: config) }
+        container.register(PostDAO.self) { _ in PostDAOImp(config: config) }
+        container.register(EventDAO.self) { _ in EventDAOImp(config: config) }
+        
     }
     
 }

@@ -12,30 +12,26 @@ struct BasicRepresentativeInEventDto: Mappable {
     var id: String = ""
     var name: String = ""
     var imageUrl: String = ""
+    var email: String = ""
+    var address: String = ""
+    var phoneNumber: String = ""
     var position: String = ""
     var role: String = ""
     var organizationRepId: String = ""
-    
-    
-    init(id: String, name: String, imageUrl: String, position: String, role: String, organizationRepId: String) {
-        self.id = id
-        self.name = name
-        self.imageUrl = imageUrl
-        self.position = position
-        self.role = role
-        self.organizationRepId = organizationRepId
-    }
     
     init() {}
     
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
-        imageUrl <- map["imageUrl"]
-        position <- map["position"]
-        role <- map["role"]
-        organizationRepId <- map["organizationRepId"]
+        id                  <- map["id"]
+        name                <- map["name"]
+        imageUrl            <- map["imageUrl"]
+        email               <- map["email"]
+        address             <- map["address"]
+        phoneNumber         <- map["phoneNumber"]
+        position            <- map["position"]
+        role                <- map["role"]
+        organizationRepId   <- map["organizationRepId"]
     }
 }

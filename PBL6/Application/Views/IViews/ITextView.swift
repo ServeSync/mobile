@@ -38,7 +38,7 @@ class ITextView: UITextView {
         }
     }
     
-    private func placeHolder(_ text: String, font: UIFont? = nil) {
+    func placeHolder(_ text: String, font: UIFont? = nil) {
         placeholderLabel = UILabel()
         placeholderLabel.text = text
         placeholderLabel.font = font ?? self.font

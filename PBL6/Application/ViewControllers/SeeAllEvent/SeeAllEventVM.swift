@@ -23,7 +23,15 @@ class SeeAllEventVM: BaseVM {
     func fetchData(isRefresh: Bool, page: Int) -> Observable<HandleStatus> {
         switch self.eventStatus {
         case .Favorite:
-            return .just(.Success)
+            return localRespository.getEvents()
+                .trackError(errorTracker)
+                .trackActivity(indicatorLoading)
+                .flatMap{[weak self] data -> Observable<HandleStatus> in
+                    guard let self = self else { return .just(.Error(error: nil))}
+                    events = data
+                    eventsR.accept(events)
+                    return .just(.Success)
+                }
         default:
             return remoteRepository.getEventsByStatus(status: self.eventStatus!, page: page)
                 .trackError(errorTracker)

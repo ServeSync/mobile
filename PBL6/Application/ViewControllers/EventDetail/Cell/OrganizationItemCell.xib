@@ -145,11 +145,11 @@
                 <constraint firstItem="VGc-QE-5r6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zE5-EO-1eI"/>
             </constraints>
             <connections>
+                <outlet property="addressLabel" destination="ywi-qP-K2a" id="ems-m9-GRc"/>
                 <outlet property="emailLabel" destination="Ln8-PH-LCE" id="vRs-UF-Ry9"/>
                 <outlet property="imageView" destination="xZa-Fw-LBG" id="Ynx-WZ-IBE"/>
                 <outlet property="nameLabel" destination="GLm-co-n6k" id="Aqa-cb-lwk"/>
                 <outlet property="phoneLabel" destination="WTm-Sb-sBg" id="Cnv-Ft-mrQ"/>
-                <outlet property="positionLabel" destination="ywi-qP-K2a" id="CLy-oY-ZiQ"/>
             </connections>
             <point key="canvasLocation" x="-8" y="20"/>
         </collectionViewCell>

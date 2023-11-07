@@ -54,7 +54,19 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.getEventsByStatus(status: status, page: page)
     }
     
+    func searchEvent(keyword: String, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.searchEvent(keyword: keyword, page: page)
+    }
+    
     func getEventById(id: String) -> RxSwift.Single<Result<EventDetailDto, ErrorResponse>> {
         return apiService.getEventById(id: id)
+    }
+    
+    func registerEvent(eventRegisterDto: EventRegisterDto) -> Single<Moya.Response> {
+        return apiService.registerEvent(eventRegisterDto: eventRegisterDto)
+    }
+    
+    func rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String) -> Single<Moya.Response> {
+        return apiService.rollcallEvent(studentAttendEventDto: studentAttendEventDto, eventId: eventId)
     }
 }

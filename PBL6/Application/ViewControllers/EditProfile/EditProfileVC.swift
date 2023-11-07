@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EditProfileDelegate: AnyObject {
+    func updateView(studentEditProfileDto: StudentEditProfileDto)
+}
+
 class EditProfileVC: BaseVC<EditProfileVM> {
     
     @IBOutlet weak var parentTopview: UIView!
@@ -28,6 +32,9 @@ class EditProfileVC: BaseVC<EditProfileVM> {
     @IBOutlet weak var addressWarningLabel: UILabel!
     @IBOutlet weak var emailWarningLabel: UILabel!
     @IBOutlet weak var phoneWarningLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    weak var delegate: EditProfileDelegate!
     
     private var isValidHomeTown = true
     private var isValidAddress = true
@@ -39,9 +46,8 @@ class EditProfileVC: BaseVC<EditProfileVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
         activeTextField?.resignFirstResponder()
     }
@@ -92,6 +98,7 @@ class EditProfileVC: BaseVC<EditProfileVM> {
                             case .Success:
                                 self.showToast(message: "edit_success".localized, state: .success)
                                 self.updateView(studentEditProfileDto: self.viewModel.studentEditProfileDto!)
+                                self.delegate.updateView(studentEditProfileDto: self.viewModel.studentEditProfileDto!)
                             case .Error(let error):
                                 if error?.code == Configs.Server.errorCodeRequiresLogin {
                                     AppDelegate.shared().windowMainConfig(vc: LoginVC())
@@ -185,36 +192,21 @@ class EditProfileVC: BaseVC<EditProfileVM> {
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    override func keyboardWillShow(notification: NSNotification) {
-        super.keyboardWillShow(notification: notification)
-        
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
-        
-        var shouldMoveViewUp = false
-        
-        if let activeTextField = activeTextField {
-            
-            let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: self.view).maxY;
-            
-            let topOfKeyboard = self.view.frame.height - keyboardSize.height
-            
-            if bottomOfTextField > topOfKeyboard {
-                shouldMoveViewUp = true
-            }
-        }
-        
-        if(shouldMoveViewUp) {
-            self.view.frame.origin.y = 0 - keyboardSize.height
-        }
+    @objc override func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
     }
-    
-    override func keyboardWillHide(notification: NSNotification) {
-        super.keyboardWillHide(notification: notification)
-        
-        self.view.frame.origin.y = 0
-        //        view.endEditing(true)
+
+    @objc override func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 }
 

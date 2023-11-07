@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>The app needs access to the camera so you can scan the QR code.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs your location to show nearby services</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app needs your location to show nearby services</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs your location to show nearby services</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>The application needs to access the photo library so that you can select photos from the album.</string>
 	<key>UIUserInterfaceStyle</key>

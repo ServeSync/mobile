@@ -21,11 +21,6 @@ class AccountVC: BaseVC<AccountVM> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         viewModel.fetchData()
             .subscribe(onNext: {[weak self] status in
@@ -37,12 +32,16 @@ class AccountVC: BaseVC<AccountVM> {
                     if error?.code == Configs.Server.errorCodeRequiresLogin {
                         AppDelegate.shared().windowMainConfig(vc: LoginVC())
                     } else {
-                        viewModel.messageData.accept(AlertMessage(type: .error, 
+                        viewModel.messageData.accept(AlertMessage(type: .error,
                                                                   description: getErrorDescription(forErrorCode: error!.code)))
                     }
                 }
             })
             .disposed(by: bag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func initViews() {
@@ -57,7 +56,9 @@ class AccountVC: BaseVC<AccountVM> {
         personInfoButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
-                self.pushVC(ProfileVC())
+                let vc = ProfileVC()
+                vc.delegate = self
+                self.pushVC(vc)
             })
             .disposed(by: bag)
         
@@ -95,5 +96,10 @@ class AccountVC: BaseVC<AccountVM> {
             })
             .disposed(by: bag)
     }
+}
 
+extension AccountVC: EditProfileDelegate {
+    func updateView(studentEditProfileDto: StudentEditProfileDto) {
+        loadImageFromURL(from: studentEditProfileDto.imageUrl, into: avtImageView)
+    }
 }

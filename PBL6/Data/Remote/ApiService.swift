@@ -25,5 +25,8 @@ protocol ApiService {
     
     //MARK: - Event
     func getEventsByStatus(status: EventStatus, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
+    func searchEvent(keyword: String, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
     func getEventById(id: String) -> Single<Result<EventDetailDto, ErrorResponse>>
+    func registerEvent(eventRegisterDto: EventRegisterDto) -> Single<Moya.Response>
+    func rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String) -> Single<Moya.Response>
 }

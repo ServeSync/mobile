@@ -41,6 +41,15 @@ struct FlatEventDto: Mappable {
         self.address = address
     }
     
+    init(id: String, name: String, startAt: String, endAt: String, address: String, imageUrl: String) {
+        self.id = id
+        self.name = name
+        self.startAt = startAt
+        self.endAt = endAt
+        self.address.fullAddress = address
+        self.imageUrl = imageUrl
+    }
+    
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {

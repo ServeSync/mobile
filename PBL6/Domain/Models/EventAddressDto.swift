@@ -10,16 +10,10 @@ import ObjectMapper
 
 struct EventAddressDto: Mappable {
     var fullAddress: String = ""
-    var longitude: String = ""
-    var latitude: String = ""
+    var longitude: Double = 0
+    var latitude: Double = 0
     
     init() {}
-    
-    init(fullAddress: String, longitude: String, latitude: String) {
-        self.fullAddress = fullAddress
-        self.longitude = longitude
-        self.latitude = latitude
-    }
     
     init?(map: Map) {}
     

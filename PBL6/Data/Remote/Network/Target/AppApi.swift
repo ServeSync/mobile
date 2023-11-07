@@ -26,7 +26,10 @@ enum AppApi {
     
     //MARK: - Event
     case getEventsByStatus(status: EventStatus, page: Int)
+    case searchEvent(keyword: String, page: Int)
     case getEventById(id: String)
+    case registerEvent(eventRegisterDto: EventRegisterDto)
+    case rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String)
 }
 
 extension AppApi: TargetType {
@@ -56,17 +59,21 @@ extension AppApi: TargetType {
             return "auth/forget-password"
         case .postImage:
             return "images"
-        case .getEventsByStatus:
+        case .getEventsByStatus, .searchEvent:
             return "events"
         case .getEventById(let id):
             return "events/\(id)"
+        case .registerEvent:
+            return "events/register"
+        case .rollcallEvent(_, let eventId):
+            return "events/\(eventId)/event-attendances"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword, .postImage:
+        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent:
             return .post
         case .putProfile:
             return .put
@@ -136,6 +143,33 @@ extension AppApi: TargetType {
             let params: [String: Any] = [
                 "Page": page,
                 "EventStatus": status.rawValue
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .registerEvent(let eventRegisterDto):
+            let body: [String: Any] = [
+                "eventRoleId": eventRegisterDto.eventRoleId,
+                "description": eventRegisterDto.description
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .rollcallEvent(let studentAttendEventDto, _):
+            let body: [String: Any] = [
+                "code": studentAttendEventDto.code,
+                "latitude": studentAttendEventDto.latitude,
+                "longitude": studentAttendEventDto.longitude
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .searchEvent(let keyword, let page):
+            let params: [String: Any] = [
+                "Page": page,
+                "Search": keyword
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:

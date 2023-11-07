@@ -9,6 +9,7 @@ import Foundation
 import ObjectMapper
 
 struct EventDetailDto: Mappable {
+    var description: String = ""
     var isRegistered: Bool = false
     var isAttendance: Bool = false
     var roles: [EventRoleDto] = []
@@ -16,7 +17,9 @@ struct EventDetailDto: Mappable {
     var registrationInfos: [EventRegistrationDto] = []
     var attendanceInfos: [EventAttendanceInfoDto] = []
     var capacity: Int = 0
+    var attended: Int = 0
     var registered: Int = 0
+    var approvedRegistered: Int = 0
     var rating: Int = 0
     var activity: BasicEventActivityDto = BasicEventActivityDto()
     var representativeOrganization: BasicOrganizationInEventDto = BasicOrganizationInEventDto()
@@ -28,34 +31,17 @@ struct EventDetailDto: Mappable {
     var endAt: String = ""
     var type: String = ""
     var status: String = ""
+    var calculatedStatus: String = ""
     var address: EventAddressDto = EventAddressDto()
+    var isFavorite: Bool = false
     
-    init(isRegistered: Bool, isAttendance: Bool, roles: [EventRoleDto], organizations: [OrganizationInEventDto], registrationInfos: [EventRegistrationDto], attendanceInfos: [EventAttendanceInfoDto], capacity: Int, registered: Int, rating: Int, activity: BasicEventActivityDto, representativeOrganization: BasicOrganizationInEventDto, id: String, name: String, introduction: String, imageUrl: String, startAt: String, endAt: String, type: String, status: String, address: EventAddressDto) {
-        self.isRegistered = isRegistered
-        self.isAttendance = isAttendance
-        self.roles = roles
-        self.organizations = organizations
-        self.registrationInfos = registrationInfos
-        self.attendanceInfos = attendanceInfos
-        self.capacity = capacity
-        self.registered = registered
-        self.rating = rating
-        self.activity = activity
-        self.representativeOrganization = representativeOrganization
+    init(id: String, name: String, startAt: String, endAt: String, address: String, imageUrl: String) {
         self.id = id
         self.name = name
-        self.introduction = introduction
-        self.imageUrl = imageUrl
         self.startAt = startAt
         self.endAt = endAt
-        self.type = type
-        self.status = status
-        self.address = address
-    }
-    
-    init(id: String, name: String) {
-        self.id = id
-        self.name = name
+        self.address.fullAddress = address
+        self.imageUrl = imageUrl
     }
     
     init() {}
@@ -63,6 +49,7 @@ struct EventDetailDto: Mappable {
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
+        description                 <- map["description"]
         isRegistered                <- map["isRegistered"]
         isAttendance                <- map["isAttendance"]
         roles                       <- map["roles"]
@@ -83,5 +70,8 @@ struct EventDetailDto: Mappable {
         type                        <- map["type"]
         status                      <- map["status"]
         address                     <- map["address"]
+        attended                    <- map["attended"]
+        approvedRegistered          <- map["approvedRegistered"]
+        calculatedStatus            <- map["calculatedStatus"]
     }
 }
