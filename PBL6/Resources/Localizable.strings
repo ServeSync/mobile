@@ -10,6 +10,44 @@
 "general_error_message" = "An error occurred, please try again later.";
 "no_network_connect_message" = "No internet connection.\nPlease check your connection again and try again later";
 
+//Error Description
+
+//MARK: - Auth
+"userNotFound" = "User với username hoặc email đã cung cấp không tồn tại";
+"accountLocked" = "Tài khoản đã bị khóa";
+"incorrectPassword" = "Mật khẩu không đúng";
+"refreshTokenExpired" = "Token làm mới đã hết hạn";
+"refreshTokenNotFound" = "Token làm mới không tồn tại";
+"refreshTokenAlreadyAdded" = "Token làm mới đã được thêm vào người dùng";
+"accessTokenValid" = "Mã truy cập vẫn còn hiệu lực";
+
+//MARK: - Role
+"roleNotFound" = "Role với ID đã cung cấp không tồn tại";
+"permissionAlreadyGranted" = "Đã cấp quyền cho role";
+"permissionNotGrantedYet" = "Chưa cấp quyền cho vai trò";
+"cannotModifyAdminRole" = "Không thể tạo, cập nhật hoặc role 'Admin'";
+
+//MARK: - Permission
+"permissionNotFound" = "Quyền với ID đã cung cấp không tồn tại.";
+
+//MARK: - Student
+"studentRegistered" = "Sinh viên đã đăng kí tham gia sự kiện với vai trò đó";
+"studentAccepted" = "Sinh viên đã được chấp nhận tham gia sự kiện";
+"studentCheckedIn" = "Sinh viên đã điểm danh tham gia sự kiện đó";
+"studentNotApproved" = "Sinh viên không được duyệt tham gia sự kiện";
+"studentNotWithin200mRadius" = "Sinh viên không trong bán kính 200m lúc đăng kí sự kiện";
+"registrationRequestNotApproved" = "Đơn xin đăng ký tham gia sự kiện không ở trạng thái kiểm duyệt";
+"registrationRequestNotFound" = "Đơn xin đăng ký không tồn tại";
+
+//MARK: - EventAttendanceInfo
+
+"duplicateCheckInTime" = "Thời gian điểm danh bị trùng nhau";
+"checkInTimeLessThan15Minutes" = "Thời gian điểm danh diễn ra dưới 15 phút";
+"checkInTimeNotWithinEventTime" = "Thời gian điểm danh không nằm trong thời gian diễn ra sự kiện";
+"checkInTimeFrameNotFound" = "Khung giờ điểm danh không tồn tại";
+"invalidCheckInCode" = "Mã code điểm danh không hợp lệ";
+
+
 // Launch Screen
 "launch_screen_title" = "Student Community Activity Scoring System";
 
