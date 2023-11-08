@@ -12,8 +12,7 @@ protocol BaseError: Error {
 }
 
 enum AppError: String {
-    //MARK: - User
-    case userWithIdNotFound = "User:000001"
+    //MARK: - Auth
     case userNotFound = "User:000002"
     case accountLocked = "User:000003"
     case incorrectPassword = "User:000004"
@@ -30,86 +29,76 @@ enum AppError: String {
     
     //MARK: - Permission
     case permissionNotFound = "Permission:000001"
-    case permissionDontAllowLoginForApp = "Permission:01"
     
     //MARK: - Student
-    case duplicateStudentCode = "Student:000001"
-    case duplicateCitizenIdentifier = "Student:000002"
-    case studentWithIdNotFound = "Student:000003"
-    case duplicateStudentEmail = "Student:000004"
-    case duplicateIdentityIdentifier = "Student:000005"
-    case identityIdentifierNotFound = "Student:000006"
+    case studentRegistered = "Student:000007"
+    case studentAccepted = "Student:000008"
+    case studentCheckedIn = "Student:000009"
+    case studentNotApproved = "Student:000010"
+    case studentNotWithin200mRadius = "Student:000011"
+    case registrationRequestNotApproved = "Student:000012"
+    case registrationRequestNotFound = "Student:000013"
     
-    //MARK: - Faculty
-    case duplicateFacultyName = "Faculty:000001"
-    case facultyNotFound = "Faculty:000002"
-    
-    //MARK: - EducationProgram
-    case duplicateEducationProgramName = "EducationProgram:000001"
-    case educationProgramNotFound = "EducationProgram:000002"
-    
-    //MARK: - HomeRoom
-    case duplicateHomeRoomName = "HomeRoom:000001"
-    case homeRoomNotFound = "HomeRoom:000002"
+    //MARK: - EventAttendanceInfo
+    case duplicateCheckInTime = "EventAttendanceInfo:000001"
+    case checkInTimeLessThan15Minutes = "EventAttendanceInfo:000002"
+    case checkInTimeNotWithinEventTime = "EventAttendanceInfo:000003"
+    case checkInTimeFrameNotFound = "EventAttendanceInfo:000004"
+    case invalidCheckInCode = "EventAttendanceInfo:000005"
     
     var description: String {
         switch self {
         case .userNotFound:
-            return "User with given username or email does not exist"
+            return "userNotFound".localized
         case .accountLocked:
-            return "Account has been locked out"
+            return "accountLocked".localized
         case .incorrectPassword:
-            return "Incorrect password"
+            return "incorrectPassword".localized
         case .refreshTokenExpired:
-            return "Refresh token has already expired"
+            return "refreshTokenExpired".localized
         case .refreshTokenNotFound:
-            return "Refresh token does not exist"
+            return "refreshTokenNotFound".localized
         case .refreshTokenAlreadyAdded:
-            return "Refresh token has already been added to user"
+            return "refreshTokenAlreadyAdded".localized
         case .accessTokenValid:
-            return "Access token is still valid"
+            return "accessTokenValid".localized
         case .roleNotFound:
-            return "Role with given id does not exist"
+            return "roleNotFound".localized
         case .permissionAlreadyGranted:
-            return "Permission has already been granted to role"
+            return "permissionAlreadyGranted".localized
         case .permissionNotGrantedYet:
-            return "Permission has not been granted to role yet"
+            return "permissionNotGrantedYet".localized
         case .cannotModifyAdminRole:
-            return "Cannot create, update, or delete 'Admin' role"
-        case .userWithIdNotFound:
-            return "User with given id does not exist"
+            return "cannotModifyAdminRole".localized
         case .permissionNotFound:
-            return "Permission with given id does not exist"
-        case .permissionDontAllowLoginForApp:
-            return "permission_dont_allow_login_for_appr".localized
-        case .duplicateStudentCode:
-            return "Student with the given code already exists"
-        case .duplicateCitizenIdentifier:
-            return "Student with the given citizen identifier already exists"
-        case .studentWithIdNotFound:
-            return "Student with given id does not exist"
-        case .duplicateStudentEmail:
-            return "Student with the given email has already existed"
-        case .duplicateIdentityIdentifier:
-            return "Identity identifier for student has already existed"
-        case .identityIdentifierNotFound:
-            return "Student with identity identifier does not exist"
-        case .duplicateFacultyName:
-            return "Faculty with the given name has already existed"
-        case .facultyNotFound:
-            return "Faculty with given id does not exist"
-        case .duplicateEducationProgramName:
-            return "Education program with the given name has already existed"
-        case .educationProgramNotFound:
-            return "Education program with given id does not exist"
-        case .duplicateHomeRoomName:
-            return "Home room with the given name has already existed"
-        case .homeRoomNotFound:
-            return "Home room with given id does not exist"
+            return "permissionNotFound".localized
+        case .studentRegistered:
+            return "studentRegistered".localized
+        case .studentAccepted:
+            return "studentAccepted".localized
+        case .studentCheckedIn:
+            return "studentCheckedIn".localized
+        case .studentNotApproved:
+            return "studentNotApproved".localized
+        case .studentNotWithin200mRadius:
+            return "studentNotWithin200mRadius".localized
+        case .registrationRequestNotApproved:
+            return "registrationRequestNotApproved".localized
+        case .registrationRequestNotFound:
+            return "registrationRequestNotFound".localized
+        case .duplicateCheckInTime:
+            return "duplicateCheckInTime".localized
+        case .checkInTimeLessThan15Minutes:
+            return "checkInTimeLessThan15Minutes".localized
+        case .checkInTimeNotWithinEventTime:
+            return "checkInTimeNotWithinEventTime".localized
+        case .checkInTimeFrameNotFound:
+            return "checkInTimeFrameNotFound".localized
+        case .invalidCheckInCode:
+            return "invalidCheckInCode".localized
         }
     }
 }
-
 
 func getErrorDescription(forErrorCode errorCode: String) -> String {
     if let errorCase = AppError(rawValue: errorCode) {

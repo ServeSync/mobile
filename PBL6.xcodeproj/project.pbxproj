@@ -137,6 +137,7 @@
 		3585B32C2AF3F954001CE588 /* RollCallVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B32B2AF3F954001CE588 /* RollCallVM.swift */; };
 		3585B3302AF3FAD8001CE588 /* RoleRegisterItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B32E2AF3FAD8001CE588 /* RoleRegisterItemCell.swift */; };
 		3585B3312AF3FAD8001CE588 /* RoleRegisterItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3585B32F2AF3FAD8001CE588 /* RoleRegisterItemCell.xib */; };
+		3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586F2892AFB6BF00035CA46 /* AppDataSource.swift */; };
 		358869E82AECE1FA00F235E5 /* SpeakerItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869E62AECE1FA00F235E5 /* SpeakerItemCell.swift */; };
 		358869E92AECE1FA00F235E5 /* SpeakerItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 358869E72AECE1FA00F235E5 /* SpeakerItemCell.xib */; };
 		358869EB2AED4E6200F235E5 /* REvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358869EA2AED4E6200F235E5 /* REvent.swift */; };
@@ -185,7 +186,6 @@
 		35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D78BD32AB48D83005B5109 /* LoginVC.xib */; };
 		35E372622AF923AA0078AACF /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372612AF923AA0078AACF /* Bundle.swift */; };
 		35E372642AF924B60078AACF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372632AF924B60078AACF /* UIImage.swift */; };
-		35FA42E92AE18E370001F7B0 /* AppDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42E82AE18E370001F7B0 /* AppDatasource.swift */; };
 		35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */; };
 		35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */; };
 		35FAD7F72AD713D6003381F1 /* CircleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD7F62AD713D6003381F1 /* CircleCharts.swift */; };
@@ -340,6 +340,7 @@
 		3585B32B2AF3F954001CE588 /* RollCallVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollCallVM.swift; sourceTree = "<group>"; };
 		3585B32E2AF3FAD8001CE588 /* RoleRegisterItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRegisterItemCell.swift; sourceTree = "<group>"; };
 		3585B32F2AF3FAD8001CE588 /* RoleRegisterItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleRegisterItemCell.xib; sourceTree = "<group>"; };
+		3586F2892AFB6BF00035CA46 /* AppDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSource.swift; sourceTree = "<group>"; };
 		358869E62AECE1FA00F235E5 /* SpeakerItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerItemCell.swift; sourceTree = "<group>"; };
 		358869E72AECE1FA00F235E5 /* SpeakerItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerItemCell.xib; sourceTree = "<group>"; };
 		358869EA2AED4E6200F235E5 /* REvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REvent.swift; sourceTree = "<group>"; };
@@ -388,7 +389,6 @@
 		35D78BD32AB48D83005B5109 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		35E372612AF923AA0078AACF /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		35E372632AF924B60078AACF /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		35FA42E82AE18E370001F7B0 /* AppDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDatasource.swift; path = "../../../../../../../../Users/truongtuankiet/Documents/Work/I290-Addon-Mod-for-Melon-Playground/ModMelon/Presentation/Scenes/SeeAllItem/AppDatasource.swift"; sourceTree = "<group>"; };
 		35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
 		35FAD7F62AD713D6003381F1 /* CircleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCharts.swift; sourceTree = "<group>"; };
@@ -747,6 +747,7 @@
 		356C7F5E2A9F925C00DDEDDD /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3586F2882AFB6AAD0035CA46 /* AppDataSource */,
 				35281C942ABF43DF00329260 /* Keychain */,
 				35D710FA2AA6168000B71A34 /* JWT */,
 				35D710F92AA6167500B71A34 /* ScopeFunc */,
@@ -756,7 +757,6 @@
 				351C3DBF2AA1ED2C004E82B7 /* Alert */,
 				356C7F8D2A9F989900DDEDDD /* Permission */,
 				356C7F862A9F97DB00DDEDDD /* Rx */,
-				356C7F7C2A9F962600DDEDDD /* DataSource */,
 				3589059A2AC987E3000E687C /* KingFisher.swift */,
 			);
 			path = Helper;
@@ -903,14 +903,6 @@
 			path = PropertyWrapper;
 			sourceTree = "<group>";
 		};
-		356C7F7C2A9F962600DDEDDD /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				35FA42E82AE18E370001F7B0 /* AppDatasource.swift */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
 		356C7F7F2A9F973100DDEDDD /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1053,6 +1045,14 @@
 				3585B32F2AF3FAD8001CE588 /* RoleRegisterItemCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		3586F2882AFB6AAD0035CA46 /* AppDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3586F2892AFB6BF00035CA46 /* AppDataSource.swift */,
+			);
+			path = AppDataSource;
 			sourceTree = "<group>";
 		};
 		358869EC2AED502600F235E5 /* Event */ = {
@@ -1448,6 +1448,7 @@
 				35FAD8712ADB0892003381F1 /* FlatEventDto.swift in Sources */,
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
 				358869F32AEE66E600F235E5 /* OrganizationItemCell.swift in Sources */,
+				3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */,
 				35E372622AF923AA0078AACF /* Bundle.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
 				351C3DBA2AA1E8E6004E82B7 /* HomeVC.swift in Sources */,
@@ -1512,7 +1513,6 @@
 				356C7F7E2A9F96E500DDEDDD /* UserDefaultHelper.swift in Sources */,
 				356C7F8C2A9F986A00DDEDDD /* File.swift in Sources */,
 				351C3DB32AA1E84F004E82B7 /* AppNetworkImp.swift in Sources */,
-				35FA42E92AE18E370001F7B0 /* AppDatasource.swift in Sources */,
 				357192AE2AE81497009C429E /* BasicRepresentativeInEventDto.swift in Sources */,
 				357192A22AE80F05009C429E /* EventType.swift in Sources */,
 				3589059B2AC987E3000E687C /* KingFisher.swift in Sources */,
