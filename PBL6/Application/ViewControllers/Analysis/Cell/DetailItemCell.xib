@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,6 +47,11 @@
                             <constraint firstItem="PM3-GT-lLE" firstAttribute="centerY" secondItem="UkV-9b-eFl" secondAttribute="centerY" id="dfn-mt-7hB"/>
                             <constraint firstAttribute="trailing" secondItem="LhD-m5-iUK" secondAttribute="trailing" constant="6" id="rVz-7K-zNy"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -57,6 +62,10 @@
                 <constraint firstAttribute="bottom" secondItem="UkV-9b-eFl" secondAttribute="bottom" id="ksj-5E-bdQ"/>
                 <constraint firstItem="UkV-9b-eFl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uSu-q1-Yw8"/>
             </constraints>
+            <connections>
+                <outlet property="eventNameLabel" destination="PM3-GT-lLE" id="C5z-Wb-i2L"/>
+                <outlet property="scoreLabel" destination="LhD-m5-iUK" id="MIj-Nr-8H2"/>
+            </connections>
             <point key="canvasLocation" x="82" y="20"/>
         </collectionViewCell>
     </objects>

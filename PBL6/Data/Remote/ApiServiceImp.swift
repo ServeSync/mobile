@@ -35,7 +35,7 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestWithoutMapping(.forgetPassword(requestForgetPasswordDto: requestForgetPasswordDto))
     }
     
-    //MARK: - Profile
+    //MARK: - Students
     func profileInfo() -> RxSwift.Single<Result<StudentDetailDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.profileDetail, successType: StudentDetailDto.self, errorType: ErrorResponse.self)
     }
@@ -50,6 +50,14 @@ final class ApiServiceImp: ApiService {
     
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> RxSwift.Single<Moya.Response> {
         return appNetwork.requestWithoutMappingWithRefreshToken(.putProfile(studentEditProfileDto: studentEditProfileDto))
+    }
+    
+    func getEducationProgam() -> Single<Result<StudentEducationProgramDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getEducationProgam, successType: StudentEducationProgramDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getAttendanceEvents(page: page), successType: StudentAttendanceEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
     
     //MARK: - Event

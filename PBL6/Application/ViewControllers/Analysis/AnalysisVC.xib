@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,6 +24,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnalysisVC" customModule="PBL6" customModuleProvider="target">
             <connections>
                 <outlet property="charts" destination="qZp-od-NMn" id="eS6-wv-8QN"/>
+                <outlet property="collectionView" destination="fEu-Kd-qf4" id="IeR-3l-J6w"/>
+                <outlet property="educationProgramNameLabel" destination="e51-10-hLI" id="a7H-g2-5DE"/>
+                <outlet property="gainScoreLabel" destination="piw-i8-ClB" id="snn-iE-9rQ"/>
+                <outlet property="nameLabel" destination="SlF-s0-pHS" id="QG8-1b-3qT"/>
+                <outlet property="numberOfEventsLabel" destination="amh-3e-NVv" id="Pdu-Bs-C93"/>
+                <outlet property="percentageLabel" destination="6ly-tJ-F4J" id="lkd-UY-TKr"/>
+                <outlet property="requiredActivityScoreLabel" destination="4aa-Kl-2qF" id="ykc-DM-gBe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -218,15 +225,29 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="detail"/>
                             </userDefinedRuntimeAttributes>
                         </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fEu-Kd-qf4">
+                            <rect key="frame" x="16" y="599.66666666666663" width="361" height="202.33333333333337"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="J6y-W8-Xuw">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="To9-kZ-3Da" secondAttribute="trailing" id="1dx-rW-ndZ"/>
                         <constraint firstItem="To9-kZ-3Da" firstAttribute="top" secondItem="bcb-Yg-0Ea" secondAttribute="top" id="2PF-xP-zhe"/>
+                        <constraint firstAttribute="trailing" secondItem="fEu-Kd-qf4" secondAttribute="trailing" constant="16" id="7ux-zy-bJa"/>
                         <constraint firstItem="hVz-bz-PqT" firstAttribute="top" secondItem="To9-kZ-3Da" secondAttribute="bottom" constant="32" id="AOL-HF-7Jo"/>
                         <constraint firstAttribute="trailing" secondItem="hVz-bz-PqT" secondAttribute="trailing" constant="24" id="C1A-ij-jPd"/>
                         <constraint firstItem="hVz-bz-PqT" firstAttribute="leading" secondItem="bcb-Yg-0Ea" secondAttribute="leading" constant="24" id="C32-0U-S8o"/>
                         <constraint firstItem="kJa-80-g3p" firstAttribute="leading" secondItem="bcb-Yg-0Ea" secondAttribute="leading" constant="24" id="EJi-V7-djf"/>
+                        <constraint firstItem="fEu-Kd-qf4" firstAttribute="leading" secondItem="bcb-Yg-0Ea" secondAttribute="leading" constant="16" id="Jau-01-n3F"/>
+                        <constraint firstAttribute="bottom" secondItem="fEu-Kd-qf4" secondAttribute="bottom" constant="16" id="NUn-Ys-VYY"/>
+                        <constraint firstItem="fEu-Kd-qf4" firstAttribute="top" secondItem="kJa-80-g3p" secondAttribute="bottom" constant="9" id="P7z-PC-TC3"/>
                         <constraint firstItem="6li-ga-9hC" firstAttribute="top" secondItem="hVz-bz-PqT" secondAttribute="bottom" constant="24" id="VZ9-Z1-sTJ"/>
                         <constraint firstItem="qZp-od-NMn" firstAttribute="centerX" secondItem="bcb-Yg-0Ea" secondAttribute="centerX" id="WPF-5G-dMz"/>
                         <constraint firstItem="qZp-od-NMn" firstAttribute="top" secondItem="6li-ga-9hC" secondAttribute="bottom" constant="32" id="aqU-Ak-piw"/>

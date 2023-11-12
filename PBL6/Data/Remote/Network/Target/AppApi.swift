@@ -24,6 +24,10 @@ enum AppApi {
     case putProfile(studentEditProfileDto: StudentEditProfileDto)
     case postImage(image: UIImage)
     
+    //MARK: - Student
+    case getEducationProgam
+    case getAttendanceEvents(page: Int)
+    
     //MARK: - Event
     case getEventsByStatus(status: EventStatus, page: Int)
     case searchEvent(keyword: String, page: Int)
@@ -67,6 +71,10 @@ extension AppApi: TargetType {
             return "events/register"
         case .rollcallEvent(_, let eventId):
             return "events/\(eventId)/event-attendances"
+        case .getEducationProgam:
+            return "students/\(UserDefaultHelper.shared.studentId!)/education-program"
+        case .getAttendanceEvents:
+            return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events"
         }
     }
     
@@ -170,6 +178,12 @@ extension AppApi: TargetType {
             let params: [String: Any] = [
                 "Page": page,
                 "Search": keyword
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .getAttendanceEvents(let page):
+            let params: [String: Any] = [
+                "Page": page,
+                "Size": 10
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:

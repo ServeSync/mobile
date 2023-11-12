@@ -20,6 +20,7 @@ class LoginVM: BaseVM {
         
         UserDefaultHelper.shared.accessToken = nil
         UserDefaultHelper.shared.refreshToken = nil
+        UserDefaultHelper.shared.studentId = nil
     }
     
     func handleSignIn() -> Observable<HandleStatus> {
@@ -32,6 +33,7 @@ class LoginVM: BaseVM {
                 case .success(let data):
                     UserDefaultHelper.shared.accessToken = data.accessToken
                     UserDefaultHelper.shared.refreshToken = data.refreshToken
+                    UserDefaultHelper.shared.studentId = JWTHelper.shared.decodeAndMap(jwtToken: data.accessToken, to: TokenInfo.self)?.studentId
                     return .just(.Success)
                 case .failure(let error):
                     return .just(.Error(error: error))
