@@ -17,11 +17,13 @@ protocol ApiService {
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
     func forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto) -> Single<Moya.Response>
     
-    //MARK: - Event
+    //MARK: - Student
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>>
     func profileInfo() -> Single<Result<StudentDetailDto, ErrorResponse>>
     func postImage(image: UIImage) -> Single<Result<ImageResponse, ErrorResponse>>
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> Single<Moya.Response>
+    func getEducationProgam() -> Single<Result<StudentEducationProgramDto, ErrorResponse>>
+    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>>
     
     //MARK: - Event
     func getEventsByStatus(status: EventStatus, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>

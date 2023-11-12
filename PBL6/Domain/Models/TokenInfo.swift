@@ -9,17 +9,19 @@ import Foundation
 import ObjectMapper
 
 struct TokenInfo: Mappable {
-    var userID: String = ""
+    var userId: String = ""
     var userName: String = ""
     var email: String = ""
     var exp: Int = 0
+    var studentId: String = ""
     
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        userID <- map["UserId"]
+        userId <- map["UserId"]
         userName <- map["UserName"]
-        email <- map["email"]
+        email <- map["Email"]
         exp <- map["exp"]
+        studentId <- map["StudentId"]
     }
 }

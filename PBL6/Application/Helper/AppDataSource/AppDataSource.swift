@@ -73,3 +73,14 @@ func getEventRoleItemDataSource() -> RxCollectionViewSectionedReloadDataSource<S
         }
     )
 }
+
+func getAnalysisEventItemDataSource() -> RxCollectionViewSectionedReloadDataSource<SectionModel<Void, StudentAttendanceEventDto>> {
+    return RxCollectionViewSectionedReloadDataSource<SectionModel<Void, StudentAttendanceEventDto>> (
+        configureCell: {
+            (dataSource, collectionView, indexPath, item) -> UICollectionViewCell in
+            return collectionView.dequeueReuseable(ofType: DetailItemCell.self, indexPath: indexPath).apply {
+                $0.configure(item)
+            }
+        }
+    )
+}

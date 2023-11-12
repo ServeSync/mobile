@@ -67,6 +67,11 @@
 		353D2ACA2AC9D19C00C26BA3 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353D2AC82AC9D19C00C26BA3 /* EditProfileVC.xib */; };
 		353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353D2ACB2AC9D1A700C26BA3 /* EditProfileVM.swift */; };
 		35545EA82ACB351700734A68 /* StudentEditProfileDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */; };
+		355D72B72B0079B20036AE59 /* StudentEducationProgramDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72B62B0079B20036AE59 /* StudentEducationProgramDto.swift */; };
+		355D72BA2B00BB4F0036AE59 /* DateFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72B92B00BB4F0036AE59 /* DateFormatHelper.swift */; };
+		355D72BC2B00C21B0036AE59 /* StudentAttendanceEventDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */; };
+		355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */; };
+		355D72C12B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */; };
 		35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */; };
 		35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */; };
 		35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */; };
@@ -268,6 +273,11 @@
 		353D2AC82AC9D19C00C26BA3 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		353D2ACB2AC9D1A700C26BA3 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
 		35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEditProfileDto.swift; sourceTree = "<group>"; };
+		355D72B62B0079B20036AE59 /* StudentEducationProgramDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEducationProgramDto.swift; sourceTree = "<group>"; };
+		355D72B92B00BB4F0036AE59 /* DateFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatHelper.swift; sourceTree = "<group>"; };
+		355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceEventDto.swift; sourceTree = "<group>"; };
+		355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActivityDto.swift; sourceTree = "<group>"; };
+		355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceEventDtoPagedResultDto.swift; sourceTree = "<group>"; };
 		35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -578,6 +588,14 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
+		355D72B82B00BB360036AE59 /* DateFormat */ = {
+			isa = PBXGroup;
+			children = (
+				355D72B92B00BB4F0036AE59 /* DateFormatHelper.swift */,
+			);
+			path = DateFormat;
+			sourceTree = "<group>";
+		};
 		35635D122AAE2A2D0083E3DB /* Open-Sans */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +765,7 @@
 		356C7F5E2A9F925C00DDEDDD /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				355D72B82B00BB360036AE59 /* DateFormat */,
 				3586F2882AFB6AAD0035CA46 /* AppDataSource */,
 				35281C942ABF43DF00329260 /* Keychain */,
 				35D710FA2AA6168000B71A34 /* JWT */,
@@ -880,6 +899,10 @@
 				357192B12AE8199F009C429E /* EventAttendanceInfoDto.swift */,
 				3512C1A02AF5E893009DB01A /* EventRegisterDto.swift */,
 				3512C1A22AF60FBB009DB01A /* StudentAttendEventDto.swift */,
+				355D72B62B0079B20036AE59 /* StudentEducationProgramDto.swift */,
+				355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */,
+				355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */,
+				355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1448,6 +1471,7 @@
 				35FAD8712ADB0892003381F1 /* FlatEventDto.swift in Sources */,
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
 				358869F32AEE66E600F235E5 /* OrganizationItemCell.swift in Sources */,
+				355D72BC2B00C21B0036AE59 /* StudentAttendanceEventDto.swift in Sources */,
 				3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */,
 				35E372622AF923AA0078AACF /* Bundle.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
@@ -1464,6 +1488,7 @@
 				351C3DDE2AA1F1ED004E82B7 /* ReachabilityHelper.swift in Sources */,
 				357192B72AE8FAEA009C429E /* RoleItemCell.swift in Sources */,
 				353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */,
+				355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */,
 				356C7FBF2A9F9C5500DDEDDD /* PostDAOImp.swift in Sources */,
 				3585B31B2AF3F3BE001CE588 /* ButtonActionStatus.swift in Sources */,
 				35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */,
@@ -1536,6 +1561,7 @@
 				356C7FA62A9F9B2700DDEDDD /* Post.swift in Sources */,
 				351C3DD72AA1F130004E82B7 /* String.swift in Sources */,
 				35FAD86D2ADB05FC003381F1 /* HandleStatus.swift in Sources */,
+				355D72BA2B00BB4F0036AE59 /* DateFormatHelper.swift in Sources */,
 				358905662AC75429000E687C /* AnalysisVC.swift in Sources */,
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,
 				35FAD85C2AD99AF4003381F1 /* MyEventCell.swift in Sources */,
@@ -1547,6 +1573,7 @@
 				356C7FA32A9F9AAB00DDEDDD /* Localizable.strings in Sources */,
 				351C3DB72AA1E89E004E82B7 /* ApiServiceImp.swift in Sources */,
 				351C3DF22AA33B6C004E82B7 /* BaseError.swift in Sources */,
+				355D72B72B0079B20036AE59 /* StudentEducationProgramDto.swift in Sources */,
 				35FAD8612AD9A4F2003381F1 /* EventDetailVC.swift in Sources */,
 				351C3DF42AA33BA8004E82B7 /* LoggerUtils.swift in Sources */,
 				353D2AC92AC9D19C00C26BA3 /* EditProfileVC.swift in Sources */,
@@ -1583,6 +1610,7 @@
 				351C3DC52AA1EF17004E82B7 /* AlertAction.swift in Sources */,
 				351C3DC72AA1EF33004E82B7 /* AlertConstants.swift in Sources */,
 				356C7FAF2A9F9BAB00DDEDDD /* Reactive.swift in Sources */,
+				355D72C12B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift in Sources */,
 				3589057F2AC7DD03000E687C /* ProfileVM.swift in Sources */,
 				353233802AAF714300032B72 /* WelcomeSlideCell.swift in Sources */,
 				357192A52AE80F9D009C429E /* BasicEventActivityDto.swift in Sources */,

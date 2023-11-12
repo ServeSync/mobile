@@ -24,17 +24,12 @@ class MyEventCell: BaseCollectionViewCell {
     func configure(_ item: FlatEventDto) {
         eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
         nameEventLabel.text = item.name
-        var date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
-        var dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
-        var timeString = FormatUtils.formatDateToString(date, formatterString: "HH:mm")
-        dateStartLabel.text = dateString
-        timeStartLabel.text = timeString
+
+        dateStartLabel.text = convertDateFormat(item.startAt, dateNeedFormat: "dd/MM/yyyy", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+        timeStartLabel.text = convertDateFormat(item.startAt, dateNeedFormat: "HH:mm", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
         
-        date = FormatUtils.formatStringToDate(item.endAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
-        dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
-        timeString = FormatUtils.formatDateToString(date, formatterString: "HH:mm")
-        dateEndLabel.text = dateString
-        timeEndLabel.text = timeString
+        dateEndLabel.text = convertDateFormat(item.endAt, dateNeedFormat: "dd/MM/yyyy", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+        timeEndLabel.text = convertDateFormat(item.endAt, dateNeedFormat: "HH:mm", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
         placeLabel.text = item.address.fullAddress
     }
 

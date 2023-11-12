@@ -136,6 +136,7 @@
 //Analysis
 "analysis" = "Phân tích";
 "detail" = "Chi tiết";
+"no_attendane_student" = "Bạn chưa tham dự sự kiện nào";
 
 //MyEvent
 "my_event" = "Sự kiện của tôi";
@@ -151,7 +152,7 @@
 "complain" = "Khiếu nại";
 "roll_call" = "Điểm danh";
 "register" = "Đăng ký";
-"people" = "Người";
+"people" = "người";
 
 //Popup Message
 "popup_title" = "Đăng ký tham gia hoạt động?";

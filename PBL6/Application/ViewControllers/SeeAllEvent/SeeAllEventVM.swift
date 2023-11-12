@@ -9,11 +9,9 @@ import Foundation
 import RxRelay
 import RxSwift
 
-private typealias LoadDataTuple = (isRefresh: Bool, page: Int)
 
 class SeeAllEventVM: BaseVM {
     var eventStatus: EventStatus?
-    private let loadDataTrigger = BehaviorRelay<LoadDataTuple>(value: (true, 0))
     
     var eventsR = PublishRelay<[FlatEventDto]>()
     private var events = [FlatEventDto]()

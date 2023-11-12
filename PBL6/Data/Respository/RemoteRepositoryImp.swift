@@ -10,7 +10,6 @@ import RxSwift
 import Moya
 
 final class RemoteRepositoryImp: RemoteRepository {
-    
     @Inject
     var apiService: ApiService!
     
@@ -31,7 +30,7 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.forgetPassword(requestForgetPasswordDto: requestForgetPassword)
     }
     
-    //MARK: - Profile
+    //MARK: - Student
     func getProfileDetail() -> Single<Result<StudentDetailDto, ErrorResponse>> {
         return apiService.profileInfo()
     }
@@ -46,6 +45,14 @@ final class RemoteRepositoryImp: RemoteRepository {
     
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> RxSwift.Single<Moya.Response> {
         return apiService.editProfile(studentEditProfileDto: studentEditProfileDto)
+    }
+    
+    func getEducationProgam() -> Single<Result<StudentEducationProgramDto, ErrorResponse>> {
+        return apiService.getEducationProgam()
+    }
+    
+    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getAttendanceEvents(page: page)
     }
     
     //MARK: - Event

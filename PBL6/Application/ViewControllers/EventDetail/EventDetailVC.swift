@@ -50,6 +50,12 @@ class EventDetailVC: BaseVC<EventDetailVM> {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var favoriteImage: UIImageView!
     
+    @IBOutlet weak var contentViewHC: NSLayoutConstraint!
+    @IBOutlet weak var actionButtonHC: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,12 +69,12 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                     if error?.code == Configs.Server.errorCodeRequiresLogin {
                         AppDelegate.shared().windowMainConfig(vc: LoginVC())
                     } else {
-                        viewModel.messageData.accept(AlertMessage(type: .error, description: getErrorDescription(forErrorCode: error!.code)))
+                        viewModel.messageData.accept(AlertMessage(type: .error,
+                                                                  description: getErrorDescription(forErrorCode: error!.code)))
                     }
                 }
             })
             .disposed(by: bag)
-        
     }
     
     init(eventId: String) {
@@ -91,17 +97,25 @@ class EventDetailVC: BaseVC<EventDetailVM> {
     override func initViews() {
         super.initViews()
         
+        
+        contentView.roundDifferentCorners(topLeft: 24, topRight: 24)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         generalView.isHidden = false
         detailView.isHidden = true
-        contentView.roundDifferentCorners(topLeft: 24, topRight: 24)
-        contentView.roundDifferentCorners(topLeft: 24, topRight: 24)
-        
-        if let topConstraint = actionButton.constraints.first(where: { $0.firstAttribute == .top && $0.secondAttribute == .bottom && $0.secondItem === detailView }) {
-            print("delete detailViewC@@@")
-            actionButton.superview?.removeConstraint(topConstraint)
-        }
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.contentViewHC.constant = self.actionButton.frame.height + 72 + self.generalView.frame.height
+        self.contentView.setNeedsLayout()
+    }
+    
+    
     override func addEventForViews() {
         super.addEventForViews()
         
@@ -115,46 +129,28 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         detailButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
-                generalView.isHidden = true
-                detailView.isHidden = false
                 
-                if let topConstraint = self.actionButton.constraints.first(where: { $0.firstAttribute == .top && $0.secondAttribute == .bottom && $0.secondItem === self.generalView }) {
-                    self.actionButton.superview?.removeConstraint(topConstraint)
-                }
-                
-                let constraint = NSLayoutConstraint(item: actionButton as Any,
-                                                    attribute: .top,
-                                                    relatedBy: .equal,
-                                                    toItem: detailView,
-                                                    attribute: .bottom,
-                                                    multiplier: 1,
-                                                    constant: 40)
-                actionButton.superview?.addConstraint(constraint)
-                actionButton.superview?.layoutIfNeeded()
                 detailButton.setTitleColor("195E8E".toUIColor(), for: .normal)
                 generalInforButton.setTitleColor("A0A2A4".toUIColor(), for: .normal)
+                
+                let contentOffset = CGPoint(x: 0, y: -self.scrollView.contentInset.top)
+                self.scrollView.setContentOffset(contentOffset, animated: false)
+                self.detailView.isHidden = false
+                self.generalView.isHidden = true
+                self.contentViewHC.constant = self.actionButton.frame.height + 72 + self.detailView.frame.height
+                
+                print(self.contentViewHC.constant, "hihi")
             })
             .disposed(by: bag)
         
         generalInforButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
+                
                 generalView.isHidden = false
                 detailView.isHidden = true
+                contentViewHC.constant = actionButton.frame.height + 72 + generalView.frame.height
                 
-                if let topConstraint = self.actionButton.constraints.first(where: { $0.firstAttribute == .top && $0.secondAttribute == .bottom && $0.secondItem === self.detailView }) {
-                    self.actionButton.superview?.removeConstraint(topConstraint)
-                }
-                
-                let constraint = NSLayoutConstraint(item: actionButton as Any,
-                                                    attribute: .top,
-                                                    relatedBy: .equal,
-                                                    toItem: generalView,
-                                                    attribute: .bottom,
-                                                    multiplier: 1,
-                                                    constant: 40)
-                actionButton.superview?.addConstraint(constraint)
-                actionButton.superview?.layoutIfNeeded()
                 generalInforButton.setTitleColor("195E8E".toUIColor(), for: .normal)
                 detailButton.setTitleColor("A0A2A4".toUIColor(), for: .normal)
             })
@@ -167,7 +163,6 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                 case .complain:
                     print("")
                 case .register:
-                    print(viewModel.eventDetailItem.roles, "@@@@")
                     let vc = RegisterVC(data: viewModel.eventDetailItem.roles)
                     vc.modalPresentationStyle = .overFullScreen
                     vc.delegate = self
@@ -233,28 +228,35 @@ class EventDetailVC: BaseVC<EventDetailVM> {
 
 private extension EventDetailVC {
     private func updateView(with item: EventDetailDto) {
-        eventNameLabel.text = item.name
-        typeEventLabel.text = item.type.lowercased().localized
-        introductionLabel.text = item.introduction
-        statusEventLabel.text = item.status.lowercased().localized
-        capacityLabel.text = "\(item.capacity)\("people".localized)"
-        timeStartLabel.text = convertDateString(inputDate: item.startAt)
-        timeEndStart.text = convertDateString(inputDate: item.endAt)
-        placeLabel.text = item.address.fullAddress
-        registeredQuantityLabel.text = "\(item.registered)"
-        
-        eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
-        
-        nameOrganizationLabel.text = item.representativeOrganization.name
-        descriptionLabel.text = item.description
-        nameOrganizationLabel.text = item.representativeOrganization.name
-        positionLabel.text = item.representativeOrganization.address
-        emailLabel.text = item.representativeOrganization.email
-        phoneLabel.text = item.representativeOrganization.phoneNumber
-        loadImageFromURL(from: item.representativeOrganization.imageUrl, into: representativeImage)
-        favoriteImage.isHighlighted = item.isFavorite
-        updateStatusButton(item)
-        updateActionButton(item)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            eventNameLabel.text = item.name
+            typeEventLabel.text = item.type.lowercased().localized
+            introductionLabel.text = item.introduction
+            statusEventLabel.text = item.status.lowercased().localized
+            capacityLabel.text = "\(item.capacity) \("people".localized)"
+//            timeStartLabel.text = convertDateString(inputDate: item.startAt)
+//            timeEndStart.text = convertDateString(inputDate: item.endAt)
+            
+            timeStartLabel.text = convertDateFormat(item.startAt)
+            timeEndStart.text = convertDateFormat(item.endAt)
+            placeLabel.text = item.address.fullAddress
+            registeredQuantityLabel.text = "\(item.registered)"
+            
+            eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
+            
+            nameOrganizationLabel.text = item.representativeOrganization.name
+            descriptionLabel.text = item.description
+            nameOrganizationLabel.text = item.representativeOrganization.name
+            positionLabel.text = item.representativeOrganization.address
+            emailLabel.text = item.representativeOrganization.email
+            phoneLabel.text = item.representativeOrganization.phoneNumber
+            loadImageFromURL(from: item.representativeOrganization.imageUrl, into: representativeImage)
+            favoriteImage.isHighlighted = item.isFavorite
+            updateStatusButton(item)
+            updateActionButton(item)
+            detailView.setNeedsDisplay()
+        }
     }
     
     private func updateStatusButton(_ item: EventDetailDto) {
@@ -295,17 +297,15 @@ private extension EventDetailVC {
             actionButton.backgroundColor = "#24B720".toUIColor()
             viewModel.updateButtonActionStatus(status: .register)
         } else {
-            actionButton.gone()
+            actionButton.isHidden = true
+            actionButtonHC.constant = 0
             viewModel.updateButtonActionStatus(status: .none)
         }
     }
 }
 
-extension EventDetailVC {
-    func convertDateString(inputDate: String) -> String {
-        let date = FormatUtils.formatStringToDate(inputDate, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
-        return FormatUtils.formatDateToString(date, formatterString: "HH:mm dd/MM/yyyy")
-    }
+extension EventDetailVC {    
+
 }
 
 extension EventDetailVC: RegisterEventDelegate {

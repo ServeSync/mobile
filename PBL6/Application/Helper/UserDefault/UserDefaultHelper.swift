@@ -11,6 +11,7 @@ private enum UserDefaultKey {
     static let firstLaunchApp = "firstLaunchApp"
     static let accessToken = "accessToken"
     static let refreshToken = "refreshToken"
+    static let studentId = "studentId"
 }
 
 class UserDefaultHelper {
@@ -46,6 +47,15 @@ class UserDefaultHelper {
         }
         get {
             return UserDefaults.standard.string(forKey: UserDefaultKey.refreshToken)
+        }
+    }
+    
+    var studentId: String? {
+        set(newValue) {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.studentId)
+        }
+        get {
+            return UserDefaults.standard.string(forKey: UserDefaultKey.studentId)
         }
     }
 }
