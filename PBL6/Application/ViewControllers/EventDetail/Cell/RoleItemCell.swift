@@ -20,8 +20,13 @@ class RoleItemCell: BaseCollectionViewCell {
     }
 
     func configure(_ item: EventRoleDto) {
-        nameLabel.text = item.name
-        descriptionLabel.text = item.description
+        nameLabel.text = item.name        
+        if let attributedString = NSAttributedString(html: item.description) {
+            let modifiedString = attributedString.string.trimmingCharacters(in: .whitespacesAndNewlines)
+            descriptionLabel.text = modifiedString
+        } else {
+            descriptionLabel.text = item.description
+        }
         quantityLabel.text = "\(item.quantity)"
         scoreLabel.text = "\(item.score)"
     }

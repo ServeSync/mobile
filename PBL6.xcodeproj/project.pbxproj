@@ -72,6 +72,7 @@
 		355D72BC2B00C21B0036AE59 /* StudentAttendanceEventDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */; };
 		355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */; };
 		355D72C12B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */; };
+		355D72C32B013F610036AE59 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72C22B013F610036AE59 /* NSAttributedString.swift */; };
 		35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */; };
 		35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */; };
 		35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */; };
@@ -134,12 +135,9 @@
 		357192B72AE8FAEA009C429E /* RoleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357192B52AE8FAEA009C429E /* RoleItemCell.swift */; };
 		357192B82AE8FAEA009C429E /* RoleItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 357192B62AE8FAEA009C429E /* RoleItemCell.xib */; };
 		3585B31B2AF3F3BE001CE588 /* ButtonActionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B31A2AF3F3BE001CE588 /* ButtonActionStatus.swift */; };
-		3585B31F2AF3F77A001CE588 /* RollCallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B31D2AF3F77A001CE588 /* RollCallVC.swift */; };
-		3585B3202AF3F77A001CE588 /* RollCallVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3585B31E2AF3F77A001CE588 /* RollCallVC.xib */; };
 		3585B3272AF3F921001CE588 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B3252AF3F921001CE588 /* RegisterVC.swift */; };
 		3585B3282AF3F921001CE588 /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3585B3262AF3F921001CE588 /* RegisterVC.xib */; };
 		3585B32A2AF3F931001CE588 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B3292AF3F931001CE588 /* RegisterVM.swift */; };
-		3585B32C2AF3F954001CE588 /* RollCallVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B32B2AF3F954001CE588 /* RollCallVM.swift */; };
 		3585B3302AF3FAD8001CE588 /* RoleRegisterItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585B32E2AF3FAD8001CE588 /* RoleRegisterItemCell.swift */; };
 		3585B3312AF3FAD8001CE588 /* RoleRegisterItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3585B32F2AF3FAD8001CE588 /* RoleRegisterItemCell.xib */; };
 		3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586F2892AFB6BF00035CA46 /* AppDataSource.swift */; };
@@ -278,6 +276,7 @@
 		355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceEventDto.swift; sourceTree = "<group>"; };
 		355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActivityDto.swift; sourceTree = "<group>"; };
 		355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceEventDtoPagedResultDto.swift; sourceTree = "<group>"; };
+		355D72C22B013F610036AE59 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -342,12 +341,9 @@
 		357192B52AE8FAEA009C429E /* RoleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleItemCell.swift; sourceTree = "<group>"; };
 		357192B62AE8FAEA009C429E /* RoleItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleItemCell.xib; sourceTree = "<group>"; };
 		3585B31A2AF3F3BE001CE588 /* ButtonActionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonActionStatus.swift; sourceTree = "<group>"; };
-		3585B31D2AF3F77A001CE588 /* RollCallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollCallVC.swift; sourceTree = "<group>"; };
-		3585B31E2AF3F77A001CE588 /* RollCallVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RollCallVC.xib; sourceTree = "<group>"; };
 		3585B3252AF3F921001CE588 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		3585B3262AF3F921001CE588 /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		3585B3292AF3F931001CE588 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
-		3585B32B2AF3F954001CE588 /* RollCallVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollCallVM.swift; sourceTree = "<group>"; };
 		3585B32E2AF3FAD8001CE588 /* RoleRegisterItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleRegisterItemCell.swift; sourceTree = "<group>"; };
 		3585B32F2AF3FAD8001CE588 /* RoleRegisterItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleRegisterItemCell.xib; sourceTree = "<group>"; };
 		3586F2892AFB6BF00035CA46 /* AppDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSource.swift; sourceTree = "<group>"; };
@@ -733,7 +729,6 @@
 			children = (
 				3512C1A52AF796A9009DB01A /* Search */,
 				3585B3222AF3F8A2001CE588 /* Register */,
-				3585B31C2AF3F73A001CE588 /* RollCall */,
 				35FAD8C92ADDA5D6003381F1 /* SeeAllEvent */,
 				35FAD85E2AD9A4CF003381F1 /* EventDetail */,
 				353D2AC62AC9D13200C26BA3 /* EditProfile */,
@@ -796,6 +791,7 @@
 				35D15CEC2AF2AD4D00DA8E88 /* UIImageView.swift */,
 				35E372612AF923AA0078AACF /* Bundle.swift */,
 				35E372632AF924B60078AACF /* UIImage.swift */,
+				355D72C22B013F610036AE59 /* NSAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1038,16 +1034,6 @@
 				358869F22AEE66E600F235E5 /* OrganizationItemCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		3585B31C2AF3F73A001CE588 /* RollCall */ = {
-			isa = PBXGroup;
-			children = (
-				3585B31D2AF3F77A001CE588 /* RollCallVC.swift */,
-				3585B31E2AF3F77A001CE588 /* RollCallVC.xib */,
-				3585B32B2AF3F954001CE588 /* RollCallVM.swift */,
-			);
-			path = RollCall;
 			sourceTree = "<group>";
 		};
 		3585B3222AF3F8A2001CE588 /* Register */ = {
@@ -1386,7 +1372,6 @@
 				358905672AC75429000E687C /* AnalysisVC.xib in Resources */,
 				351C3DC32AA1ED44004E82B7 /* AlertVC.xib in Resources */,
 				3588F6702AD46C5B00D8DFF5 /* EventItemCell.xib in Resources */,
-				3585B3202AF3F77A001CE588 /* RollCallVC.xib in Resources */,
 				35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */,
 				3585B3312AF3FAD8001CE588 /* RoleRegisterItemCell.xib in Resources */,
 				357192B82AE8FAEA009C429E /* RoleItemCell.xib in Resources */,
@@ -1489,6 +1474,7 @@
 				357192B72AE8FAEA009C429E /* RoleItemCell.swift in Sources */,
 				353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */,
 				355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */,
+				355D72C32B013F610036AE59 /* NSAttributedString.swift in Sources */,
 				356C7FBF2A9F9C5500DDEDDD /* PostDAOImp.swift in Sources */,
 				3585B31B2AF3F3BE001CE588 /* ButtonActionStatus.swift in Sources */,
 				35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */,
@@ -1541,14 +1527,12 @@
 				357192AE2AE81497009C429E /* BasicRepresentativeInEventDto.swift in Sources */,
 				357192A22AE80F05009C429E /* EventType.swift in Sources */,
 				3589059B2AC987E3000E687C /* KingFisher.swift in Sources */,
-				3585B32C2AF3F954001CE588 /* RollCallVM.swift in Sources */,
 				3585B3272AF3F921001CE588 /* RegisterVC.swift in Sources */,
 				358905972AC9705B000E687C /* HomeRoomDto.swift in Sources */,
 				357192A72AE8104A009C429E /* BasicOrganizationInEventDto.swift in Sources */,
 				356C7F882A9F97E400DDEDDD /* ActivityIndicator.swift in Sources */,
 				356D457B2AB60D39004227A1 /* AuthCredentialDto.swift in Sources */,
 				356C7F9F2A9F9A0400DDEDDD /* BaseVC.swift in Sources */,
-				3585B31F2AF3F77A001CE588 /* RollCallVC.swift in Sources */,
 				35281C932ABEB2F900329260 /* UserInfoDto.swift in Sources */,
 				35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */,
 				3589057C2AC7DCF8000E687C /* ProfileVC.swift in Sources */,

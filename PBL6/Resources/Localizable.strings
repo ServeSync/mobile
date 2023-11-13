@@ -169,6 +169,8 @@
 "location_permission_is_not_granted_message" = "You need to go to Settings, allow Location access permission to be able to continue using this function.";
 "camera_permission_is_not_granted_title" = "Camera access permission is not granted";
 "camera_permission_is_not_granted_message" = "You need to go to Settings, allow Camera access permission to be able to continue using this function.";
-
+"roll_call_success" = "Điểm danh thành công";
+"roll_call_failed" = "Điểm danh thất bại!
+Vui lòng thử lại";
 //Search
 "search" = "Tìm kiếm";
