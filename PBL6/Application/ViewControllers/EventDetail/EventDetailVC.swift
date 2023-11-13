@@ -7,6 +7,8 @@
 
 import UIKit
 import RxDataSources
+import SwiftQRScanner
+import CoreLocation
 
 class EventDetailVC: BaseVC<EventDetailVM> {
     
@@ -53,8 +55,12 @@ class EventDetailVC: BaseVC<EventDetailVM> {
     @IBOutlet weak var contentViewHC: NSLayoutConstraint!
     @IBOutlet weak var actionButtonHC: NSLayoutConstraint!
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    private var configuration = QRScannerConfiguration()
+    private var scanner: QRCodeScannerController?
+    private var locationManager = CLLocationManager()
+    @Published var position =  CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +81,16 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                 }
             })
             .disposed(by: bag)
+        
+        configuration.cameraImage = UIImage(named: "camera")
+        configuration.flashOnImage = UIImage(named: "flash-on")
+        configuration.galleryImage = UIImage(named: "photos")
+
+//        scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
+//        scanner?.delegate = self
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
     
     init(eventId: String) {
@@ -106,6 +122,7 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         
         generalView.isHidden = false
         detailView.isHidden = true
+        startUpdatingLocation()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -115,6 +132,11 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         self.contentView.setNeedsLayout()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopUpdatingLocation()
+    }
     
     override func addEventForViews() {
         super.addEventForViews()
@@ -168,7 +190,10 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                     vc.delegate = self
                     self.presentVC(vc)
                 case .rollCall:
-                    self.pushVC(RollCallVC())
+//                    self.pushVC(RollCallVC())
+                    scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
+                    scanner?.delegate = self
+                    self.presentVC(scanner!)
                 default:
                     print("")
                 }
@@ -207,6 +232,14 @@ class EventDetailVC: BaseVC<EventDetailVM> {
             .map { [SectionModel(model: (), items: $0)]}
             .bind(to: organizationalCollectionView.rx.items(dataSource: getOrganizationItemDataSource()))
             .disposed(by: bag)
+        
+        viewModel.messageData.asObservable()
+            .subscribe(onNext: { [weak self] alert in
+                guard let self = self else { return }
+                AlertVC.showMessage(self, message: AlertMessage(type: alert.type,
+                                                                description: alert.description)) {}
+            })
+            .disposed(by: bag)
     }
     
     override func configureListView() {
@@ -235,9 +268,6 @@ private extension EventDetailVC {
             introductionLabel.text = item.introduction
             statusEventLabel.text = item.status.lowercased().localized
             capacityLabel.text = "\(item.capacity) \("people".localized)"
-//            timeStartLabel.text = convertDateString(inputDate: item.startAt)
-//            timeEndStart.text = convertDateString(inputDate: item.endAt)
-            
             timeStartLabel.text = convertDateFormat(item.startAt)
             timeEndStart.text = convertDateFormat(item.endAt)
             placeLabel.text = item.address.fullAddress
@@ -246,7 +276,25 @@ private extension EventDetailVC {
             eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
             
             nameOrganizationLabel.text = item.representativeOrganization.name
-            descriptionLabel.text = item.description
+            
+            if let data = item.description.data(using: .utf8) {
+                do {
+                    let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+                        .documentType: NSAttributedString.DocumentType.html,
+                        .characterEncoding: String.Encoding.utf8.rawValue
+                    ]
+                    
+                    let attributedString = try NSAttributedString(data: data, options: options, documentAttributes: nil)
+                    let modifiedString = attributedString.string.replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+                    descriptionLabel.text = modifiedString
+                } catch {
+                    print("Error converting HTML to NSAttributedString: \(error)")
+                    descriptionLabel.text = item.description
+                }
+            } else {
+                descriptionLabel.text = item.description
+            }
+            
             nameOrganizationLabel.text = item.representativeOrganization.name
             positionLabel.text = item.representativeOrganization.address
             emailLabel.text = item.representativeOrganization.email
@@ -255,7 +303,6 @@ private extension EventDetailVC {
             favoriteImage.isHighlighted = item.isFavorite
             updateStatusButton(item)
             updateActionButton(item)
-            detailView.setNeedsDisplay()
         }
     }
     
@@ -304,13 +351,92 @@ private extension EventDetailVC {
     }
 }
 
-extension EventDetailVC {    
-
-}
 
 extension EventDetailVC: RegisterEventDelegate {
     func updateRoleRegister(roleId: String) {
         self.showToast(message: "register_success".localized, state: .success)
         viewModel.updateRoleRegister(roleId: roleId)
+    }
+}
+
+extension EventDetailVC: QRScannerCodeDelegate {
+    func qrScanner(_ controller: UIViewController, scanDidComplete result: String) {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            scanner?.delegate = nil
+            scanner = nil
+        }
+
+        let (code, eventId) = getCodeAndEventId(url: result)
+
+        viewModel.rollCall(code: code, eventId: eventId, latitude: position.latitude, longitude: position.longitude)
+            .subscribe(onNext: {[weak self] status in
+                guard let self = self else { return }
+                switch status {
+                case .Success:
+                    DispatchQueue.main.async {
+                        controller.showInfor("roll_call_success".localized) {
+                            self.actionButtonHC.constant = 0
+                            self.view.layoutIfNeeded()
+                        }
+                    }
+                case .Error(_):
+                    DispatchQueue.main.async {
+                        controller.showError("roll_call_failed".localized)
+                    }
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+    func qrScannerDidFail(_ controller: UIViewController, error: SwiftQRScanner.QRCodeError) {
+        
+    }
+    
+    func qrScannerDidCancel(_ controller: UIViewController) {
+        
+    }
+}
+
+extension EventDetailVC: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
+extension EventDetailVC {
+    func getCodeAndEventId(url: String) -> (String, String){
+        var code = ""
+        var eventId = ""
+        
+        if let codeRange = url.range(of: "Code=([0-9a-fA-F-]+)", options: .regularExpression) {
+            let codeValue = String(url[codeRange])
+            if let codeSeparatorRange = codeValue.range(of: "=") {
+                let extractedCode = codeValue[codeSeparatorRange.upperBound...]
+                code = String(extractedCode)
+            }
+        }
+        
+        if let eventIdRange = url.range(of: "EventId=([0-9a-fA-F-]+)", options: .regularExpression) {
+            let eventIdValue = String(url[eventIdRange])
+            if let eventIdSeparatorRange = eventIdValue.range(of: "=") {
+                let extractedEventId = eventIdValue[eventIdSeparatorRange.upperBound...]
+                eventId = String(extractedEventId)
+            }
+        }
+        
+        return (code, eventId)
+    }
+    
+    func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
+    }
+
+    func stopUpdatingLocation() {
+        locationManager.stopUpdatingLocation()
     }
 }

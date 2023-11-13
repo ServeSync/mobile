@@ -25,7 +25,7 @@ extension UIViewController {
         message: String,
         state: Loaf.State = .error
     ) {
-        Loaf(message, state: state, location: .top, sender: self).show()
+        Loaf(message, state: state, location: .top, sender: self).show(.short)
     }
     
     func showGeneralError(onClick: (() -> Void)? = nil) {
@@ -34,6 +34,10 @@ extension UIViewController {
     
     func showError(_ message: String, onClick: (() -> Void)? = nil) {
         AlertVC.showMessage(self, style: .error, message: message, onClick: onClick)
+    }
+    
+    func showInfor(_ message: String, onClick: (() -> Void)? = nil) {
+        AlertVC.showMessage(self, style: .info, message: message, onClick: onClick)
     }
     
     func addChildToView(_ child: UIViewController, toView view: UIView) {
