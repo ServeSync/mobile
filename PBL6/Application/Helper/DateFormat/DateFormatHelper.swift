@@ -7,15 +7,24 @@
 
 import Foundation
 
-func convertDateFormat(_ dateString: String, dateNeedFormat: String = "HH:mm dd/MM/yyyy", dateFormat: String = "yyyy-MM-dd'T'HH:mm:ssZ") -> String? {
-    let inputFormatter = DateFormatter()
-    inputFormatter.dateFormat = dateFormat
+func convertDateFormat(_ dateString: String, dateNeedFormat: String = "HH:mm dd/MM/yyyy") -> String? {
+    let dateFormats = [
+        "yyyy-MM-dd'T'HH:mm:ss'Z'",
+        "yyyy-MM-dd'T'HH:mm:ss",
+        "yyyy-MM-dd'T'HH:mm:ss.SSSSSS",
+        "yyyy-MM-dd'T'HH:mm:ss.SSZ",
+        "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    ]
     
-    if let date = inputFormatter.date(from: dateString) {
-        let outputFormatter = DateFormatter()
-        outputFormatter.dateFormat = dateNeedFormat
-        return outputFormatter.string(from: date)
-    } else {
-        return nil
+    for dateFormat in dateFormats {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = dateFormat
+        
+        if let date = inputFormatter.date(from: dateString) {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = dateNeedFormat
+            return outputFormatter.string(from: date)
+        }
     }
+    return nil
 }

@@ -85,9 +85,6 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         configuration.cameraImage = UIImage(named: "camera")
         configuration.flashOnImage = UIImage(named: "flash-on")
         configuration.galleryImage = UIImage(named: "photos")
-
-//        scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
-//        scanner?.delegate = self
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -190,10 +187,18 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                     vc.delegate = self
                     self.presentVC(vc)
                 case .rollCall:
-//                    self.pushVC(RollCallVC())
-                    scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
-                    scanner?.delegate = self
-                    self.presentVC(scanner!)
+                    switch CLLocationManager().authorizationStatus {
+                    case .notDetermined, .restricted, .denied:
+                        PermissionHelper.shared.showSettingPermissionDialog(parentVC: self,
+                                                                            title: "location_permission_is_not_granted_title".localized,
+                                                                            message: "location_permission_is_not_granted_message".localized)
+                    case .authorizedAlways, .authorizedWhenInUse:
+                        scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
+                        scanner?.delegate = self
+                        self.presentVC(scanner!)
+                    @unknown default:
+                        break
+                    }
                 default:
                     print("")
                 }
@@ -268,6 +273,7 @@ private extension EventDetailVC {
             introductionLabel.text = item.introduction
             statusEventLabel.text = item.status.lowercased().localized
             capacityLabel.text = "\(item.capacity) \("people".localized)"
+            print(item.startAt, "###")
             timeStartLabel.text = convertDateFormat(item.startAt)
             timeEndStart.text = convertDateFormat(item.endAt)
             placeLabel.text = item.address.fullAddress
@@ -366,23 +372,26 @@ extension EventDetailVC: QRScannerCodeDelegate {
             scanner?.delegate = nil
             scanner = nil
         }
-
+        
         let (code, eventId) = getCodeAndEventId(url: result)
-
+        
         viewModel.rollCall(code: code, eventId: eventId, latitude: position.latitude, longitude: position.longitude)
             .subscribe(onNext: {[weak self] status in
                 guard let self = self else { return }
                 switch status {
                 case .Success:
                     DispatchQueue.main.async {
-                        controller.showInfor("roll_call_success".localized) {
-                            self.actionButtonHC.constant = 0
-                            self.view.layoutIfNeeded()
-                        }
+                        self.showToast(message: "roll_call_success".localized, state: .success)
+                        self.actionButtonHC.constant = 0
+                        self.view.layoutIfNeeded()
                     }
-                case .Error(_):
-                    DispatchQueue.main.async {
-                        controller.showError("roll_call_failed".localized)
+                case .Error(let error):
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                        if error?.code == Configs.Server.errorCodeRequiresLogin {
+                            AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                        } else {
+                            self.showToast(message: getErrorDescription(forErrorCode: error!.code), state: .error)
+                        }
                     }
                 }
             })
@@ -435,7 +444,7 @@ extension EventDetailVC {
     func startUpdatingLocation() {
         locationManager.startUpdatingLocation()
     }
-
+    
     func stopUpdatingLocation() {
         locationManager.stopUpdatingLocation()
     }
