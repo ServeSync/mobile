@@ -24,12 +24,11 @@ class MyEventCell: BaseCollectionViewCell {
     func configure(_ item: FlatEventDto) {
         eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
         nameEventLabel.text = item.name
-
-        dateStartLabel.text = convertDateFormat(item.startAt, dateNeedFormat: "dd/MM/yyyy", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
-        timeStartLabel.text = convertDateFormat(item.startAt, dateNeedFormat: "HH:mm", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+        dateStartLabel.text = convertDateFormat(item.startAt, dateNeedFormat: "dd/MM/yyyy")
+        timeStartLabel.text = convertDateFormat(item.startAt, dateNeedFormat: "HH:mm")
         
-        dateEndLabel.text = convertDateFormat(item.endAt, dateNeedFormat: "dd/MM/yyyy", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
-        timeEndLabel.text = convertDateFormat(item.endAt, dateNeedFormat: "HH:mm", dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+        dateEndLabel.text = convertDateFormat(item.endAt, dateNeedFormat: "dd/MM/yyyy")
+        timeEndLabel.text = convertDateFormat(item.endAt, dateNeedFormat: "HH:mm")
         placeLabel.text = item.address.fullAddress
     }
 

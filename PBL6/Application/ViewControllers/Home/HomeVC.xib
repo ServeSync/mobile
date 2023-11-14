@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -133,7 +133,7 @@
                             <rect key="frame" x="0.0" y="182" width="414" height="680"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpx-eT-7sC">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1308"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1288"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Je7-JX-n9g">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="1268"/>
@@ -499,7 +499,7 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Je7-JX-n9g" secondAttribute="bottom" constant="40" id="Fif-xi-Q4s"/>
+                                        <constraint firstAttribute="bottom" secondItem="Je7-JX-n9g" secondAttribute="bottom" constant="20" id="Fif-xi-Q4s"/>
                                         <constraint firstItem="Je7-JX-n9g" firstAttribute="leading" secondItem="fpx-eT-7sC" secondAttribute="leading" id="MDC-xc-vgs"/>
                                         <constraint firstAttribute="trailing" secondItem="Je7-JX-n9g" secondAttribute="trailing" id="Xb6-cZ-Oea"/>
                                         <constraint firstItem="Je7-JX-n9g" firstAttribute="top" secondItem="fpx-eT-7sC" secondAttribute="top" id="f0g-Ic-srx"/>

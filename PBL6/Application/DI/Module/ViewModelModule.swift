@@ -26,7 +26,6 @@ final class ViewModelModule{
         container.register(SeeAllEventVM.self) { _ in SeeAllEventVM()}
         container.register(EventDetailVM.self) { _ in EventDetailVM()}
         container.register(RegisterVM.self) { _ in RegisterVM()}
-        container.register(RollCallVM.self) { _ in RollCallVM()}
         container.register(SearchVM.self) { _ in SearchVM()}
     }
 }
