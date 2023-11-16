@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 import RxDataSources
 
 class AnalysisVC: BaseVC<AnalysisVM> {
@@ -21,9 +22,28 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var refreshControl = UIRefreshControl()
+    private var percentage:Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func initViews() {
+        super.initViews()
+        
+        self.charts.circleBorderColor = UIColor(hex: 0x26C6DA, alpha: 0.5)
+        self.charts.circleFilledColor = UIColor(hex: 0x26C6DA, alpha: 1)
+        charts.bindPercentage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         viewModel.fetchData(isRefresh: true)
             .subscribe(onNext: {[weak self] status in
@@ -42,17 +62,6 @@ class AnalysisVC: BaseVC<AnalysisVM> {
             .disposed(by: bag)
     }
     
-    override func initViews() {
-        super.initViews()
-        self.charts.circleBorderColor = UIColor(hex: 0x26C6DA, alpha: 0.5)
-        self.charts.circleFilledColor = UIColor(hex: 0x26C6DA, alpha: 1)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.charts.progressAnimation(duration: 1.5)
-    }
-    
     override func bindViewModel() {
         super.bindViewModel()
         
@@ -63,8 +72,15 @@ class AnalysisVC: BaseVC<AnalysisVM> {
                 requiredActivityScoreLabel.text = "\(data.requiredActivityScore)"
                 numberOfEventsLabel.text = "\(data.numberOfEvents)"
                 gainScoreLabel.text = "\(Int(data.gainScore))"
-                self.charts.percentage = data.gainScore / Double(data.requiredActivityScore)
-                percentageLabel.text = "\(Int(data.gainScore) / data.requiredActivityScore)%"
+                percentage = data.gainScore / Double(data.requiredActivityScore)
+                if percentage > 1 {
+                    percentage = 1
+                    percentageLabel.text = "complete".localized
+                } else {
+                    let formattedPercentage = String(format: "%.2f%%", percentage * 100)
+                    percentageLabel.text = formattedPercentage
+                }
+                charts.percentageR.accept(percentage)
             })
             .disposed(by: bag)
         
@@ -123,7 +139,7 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     override func configureListView() {
         super.configureListView()
         
-        let layout = ColumnFlowLayout(cellsPerRow: 2, ratio: 48/343, minimumInteritemSpacing: 8, minimumLineSpacing: 8, scrollDirection: .vertical)
+        let layout = ColumnFlowLayout(cellsPerRow: 1, ratio: 48/343, minimumInteritemSpacing: 8, minimumLineSpacing: 8, scrollDirection: .vertical)
         collectionView.collectionViewLayout = layout
         collectionView.registerCellNib(DetailItemCell.self)
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh",

@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mùa hè xanh 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM3-GT-lLE">
-                                <rect key="frame" x="10" y="14.333333333333334" width="302.66666666666669" height="19.333333333333329"/>
+                                <rect key="frame" x="10" y="14" width="302.66666666666669" height="20"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="0.098039215686274508" green="0.36862745098039218" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -39,12 +38,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="PM3-GT-lLE" secondAttribute="bottom" constant="14" id="15f-pi-kZb"/>
+                            <constraint firstItem="PM3-GT-lLE" firstAttribute="top" secondItem="UkV-9b-eFl" secondAttribute="top" constant="14" id="5fu-0J-2ch"/>
                             <constraint firstItem="LhD-m5-iUK" firstAttribute="leading" secondItem="PM3-GT-lLE" secondAttribute="trailing" constant="8" id="EmF-UQ-VcY"/>
                             <constraint firstItem="PM3-GT-lLE" firstAttribute="leading" secondItem="UkV-9b-eFl" secondAttribute="leading" constant="10" id="LRT-Kq-Mer"/>
                             <constraint firstItem="LhD-m5-iUK" firstAttribute="centerY" secondItem="UkV-9b-eFl" secondAttribute="centerY" id="WGa-mv-aug"/>
-                            <constraint firstItem="PM3-GT-lLE" firstAttribute="centerY" secondItem="UkV-9b-eFl" secondAttribute="centerY" id="dfn-mt-7hB"/>
                             <constraint firstAttribute="trailing" secondItem="LhD-m5-iUK" secondAttribute="trailing" constant="6" id="rVz-7K-zNy"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -66,12 +66,7 @@
                 <outlet property="eventNameLabel" destination="PM3-GT-lLE" id="C5z-Wb-i2L"/>
                 <outlet property="scoreLabel" destination="LhD-m5-iUK" id="MIj-Nr-8H2"/>
             </connections>
-            <point key="canvasLocation" x="82" y="20"/>
+            <point key="canvasLocation" x="81.679389312977094" y="19.718309859154932"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

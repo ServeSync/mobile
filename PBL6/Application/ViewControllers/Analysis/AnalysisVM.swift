@@ -13,6 +13,7 @@ class AnalysisVM: BaseVM {
     let attendanceEventsData = PublishData<[StudentAttendanceEventDto]>()
     private var attendanceEvents = [StudentAttendanceEventDto]()
     let studentNameData = PublishData<String>()
+    var educationProgram: StudentEducationProgramDto? = nil
     
     var currentPage: Int = 1
     var totalPage: Int = 0
@@ -25,6 +26,7 @@ class AnalysisVM: BaseVM {
                 switch status {
                 case .success(let data):
                     self.educationProgramData.accept(data)
+                    self.educationProgram = data
                     return HandleStatus.Success
                 case .failure(let error):
                     return HandleStatus.Error(error: error)

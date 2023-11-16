@@ -273,7 +273,6 @@ private extension EventDetailVC {
             introductionLabel.text = item.introduction
             statusEventLabel.text = item.status.lowercased().localized
             capacityLabel.text = "\(item.capacity) \("people".localized)"
-            print(item.startAt, "###")
             timeStartLabel.text = convertDateFormat(item.startAt)
             timeEndStart.text = convertDateFormat(item.endAt)
             placeLabel.text = item.address.fullAddress

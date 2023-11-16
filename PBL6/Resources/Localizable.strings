@@ -137,6 +137,7 @@
 "analysis" = "Phân tích";
 "detail" = "Chi tiết";
 "no_attendane_student" = "Bạn chưa tham dự sự kiện nào";
+"complete" = "Hoàn thành";
 
 //MyEvent
 "my_event" = "Sự kiện của tôi";
@@ -161,7 +162,7 @@
 "cancel" = "Huỷ";
 "self_introduce" = "Tự giới thiệu";
 "self_introduce_placeholder" = "Kinh nghiệm, ...";
-"register_success" = "Đăng ký thành công";
+"register_success" = "Gửi đơn dăng ký thành công";
 
 //Roll Call
 "location_permission_is_not_granted_title" = "Location access permission is not granted";
