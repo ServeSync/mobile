@@ -27,5 +27,6 @@ final class ViewModelModule{
         container.register(EventDetailVM.self) { _ in EventDetailVM()}
         container.register(RegisterVM.self) { _ in RegisterVM()}
         container.register(SearchVM.self) { _ in SearchVM()}
+        container.register(ChangePasswordVM.self) { _ in ChangePasswordVM()}
     }
 }

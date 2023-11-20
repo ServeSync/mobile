@@ -36,10 +36,10 @@ class EditProfileVC: BaseVC<EditProfileVM> {
     
     weak var delegate: EditProfileDelegate!
     
-    private var isValidHomeTown = true
-    private var isValidAddress = true
-    private var isValidEmail = true
-    private var isValidPhone = true
+    private var isValidHomeTown = false
+    private var isValidAddress = false
+    private var isValidEmail = false
+    private var isValidPhone = false
     
     private var activeTextField : UITextField? = nil
     
@@ -188,8 +188,6 @@ class EditProfileVC: BaseVC<EditProfileVM> {
                 }
             })
             .disposed(by: bag)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardWillHide))
-        self.view.addGestureRecognizer(tapGesture)
     }
     
     @objc override func keyboardWillShow(notification:NSNotification) {
@@ -199,7 +197,7 @@ class EditProfileVC: BaseVC<EditProfileVM> {
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 20
+        contentInset.bottom = keyboardFrame.size.height + 40
         scrollView.contentInset = contentInset
     }
 

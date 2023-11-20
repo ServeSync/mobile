@@ -191,6 +191,9 @@
 		35E372642AF924B60078AACF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372632AF924B60078AACF /* UIImage.swift */; };
 		35E7AB0B2B0A430200CF0E4B /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */; };
 		35E7AB0C2B0A430200CF0E4B /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E7AB0A2B0A430200CF0E4B /* EventDetailVC.xib */; };
+		35E7AB112B0BB00700CF0E4B /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB0F2B0BB00700CF0E4B /* ChangePasswordVC.swift */; };
+		35E7AB122B0BB00700CF0E4B /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */; };
+		35E7AB142B0BB01400CF0E4B /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */; };
 		35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */; };
 		35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */; };
 		35FAD7F72AD713D6003381F1 /* CircleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD7F62AD713D6003381F1 /* CircleCharts.swift */; };
@@ -397,6 +400,9 @@
 		35E372632AF924B60078AACF /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
 		35E7AB0A2B0A430200CF0E4B /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
+		35E7AB0F2B0BB00700CF0E4B /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
+		35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
 		35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
 		35FAD7F62AD713D6003381F1 /* CircleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCharts.swift; sourceTree = "<group>"; };
@@ -727,6 +733,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				35E7AB0E2B0BAFED00CF0E4B /* ChangePassword */,
 				3512C1A52AF796A9009DB01A /* Search */,
 				3585B3222AF3F8A2001CE588 /* Register */,
 				35FAD8C92ADDA5D6003381F1 /* SeeAllEvent */,
@@ -1197,6 +1204,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		35E7AB0E2B0BAFED00CF0E4B /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				35E7AB0F2B0BB00700CF0E4B /* ChangePasswordVC.swift */,
+				35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */,
+				35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
 		35FA42EA2AE19A6D0001F7B0 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1377,6 +1394,7 @@
 				357192B82AE8FAEA009C429E /* RoleItemCell.xib in Resources */,
 				351C3DE92AA338EB004E82B7 /* SplashVC.xib in Resources */,
 				353D2ACA2AC9D19C00C26BA3 /* EditProfileVC.xib in Resources */,
+				35E7AB122B0BB00700CF0E4B /* ChangePasswordVC.xib in Resources */,
 				3589058F2AC8891F000E687C /* ForgotPasswordVC.xib in Resources */,
 				35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */,
 				351C3DBB2AA1E8E6004E82B7 /* HomeVC.xib in Resources */,
@@ -1472,6 +1490,7 @@
 				356C7FC52A9F9CAA00DDEDDD /* PostResponse.swift in Sources */,
 				351C3DDE2AA1F1ED004E82B7 /* ReachabilityHelper.swift in Sources */,
 				357192B72AE8FAEA009C429E /* RoleItemCell.swift in Sources */,
+				35E7AB112B0BB00700CF0E4B /* ChangePasswordVC.swift in Sources */,
 				353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */,
 				355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */,
 				355D72C32B013F610036AE59 /* NSAttributedString.swift in Sources */,
@@ -1516,6 +1535,7 @@
 				358905712AC7547C000E687C /* EventVM.swift in Sources */,
 				351C3DCB2AA1EF85004E82B7 /* UIColor.swift in Sources */,
 				358905912AC8894B000E687C /* ForgotPasswordVM.swift in Sources */,
+				35E7AB142B0BB01400CF0E4B /* ChangePasswordVM.swift in Sources */,
 				351C3DDB2AA1F1AD004E82B7 /* Configs.swift in Sources */,
 				35ABB1CE2AEAAA74005E1574 /* IntrinsicCollectionView.swift in Sources */,
 				356C7F9D2A9F99A000DDEDDD /* Constans.swift in Sources */,
