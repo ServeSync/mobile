@@ -13,7 +13,7 @@ class AccountVC: BaseVC<AccountVM> {
     
     @IBOutlet weak var personInfoButton: UIButton!
     @IBOutlet weak var regulationsButton: UIButton!
-    @IBOutlet weak var settingButton: UIButton!
+    @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var avtImageView: UIImageView!
@@ -66,6 +66,13 @@ class AccountVC: BaseVC<AccountVM> {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 AppDelegate.shared().windowMainConfig(vc: LoginVC())
+            })
+            .disposed(by: bag)
+        
+        changePasswordButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.pushVC(ChangePasswordVC())
             })
             .disposed(by: bag)
     }
