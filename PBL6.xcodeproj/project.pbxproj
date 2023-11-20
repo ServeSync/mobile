@@ -189,6 +189,8 @@
 		35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D78BD32AB48D83005B5109 /* LoginVC.xib */; };
 		35E372622AF923AA0078AACF /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372612AF923AA0078AACF /* Bundle.swift */; };
 		35E372642AF924B60078AACF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372632AF924B60078AACF /* UIImage.swift */; };
+		35E7AB0B2B0A430200CF0E4B /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */; };
+		35E7AB0C2B0A430200CF0E4B /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E7AB0A2B0A430200CF0E4B /* EventDetailVC.xib */; };
 		35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */; };
 		35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */; };
 		35FAD7F72AD713D6003381F1 /* CircleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD7F62AD713D6003381F1 /* CircleCharts.swift */; };
@@ -196,8 +198,6 @@
 		35FAD8582AD998CD003381F1 /* DetailItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD8562AD998CD003381F1 /* DetailItemCell.xib */; };
 		35FAD85C2AD99AF4003381F1 /* MyEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD85A2AD99AF4003381F1 /* MyEventCell.swift */; };
 		35FAD85D2AD99AF4003381F1 /* MyEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD85B2AD99AF4003381F1 /* MyEventCell.xib */; };
-		35FAD8612AD9A4F2003381F1 /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD85F2AD9A4F2003381F1 /* EventDetailVC.swift */; };
-		35FAD8622AD9A4F2003381F1 /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD8602AD9A4F2003381F1 /* EventDetailVC.xib */; };
 		35FAD8642AD9A4FC003381F1 /* EventDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD8632AD9A4FC003381F1 /* EventDetailVM.swift */; };
 		35FAD86D2ADB05FC003381F1 /* HandleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD86C2ADB05FC003381F1 /* HandleStatus.swift */; };
 		35FAD86F2ADB061A003381F1 /* EventStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD86E2ADB061A003381F1 /* EventStatus.swift */; };
@@ -395,6 +395,8 @@
 		35D78BD32AB48D83005B5109 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		35E372612AF923AA0078AACF /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		35E372632AF924B60078AACF /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
+		35E7AB0A2B0A430200CF0E4B /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
 		35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
 		35FAD7F62AD713D6003381F1 /* CircleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCharts.swift; sourceTree = "<group>"; };
@@ -402,8 +404,6 @@
 		35FAD8562AD998CD003381F1 /* DetailItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailItemCell.xib; sourceTree = "<group>"; };
 		35FAD85A2AD99AF4003381F1 /* MyEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventCell.swift; sourceTree = "<group>"; };
 		35FAD85B2AD99AF4003381F1 /* MyEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEventCell.xib; sourceTree = "<group>"; };
-		35FAD85F2AD9A4F2003381F1 /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
-		35FAD8602AD9A4F2003381F1 /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
 		35FAD8632AD9A4FC003381F1 /* EventDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVM.swift; sourceTree = "<group>"; };
 		35FAD86C2ADB05FC003381F1 /* HandleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleStatus.swift; sourceTree = "<group>"; };
 		35FAD86E2ADB061A003381F1 /* EventStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStatus.swift; sourceTree = "<group>"; };
@@ -1244,9 +1244,9 @@
 			isa = PBXGroup;
 			children = (
 				357192B42AE8F7BB009C429E /* Cell */,
-				35FAD85F2AD9A4F2003381F1 /* EventDetailVC.swift */,
-				35FAD8602AD9A4F2003381F1 /* EventDetailVC.xib */,
 				35FAD8632AD9A4FC003381F1 /* EventDetailVM.swift */,
+				35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */,
+				35E7AB0A2B0A430200CF0E4B /* EventDetailVC.xib */,
 			);
 			path = EventDetail;
 			sourceTree = "<group>";
@@ -1380,10 +1380,10 @@
 				3589058F2AC8891F000E687C /* ForgotPasswordVC.xib in Resources */,
 				35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */,
 				351C3DBB2AA1E8E6004E82B7 /* HomeVC.xib in Resources */,
-				35FAD8622AD9A4F2003381F1 /* EventDetailVC.xib in Resources */,
 				35FAD8582AD998CD003381F1 /* DetailItemCell.xib in Resources */,
 				3585B3282AF3F921001CE588 /* RegisterVC.xib in Resources */,
 				356C7F4A2A9F90C000DDEDDD /* Assets.xcassets in Resources */,
+				35E7AB0C2B0A430200CF0E4B /* EventDetailVC.xib in Resources */,
 				35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1475,6 +1475,7 @@
 				353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */,
 				355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */,
 				355D72C32B013F610036AE59 /* NSAttributedString.swift in Sources */,
+				35E7AB0B2B0A430200CF0E4B /* EventDetailVC.swift in Sources */,
 				356C7FBF2A9F9C5500DDEDDD /* PostDAOImp.swift in Sources */,
 				3585B31B2AF3F3BE001CE588 /* ButtonActionStatus.swift in Sources */,
 				35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */,
@@ -1558,7 +1559,6 @@
 				351C3DB72AA1E89E004E82B7 /* ApiServiceImp.swift in Sources */,
 				351C3DF22AA33B6C004E82B7 /* BaseError.swift in Sources */,
 				355D72B72B0079B20036AE59 /* StudentEducationProgramDto.swift in Sources */,
-				35FAD8612AD9A4F2003381F1 /* EventDetailVC.swift in Sources */,
 				351C3DF42AA33BA8004E82B7 /* LoggerUtils.swift in Sources */,
 				353D2AC92AC9D19C00C26BA3 /* EditProfileVC.swift in Sources */,
 				356C7F832A9F976900DDEDDD /* BaseCollectionViewCell.swift in Sources */,

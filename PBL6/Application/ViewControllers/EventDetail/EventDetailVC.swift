@@ -1,8 +1,8 @@
 //
-//  EventDetailVC.swift
+//  EventDetail1VC.swift
 //  PBL6
 //
-//  Created by KietKoy on 13/10/2023.
+//  Created by KietKoy on 19/11/2023.
 //
 
 import UIKit
@@ -11,60 +11,75 @@ import SwiftQRScanner
 import CoreLocation
 
 class EventDetailVC: BaseVC<EventDetailVM> {
+    @IBOutlet weak var overviewScollView: UIScrollView!
+    @IBOutlet weak var detailScrollView: UIScrollView!
     
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var eventImage: UIImageView!
-    @IBOutlet weak var representativeImage: UIImageView!
-    @IBOutlet weak var eventNameLabel: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var typeEventLabel: UILabel!
-    @IBOutlet weak var statusEventLabel: UILabel!
-    @IBOutlet weak var registeredQuantityLabel: UILabel!
-    
-    @IBOutlet weak var statusEventView: GradientView!
-    @IBOutlet weak var generalInforButton: UIButton!
     @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var overviewButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var favoriteIcon: UIImageView!
+    @IBOutlet weak var representativeImage: UIImageView!
+    
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var eventTypeLabel: UILabel!
     @IBOutlet weak var introductionLabel: UILabel!
-    
-    @IBOutlet weak var timeStartLabel: UILabel!
-    @IBOutlet weak var timeEndStart: UILabel!
-    @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var capacityLabel: UILabel!
-    
+    @IBOutlet weak var eventStatusLabel: UILabel!
+    @IBOutlet weak var numberOfPeopleLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var registeredQuantityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var speakerCollectionView: IntrinsicCollectionView!
-    @IBOutlet weak var speakerCollectionViewHC: NSLayoutConstraint!
-    @IBOutlet weak var roleCollectionView: IntrinsicCollectionView!
-    @IBOutlet weak var roleCollectionViewHC: NSLayoutConstraint!
-    
-    @IBOutlet weak var organizationalCollectionView: IntrinsicCollectionView!
-    @IBOutlet weak var organizationalCollectionViewHC: NSLayoutConstraint!
-    
-    @IBOutlet weak var generalView: UIView!
-    @IBOutlet weak var detailView: UIView!
-    
     @IBOutlet weak var nameOrganizationLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
-    @IBOutlet weak var actionButton: UIButton!
-    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var eventStatusView: GradientView!
     
-    @IBOutlet weak var contentViewHC: NSLayoutConstraint!
-    @IBOutlet weak var actionButtonHC: NSLayoutConstraint!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var roleCollectionView: IntrinsicCollectionView!
+    @IBOutlet weak var speakerCollectionView: IntrinsicCollectionView!
+    @IBOutlet weak var organizationCollectionView: IntrinsicCollectionView!
+
+    @IBOutlet weak var roleCollectionViewHC: NSLayoutConstraint!
+    @IBOutlet weak var speakerCollectionViewHC: NSLayoutConstraint!
+    @IBOutlet weak var organizationalCollectionViewHC: NSLayoutConstraint!
     
     private var configuration = QRScannerConfiguration()
     private var scanner: QRCodeScannerController?
     private var locationManager = CLLocationManager()
     @Published var position =  CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
+    init(eventId: String) {
+        super.init()
+        viewModel.eventId = eventId
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        roleCollectionViewHC.constant = roleCollectionView.intrinsicContentSize.height
+        speakerCollectionViewHC.constant = speakerCollectionView.intrinsicContentSize.height
+        organizationalCollectionViewHC.constant = organizationCollectionView.intrinsicContentSize.height
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        stopUpdatingLocation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewModel.fetchData()
             .subscribe(onNext: {[weak self] status in
                 guard let self = self else { return }
@@ -89,95 +104,45 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
     }
-    
-    init(eventId: String) {
-        super.init()
-        viewModel.eventId = eventId
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        roleCollectionViewHC.constant = roleCollectionView.intrinsicContentSize.height
-        speakerCollectionViewHC.constant = speakerCollectionView.intrinsicContentSize.height
-        organizationalCollectionViewHC.constant = organizationalCollectionView.intrinsicContentSize.height
-    }
-    
+
     override func initViews() {
         super.initViews()
         
-        
-        contentView.roundDifferentCorners(topLeft: 24, topRight: 24)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        generalView.isHidden = false
-        detailView.isHidden = true
-        startUpdatingLocation()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.contentViewHC.constant = self.actionButton.frame.height + 72 + self.generalView.frame.height
-        self.contentView.setNeedsLayout()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        stopUpdatingLocation()
+        handleNavButtonTap(showScrollView: overviewScollView,
+                           hideScrollView: detailScrollView,
+                           showButton: overviewButton,
+                           hideButton: detailButton)
     }
     
     override func addEventForViews() {
         super.addEventForViews()
         
-        backButton.rx.tap
-            .subscribe(onNext: {[weak self] in
-                guard let self = self else { return }
-                self.popVC()
-            })
-            .disposed(by: bag)
-        
         detailButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
                 
-                detailButton.setTitleColor("195E8E".toUIColor(), for: .normal)
-                generalInforButton.setTitleColor("A0A2A4".toUIColor(), for: .normal)
-                
-                let contentOffset = CGPoint(x: 0, y: -self.scrollView.contentInset.top)
-                self.scrollView.setContentOffset(contentOffset, animated: false)
-                self.detailView.isHidden = false
-                self.generalView.isHidden = true
-                self.contentViewHC.constant = self.actionButton.frame.height + 72 + self.detailView.frame.height
-                
-                print(self.contentViewHC.constant, "hihi")
+                handleNavButtonTap(showScrollView: detailScrollView,
+                                   hideScrollView: overviewScollView,
+                                   showButton: detailButton,
+                                   hideButton: overviewButton)
             })
             .disposed(by: bag)
         
-        generalInforButton.rx.tap
+        overviewButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
                 
-                generalView.isHidden = false
-                detailView.isHidden = true
-                contentViewHC.constant = actionButton.frame.height + 72 + generalView.frame.height
-                
-                generalInforButton.setTitleColor("195E8E".toUIColor(), for: .normal)
-                detailButton.setTitleColor("A0A2A4".toUIColor(), for: .normal)
+                handleNavButtonTap(showScrollView: overviewScollView,
+                                   hideScrollView: detailScrollView,
+                                   showButton: overviewButton,
+                                   hideButton: detailButton)
             })
             .disposed(by: bag)
         
         actionButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
+                
                 switch viewModel.getButtonActionStatus() {
                 case .complain:
                     print("")
@@ -202,6 +167,15 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                 default:
                     print("")
                 }
+                
+            })
+            .disposed(by: bag)
+        
+        backButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                
+                self.popVC()
             })
             .disposed(by: bag)
         
@@ -235,7 +209,7 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         
         viewModel.organizationsDataS
             .map { [SectionModel(model: (), items: $0)]}
-            .bind(to: organizationalCollectionView.rx.items(dataSource: getOrganizationItemDataSource()))
+            .bind(to: organizationCollectionView.rx.items(dataSource: getOrganizationItemDataSource()))
             .disposed(by: bag)
         
         viewModel.messageData.asObservable()
@@ -258,9 +232,9 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         let layoutspeakerCollectionView = ColumnFlowLayout(cellsPerRow: 1, ratio: 48/327, minimumLineSpacing: 16, scrollDirection: .vertical)
         speakerCollectionView.collectionViewLayout = layoutspeakerCollectionView
         
-        organizationalCollectionView.registerCellNib(OrganizationItemCell.self)
+        organizationCollectionView.registerCellNib(OrganizationItemCell.self)
         let layoutorganizationCollectionView = ColumnFlowLayout(cellsPerRow: 1, ratio: 104/327, minimumLineSpacing: 16, scrollDirection: .vertical)
-        organizationalCollectionView.collectionViewLayout = layoutorganizationCollectionView
+        organizationCollectionView.collectionViewLayout = layoutorganizationCollectionView
     }
 }
 
@@ -269,13 +243,13 @@ private extension EventDetailVC {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             eventNameLabel.text = item.name
-            typeEventLabel.text = item.type.lowercased().localized
+            eventTypeLabel.text = item.type.lowercased().localized
             introductionLabel.text = item.introduction
-            statusEventLabel.text = item.status.lowercased().localized
-            capacityLabel.text = "\(item.capacity) \("people".localized)"
-            timeStartLabel.text = convertDateFormat(item.startAt)
-            timeEndStart.text = convertDateFormat(item.endAt)
-            placeLabel.text = item.address.fullAddress
+            eventStatusLabel.text = item.status.lowercased().localized
+            numberOfPeopleLabel.text = "\(item.capacity) \("people".localized)"
+            startTimeLabel.text = convertDateFormat(item.startAt)
+            endTimeLabel.text = convertDateFormat(item.endAt)
+            addressLabel.text = item.address.fullAddress
             registeredQuantityLabel.text = "\(item.registered)"
             
             eventImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
@@ -305,33 +279,33 @@ private extension EventDetailVC {
             emailLabel.text = item.representativeOrganization.email
             phoneLabel.text = item.representativeOrganization.phoneNumber
             loadImageFromURL(from: item.representativeOrganization.imageUrl, into: representativeImage)
-            favoriteImage.isHighlighted = item.isFavorite
+            favoriteIcon.isHighlighted = item.isFavorite
             updateStatusButton(item)
             updateActionButton(item)
         }
     }
     
     private func updateStatusButton(_ item: EventDetailDto) {
-        statusEventLabel.text = item.calculatedStatus.lowercased().localized
+        eventStatusLabel.text = item.calculatedStatus.lowercased().localized
         switch item.calculatedStatus {
         case EventStatus.Done.rawValue:
-            statusEventView.startColor = "FFF09E".toUIColor()
-            statusEventView.endColor = "FFE55A".toUIColor()
+            eventStatusView.startColor = "FFF09E".toUIColor()
+            eventStatusView.endColor = "FFE55A".toUIColor()
         case EventStatus.Attendance.rawValue:
-            statusEventView.startColor = "56ECFF".toUIColor()
-            statusEventView.endColor = "58CCFE".toUIColor()
+            eventStatusView.startColor = "56ECFF".toUIColor()
+            eventStatusView.endColor = "58CCFE".toUIColor()
         case EventStatus.ClosedRegistration.rawValue:
-            statusEventView.startColor = "FFB2C5".toUIColor()
-            statusEventView.endColor = "FF8282".toUIColor()
+            eventStatusView.startColor = "FFB2C5".toUIColor()
+            eventStatusView.endColor = "FF8282".toUIColor()
         case EventStatus.Registration.rawValue:
-            statusEventView.startColor = "8DFF7A".toUIColor()
-            statusEventView.endColor = "00F335".toUIColor()
+            eventStatusView.startColor = "8DFF7A".toUIColor()
+            eventStatusView.endColor = "00F335".toUIColor()
         case EventStatus.Approved.rawValue:
-            statusEventView.startColor = "E7E7E7".toUIColor()
-            statusEventView.endColor = "DCDCDC".toUIColor()
+            eventStatusView.startColor = "E7E7E7".toUIColor()
+            eventStatusView.endColor = "DCDCDC".toUIColor()
         default:
-            statusEventView.startColor = "EC9EFF".toUIColor()
-            statusEventView.endColor = "FC52FF".toUIColor()
+            eventStatusView.startColor = "EC9EFF".toUIColor()
+            eventStatusView.endColor = "FC52FF".toUIColor()
         }
     }
     
@@ -350,12 +324,23 @@ private extension EventDetailVC {
             viewModel.updateButtonActionStatus(status: .register)
         } else {
             actionButton.isHidden = true
-            actionButtonHC.constant = 0
+            actionButton.gone()
             viewModel.updateButtonActionStatus(status: .none)
         }
     }
+    
+    func handleNavButtonTap(showScrollView: UIScrollView, hideScrollView: UIScrollView, showButton: UIButton, hideButton: UIButton) {
+        showScrollView.isHidden = false
+        hideScrollView.isHidden = true
+        let desiredOffset = CGPoint(x: 0, y: -showScrollView.contentInset.top)
+        showScrollView.setContentOffset(desiredOffset, animated: true)
+        
+        showButton.borders(for: [.bottom], color: "#195E8E".toUIColor())
+        showButton.setTitleColor("#195E8E".toUIColor(), for: .normal)
+        hideButton.borders(for: [.bottom], color: .clear)
+        hideButton.setTitleColor("#A0A2A4".toUIColor(), for: .normal)
+    }
 }
-
 
 extension EventDetailVC: RegisterEventDelegate {
     func updateRoleRegister(roleId: String) {
@@ -381,7 +366,7 @@ extension EventDetailVC: QRScannerCodeDelegate {
                 case .Success:
                     DispatchQueue.main.async {
                         self.showToast(message: "roll_call_success".localized, state: .success)
-                        self.actionButtonHC.constant = 0
+//                        self.actionButtonHC.constant = 0
                         self.view.layoutIfNeeded()
                     }
                 case .Error(let error):

@@ -129,7 +129,7 @@ class LoginVC: BaseVC<LoginVM> {
                         case .Success:
                             AlertVC.showMessage(self, message: AlertMessage(type: .info, description: "login_successful".localized)) {
                                 self.showLoading()
-                                self.pushVC(MainVC())
+                                AppDelegate.shared().windowMainConfig(vc: MainVC())
                                 self.hideLoading()
                             }
                         case .Error(let error):

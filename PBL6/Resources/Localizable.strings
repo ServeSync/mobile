@@ -143,6 +143,8 @@
 "my_event" = "Sự kiện của tôi";
 
 //Event Detail
+"overview" = "Tổng quan";
+"description" = "Chi tiết";
 "role" = "Vị trí";
 "score" = "Điểm";
 "quantity" = "Số lượng";
@@ -154,6 +156,14 @@
 "roll_call" = "Điểm danh";
 "register" = "Đăng ký";
 "people" = "người";
+"event" = "Sự kiện";
+"start_event_detail" = "Bắt đầu: ";
+"end_event_detail" = "Kết thúc: ";
+"address_event_detail" = "Địa điểm: ";
+"registered_event_detail" = "Đã đăng ký: ";
+"speaker" = "Diễn giả";
+"organizational_units" = "Đơn vị tổ chức";
+"contact_info" = "Thông tin liên hệ";
 
 //Popup Message
 "popup_title" = "Đăng ký tham gia hoạt động?";
@@ -172,5 +182,6 @@
 "roll_call_success" = "Điểm danh thành công";
 "roll_call_failed" = "Điểm danh thất bại!
 Vui lòng thử lại";
+
 //Search
 "search" = "Tìm kiếm";
