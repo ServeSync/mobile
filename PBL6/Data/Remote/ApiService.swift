@@ -16,6 +16,7 @@ protocol ApiService {
     func signIn(userNameOrPassword: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>>
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
     func forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto) -> Single<Moya.Response>
+    func changePassword(changePassworDto: ChangePassworDto) -> Single<Moya.Response>
     
     //MARK: - Student
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>>

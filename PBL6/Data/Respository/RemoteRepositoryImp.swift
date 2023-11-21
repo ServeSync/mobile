@@ -30,6 +30,10 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.forgetPassword(requestForgetPasswordDto: requestForgetPassword)
     }
     
+    func changePassword(changePassworDto: ChangePassworDto) -> Single<Moya.Response> {
+        return apiService.changePassword(changePassworDto: changePassworDto)
+    }
+    
     //MARK: - Student
     func getProfileDetail() -> Single<Result<StudentDetailDto, ErrorResponse>> {
         return apiService.profileInfo()

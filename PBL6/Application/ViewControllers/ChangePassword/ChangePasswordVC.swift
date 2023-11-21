@@ -74,6 +74,29 @@ class ChangePasswordVC: BaseVC<ChangePasswordVM> {
                                         message: AlertMessage(type: .error,
                                                                     description: "new_password_not_match_confirm_password_alert_message".localized)) {}
                     
+                } else if viewModel.newPassword.count < 6 {
+                    AlertVC.showMessage(self,
+                                        message: AlertMessage(type: .error,
+                                                                    description: "new_password_not_has_more_than_six_character".localized)) {}
+                } else {
+                    viewModel.handleChangePassword()
+                        .subscribe(onNext: {[weak self] status in
+                            guard let self = self else { return }
+                            switch status {
+                            case .Success:
+                                self.popVC()
+                                self.showToast(message: "change_password_success".localized, state: .success)
+                            case .Error(let error):
+                                if error?.code == Configs.Server.errorCodeRequiresLogin {
+                                    AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                                } else {
+                                    AlertVC.showMessage(self,
+                                                        message: AlertMessage(type: .error,
+                                                                              description: "change_password_failed".localized)) {}
+                                }
+                            }
+                        })
+                        .disposed(by: bag)
                 }
             })
             .disposed(by: bag)

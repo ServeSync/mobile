@@ -35,6 +35,10 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestWithoutMapping(.forgetPassword(requestForgetPasswordDto: requestForgetPasswordDto))
     }
     
+    func changePassword(changePassworDto: ChangePassworDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.changePassword(changePassworDto: changePassworDto))
+    }
+    
     //MARK: - Students
     func profileInfo() -> RxSwift.Single<Result<StudentDetailDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.profileDetail, successType: StudentDetailDto.self, errorType: ErrorResponse.self)

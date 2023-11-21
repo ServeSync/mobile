@@ -17,6 +17,7 @@ enum AppApi {
     case signIn(usernameOrEmail: String, password: String)
     case refreshToken(authCredentialDto: AuthCredentialDto)
     case forgetPassword(requestForgetPasswordDto: RequestForgetPasswordDto)
+    case changePassword(changePassworDto: ChangePassworDto)
     
     //MARK: - profile
     case profile
@@ -55,6 +56,8 @@ extension AppApi: TargetType {
             return "auth/student-portal/sign-in"
         case .profile:
             return "profile"
+        case .changePassword:
+            return "profile/change-password"
         case .refreshToken:
             return "auth/refresh-token"
         case .profileDetail, .putProfile:
@@ -81,7 +84,7 @@ extension AppApi: TargetType {
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent:
+        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword:
             return .post
         case .putProfile:
             return .put
@@ -186,6 +189,16 @@ extension AppApi: TargetType {
                 "Size": 10
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .changePassword(let changePassworDto):
+            let body: [String: Any] = [
+                "currentPassword": changePassworDto.currentPassword,
+                "newPassword": changePassworDto.newPassword,
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
         default:
             return .requestPlain
         }

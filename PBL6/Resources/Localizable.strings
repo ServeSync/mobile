@@ -84,6 +84,8 @@
 "setting" = "Cài đặt";
 "help" = "Help";
 "change_password" = "Đổi mật khẩu";
+"sign_out" = "Đăng xuất";
+"sign_out_title_confirm" = "Bạn chắc chắn muốn đăng xuất?";
 
 //Profile
 "student_ID" = "Mã sinh viên:";
@@ -190,3 +192,6 @@ Vui lòng thử lại";
 // Change password
 "alert_message_invalid_change_password" = "Vui lòng nhập đầy đủ dữ liệu trước khi tiếp tục";
 "new_password_not_match_confirm_password_alert_message" = "Mật khẩu mới và xác nhận mật khẩu không khớp";
+"change_password_success" = "Đổi mật khẩu thành công";
+"change_password_failed" = "Mật khẩu cũ không chính xác. Vui lòng thử lại";
+"new_password_not_has_more_than_six_character" = "Mật khẩu phải có ít nhất 6 ký tự. Vui lòng nhập một mật khẩu hợp lệ.";
