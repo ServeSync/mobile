@@ -65,7 +65,17 @@ class AccountVC: BaseVC<AccountVM> {
         signOutButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                let popupConfirm = UIAlertController(title: "sign_out".localized, message: "sign_out_title_confirm".localized, preferredStyle: UIAlertController.Style.alert)
+
+                popupConfirm.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { (action: UIAlertAction!) in
+                    AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                  }))
+
+                popupConfirm.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                  
+                  }))
+                
+                self.presentVC(popupConfirm)
             })
             .disposed(by: bag)
         

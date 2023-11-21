@@ -17,6 +17,7 @@ protocol RemoteRepository {
     func signIn(userNameOrEmail: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>>
     func resfreshToken(authCredentialDto: AuthCredentialDto) -> Single<Result<AuthCredentialDto, ErrorResponse>>
     func forgotPassword(requestForgetPassword: RequestForgetPasswordDto) -> Single<Moya.Response>
+    func changePassword(changePassworDto: ChangePassworDto) -> Single<Moya.Response>
     
     //MARK: - Student
     func profile() -> Single<Result<UserInfoDto, ErrorResponse>>

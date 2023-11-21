@@ -33,7 +33,7 @@ class LoginVM: BaseVM {
                 case .success(let data):
                     UserDefaultHelper.shared.accessToken = data.accessToken
                     UserDefaultHelper.shared.refreshToken = data.refreshToken
-                    UserDefaultHelper.shared.studentId = JWTHelper.shared.decodeAndMap(jwtToken: data.accessToken, to: TokenInfo.self)?.studentId
+                    UserDefaultHelper.shared.studentId = JWTHelper.shared.decodeAndMap(jwtToken: data.accessToken, to: TokenInfo.self)?.referenceId
                     return .just(.Success)
                 case .failure(let error):
                     return .just(.Error(error: error))

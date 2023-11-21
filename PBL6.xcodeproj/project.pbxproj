@@ -194,6 +194,7 @@
 		35E7AB112B0BB00700CF0E4B /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB0F2B0BB00700CF0E4B /* ChangePasswordVC.swift */; };
 		35E7AB122B0BB00700CF0E4B /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */; };
 		35E7AB142B0BB01400CF0E4B /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */; };
+		35E7AB182B0BCB0000CF0E4B /* ChangePassworDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB172B0BCB0000CF0E4B /* ChangePassworDto.swift */; };
 		35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */; };
 		35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */; };
 		35FAD7F72AD713D6003381F1 /* CircleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD7F62AD713D6003381F1 /* CircleCharts.swift */; };
@@ -403,6 +404,7 @@
 		35E7AB0F2B0BB00700CF0E4B /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
+		35E7AB172B0BCB0000CF0E4B /* ChangePassworDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassworDto.swift; sourceTree = "<group>"; };
 		35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
 		35FAD7F62AD713D6003381F1 /* CircleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCharts.swift; sourceTree = "<group>"; };
@@ -876,36 +878,13 @@
 		356C7F672A9F92CB00DDEDDD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				35D5399A2B0D098A0062B432 /* Other */,
+				35D539992B0D097E0062B432 /* Error */,
+				35D539982B0D09050062B432 /* StudentInfo */,
+				35D539972B0D08DA0062B432 /* Event */,
+				35D539962B0D08CC0062B432 /* EducationProgram */,
+				35D539952B0D08BE0062B432 /* Auth */,
 				356C7FA52A9F9B2700DDEDDD /* Post.swift */,
-				35B7160A2AB1BBEE0089E829 /* SlideItem.swift */,
-				356D457A2AB60D39004227A1 /* AuthCredentialDto.swift */,
-				35281C922ABEB2F900329260 /* UserInfoDto.swift */,
-				35281C972ABF4A4400329260 /* ErrorResponse.swift */,
-				35281C9A2ABFF10C00329260 /* TokenInfo.swift */,
-				358905822AC7F8B6000E687C /* StudentDetailDto.swift */,
-				358905922AC89601000E687C /* RequestForgetPasswordDto.swift */,
-				358905942AC96FEB000E687C /* FacultyDto.swift */,
-				358905962AC9705B000E687C /* HomeRoomDto.swift */,
-				358905982AC970E8000E687C /* EducationProgramDto.swift */,
-				35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */,
-				35332B1C2ACF15A8001B2084 /* ImageResponse.swift */,
-				35FAD8702ADB0892003381F1 /* FlatEventDto.swift */,
-				35FAD8722ADB0936003381F1 /* OrganizationInEventDto.swift */,
-				35FAD8742ADB09C1003381F1 /* EventAddressDto.swift */,
-				35FAD8762ADB19FE003381F1 /* FlatEventDtoPagedResultDto.swift */,
-				357192A42AE80F9D009C429E /* BasicEventActivityDto.swift */,
-				357192A62AE8104A009C429E /* BasicOrganizationInEventDto.swift */,
-				357192A82AE811B7009C429E /* EventDetailDto.swift */,
-				357192AA2AE81256009C429E /* EventRoleDto.swift */,
-				357192AD2AE81497009C429E /* BasicRepresentativeInEventDto.swift */,
-				357192AF2AE8188F009C429E /* EventRegistrationDto.swift */,
-				357192B12AE8199F009C429E /* EventAttendanceInfoDto.swift */,
-				3512C1A02AF5E893009DB01A /* EventRegisterDto.swift */,
-				3512C1A22AF60FBB009DB01A /* StudentAttendEventDto.swift */,
-				355D72B62B0079B20036AE59 /* StudentEducationProgramDto.swift */,
-				355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */,
-				355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */,
-				355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1168,6 +1147,78 @@
 				358905902AC8894B000E687C /* ForgotPasswordVM.swift */,
 			);
 			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		35D539952B0D08BE0062B432 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				35281C9A2ABFF10C00329260 /* TokenInfo.swift */,
+				35281C922ABEB2F900329260 /* UserInfoDto.swift */,
+				358905922AC89601000E687C /* RequestForgetPasswordDto.swift */,
+				35E7AB172B0BCB0000CF0E4B /* ChangePassworDto.swift */,
+				356D457A2AB60D39004227A1 /* AuthCredentialDto.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		35D539962B0D08CC0062B432 /* EducationProgram */ = {
+			isa = PBXGroup;
+			children = (
+				358905942AC96FEB000E687C /* FacultyDto.swift */,
+				355D72B62B0079B20036AE59 /* StudentEducationProgramDto.swift */,
+				358905982AC970E8000E687C /* EducationProgramDto.swift */,
+				358905962AC9705B000E687C /* HomeRoomDto.swift */,
+			);
+			path = EducationProgram;
+			sourceTree = "<group>";
+		};
+		35D539972B0D08DA0062B432 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				35FAD8742ADB09C1003381F1 /* EventAddressDto.swift */,
+				35FAD8762ADB19FE003381F1 /* FlatEventDtoPagedResultDto.swift */,
+				357192A42AE80F9D009C429E /* BasicEventActivityDto.swift */,
+				357192AA2AE81256009C429E /* EventRoleDto.swift */,
+				355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */,
+				357192AD2AE81497009C429E /* BasicRepresentativeInEventDto.swift */,
+				357192AF2AE8188F009C429E /* EventRegistrationDto.swift */,
+				35FAD8722ADB0936003381F1 /* OrganizationInEventDto.swift */,
+				357192B12AE8199F009C429E /* EventAttendanceInfoDto.swift */,
+				3512C1A02AF5E893009DB01A /* EventRegisterDto.swift */,
+				355D72BB2B00C21B0036AE59 /* StudentAttendanceEventDto.swift */,
+				3512C1A22AF60FBB009DB01A /* StudentAttendEventDto.swift */,
+				357192A82AE811B7009C429E /* EventDetailDto.swift */,
+				355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */,
+				357192A62AE8104A009C429E /* BasicOrganizationInEventDto.swift */,
+				35FAD8702ADB0892003381F1 /* FlatEventDto.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		35D539982B0D09050062B432 /* StudentInfo */ = {
+			isa = PBXGroup;
+			children = (
+				35545EA72ACB351700734A68 /* StudentEditProfileDto.swift */,
+				358905822AC7F8B6000E687C /* StudentDetailDto.swift */,
+			);
+			path = StudentInfo;
+			sourceTree = "<group>";
+		};
+		35D539992B0D097E0062B432 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				35281C972ABF4A4400329260 /* ErrorResponse.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		35D5399A2B0D098A0062B432 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				35B7160A2AB1BBEE0089E829 /* SlideItem.swift */,
+				35332B1C2ACF15A8001B2084 /* ImageResponse.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		35D710F82AA6166800B71A34 /* UserDefault */ = {
@@ -1571,6 +1622,7 @@
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,
 				35FAD85C2AD99AF4003381F1 /* MyEventCell.swift in Sources */,
 				358905992AC970E8000E687C /* EducationProgramDto.swift in Sources */,
+				35E7AB182B0BCB0000CF0E4B /* ChangePassworDto.swift in Sources */,
 				358905542AC752D3000E687C /* PageVC.swift in Sources */,
 				357192A92AE811B7009C429E /* EventDetailDto.swift in Sources */,
 				356C7FC12A9F9C6F00DDEDDD /* RPost.swift in Sources */,

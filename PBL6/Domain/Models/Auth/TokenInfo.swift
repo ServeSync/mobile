@@ -13,7 +13,7 @@ struct TokenInfo: Mappable {
     var userName: String = ""
     var email: String = ""
     var exp: Int = 0
-    var studentId: String = ""
+    var referenceId: String = ""
     
     init?(map: Map) {}
     
@@ -22,6 +22,6 @@ struct TokenInfo: Mappable {
         userName <- map["UserName"]
         email <- map["Email"]
         exp <- map["exp"]
-        studentId <- map["StudentId"]
+        referenceId <- map["ReferenceId"]
     }
 }
