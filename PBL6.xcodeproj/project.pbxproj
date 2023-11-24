@@ -181,6 +181,9 @@
 		35ABB1CE2AEAAA74005E1574 /* IntrinsicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABB1CD2AEAAA74005E1574 /* IntrinsicCollectionView.swift */; };
 		35ABB1D02AEAAA84005E1574 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABB1CF2AEAAA84005E1574 /* IntrinsicTableView.swift */; };
 		35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B7160A2AB1BBEE0089E829 /* SlideItem.swift */; };
+		35B98C672B0E71C300E8B4FC /* ExportFileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B98C652B0E71C300E8B4FC /* ExportFileVC.swift */; };
+		35B98C682B0E71C300E8B4FC /* ExportFileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35B98C662B0E71C300E8B4FC /* ExportFileVC.xib */; };
+		35B98C6A2B0E71CF00E8B4FC /* ExportFileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B98C692B0E71CF00E8B4FC /* ExportFileVM.swift */; };
 		35D15CE92AF2A2F200DA8E88 /* RegistrationInfoStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D15CE82AF2A2F200DA8E88 /* RegistrationInfoStatus.swift */; };
 		35D15CEB2AF2A36F00DA8E88 /* AttendanceInfoStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D15CEA2AF2A36F00DA8E88 /* AttendanceInfoStatus.swift */; };
 		35D15CED2AF2AD4D00DA8E88 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D15CEC2AF2AD4D00DA8E88 /* UIImageView.swift */; };
@@ -391,6 +394,9 @@
 		35ABB1CD2AEAAA74005E1574 /* IntrinsicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntrinsicCollectionView.swift; sourceTree = "<group>"; };
 		35ABB1CF2AEAAA84005E1574 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		35B7160A2AB1BBEE0089E829 /* SlideItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideItem.swift; sourceTree = "<group>"; };
+		35B98C652B0E71C300E8B4FC /* ExportFileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFileVC.swift; sourceTree = "<group>"; };
+		35B98C662B0E71C300E8B4FC /* ExportFileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportFileVC.xib; sourceTree = "<group>"; };
+		35B98C692B0E71CF00E8B4FC /* ExportFileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFileVM.swift; sourceTree = "<group>"; };
 		35D15CE82AF2A2F200DA8E88 /* RegistrationInfoStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInfoStatus.swift; sourceTree = "<group>"; };
 		35D15CEA2AF2A36F00DA8E88 /* AttendanceInfoStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceInfoStatus.swift; sourceTree = "<group>"; };
 		35D15CEC2AF2AD4D00DA8E88 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -735,6 +741,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				35B98C642B0E719700E8B4FC /* ExportFile */,
 				35E7AB0E2B0BAFED00CF0E4B /* ChangePassword */,
 				3512C1A52AF796A9009DB01A /* Search */,
 				3585B3222AF3F8A2001CE588 /* Register */,
@@ -1149,6 +1156,16 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		35B98C642B0E719700E8B4FC /* ExportFile */ = {
+			isa = PBXGroup;
+			children = (
+				35B98C652B0E71C300E8B4FC /* ExportFileVC.swift */,
+				35B98C662B0E71C300E8B4FC /* ExportFileVC.xib */,
+				35B98C692B0E71CF00E8B4FC /* ExportFileVM.swift */,
+			);
+			path = ExportFile;
+			sourceTree = "<group>";
+		};
 		35D539952B0D08BE0062B432 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1436,6 +1453,7 @@
 				35635D1A2AAE2A750083E3DB /* OpenSans-SemiBold.ttf in Resources */,
 				358905622AC7540F000E687C /* EventVC.xib in Resources */,
 				358905762AC7D339000E687C /* AccountVC.xib in Resources */,
+				35B98C682B0E71C300E8B4FC /* ExportFileVC.xib in Resources */,
 				3532337A2AAF6F4500032B72 /* WelcomeVC.xib in Resources */,
 				358905672AC75429000E687C /* AnalysisVC.xib in Resources */,
 				351C3DC32AA1ED44004E82B7 /* AlertVC.xib in Resources */,
@@ -1556,6 +1574,7 @@
 				356C7FB12A9F9BBC00DDEDDD /* RealmRepresentable.swift in Sources */,
 				356C7F8A2A9F980400DDEDDD /* ErrorTracker.swift in Sources */,
 				356C7F972A9F994200DDEDDD /* UICollectionView.swift in Sources */,
+				35B98C672B0E71C300E8B4FC /* ExportFileVC.swift in Sources */,
 				356C7F692A9F939300DDEDDD /* LocalRespository.swift in Sources */,
 				358905782AC7D379000E687C /* AccountVM.swift in Sources */,
 				356C7F9B2A9F998200DDEDDD /* Localize.swift in Sources */,
@@ -1571,6 +1590,7 @@
 				3585B32A2AF3F931001CE588 /* RegisterVM.swift in Sources */,
 				35FAD7F72AD713D6003381F1 /* CircleCharts.swift in Sources */,
 				3512C1A82AF796BF009DB01A /* SearchVC.swift in Sources */,
+				35B98C6A2B0E71CF00E8B4FC /* ExportFileVM.swift in Sources */,
 				3588F66F2AD46C5B00D8DFF5 /* EventItemCell.swift in Sources */,
 				356C7F7B2A9F95AD00DDEDDD /* Resolver.swift in Sources */,
 				357192B02AE8188F009C429E /* EventRegistrationDto.swift in Sources */,

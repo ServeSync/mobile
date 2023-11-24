@@ -19,7 +19,11 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     @IBOutlet weak var gainScoreLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
     
+    @IBOutlet weak var exportFileButton: UIButton!
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var shadowBackground: UIView!
     
     private var refreshControl = UIRefreshControl()
     private var percentage:Double = 0
@@ -148,6 +152,23 @@ class AnalysisVC: BaseVC<AnalysisVM> {
         refreshControl.tintColor  = "Primary".toUIColor()
         collectionView.refreshControl = self.refreshControl
     }
+    
+    override func addEventForViews() {
+        super.addEventForViews()
+        
+        exportFileButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                
+                shadowBackground.isHidden = false
+                let vc = ExportFileVC()
+                vc.delegate = self
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.presentVC(vc)
+            })
+            .disposed(by: bag)
+    }
 }
 
 extension AnalysisVC {
@@ -170,5 +191,11 @@ extension AnalysisVC {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.refreshControl.endRefreshing()
         })
+    }
+}
+
+extension AnalysisVC: DissmissExportFileDelegate {
+    func dissmiss() {
+        self.shadowBackground.isHidden = true
     }
 }

@@ -318,7 +318,7 @@ private extension EventDetailVC {
             actionButton.setTitle("roll_call".localized, for: .normal)
             actionButton.backgroundColor = "#26C6DA".toUIColor()
             viewModel.updateButtonActionStatus(status: .rollCall)
-        } else if !item.isRegistered && item.calculatedStatus == EventStatus.Registration.rawValue {
+        } else if item.roles.contains(where: {$0.isRegistered == false}) && item.calculatedStatus == EventStatus.Registration.rawValue {
             actionButton.setTitle("register".localized, for: .normal)
             actionButton.backgroundColor = "#24B720".toUIColor()
             viewModel.updateButtonActionStatus(status: .register)

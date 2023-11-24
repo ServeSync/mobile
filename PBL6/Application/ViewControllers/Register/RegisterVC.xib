@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,10 +31,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tb2-ky-RZe">
-                    <rect key="frame" x="50.666666666666657" y="194.66666666666666" width="292" height="462.66666666666674"/>
+                    <rect key="frame" x="57.666666666666657" y="199.99999999999997" width="278" height="452.33333333333326"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng ký tham gia hoạt động?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EX0-c8-5ql">
-                            <rect key="frame" x="20" y="24" width="252" height="24.666666666666671"/>
+                            <rect key="frame" x="20" y="24" width="238" height="21"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="18"/>
                             <color key="textColor" red="0.12156862745098039" green="0.16078431372549018" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uNh-Qj-CZL" customClass="IntrinsicCollectionView" customModule="PBL6" customModuleProvider="target">
-                            <rect key="frame" x="20" y="94.666666666666657" width="252" height="128"/>
+                            <rect key="frame" x="20" y="87.666666666666686" width="238" height="128"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="128" id="NQX-wK-vrq"/>
@@ -56,7 +56,7 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tự giới thiệu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okj-0b-HRC">
-                            <rect key="frame" x="20.000000000000007" y="246.66666666666663" width="97.333333333333343" height="22"/>
+                            <rect key="frame" x="20.000000000000007" y="239.66666666666669" width="91.666666666666686" height="18.666666666666686"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" red="0.32156862745098036" green="0.37647058823529411" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vị trí" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcv-Rq-Fbn">
-                            <rect key="frame" x="20.000000000000004" y="56.666666666666686" width="36.333333333333343" height="22"/>
+                            <rect key="frame" x="20.000000000000007" y="53" width="31.999999999999993" height="18.666666666666671"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" red="0.32156862745098036" green="0.37647058823529411" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-7J-XOF" customClass="ITextView" customModule="PBL6" customModuleProvider="target">
-                            <rect key="frame" x="20" y="284.66666666666663" width="252" height="90"/>
+                            <rect key="frame" x="20" y="274.33333333333331" width="238" height="90"/>
                             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="QeX-iR-Mmb"/>
@@ -84,10 +84,10 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-mU-rka">
-                            <rect key="frame" x="20" y="398.66666666666674" width="252" height="40"/>
+                            <rect key="frame" x="20" y="388.33333333333337" width="238" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCi-Ed-jVB">
-                                    <rect key="frame" x="0.0" y="0.0" width="110.33333333333333" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="40"/>
                                     <color key="backgroundColor" red="0.14117647058823529" green="0.71764705882352942" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -102,7 +102,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7t-NO-lhW">
-                                    <rect key="frame" x="141.33333333333331" y="0.0" width="110.66666666666669" height="40"/>
+                                    <rect key="frame" x="134.33333333333331" y="0.0" width="103.66666666666669" height="40"/>
                                     <color key="backgroundColor" red="0.95294117647058818" green="0.32549019607843138" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -158,6 +158,11 @@
             <point key="canvasLocation" x="-31" y="20"/>
         </view>
     </objects>
+    <designables>
+        <designable name="uNh-Qj-CZL">
+            <size key="intrinsicContentSize" width="-1" height="0.0"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
