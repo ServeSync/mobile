@@ -107,10 +107,10 @@
 "hometown_edit" = "Quê quán";
 "address_edit" = "Địa chỉ cư trú";
 "phone_number_edit" = "Số điện thoại";
-"hometown_textfield_warning" = "Quê quán không được để trống";
-"address_textfield_warning" = "Địa chỉ không được để trống";
-"email_textfield_warning" = "Email không được để trống hoặc không đúng định dạng";
-"phone_textfield_warning" = "Số điện thoại không được để trống hoặc không đúng định dạng";
+"hometown_textfield_warning" = "Quê quán không hợp lệ";
+"address_textfield_warning" = "Địa chỉ không hợp lệ";
+"email_textfield_warning" = "Email không hợp lệ";
+"phone_textfield_warning" = "Số điện thoại không hợp lệ";
 "data_alert_warning" = "Dữ liệu không đúng định dạng";
 "edit_success" = "Cập nhật thông tin thành công";
 
@@ -195,3 +195,6 @@ Vui lòng thử lại";
 "change_password_success" = "Đổi mật khẩu thành công";
 "change_password_failed" = "Mật khẩu cũ không chính xác. Vui lòng thử lại";
 "new_password_not_has_more_than_six_character" = "Mật khẩu phải có ít nhất 6 ký tự. Vui lòng nhập một mật khẩu hợp lệ.";
+
+//Export File
+"pick_date_error" = "Ngày bắt đầu không được lớn ngày kết thúc";

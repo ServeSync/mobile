@@ -90,6 +90,7 @@ class EditProfileVC: BaseVC<EditProfileVM> {
         saveButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
+                view.endEditing(true)
                 if isValidEmail && isValidPhone && isValidHomeTown && isValidAddress {
                     viewModel.handleUpdateProfile()
                         .subscribe(onNext: {[weak self] status in

@@ -100,8 +100,6 @@ class LoginVC: BaseVC<LoginVM> {
             })
             .disposed(by: bag)
         
-        
-        
         togglePasswordButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
@@ -115,6 +113,7 @@ class LoginVC: BaseVC<LoginVM> {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 
+                view.endEditing(true)
                 if !isValidatePassword || !isValidateUserName {
                     AlertVC.showMessage(self, 
                                         message: AlertMessage(type: .error,

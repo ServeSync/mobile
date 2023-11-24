@@ -28,6 +28,12 @@ class RegisterVC: BaseVC<RegisterVM> {
 
         // Do any additional setup after loading the view.
         viewModel.fetchData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(tapGesture)
     }
     
     init(data: [EventRoleDto]) {
@@ -133,5 +139,21 @@ class RegisterVC: BaseVC<RegisterVM> {
             .map{ [SectionModel(model: (), items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: getEventRoleItemDataSource()))
             .disposed(by: bag)
+    }
+    
+    @objc override func keyboardWillShow(notification:NSNotification) {
+        if self.textView.isFirstResponder == true {
+                self.view.frame.origin.y -= 50
+        }
+    }
+
+    @objc override func keyboardWillHide(notification:NSNotification) {
+        if self.textView.isFirstResponder == true {
+               self.view.frame.origin.y += 50
+        }
+    }
+    
+    @objc func viewTapped() {
+        view.endEditing(true)
     }
 }
