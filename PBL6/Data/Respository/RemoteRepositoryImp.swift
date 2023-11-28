@@ -59,6 +59,10 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.getAttendanceEvents(page: page)
     }
     
+    func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response> {
+        return apiService.exportFile(exportStudentAttendanceEventsDto: exportStudentAttendanceEventsDto)
+    }
+    
     //MARK: - Event
     
     func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {

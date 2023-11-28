@@ -198,4 +198,18 @@ extension AnalysisVC: DissmissExportFileDelegate {
     func dissmiss() {
         self.shadowBackground.isHidden = true
     }
+    func shareExportFile(filePath: String) {
+        let url = URL(string: filePath)!
+        let activity = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        activity.excludedActivityTypes = [
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.openInIBooks,
+            UIActivity.ActivityType.airDrop,
+            UIActivity.ActivityType.mail,
+            UIActivity.ActivityType.message,
+            UIActivity.ActivityType.postToFacebook,
+            UIActivity.ActivityType.print,
+        ]
+        present(activity, animated: true)
+    }
 }

@@ -64,6 +64,10 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestObjectWithTokenRefresh(.getAttendanceEvents(page: page), successType: StudentAttendanceEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
     
+    func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.exportFile(exportStudentAttendanceEventsDto: exportStudentAttendanceEventsDto))
+    }
+    
     //MARK: - Event
     
     func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {

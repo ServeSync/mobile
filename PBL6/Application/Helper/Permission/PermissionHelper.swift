@@ -98,6 +98,7 @@ class PermissionHelper: NSObject {
     }
     
     func showSettingPermissionDialog(parentVC: UIViewController, title: String, message: String, cancelCallback: (() -> Void)? = nil) {
+        print("showSettingPermissionDialog, @@@")
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("Setting".localized, comment: ""), style: .default, handler: { _ in
             AppUtils.goToAppSettings()

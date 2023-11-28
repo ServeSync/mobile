@@ -46,6 +46,9 @@ enum AppError: String {
     case checkInTimeFrameNotFound = "EventAttendanceInfo:000004"
     case invalidCheckInCode = "EventAttendanceInfo:000005"
     
+    //MARK: - Event
+    case eventNotExist = "Event:000003"
+    
     var description: String {
         switch self {
         case .userNotFound:
@@ -96,6 +99,8 @@ enum AppError: String {
             return "checkInTimeFrameNotFound".localized
         case .invalidCheckInCode:
             return "invalidCheckInCode".localized
+        case .eventNotExist:
+            return "eventNotExist".localized
         }
     }
 }

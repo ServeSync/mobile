@@ -28,6 +28,7 @@ enum AppApi {
     //MARK: - Student
     case getEducationProgam
     case getAttendanceEvents(page: Int)
+    case exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto)
     
     //MARK: - Event
     case getEventsByStatus(status: EventStatus, page: Int)
@@ -78,13 +79,15 @@ extension AppApi: TargetType {
             return "students/\(UserDefaultHelper.shared.studentId!)/education-program"
         case .getAttendanceEvents:
             return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events"
+        case .exportFile:
+            return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events/export"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword:
+        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile:
             return .post
         case .putProfile:
             return .put
@@ -193,6 +196,16 @@ extension AppApi: TargetType {
             let body: [String: Any] = [
                 "currentPassword": changePassworDto.currentPassword,
                 "newPassword": changePassworDto.newPassword,
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .exportFile(let exportStudentAttendanceEventsDto):
+            let body: [String: Any] = [
+                "fromDate": exportStudentAttendanceEventsDto.fromDate,
+                "toDate": exportStudentAttendanceEventsDto.toDate,
             ]
             if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
                 return .requestData(jsonBody)

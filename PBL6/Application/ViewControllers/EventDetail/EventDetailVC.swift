@@ -9,6 +9,7 @@ import UIKit
 import RxDataSources
 import SwiftQRScanner
 import CoreLocation
+import AVFoundation
 
 class EventDetailVC: BaseVC<EventDetailVM> {
     @IBOutlet weak var overviewScollView: UIScrollView!
@@ -160,7 +161,16 @@ class EventDetailVC: BaseVC<EventDetailVM> {
                     case .authorizedAlways, .authorizedWhenInUse:
                         scanner = QRCodeScannerController(qrScannerConfiguration: configuration)
                         scanner?.delegate = self
-                        self.presentVC(scanner!)
+                        self.presentVC(scanner!) {
+                            switch AVCaptureDevice.authorizationStatus(for: .video) {
+                            case .notDetermined, .restricted, .denied:
+                                PermissionHelper.shared.showSettingPermissionDialog(parentVC: self.scanner!,
+                                                                                    title: "camera_permission_is_not_granted_title".localized,
+                                                                                    message: "camera_permission_is_not_granted_message".localized)
+                            default:
+                                break
+                            }
+                        }
                     @unknown default:
                         break
                     }
@@ -346,6 +356,10 @@ extension EventDetailVC: RegisterEventDelegate {
     func updateRoleRegister(roleId: String) {
         self.showToast(message: "register_success".localized, state: .success)
         viewModel.updateRoleRegister(roleId: roleId)
+        if !viewModel.eventDetailItem.roles.contains(where: { $0.isRegistered == false}) {
+            print("###")
+            actionButton.gone()
+        }
     }
 }
 

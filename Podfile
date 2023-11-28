@@ -47,6 +47,9 @@ target 'PBL6' do
 
   #scan QR
   pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
+
+  #export file
+  pod 'SwiftExcel'
   
   post_install do |pi|
       pi.pods_project.targets.each do |target|
