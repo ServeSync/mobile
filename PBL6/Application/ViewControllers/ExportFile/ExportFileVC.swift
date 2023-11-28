@@ -9,10 +9,11 @@ import UIKit
 
 protocol DissmissExportFileDelegate: AnyObject {
     func dissmiss()
+    func shareExportFile(filePath: String)
 }
 
 class ExportFileVC: BaseVC<ExportFileVM> {
-
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var exportFileButton: UIButton!
     
@@ -20,6 +21,8 @@ class ExportFileVC: BaseVC<ExportFileVM> {
     @IBOutlet weak var endTimeTextField: UITextField!
     
     weak var delegate: DissmissExportFileDelegate? = nil
+    
+    var documentController: UIDocumentInteractionController!
     
     override func initViews() {
         super.initViews()
@@ -32,7 +35,13 @@ class ExportFileVC: BaseVC<ExportFileVM> {
         super.viewDidLoad()
         
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        delegate?.dissmiss()
+    }
+    
     override func addEventForViews() {
         super.addEventForViews()
         
@@ -40,7 +49,6 @@ class ExportFileVC: BaseVC<ExportFileVM> {
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
                 
-                delegate?.dissmiss()
                 self.dismissVC()
             })
             .disposed(by: bag)
@@ -52,11 +60,37 @@ class ExportFileVC: BaseVC<ExportFileVM> {
                 if viewModel.endTime < viewModel.startTime {
                     AlertVC.showMessage(self, message: AlertMessage(type: .error,
                                                                     description: "pick_date_error".localized)) {}
+                } else {
+                    viewModel.handleExportFile()
+                        .subscribe(onNext: {[weak self] status in
+                            guard let self = self else { return }
+                            switch status {
+                            case .Success:
+                                
+//                                let url = URL(string: viewModel.filePath)!
+//                                let activity = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+//                                activity.excludedActivityTypes = [
+//                                    UIActivity.ActivityType.addToReadingList,
+//                                    UIActivity.ActivityType.openInIBooks,
+//                                    UIActivity.ActivityType.airDrop,
+//                                    UIActivity.ActivityType.mail,
+//                                    UIActivity.ActivityType.message,
+//                                    UIActivity.ActivityType.postToFacebook,
+//                                    UIActivity.ActivityType.print,
+//                                ]
+//                                present(activity, animated: true)
+                                self.dismissVC()
+                                delegate?.shareExportFile(filePath: viewModel.filePath)
+                            case .Error(let error):
+                                self.showToast(message: getErrorDescription(forErrorCode: error!.code), state: .error)
+                            }
+                        })
+                        .disposed(by: bag)
                 }
             })
             .disposed(by: bag)
     }
-
+    
     @objc func handleDatePickerForStartTime(sender: UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -125,5 +159,11 @@ extension ExportFileVC {
         
         endTimeTextField.inputView = inputView
     }
+    
+}
 
+extension ExportFileVC: UIDocumentInteractionControllerDelegate {
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
 }

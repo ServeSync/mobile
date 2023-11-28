@@ -253,7 +253,7 @@
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH1-Gr-9dx">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="868"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1018"/>
                             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>
@@ -276,7 +276,7 @@
                         <constraint firstAttribute="trailing" secondItem="6li-ga-9hC" secondAttribute="trailing" constant="24" id="gGU-h5-7Sx"/>
                         <constraint firstItem="To9-kZ-3Da" firstAttribute="leading" secondItem="bcb-Yg-0Ea" secondAttribute="leading" id="h6U-rZ-fqQ"/>
                         <constraint firstItem="6li-ga-9hC" firstAttribute="leading" secondItem="bcb-Yg-0Ea" secondAttribute="leading" constant="24" id="hO0-9D-lf7"/>
-                        <constraint firstAttribute="bottom" secondItem="pH1-Gr-9dx" secondAttribute="bottom" constant="-50" id="hqk-B5-6uD"/>
+                        <constraint firstAttribute="bottom" secondItem="pH1-Gr-9dx" secondAttribute="bottom" constant="-200" id="hqk-B5-6uD"/>
                         <constraint firstItem="pH1-Gr-9dx" firstAttribute="leading" secondItem="bcb-Yg-0Ea" secondAttribute="leading" id="pVY-u3-cc3"/>
                         <constraint firstItem="kJa-80-g3p" firstAttribute="top" secondItem="qZp-od-NMn" secondAttribute="bottom" constant="32" id="zN8-uO-pKs"/>
                         <constraint firstItem="pH1-Gr-9dx" firstAttribute="top" secondItem="bcb-Yg-0Ea" secondAttribute="top" id="zyO-cf-1jt"/>

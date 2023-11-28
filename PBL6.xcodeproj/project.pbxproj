@@ -63,6 +63,7 @@
 		353233832AAF776800032B72 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353233822AAF776800032B72 /* OpenSans-Light.ttf */; };
 		35332B142ACDD0CA001B2084 /* FormatUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35332B132ACDD0CA001B2084 /* FormatUtils.swift */; };
 		35332B1D2ACF15A8001B2084 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35332B1C2ACF15A8001B2084 /* ImageResponse.swift */; };
+		3538701A2B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353870192B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift */; };
 		353D2AC92AC9D19C00C26BA3 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353D2AC72AC9D19C00C26BA3 /* EditProfileVC.swift */; };
 		353D2ACA2AC9D19C00C26BA3 /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353D2AC82AC9D19C00C26BA3 /* EditProfileVC.xib */; };
 		353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353D2ACB2AC9D1A700C26BA3 /* EditProfileVM.swift */; };
@@ -274,6 +275,7 @@
 		353233822AAF776800032B72 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		35332B132ACDD0CA001B2084 /* FormatUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatUtils.swift; sourceTree = "<group>"; };
 		35332B1C2ACF15A8001B2084 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
+		353870192B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportStudentAttendanceEventsDto.swift; sourceTree = "<group>"; };
 		353D2AC72AC9D19C00C26BA3 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		353D2AC82AC9D19C00C26BA3 /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		353D2ACB2AC9D1A700C26BA3 /* EditProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVM.swift; sourceTree = "<group>"; };
@@ -1208,6 +1210,7 @@
 				355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */,
 				357192A62AE8104A009C429E /* BasicOrganizationInEventDto.swift */,
 				35FAD8702ADB0892003381F1 /* FlatEventDto.swift */,
+				353870192B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -1578,6 +1581,7 @@
 				356C7F692A9F939300DDEDDD /* LocalRespository.swift in Sources */,
 				358905782AC7D379000E687C /* AccountVM.swift in Sources */,
 				356C7F9B2A9F998200DDEDDD /* Localize.swift in Sources */,
+				3538701A2B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift in Sources */,
 				35281C962ABF43FE00329260 /* KeychainHelper.swift in Sources */,
 				35E372642AF924B60078AACF /* UIImage.swift in Sources */,
 				351C3DBE2AA1EA6D004E82B7 /* HomeVM.swift in Sources */,

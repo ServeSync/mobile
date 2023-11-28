@@ -47,6 +47,10 @@
 "checkInTimeFrameNotFound" = "Khung giờ điểm danh không tồn tại";
 "invalidCheckInCode" = "Mã code điểm danh không hợp lệ";
 
+//MARK: - EventAttendanceInfo
+
+"eventNotExist" = "Sự kiện không tồn tại";
+
 
 // Launch Screen
 "launch_screen_title" = "Student Community Activity Scoring System";
@@ -178,10 +182,10 @@
 "register_success" = "Gửi đơn dăng ký thành công";
 
 //Roll Call
-"location_permission_is_not_granted_title" = "Location access permission is not granted";
-"location_permission_is_not_granted_message" = "You need to go to Settings, allow Location access permission to be able to continue using this function.";
-"camera_permission_is_not_granted_title" = "Camera access permission is not granted";
-"camera_permission_is_not_granted_message" = "You need to go to Settings, allow Camera access permission to be able to continue using this function.";
+"location_permission_is_not_granted_title" = "Quyền truy cập địa điểm chưa được cấp phép.";
+"location_permission_is_not_granted_message" = "Bạn cần vào Cài đặt, cho phép quyền truy cập địa điểm để có thể tiếp tục sử dụng chức năng này.";
+"camera_permission_is_not_granted_title" = "Quyền truy cập camera chưa được cấp phép.";
+"camera_permission_is_not_granted_message" = "Bạn cần vào Cài đặt, cho phép quyền truy cập camera để có thể tiếp tục sử dụng chức năng này.";
 "roll_call_success" = "Điểm danh thành công";
 "roll_call_failed" = "Điểm danh thất bại!
 Vui lòng thử lại";

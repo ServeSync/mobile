@@ -158,11 +158,6 @@
             <point key="canvasLocation" x="-31" y="20"/>
         </view>
     </objects>
-    <designables>
-        <designable name="uNh-Qj-CZL">
-            <size key="intrinsicContentSize" width="-1" height="0.0"/>
-        </designable>
-    </designables>
     <resources>
         <namedColor name="White">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

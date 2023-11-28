@@ -26,6 +26,7 @@ protocol RemoteRepository {
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> Single<Moya.Response>
     func getEducationProgam() -> Single<Result<StudentEducationProgramDto, ErrorResponse>>
     func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>>
+    func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response>
     
     //MARK: - Event
     func getEventsByStatus(status: EventStatus, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
