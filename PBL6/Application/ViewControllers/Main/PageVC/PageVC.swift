@@ -13,6 +13,7 @@ class PageVC: UIPageViewController, UIPageViewControllerDataSource, UIPageViewCo
         HomeVC(),
         EventVC(),
         AnalysisVC(),
+        ProofVC(),
         AccountVC()
     ]
     

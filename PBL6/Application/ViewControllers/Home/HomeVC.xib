@@ -27,6 +27,7 @@
                 <outlet property="emptyUpcomingView" destination="dZl-na-bML" id="MuU-ox-sgw"/>
                 <outlet property="favoriteCollectionView" destination="95N-br-xD6" id="keZ-Wm-5cb"/>
                 <outlet property="happeningCollectionView" destination="YJC-YM-mi7" id="L4H-n7-AlB"/>
+                <outlet property="headerView" destination="GB1-dL-lK0" id="D2J-YN-Igb"/>
                 <outlet property="searchButton" destination="3Df-rT-7Uz" id="B1u-hR-H2a"/>
                 <outlet property="searchTextField" destination="MGJ-ZJ-fhc" id="5yX-tD-tRy"/>
                 <outlet property="seeAllDoneEventButton" destination="jLi-iz-mq9" id="ycT-Uh-7wk"/>

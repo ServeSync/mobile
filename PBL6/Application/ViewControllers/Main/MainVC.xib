@@ -19,6 +19,8 @@
                 <outlet property="navHomeImageView" destination="Dic-eQ-KLm" id="JnK-12-l1Y"/>
                 <outlet property="navProfileButton" destination="uXH-NT-gCl" id="jX6-bF-qhp"/>
                 <outlet property="navProfileImageView" destination="Ms5-eA-BVP" id="3Jy-cy-dSx"/>
+                <outlet property="navProofButton" destination="ENo-YG-QRD" id="BOA-xJ-jZr"/>
+                <outlet property="navProofImageView" destination="nT8-rr-MAF" id="VSx-Sq-hvh"/>
                 <outlet property="navView" destination="iqg-c4-8YF" id="ToI-rg-SUF"/>
                 <outlet property="pageView" destination="xgd-oX-DmU" id="U9c-25-3Hl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -39,13 +41,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="382" height="52"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbs-Km-KQJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="95.666666666666671" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="52"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home" highlightedImage="ic_home_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Dic-eQ-KLm">
-                                                    <rect key="frame" x="35.666666666666664" y="14" width="24" height="24"/>
+                                                    <rect key="frame" x="26.333333333333336" y="14" width="24" height="24"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbh-7g-Vte">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95.666666666666671" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="52"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 </button>
                                             </subviews>
@@ -60,13 +62,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTh-FK-HBi">
-                                            <rect key="frame" x="95.666666666666686" y="0.0" width="95.333333333333314" height="52"/>
+                                            <rect key="frame" x="76.333333333333343" y="0.0" width="76.333333333333343" height="52"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_event" highlightedImage="ic_event_selected" translatesAutoresizingMaskIntoConstraints="NO" id="hBA-0w-hnd">
-                                                    <rect key="frame" x="35.666666666666671" y="14" width="24" height="24"/>
+                                                    <rect key="frame" x="26.333333333333343" y="14" width="24" height="24"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1T-h0-kwq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="52"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 </button>
                                             </subviews>
@@ -81,13 +83,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lO6-AW-HsA">
-                                            <rect key="frame" x="191" y="0.0" width="95.666666666666686" height="52"/>
+                                            <rect key="frame" x="152.66666666666666" y="0.0" width="76.666666666666657" height="52"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_statistical" highlightedImage="ic_statistical_selected" translatesAutoresizingMaskIntoConstraints="NO" id="LBq-Dc-iy7">
-                                                    <rect key="frame" x="35.666666666666657" y="14" width="24" height="24"/>
+                                                    <rect key="frame" x="26.333333333333343" y="14" width="24" height="24"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhi-EJ-8v2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95.666666666666671" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="52"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 </button>
                                             </subviews>
@@ -101,14 +103,35 @@
                                                 <constraint firstItem="Zhi-EJ-8v2" firstAttribute="top" secondItem="lO6-AW-HsA" secondAttribute="top" id="pa9-MM-FTU"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcq-qR-5iZ">
+                                            <rect key="frame" x="229.33333333333334" y="0.0" width="76.333333333333343" height="52"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_proof" highlightedImage="ic_proof_selected" translatesAutoresizingMaskIntoConstraints="NO" id="nT8-rr-MAF">
+                                                    <rect key="frame" x="25.999999999999972" y="14" width="24.333333333333329" height="24"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENo-YG-QRD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="52"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="ENo-YG-QRD" firstAttribute="top" secondItem="xcq-qR-5iZ" secondAttribute="top" id="CSE-EF-uh9"/>
+                                                <constraint firstAttribute="trailing" secondItem="ENo-YG-QRD" secondAttribute="trailing" id="CgL-xq-wKR"/>
+                                                <constraint firstItem="nT8-rr-MAF" firstAttribute="centerX" secondItem="xcq-qR-5iZ" secondAttribute="centerX" id="FPS-TE-2OB"/>
+                                                <constraint firstItem="nT8-rr-MAF" firstAttribute="centerY" secondItem="xcq-qR-5iZ" secondAttribute="centerY" id="bj2-Rn-dmV"/>
+                                                <constraint firstAttribute="bottom" secondItem="ENo-YG-QRD" secondAttribute="bottom" id="ePz-Ei-cjK"/>
+                                                <constraint firstItem="ENo-YG-QRD" firstAttribute="leading" secondItem="xcq-qR-5iZ" secondAttribute="leading" id="ra5-tU-gA8"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Re9-zQ-d0F">
-                                            <rect key="frame" x="286.66666666666669" y="0.0" width="95.333333333333314" height="52"/>
+                                            <rect key="frame" x="305.66666666666669" y="0.0" width="76.333333333333314" height="52"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_profile" highlightedImage="ic_profile_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Ms5-eA-BVP">
-                                                    <rect key="frame" x="35.666666666666629" y="14" width="24" height="24"/>
+                                                    <rect key="frame" x="26" y="14" width="24" height="24"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXH-NT-gCl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="52"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="52"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 </button>
                                             </subviews>
@@ -182,6 +205,8 @@
         <image name="ic_home_selected" width="24" height="24"/>
         <image name="ic_profile" width="24" height="24"/>
         <image name="ic_profile_selected" width="24" height="24"/>
+        <image name="ic_proof" width="24.333333969116211" height="24"/>
+        <image name="ic_proof_selected" width="24.333333969116211" height="24"/>
         <image name="ic_statistical" width="24" height="24"/>
         <image name="ic_statistical_selected" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">

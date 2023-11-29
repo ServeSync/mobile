@@ -17,6 +17,7 @@ class HomeVC: BaseVC<HomeVM> {
     @IBOutlet weak var upcomingCollectionView: UICollectionView!
     @IBOutlet weak var doneCollectionView: UICollectionView!
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emptyFavoriteView: UIView!
     @IBOutlet weak var emptyHappeningView: UIView!
     @IBOutlet weak var emptyUpcomingView: UIView!
@@ -59,6 +60,7 @@ class HomeVC: BaseVC<HomeVM> {
     override func initViews() {
         super.initViews()
         
+        headerView.roundDifferentCorners(bottomLeft: 24, bottomRight: 24)
         searchTextField.setLeftPaddingPoints(56)
     }
     

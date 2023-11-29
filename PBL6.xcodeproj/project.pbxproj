@@ -74,6 +74,12 @@
 		355D72BE2B00C2F90036AE59 /* EventActivityDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */; };
 		355D72C12B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */; };
 		355D72C32B013F610036AE59 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D72C22B013F610036AE59 /* NSAttributedString.swift */; };
+		355D97E42B1794B30029969D /* ProofVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97E22B1794B30029969D /* ProofVC.swift */; };
+		355D97E52B1794B30029969D /* ProofVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355D97E32B1794B30029969D /* ProofVC.xib */; };
+		355D97E72B1794BE0029969D /* ProofVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97E62B1794BE0029969D /* ProofVM.swift */; };
+		355D97EB2B179B7B0029969D /* ProofItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97EA2B179B7B0029969D /* ProofItem.swift */; };
+		355D97EE2B179BAE0029969D /* ProofItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97EC2B179BAE0029969D /* ProofItemCell.swift */; };
+		355D97EF2B179BAE0029969D /* ProofItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355D97ED2B179BAE0029969D /* ProofItemCell.xib */; };
 		35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */; };
 		35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */; };
 		35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */; };
@@ -286,6 +292,12 @@
 		355D72BD2B00C2F90036AE59 /* EventActivityDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActivityDto.swift; sourceTree = "<group>"; };
 		355D72C02B00C4EF0036AE59 /* StudentAttendanceEventDtoPagedResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAttendanceEventDtoPagedResultDto.swift; sourceTree = "<group>"; };
 		355D72C22B013F610036AE59 /* NSAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		355D97E22B1794B30029969D /* ProofVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofVC.swift; sourceTree = "<group>"; };
+		355D97E32B1794B30029969D /* ProofVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProofVC.xib; sourceTree = "<group>"; };
+		355D97E62B1794BE0029969D /* ProofVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofVM.swift; sourceTree = "<group>"; };
+		355D97EA2B179B7B0029969D /* ProofItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofItem.swift; sourceTree = "<group>"; };
+		355D97EC2B179BAE0029969D /* ProofItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofItemCell.swift; sourceTree = "<group>"; };
+		355D97ED2B179BAE0029969D /* ProofItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProofItemCell.xib; sourceTree = "<group>"; };
 		35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -608,6 +620,34 @@
 			path = DateFormat;
 			sourceTree = "<group>";
 		};
+		355D97E12B17948C0029969D /* Proof */ = {
+			isa = PBXGroup;
+			children = (
+				355D97E82B1797C40029969D /* Cell */,
+				355D97E22B1794B30029969D /* ProofVC.swift */,
+				355D97E32B1794B30029969D /* ProofVC.xib */,
+				355D97E62B1794BE0029969D /* ProofVM.swift */,
+			);
+			path = Proof;
+			sourceTree = "<group>";
+		};
+		355D97E82B1797C40029969D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				355D97EC2B179BAE0029969D /* ProofItemCell.swift */,
+				355D97ED2B179BAE0029969D /* ProofItemCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		355D97E92B179B680029969D /* Proof */ = {
+			isa = PBXGroup;
+			children = (
+				355D97EA2B179B7B0029969D /* ProofItem.swift */,
+			);
+			path = Proof;
+			sourceTree = "<group>";
+		};
 		35635D122AAE2A2D0083E3DB /* Open-Sans */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,6 +783,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				355D97E12B17948C0029969D /* Proof */,
 				35B98C642B0E719700E8B4FC /* ExportFile */,
 				35E7AB0E2B0BAFED00CF0E4B /* ChangePassword */,
 				3512C1A52AF796A9009DB01A /* Search */,
@@ -887,6 +928,7 @@
 		356C7F672A9F92CB00DDEDDD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				355D97E92B179B680029969D /* Proof */,
 				35D5399A2B0D098A0062B432 /* Other */,
 				35D539992B0D097E0062B432 /* Error */,
 				35D539982B0D09050062B432 /* StudentInfo */,
@@ -1467,6 +1509,7 @@
 				351C3DE92AA338EB004E82B7 /* SplashVC.xib in Resources */,
 				353D2ACA2AC9D19C00C26BA3 /* EditProfileVC.xib in Resources */,
 				35E7AB122B0BB00700CF0E4B /* ChangePasswordVC.xib in Resources */,
+				355D97E52B1794B30029969D /* ProofVC.xib in Resources */,
 				3589058F2AC8891F000E687C /* ForgotPasswordVC.xib in Resources */,
 				35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */,
 				351C3DBB2AA1E8E6004E82B7 /* HomeVC.xib in Resources */,
@@ -1474,6 +1517,7 @@
 				3585B3282AF3F921001CE588 /* RegisterVC.xib in Resources */,
 				356C7F4A2A9F90C000DDEDDD /* Assets.xcassets in Resources */,
 				35E7AB0C2B0A430200CF0E4B /* EventDetailVC.xib in Resources */,
+				355D97EF2B179BAE0029969D /* ProofItemCell.xib in Resources */,
 				35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1547,6 +1591,7 @@
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
 				358869F32AEE66E600F235E5 /* OrganizationItemCell.swift in Sources */,
 				355D72BC2B00C21B0036AE59 /* StudentAttendanceEventDto.swift in Sources */,
+				355D97EE2B179BAE0029969D /* ProofItemCell.swift in Sources */,
 				3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */,
 				35E372622AF923AA0078AACF /* Bundle.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
@@ -1556,6 +1601,7 @@
 				356C7F912A9F98C500DDEDDD /* Permission.swift in Sources */,
 				3589056F2AC75461000E687C /* AnalysisVM.swift in Sources */,
 				351C3DAF2AA1E810004E82B7 /* NetworkProvider.swift in Sources */,
+				355D97E42B1794B30029969D /* ProofVC.swift in Sources */,
 				356C7FAA2A9F9B5800DDEDDD /* LocalRespositoryImp.swift in Sources */,
 				35FAD8732ADB0936003381F1 /* OrganizationInEventDto.swift in Sources */,
 				351C3E032AA33D02004E82B7 /* ScopeFunc.swift in Sources */,
@@ -1573,6 +1619,7 @@
 				356D45702AB4CEA8004227A1 /* UITextField.swift in Sources */,
 				356C7F952A9F991E00DDEDDD /* String+Convert.swift in Sources */,
 				357192AB2AE81256009C429E /* EventRoleDto.swift in Sources */,
+				355D97EB2B179B7B0029969D /* ProofItem.swift in Sources */,
 				356C7FBA2A9F9C1400DDEDDD /* BaseDaoService.swift in Sources */,
 				356C7FB12A9F9BBC00DDEDDD /* RealmRepresentable.swift in Sources */,
 				356C7F8A2A9F980400DDEDDD /* ErrorTracker.swift in Sources */,
@@ -1660,6 +1707,7 @@
 				356C7F832A9F976900DDEDDD /* BaseCollectionViewCell.swift in Sources */,
 				358905832AC7F8B6000E687C /* StudentDetailDto.swift in Sources */,
 				35D15CE92AF2A2F200DA8E88 /* RegistrationInfoStatus.swift in Sources */,
+				355D97E72B1794BE0029969D /* ProofVM.swift in Sources */,
 				356C7FA82A9F9B4A00DDEDDD /* RemoteRepositoryImp.swift in Sources */,
 				351C3DEB2AA33960004E82B7 /* SplashVM.swift in Sources */,
 				356C7F6B2A9F93AE00DDEDDD /* RemoteRespository.swift in Sources */,

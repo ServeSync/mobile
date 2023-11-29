@@ -22,6 +22,9 @@ class MainVC: BaseVC<BaseVM> {
     @IBOutlet weak var navAnalysisImageView: UIImageView!
     @IBOutlet weak var navAnalysisButton: UIButton!
     
+    @IBOutlet weak var navProofImageView: UIImageView!
+    @IBOutlet weak var navProofButton: UIButton!
+    
     @IBOutlet weak var navProfileImageView: UIImageView!
     @IBOutlet weak var navProfileButton: UIButton!
     
@@ -65,6 +68,13 @@ class MainVC: BaseVC<BaseVM> {
             })
             .disposed(by: bag)
         
+        navProofButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                selectNavProof()
+            })
+            .disposed(by: bag)
+        
         navProfileButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
@@ -76,41 +86,103 @@ class MainVC: BaseVC<BaseVM> {
 }
 
 extension MainVC {
+//    private func selectNavHome() {
+//        navHomeImageView.isHighlighted = true
+//        navEventImageView.isHighlighted = false
+//        navAnalysisImageView.isHighlighted = false
+//        navProofImageView.isHighlighted = false
+//        navProfileImageView.isHighlighted = false
+//        
+//        pageVC.handleUIChangePage(pageIndex: 0)
+//    }
+//    
+//    private func selectNavEvent() {
+//        navHomeImageView.isHighlighted = false
+//        navEventImageView.isHighlighted = true
+//        navAnalysisImageView.isHighlighted = false
+//        navProofImageView.isHighlighted = false
+//        navProfileImageView.isHighlighted = false
+//        
+//        pageVC.handleUIChangePage(pageIndex: 1)
+//    }
+//    
+//    private func selectNavAnalysis() {
+//        navHomeImageView.isHighlighted = false
+//        navEventImageView.isHighlighted = false
+//        navAnalysisImageView.isHighlighted = true
+//        navProofImageView.isHighlighted = false
+//        navProfileImageView.isHighlighted = false
+//        
+//        pageVC.handleUIChangePage(pageIndex: 2)
+//    }
+//    
+//    private func selectNavProof() {
+//        navHomeImageView.isHighlighted = false
+//        navEventImageView.isHighlighted = false
+//        navAnalysisImageView.isHighlighted = false
+//        navProofImageView.isHighlighted = true
+//        navProfileImageView.isHighlighted = false
+//        
+//        pageVC.handleUIChangePage(pageIndex: 3)
+//    }
+//    
+//    private func selectNavProfile() {
+//        navHomeImageView.isHighlighted = false
+//        navEventImageView.isHighlighted = false
+//        navAnalysisImageView.isHighlighted = false
+//        navProofImageView.isHighlighted = false
+//        navProfileImageView.isHighlighted = true
+//        
+//        pageVC.handleUIChangePage(pageIndex: 4)
+//    }
+    
     private func selectNavHome() {
-        navHomeImageView.isHighlighted = true
-        navEventImageView.isHighlighted = false
-        navAnalysisImageView.isHighlighted = false
-        navProfileImageView.isHighlighted = false
-        
-        pageVC.handleUIChangePage(pageIndex: 0)
+        selectNavItem(index: 0)
     }
-    
+
     private func selectNavEvent() {
-        navHomeImageView.isHighlighted = false
-        navEventImageView.isHighlighted = true
-        navAnalysisImageView.isHighlighted = false
-        navProfileImageView.isHighlighted = false
-        
-        pageVC.handleUIChangePage(pageIndex: 1)
+        selectNavItem(index: 1)
     }
-    
+
     private func selectNavAnalysis() {
-        navHomeImageView.isHighlighted = false
-        navEventImageView.isHighlighted = false
-        navAnalysisImageView.isHighlighted = true
-        navProfileImageView.isHighlighted = false
-        
-        pageVC.handleUIChangePage(pageIndex: 2)
+        selectNavItem(index: 2)
     }
-    
+
+    private func selectNavProof() {
+        selectNavItem(index: 3)
+    }
+
     private func selectNavProfile() {
+        selectNavItem(index: 4)
+    }
+
+    
+    private func selectNavItem(index: Int) {
+        
         navHomeImageView.isHighlighted = false
         navEventImageView.isHighlighted = false
         navAnalysisImageView.isHighlighted = false
-        navProfileImageView.isHighlighted = true
-        
-        pageVC.handleUIChangePage(pageIndex: 3)
+        navProofImageView.isHighlighted = false
+        navProfileImageView.isHighlighted = false
+
+        switch index {
+        case 0:
+            navHomeImageView.isHighlighted = true
+        case 1:
+            navEventImageView.isHighlighted = true
+        case 2:
+            navAnalysisImageView.isHighlighted = true
+        case 3:
+            navProofImageView.isHighlighted = true
+        case 4:
+            navProfileImageView.isHighlighted = true
+        default:
+            break
+        }
+
+        pageVC.handleUIChangePage(pageIndex: index)
     }
+
     
     private func setupPageView() {
         pageVC = PageVC()

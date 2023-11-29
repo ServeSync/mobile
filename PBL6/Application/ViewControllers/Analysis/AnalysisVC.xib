@@ -28,6 +28,7 @@
                 <outlet property="educationProgramNameLabel" destination="e51-10-hLI" id="a7H-g2-5DE"/>
                 <outlet property="exportFileButton" destination="tyG-wz-8lh" id="gfn-Bu-NZ2"/>
                 <outlet property="gainScoreLabel" destination="piw-i8-ClB" id="snn-iE-9rQ"/>
+                <outlet property="headerView" destination="To9-kZ-3Da" id="CUm-8F-TAA"/>
                 <outlet property="nameLabel" destination="SlF-s0-pHS" id="QG8-1b-3qT"/>
                 <outlet property="numberOfEventsLabel" destination="amh-3e-NVv" id="Pdu-Bs-C93"/>
                 <outlet property="percentageLabel" destination="6ly-tJ-F4J" id="lkd-UY-TKr"/>

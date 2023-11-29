@@ -29,5 +29,6 @@ final class ViewModelModule{
         container.register(SearchVM.self) { _ in SearchVM()}
         container.register(ChangePasswordVM.self) { _ in ChangePasswordVM()}
         container.register(ExportFileVM.self) { _ in ExportFileVM()}
+        container.register(ProofVM.self) { _ in ProofVM()}
     }
 }
