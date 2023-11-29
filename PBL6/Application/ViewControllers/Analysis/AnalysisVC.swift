@@ -24,6 +24,7 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var shadowBackground: UIView!
+    @IBOutlet weak var headerView: UIView!
     
     private var refreshControl = UIRefreshControl()
     private var percentage:Double = 0
@@ -36,6 +37,7 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     override func initViews() {
         super.initViews()
         
+        headerView.roundDifferentCorners(bottomLeft: 24, bottomRight: 24)
         self.charts.circleBorderColor = UIColor(hex: 0x26C6DA, alpha: 0.5)
         self.charts.circleFilledColor = UIColor(hex: 0x26C6DA, alpha: 1)
         charts.bindPercentage()

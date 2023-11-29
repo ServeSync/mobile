@@ -202,3 +202,11 @@ Vui lòng thử lại";
 
 //Export File
 "pick_date_error" = "Ngày bắt đầu không được lớn ngày kết thúc";
+
+//Proof
+"proof" = "Minh chứng";
+"list" = "Danh sách";
+"create" = "Tạo";
+"approved_proof" = "Đã duyệt";
+"rejected" = "Từ chối";
+"reviewing" = "Đang duyệt";

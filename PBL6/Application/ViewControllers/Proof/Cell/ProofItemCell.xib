@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProofItemCell" customModule="PBL6" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="48"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="48"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1O-CF-7BC">
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mùa hè xanh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLx-wg-OeE">
+                                <rect key="frame" x="16" y="14.333333333333334" width="195" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" red="0.12156862745098039" green="0.16078431372549018" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-MD-VK3">
+                                <rect key="frame" x="227" y="0.0" width="100" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đã duyệt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PY0-x6-AnT">
+                                        <rect key="frame" x="24.000000000000004" y="15.666666666666666" width="52.333333333333343" height="16.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40392156862745099" green="0.85490196078431369" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="PY0-x6-AnT" firstAttribute="centerX" secondItem="G1t-MD-VK3" secondAttribute="centerX" id="XRw-ad-FYG"/>
+                                    <constraint firstAttribute="width" constant="100" id="d93-3C-Qmw"/>
+                                    <constraint firstItem="PY0-x6-AnT" firstAttribute="centerY" secondItem="G1t-MD-VK3" secondAttribute="centerY" id="hx4-6r-bFb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G1t-MD-VK3" firstAttribute="leading" secondItem="aLx-wg-OeE" secondAttribute="trailing" constant="16" id="MTD-Hz-rni"/>
+                            <constraint firstAttribute="trailing" secondItem="G1t-MD-VK3" secondAttribute="trailing" id="ShB-hN-ROX"/>
+                            <constraint firstAttribute="bottom" secondItem="G1t-MD-VK3" secondAttribute="bottom" id="TvT-YD-CiN"/>
+                            <constraint firstAttribute="width" secondItem="R1O-CF-7BC" secondAttribute="height" multiplier="109:16" id="Ylh-89-oJp"/>
+                            <constraint firstItem="aLx-wg-OeE" firstAttribute="centerY" secondItem="R1O-CF-7BC" secondAttribute="centerY" id="emg-0O-ILL"/>
+                            <constraint firstItem="G1t-MD-VK3" firstAttribute="top" secondItem="R1O-CF-7BC" secondAttribute="top" id="m79-3O-6iG"/>
+                            <constraint firstItem="aLx-wg-OeE" firstAttribute="leading" secondItem="R1O-CF-7BC" secondAttribute="leading" constant="16" id="vjx-Tj-3tU"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="R1O-CF-7BC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8l9-Qq-OHW"/>
+                <constraint firstAttribute="bottom" secondItem="R1O-CF-7BC" secondAttribute="bottom" id="Ijg-P5-FbL"/>
+                <constraint firstItem="R1O-CF-7BC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Il4-4d-fB1"/>
+                <constraint firstAttribute="trailing" secondItem="R1O-CF-7BC" secondAttribute="trailing" id="rh7-8K-fct"/>
+            </constraints>
+            <connections>
+                <outlet property="proofNameLabel" destination="aLx-wg-OeE" id="0pP-g6-ekm"/>
+                <outlet property="proofStateLabel" destination="PY0-x6-AnT" id="Agz-Iv-cxB"/>
+                <outlet property="proofStateView" destination="G1t-MD-VK3" id="x4k-fF-ZeA"/>
+            </connections>
+            <point key="canvasLocation" x="-21.374045801526716" y="19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
