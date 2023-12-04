@@ -84,4 +84,17 @@ final class RemoteRepositoryImp: RemoteRepository {
     func rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String) -> Single<Moya.Response> {
         return apiService.rollcallEvent(studentAttendEventDto: studentAttendEventDto, eventId: eventId)
     }
+    
+    func getEventRegistered(studentId: String) -> Single<Result<StudentRegisteredEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getEventRegistered(studentId: studentId)
+    }
+    
+    //MARK: - Proof
+    func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
+        return apiService.postProofInternal(internalProofCreateDto: internalProofCreateDto)
+    }
+    
+    func postProofExternal(externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response> {
+        return apiService.postProofExternal(externalProofCreateDto: externalProofCreateDto)
+    }
 }

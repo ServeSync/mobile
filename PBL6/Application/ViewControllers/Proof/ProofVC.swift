@@ -40,7 +40,7 @@ class ProofVC: BaseVC<ProofVM> {
         createButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
-                
+                self.pushVC(CreateProofVC())
             })
             .disposed(by: bag)
     }

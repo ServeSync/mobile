@@ -30,5 +30,6 @@ final class ViewModelModule{
         container.register(ChangePasswordVM.self) { _ in ChangePasswordVM()}
         container.register(ExportFileVM.self) { _ in ExportFileVM()}
         container.register(ProofVM.self) { _ in ProofVM()}
+        container.register(CreateProofVM.self) { _ in CreateProofVM()}
     }
 }

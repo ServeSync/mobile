@@ -210,3 +210,6 @@ Vui lòng thử lại";
 "approved_proof" = "Đã duyệt";
 "rejected" = "Từ chối";
 "reviewing" = "Đang duyệt";
+"create_proof" = "Tạo minh chứng";
+"internal_event" = "Sự kiện trong trường";
+"external_event" = "Sự kiện ngoài trường";
