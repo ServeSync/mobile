@@ -36,6 +36,11 @@ enum AppApi {
     case getEventById(id: String)
     case registerEvent(eventRegisterDto: EventRegisterDto)
     case rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String)
+    case getEventRegistered(studentId: String)
+    
+    //MARK: - Proof
+    case postProofInternal(internalProofCreateDto: InternalProofCreateDto)
+    case postProofExternal(externalProofCreateDto: ExternalProofCreateDto)
 }
 
 extension AppApi: TargetType {
@@ -75,19 +80,25 @@ extension AppApi: TargetType {
             return "events/register"
         case .rollcallEvent(_, let eventId):
             return "events/\(eventId)/event-attendances"
+        case .getEventRegistered(let studentId):
+            return "students/\(studentId)/registered-events"
         case .getEducationProgam:
             return "students/\(UserDefaultHelper.shared.studentId!)/education-program"
         case .getAttendanceEvents:
             return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events"
         case .exportFile:
             return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events/export"
+        case .postProofInternal:
+            return "proofs/internal"
+        case .postProofExternal:
+            return "proofs/external"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile:
+        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile, .postProofInternal, .postProofExternal:
             return .post
         case .putProfile:
             return .put
@@ -206,6 +217,46 @@ extension AppApi: TargetType {
             let body: [String: Any] = [
                 "fromDate": exportStudentAttendanceEventsDto.fromDate,
                 "toDate": exportStudentAttendanceEventsDto.toDate,
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .getEventRegistered:
+            let params: [String: Any] = [
+                "Page": 1,
+                "Size": 100
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .postProofInternal(let internalProofCreateDto):
+            let body: [String: Any] = [
+                "eventId": internalProofCreateDto.eventId,
+                "eventRoleId": internalProofCreateDto.eventRoleId,
+                "description": internalProofCreateDto.description,
+                "imageUrl": internalProofCreateDto.imageUrl,
+                "attendanceAt": internalProofCreateDto.attendanceAt,
+                "rejectReason": internalProofCreateDto.rejectReason,
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .postProofExternal(let externalProofCreateDto):
+            let body: [String: Any] = [
+                "eventName": externalProofCreateDto.eventName,
+                "address": externalProofCreateDto.address,
+                "organizationName": externalProofCreateDto.organizationName,
+                "role": externalProofCreateDto.role,
+                "score": externalProofCreateDto.score,
+                "attendanceAt": externalProofCreateDto.attendanceAt,
+                "startAt": externalProofCreateDto.startAt,
+                "endAt": externalProofCreateDto.endAt,
+                "activityId": externalProofCreateDto.activityId,
+                "description": externalProofCreateDto.description,
+                "imageUrl": externalProofCreateDto.imageUrl,
+                "rejectReason": externalProofCreateDto.rejectReason,
             ]
             if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
                 return .requestData(jsonBody)

@@ -66,19 +66,6 @@ class ExportFileVC: BaseVC<ExportFileVM> {
                             guard let self = self else { return }
                             switch status {
                             case .Success:
-                                
-//                                let url = URL(string: viewModel.filePath)!
-//                                let activity = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-//                                activity.excludedActivityTypes = [
-//                                    UIActivity.ActivityType.addToReadingList,
-//                                    UIActivity.ActivityType.openInIBooks,
-//                                    UIActivity.ActivityType.airDrop,
-//                                    UIActivity.ActivityType.mail,
-//                                    UIActivity.ActivityType.message,
-//                                    UIActivity.ActivityType.postToFacebook,
-//                                    UIActivity.ActivityType.print,
-//                                ]
-//                                present(activity, animated: true)
                                 self.dismissVC()
                                 delegate?.shareExportFile(filePath: viewModel.filePath)
                             case .Error(let error):
@@ -108,6 +95,7 @@ class ExportFileVC: BaseVC<ExportFileVM> {
     @objc func handleDoneButtonStartTime(sender: UIButton) {
         startTimeTextfield.resignFirstResponder()
     }
+    
     @objc func handleDoneButtonEndTime(sender: UIButton) {
         endTimeTextField.resignFirstResponder()
     }

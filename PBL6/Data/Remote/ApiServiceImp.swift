@@ -89,4 +89,18 @@ final class ApiServiceImp: ApiService {
     func searchEvent(keyword: String, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.searchEvent(keyword: keyword, page: page), successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
+    
+    func getEventRegistered(studentId: String) -> Single<Result<StudentRegisteredEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getEventRegistered(studentId: studentId), successType: StudentRegisteredEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
+    
+    //MARK: - Proof
+    func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.postProofInternal(internalProofCreateDto: internalProofCreateDto))
+    }
+    
+    func postProofExternal(externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.postProofExternal(externalProofCreateDto: externalProofCreateDto))
+    }
+
 }

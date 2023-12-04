@@ -80,6 +80,9 @@
 		355D97EB2B179B7B0029969D /* ProofItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97EA2B179B7B0029969D /* ProofItem.swift */; };
 		355D97EE2B179BAE0029969D /* ProofItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97EC2B179BAE0029969D /* ProofItemCell.swift */; };
 		355D97EF2B179BAE0029969D /* ProofItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355D97ED2B179BAE0029969D /* ProofItemCell.xib */; };
+		355D97F32B17A5970029969D /* CreateProofVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97F12B17A5970029969D /* CreateProofVC.swift */; };
+		355D97F42B17A5970029969D /* CreateProofVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 355D97F22B17A5970029969D /* CreateProofVC.xib */; };
+		355D97F62B17A5A20029969D /* CreateProofVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355D97F52B17A5A20029969D /* CreateProofVM.swift */; };
 		35635D142AAE2A590083E3DB /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */; };
 		35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */; };
 		35635D182AAE2A6D0083E3DB /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */; };
@@ -197,6 +200,12 @@
 		35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D710FB2AA6168E00B71A34 /* JWTHelper.swift */; };
 		35D78BD42AB48D83005B5109 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D78BD22AB48D83005B5109 /* LoginVC.swift */; };
 		35D78BD52AB48D83005B5109 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35D78BD32AB48D83005B5109 /* LoginVC.xib */; };
+		35E353DC2B1B82DC00F4D3AE /* RegisteredStudentInEventDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E353DB2B1B82DC00F4D3AE /* RegisteredStudentInEventDto.swift */; };
+		35E353DE2B1B84EC00F4D3AE /* FlatEventDtoPageResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E353DD2B1B84EC00F4D3AE /* FlatEventDtoPageResultDto.swift */; };
+		35E353E02B1B857500F4D3AE /* ExternalProofCreateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E353DF2B1B857500F4D3AE /* ExternalProofCreateDto.swift */; };
+		35E353E22B1B86CC00F4D3AE /* InternalProofCreateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E353E12B1B86CC00F4D3AE /* InternalProofCreateDto.swift */; };
+		35E353E42B1CDD2000F4D3AE /* StudentRegisteredEventDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E353E32B1CDD2000F4D3AE /* StudentRegisteredEventDto.swift */; };
+		35E353E62B1CDF0B00F4D3AE /* StudentRegisteredEventDtoPagedResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E353E52B1CDF0B00F4D3AE /* StudentRegisteredEventDtoPagedResultDto.swift */; };
 		35E372622AF923AA0078AACF /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372612AF923AA0078AACF /* Bundle.swift */; };
 		35E372642AF924B60078AACF /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E372632AF924B60078AACF /* UIImage.swift */; };
 		35E7AB0B2B0A430200CF0E4B /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */; };
@@ -298,6 +307,9 @@
 		355D97EA2B179B7B0029969D /* ProofItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofItem.swift; sourceTree = "<group>"; };
 		355D97EC2B179BAE0029969D /* ProofItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofItemCell.swift; sourceTree = "<group>"; };
 		355D97ED2B179BAE0029969D /* ProofItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProofItemCell.xib; sourceTree = "<group>"; };
+		355D97F12B17A5970029969D /* CreateProofVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProofVC.swift; sourceTree = "<group>"; };
+		355D97F22B17A5970029969D /* CreateProofVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateProofVC.xib; sourceTree = "<group>"; };
+		355D97F52B17A5A20029969D /* CreateProofVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProofVM.swift; sourceTree = "<group>"; };
 		35635D132AAE2A590083E3DB /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		35635D152AAE2A650083E3DB /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		35635D172AAE2A6D0083E3DB /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
@@ -417,6 +429,12 @@
 		35D710FB2AA6168E00B71A34 /* JWTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTHelper.swift; sourceTree = "<group>"; };
 		35D78BD22AB48D83005B5109 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		35D78BD32AB48D83005B5109 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		35E353DB2B1B82DC00F4D3AE /* RegisteredStudentInEventDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisteredStudentInEventDto.swift; sourceTree = "<group>"; };
+		35E353DD2B1B84EC00F4D3AE /* FlatEventDtoPageResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatEventDtoPageResultDto.swift; sourceTree = "<group>"; };
+		35E353DF2B1B857500F4D3AE /* ExternalProofCreateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalProofCreateDto.swift; sourceTree = "<group>"; };
+		35E353E12B1B86CC00F4D3AE /* InternalProofCreateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalProofCreateDto.swift; sourceTree = "<group>"; };
+		35E353E32B1CDD2000F4D3AE /* StudentRegisteredEventDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegisteredEventDto.swift; sourceTree = "<group>"; };
+		35E353E52B1CDF0B00F4D3AE /* StudentRegisteredEventDtoPagedResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRegisteredEventDtoPagedResultDto.swift; sourceTree = "<group>"; };
 		35E372612AF923AA0078AACF /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		35E372632AF924B60078AACF /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		35E7AB092B0A430200CF0E4B /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
@@ -644,8 +662,24 @@
 			isa = PBXGroup;
 			children = (
 				355D97EA2B179B7B0029969D /* ProofItem.swift */,
+				35E353DB2B1B82DC00F4D3AE /* RegisteredStudentInEventDto.swift */,
+				35E353DD2B1B84EC00F4D3AE /* FlatEventDtoPageResultDto.swift */,
+				35E353DF2B1B857500F4D3AE /* ExternalProofCreateDto.swift */,
+				35E353E12B1B86CC00F4D3AE /* InternalProofCreateDto.swift */,
+				35E353E32B1CDD2000F4D3AE /* StudentRegisteredEventDto.swift */,
+				35E353E52B1CDF0B00F4D3AE /* StudentRegisteredEventDtoPagedResultDto.swift */,
 			);
 			path = Proof;
+			sourceTree = "<group>";
+		};
+		355D97F02B17A57B0029969D /* CreateProof */ = {
+			isa = PBXGroup;
+			children = (
+				355D97F12B17A5970029969D /* CreateProofVC.swift */,
+				355D97F22B17A5970029969D /* CreateProofVC.xib */,
+				355D97F52B17A5A20029969D /* CreateProofVM.swift */,
+			);
+			path = CreateProof;
 			sourceTree = "<group>";
 		};
 		35635D122AAE2A2D0083E3DB /* Open-Sans */ = {
@@ -697,6 +731,7 @@
 				356C7F562A9F921900DDEDDD /* Appdelegate */,
 				351C3DDF2AA1F249004E82B7 /* BrideHeader */,
 				356C7F572A9F922B00DDEDDD /* Application */,
+				356C7F4B2A9F90C000DDEDDD /* LaunchScreen.storyboard */,
 				356C7F592A9F923600DDEDDD /* Domain */,
 				356C7F582A9F923100DDEDDD /* Data */,
 				356C7F5A2A9F923B00DDEDDD /* Resources */,
@@ -727,7 +762,6 @@
 			children = (
 				35FA42EA2AE19A6D0001F7B0 /* Layout */,
 				35FAD86B2ADB05D4003381F1 /* Enums */,
-				356C7F4B2A9F90C000DDEDDD /* LaunchScreen.storyboard */,
 				356C7F5B2A9F924B00DDEDDD /* DI */,
 				356C7F612A9F926D00DDEDDD /* Constans */,
 				356C7F602A9F926800DDEDDD /* Views */,
@@ -783,6 +817,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				355D97F02B17A57B0029969D /* CreateProof */,
 				355D97E12B17948C0029969D /* Proof */,
 				35B98C642B0E719700E8B4FC /* ExportFile */,
 				35E7AB0E2B0BAFED00CF0E4B /* ChangePassword */,
@@ -1499,6 +1534,7 @@
 				358905622AC7540F000E687C /* EventVC.xib in Resources */,
 				358905762AC7D339000E687C /* AccountVC.xib in Resources */,
 				35B98C682B0E71C300E8B4FC /* ExportFileVC.xib in Resources */,
+				355D97F42B17A5970029969D /* CreateProofVC.xib in Resources */,
 				3532337A2AAF6F4500032B72 /* WelcomeVC.xib in Resources */,
 				358905672AC75429000E687C /* AnalysisVC.xib in Resources */,
 				351C3DC32AA1ED44004E82B7 /* AlertVC.xib in Resources */,
@@ -1571,6 +1607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35E353E42B1CDD2000F4D3AE /* StudentRegisteredEventDto.swift in Sources */,
 				356C7F752A9F953700DDEDDD /* RespositoryModule.swift in Sources */,
 				356C7F6F2A9F94D900DDEDDD /* Inject.swift in Sources */,
 				351C3DD02AA1F06C004E82B7 /* ITextView.swift in Sources */,
@@ -1600,6 +1637,7 @@
 				35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */,
 				356C7F912A9F98C500DDEDDD /* Permission.swift in Sources */,
 				3589056F2AC75461000E687C /* AnalysisVM.swift in Sources */,
+				35E353DC2B1B82DC00F4D3AE /* RegisteredStudentInEventDto.swift in Sources */,
 				351C3DAF2AA1E810004E82B7 /* NetworkProvider.swift in Sources */,
 				355D97E42B1794B30029969D /* ProofVC.swift in Sources */,
 				356C7FAA2A9F9B5800DDEDDD /* LocalRespositoryImp.swift in Sources */,
@@ -1628,6 +1666,7 @@
 				356C7F692A9F939300DDEDDD /* LocalRespository.swift in Sources */,
 				358905782AC7D379000E687C /* AccountVM.swift in Sources */,
 				356C7F9B2A9F998200DDEDDD /* Localize.swift in Sources */,
+				35E353DE2B1B84EC00F4D3AE /* FlatEventDtoPageResultDto.swift in Sources */,
 				3538701A2B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift in Sources */,
 				35281C962ABF43FE00329260 /* KeychainHelper.swift in Sources */,
 				35E372642AF924B60078AACF /* UIImage.swift in Sources */,
@@ -1657,6 +1696,7 @@
 				358905712AC7547C000E687C /* EventVM.swift in Sources */,
 				351C3DCB2AA1EF85004E82B7 /* UIColor.swift in Sources */,
 				358905912AC8894B000E687C /* ForgotPasswordVM.swift in Sources */,
+				355D97F62B17A5A20029969D /* CreateProofVM.swift in Sources */,
 				35E7AB142B0BB01400CF0E4B /* ChangePasswordVM.swift in Sources */,
 				351C3DDB2AA1F1AD004E82B7 /* Configs.swift in Sources */,
 				35ABB1CE2AEAAA74005E1574 /* IntrinsicCollectionView.swift in Sources */,
@@ -1671,6 +1711,7 @@
 				357192A22AE80F05009C429E /* EventType.swift in Sources */,
 				3589059B2AC987E3000E687C /* KingFisher.swift in Sources */,
 				3585B3272AF3F921001CE588 /* RegisterVC.swift in Sources */,
+				35E353E22B1B86CC00F4D3AE /* InternalProofCreateDto.swift in Sources */,
 				358905972AC9705B000E687C /* HomeRoomDto.swift in Sources */,
 				357192A72AE8104A009C429E /* BasicOrganizationInEventDto.swift in Sources */,
 				356C7F882A9F97E400DDEDDD /* ActivityIndicator.swift in Sources */,
@@ -1690,6 +1731,7 @@
 				35FAD86D2ADB05FC003381F1 /* HandleStatus.swift in Sources */,
 				355D72BA2B00BB4F0036AE59 /* DateFormatHelper.swift in Sources */,
 				358905662AC75429000E687C /* AnalysisVC.swift in Sources */,
+				35E353E62B1CDF0B00F4D3AE /* StudentRegisteredEventDtoPagedResultDto.swift in Sources */,
 				351C3DE82AA338EB004E82B7 /* SplashVC.swift in Sources */,
 				35FAD85C2AD99AF4003381F1 /* MyEventCell.swift in Sources */,
 				358905992AC970E8000E687C /* EducationProgramDto.swift in Sources */,
@@ -1715,6 +1757,7 @@
 				356C7FB32A9F9BD100DDEDDD /* ModelConvertibleType.swift in Sources */,
 				35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */,
 				3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */,
+				35E353E02B1B857500F4D3AE /* ExternalProofCreateDto.swift in Sources */,
 				351C3E012AA33CBD004E82B7 /* UIView+Animation.swift in Sources */,
 				35D15CEB2AF2A36F00DA8E88 /* AttendanceInfoStatus.swift in Sources */,
 				358869EB2AED4E6200F235E5 /* REvent.swift in Sources */,
@@ -1726,6 +1769,7 @@
 				358869E82AECE1FA00F235E5 /* SpeakerItemCell.swift in Sources */,
 				351C3DAD2AA1E7F1004E82B7 /* NetworkConfig.swift in Sources */,
 				351C3DC22AA1ED44004E82B7 /* AlertVC.swift in Sources */,
+				355D97F32B17A5970029969D /* CreateProofVC.swift in Sources */,
 				353233792AAF6F4500032B72 /* WelcomeVC.swift in Sources */,
 				351C3DAB2AA1E7B2004E82B7 /* AppApi.swift in Sources */,
 				356C7F792A9F957000DDEDDD /* NetworkModule.swift in Sources */,
