@@ -53,6 +53,9 @@ target 'PBL6' do
   pod "SearchTextField"
   pod 'CalendarKit'
   pod 'FSCalendar'
+
+  #swipe cell kit
+  pod 'SwipeCellKit'
   
   post_install do |pi|
       pi.pods_project.targets.each do |target|

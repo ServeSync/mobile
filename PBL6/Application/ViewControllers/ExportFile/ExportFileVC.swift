@@ -69,7 +69,11 @@ class ExportFileVC: BaseVC<ExportFileVM> {
                                 self.dismissVC()
                                 delegate?.shareExportFile(filePath: viewModel.filePath)
                             case .Error(let error):
-                                self.showToast(message: getErrorDescription(forErrorCode: error!.code), state: .error)
+                                if error?.code == Configs.Server.errorCodeRequiresLogin {
+                                    AppDelegate.shared().windowMainConfig(vc: LoginVC())
+                                }  else {
+                                    self.showToast(message: getErrorDescription(forErrorCode: error?.code ?? ""), state: .error)
+                                }
                             }
                         })
                         .disposed(by: bag)

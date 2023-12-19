@@ -805,6 +805,17 @@
             <point key="canvasLocation" x="24.637681159420293" y="19.419642857142858"/>
         </view>
     </objects>
+    <designables>
+        <designable name="Cc5-je-yNg">
+            <size key="intrinsicContentSize" width="-1" height="0.0"/>
+        </designable>
+        <designable name="hOT-qe-QYY">
+            <size key="intrinsicContentSize" width="-1" height="0.0"/>
+        </designable>
+        <designable name="hzA-Qp-TcV">
+            <size key="intrinsicContentSize" width="-1" height="0.0"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ic_back" width="24" height="24"/>
         <image name="ic_bookmark" width="24" height="24"/>

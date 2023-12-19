@@ -14,7 +14,14 @@ struct InternalProofCreateDto: Mappable {
     var description: String = ""
     var imageUrl: String = ""
     var attendanceAt: String = ""
-    var rejectReason: String = ""
+    
+    init(eventId: String, eventRoleId: String, description: String, imageUrl: String, attendanceAt: String) {
+        self.eventId = eventId
+        self.eventRoleId = eventRoleId
+        self.description = description
+        self.imageUrl = imageUrl
+        self.attendanceAt = attendanceAt
+    }
     
     init() {}
     
@@ -26,6 +33,5 @@ struct InternalProofCreateDto: Mappable {
         description     <- map["description"]
         imageUrl        <- map["imageUrl"]
         attendanceAt    <- map["attendanceAt"]
-        rejectReason    <- map["rejectReason"]
     }
 }

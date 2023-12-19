@@ -10,7 +10,6 @@ import RxSwift
 import Moya
 
 protocol ApiService {
-    func getPost() -> Single<[Post]>
     
     //MARK: - Authen
     func signIn(userNameOrPassword: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>>
@@ -35,8 +34,13 @@ protocol ApiService {
     func rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String) -> Single<Moya.Response>
     func getEventRegistered(studentId: String) -> Single<Result<StudentRegisteredEventDtoPagedResultDto, ErrorResponse>>
     func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
+    func getEventActivities(type: EventActivityType) -> Single<Result<[EventActivityDto], ErrorResponse>>
     
     //MARK: - Proof
     func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>
     func postProofExternal(externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response>
+    func postProofSpecial(specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response>
+    func getProofs() -> Single<Result<ProofDtoPagedResultDto, ErrorResponse>>
+    func deleteProof(id: String) -> Single<Moya.Response>
+    func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>>
 }

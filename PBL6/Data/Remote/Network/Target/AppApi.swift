@@ -38,10 +38,15 @@ enum AppApi {
     case rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String)
     case getEventRegistered(studentId: String)
     case getAllYourEvents
+    case getEventActivities(type: EventActivityType)
     
     //MARK: - Proof
     case postProofInternal(internalProofCreateDto: InternalProofCreateDto)
     case postProofExternal(externalProofCreateDto: ExternalProofCreateDto)
+    case postProofSpecial(specialProofCreateDto: SpecialProofCreateDto)
+    case getProofs
+    case deleteProof(id: String)
+    case getProofDetail(id: String)
 }
 
 extension AppApi: TargetType {
@@ -93,16 +98,28 @@ extension AppApi: TargetType {
             return "proofs/internal"
         case .postProofExternal:
             return "proofs/external"
+        case .postProofSpecial:
+            return "proofs/special"
+        case .getProofs:
+            return "proofs/\(UserDefaultHelper.shared.studentId!)/student"
+        case .deleteProof(let id):
+            return "proofs/\(id)"
+        case .getProofDetail(let id):
+            return "proofs/\(id)"
+        case .getEventActivities:
+            return "event-activities"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile, .postProofInternal, .postProofExternal:
+        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile, .postProofInternal, .postProofExternal, .postProofSpecial:
             return .post
         case .putProfile:
             return .put
+        case .deleteProof:
+            return .delete
         default:
             return .get
         }
@@ -237,7 +254,6 @@ extension AppApi: TargetType {
                 "description": internalProofCreateDto.description,
                 "imageUrl": internalProofCreateDto.imageUrl,
                 "attendanceAt": internalProofCreateDto.attendanceAt,
-                "rejectReason": internalProofCreateDto.rejectReason,
             ]
             if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
                 return .requestData(jsonBody)
@@ -257,7 +273,6 @@ extension AppApi: TargetType {
                 "activityId": externalProofCreateDto.activityId,
                 "description": externalProofCreateDto.description,
                 "imageUrl": externalProofCreateDto.imageUrl,
-                "rejectReason": externalProofCreateDto.rejectReason,
             ]
             if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
                 return .requestData(jsonBody)
@@ -267,6 +282,27 @@ extension AppApi: TargetType {
         case .getAllYourEvents:
             let params: [String: Any] = [
                 "IsPaging": "false"
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .postProofSpecial(let specialProofCreateDto):
+            let body: [String: Any] = [
+                "title": specialProofCreateDto.title,
+                "role": specialProofCreateDto.role,
+                "score": specialProofCreateDto.score,
+                "startAt": specialProofCreateDto.startAt,
+                "endAt": specialProofCreateDto.endAt,
+                "activityId": specialProofCreateDto.activityId,
+                "description": specialProofCreateDto.description,
+                "imageUrl": specialProofCreateDto.imageUrl
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .getEventActivities(let type):
+            let params: [String: Any] = [
+                "Type": type,
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:

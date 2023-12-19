@@ -72,6 +72,12 @@ class EventDetailVC: BaseVC<EventDetailVM> {
         organizationalCollectionViewHC.constant = organizationCollectionView.intrinsicContentSize.height
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        startUpdatingLocation()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -321,7 +327,7 @@ private extension EventDetailVC {
     
     private func updateActionButton(_ item: EventDetailDto) {
         if item.isRegistered && item.isAttendance {
-            actionButton.setTitle("complain".localized, for: .normal)
+            actionButton.setTitle("you_registerd".localized, for: .normal)
             actionButton.backgroundColor = "#FF745F".toUIColor()
             viewModel.updateButtonActionStatus(status: .complain)
         } else if item.isRegistered && item.calculatedStatus == EventStatus.Attendance.rawValue {
@@ -357,7 +363,6 @@ extension EventDetailVC: RegisterEventDelegate {
         self.showToast(message: "register_success".localized, state: .success)
         viewModel.updateRoleRegister(roleId: roleId)
         if !viewModel.eventDetailItem.roles.contains(where: { $0.isRegistered == false}) {
-            print("###")
             actionButton.gone()
         }
     }
@@ -372,7 +377,6 @@ extension EventDetailVC: QRScannerCodeDelegate {
         }
         
         let (code, eventId) = getCodeAndEventId(url: result)
-        
         viewModel.rollCall(code: code, eventId: eventId, latitude: position.latitude, longitude: position.longitude)
             .subscribe(onNext: {[weak self] status in
                 guard let self = self else { return }
@@ -380,7 +384,7 @@ extension EventDetailVC: QRScannerCodeDelegate {
                 case .Success:
                     DispatchQueue.main.async {
                         self.showToast(message: "roll_call_success".localized, state: .success)
-//                        self.actionButtonHC.constant = 0
+                        self.actionButton.gone()
                         self.view.layoutIfNeeded()
                     }
                 case .Error(let error):

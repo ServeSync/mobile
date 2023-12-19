@@ -159,6 +159,7 @@
 "external"= "Hoạt động bên ngoài";
 "collaboration" = "Hoạt động hợp tác";
 "general_information" = "Thông tin chung";
+"you_registerd" = "Bạn đã điểm danh";
 "complain" = "Khiếu nại";
 "roll_call" = "Điểm danh";
 "register" = "Đăng ký";
@@ -171,6 +172,7 @@
 "speaker" = "Diễn giả";
 "organizational_units" = "Đơn vị tổ chức";
 "contact_info" = "Thông tin liên hệ";
+
 
 //Popup Message
 "popup_title" = "Đăng ký tham gia hoạt động?";
@@ -208,8 +210,28 @@ Vui lòng thử lại";
 "list" = "Danh sách";
 "create" = "Tạo";
 "approved_proof" = "Đã duyệt";
-"rejected" = "Từ chối";
-"reviewing" = "Đang duyệt";
+"rejected_proof" = "Từ chối";
+"pending_proof" = "Đang duyệt";
 "create_proof" = "Tạo minh chứng";
-"internal_event" = "Sự kiện trong trường";
-"external_event" = "Sự kiện ngoài trường";
+"internal_proof" = "Trong trường";
+"external_proof" = "Ngoài trường";
+"special_proof" = "Đặc biệt";
+"event_name" = "Tên sự kiện";
+"proof_name" = "Tên minh chứng";
+"proof_type_not_selected_warning" = "Vui lòng chọn loại minh chứng!";
+"event_name_not_selectd_warning" = "Vui lòng nhập tên sự kiện hoặc minh chứng";
+"attendance_time_not_match_warning" = "Thời gian tham gia phải nằm trong thời gian diễn ra sự kiện";
+"start_time_not_match_warning" = "Thời gian bắt đầu không lớn hơn thời gian hiện tại";
+"end_time_not_match_warning" = "Thời gian kết thúc không lớn hơn thời gian hiện tại";
+"start_and_end_time_not_match_warning" = "Thời gian bắt đầu không lớn hơn thời gian kết thúc";
+"score_empty_warning" = "Điểm hoạt động phải nằm trong khoảng điểm quy định";
+"score_not_match_warning" = "Điểm hoạt động phải nằm trong khoảng điểm quy định";
+"description_empty_warning" = "Vui lòng nhập mô tả";
+"activity_empty_warning" = "Vui lòng chọn hoạt động của sự kiện";
+"organizationName_empty_warning" = "Vui lòng nhập đơn vị tổ chức";
+"address_empty_warning" = "Vui lòng nhập địa điểm tổ chức";
+"role_empty_warning" = "Vui lòng nhập vai trò tham gia";
+"proof_image_not_choose" = "Vui lòng tải lên ảnh minh chứng tham gia sự kiện";
+"create_proof_success" = "Tạo minh chứng thành công!";
+"delete" = "Xoá";
+"delete_proof_title_confirm" = "Bạn chắc chắn muốn xoá minh chứng";

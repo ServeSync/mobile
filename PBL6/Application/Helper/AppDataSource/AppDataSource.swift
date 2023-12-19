@@ -84,3 +84,14 @@ func getAnalysisEventItemDataSource() -> RxCollectionViewSectionedReloadDataSour
         }
     )
 }
+
+func getProofItemDataSource(onDeleteButtonTouched: @escaping (ProofDto) -> Void) -> RxCollectionViewSectionedReloadDataSource<SectionModel<Void, ProofDto>> {
+    return RxCollectionViewSectionedReloadDataSource<SectionModel<Void, ProofDto>> (
+        configureCell: {
+            (dataSource, collectionView, indexPath, item) -> UICollectionViewCell in
+            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: ProofItemCell.identifier, for: indexPath) as! ProofItemCell
+            cell.configure(item, onDeleteButtonTouched: onDeleteButtonTouched)
+            return cell
+        }
+    )
+}

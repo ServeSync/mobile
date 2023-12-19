@@ -13,10 +13,6 @@ final class RemoteRepositoryImp: RemoteRepository {
     @Inject
     var apiService: ApiService!
     
-    func getPosts() -> Single<[Post]> {
-        return apiService.getPost()
-    }
-    
     //MARK: - Authen
     func signIn(userNameOrEmail: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
         return apiService.signIn(userNameOrPassword: userNameOrEmail, password: password)
@@ -89,6 +85,10 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.getEventRegistered(studentId: studentId)
     }
     
+    func getEventActivities(type: EventActivityType) -> Single<Result<[EventActivityDto], ErrorResponse>> {
+        return apiService.getEventActivities(type: type)
+    }
+    
     func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return apiService.getAllYourEvents()
     }
@@ -100,5 +100,21 @@ final class RemoteRepositoryImp: RemoteRepository {
     
     func postProofExternal(externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response> {
         return apiService.postProofExternal(externalProofCreateDto: externalProofCreateDto)
+    }
+    
+    func postProofSpecial(specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response> {
+        return apiService.postProofSpecial(specialProofCreateDto: specialProofCreateDto)
+    }
+    
+    func getProofs() -> Single<Result<ProofDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getProofs()
+    }
+    
+    func deleteProof(id: String) -> Single<Moya.Response> {
+        return apiService.deleteProof(id: id)
+    }
+    
+    func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>> {
+        return apiService.getProofDetail(id: id)
     }
 }

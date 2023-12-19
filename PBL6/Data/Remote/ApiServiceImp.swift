@@ -15,12 +15,6 @@ final class ApiServiceImp: ApiService {
     @Inject
     var appNetwork: AppNetwork
     
-    //MARK: -- Demo
-    
-    func getPost() -> Single<[Post]> {
-        return appNetwork.requestArray(.posts, type: Post.self)
-    }
-    
     //MARK: Authen
     
     func signIn(userNameOrPassword: String, password: String) -> Single<Result<AuthCredentialDto, ErrorResponse>> {
@@ -96,10 +90,13 @@ final class ApiServiceImp: ApiService {
     
     func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.getAllYourEvents, successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+        
+    func getEventActivities(type: EventActivityType) -> Single<Result<[EventActivityDto], ErrorResponse>> {
+        return appNetwork.requestArray(.getEventActivities(type: type), successType: EventActivityDto.self, errorType: ErrorResponse.self)
     }
     
     //MARK: - Proof
-    func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
+    func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>{
         return appNetwork.requestWithoutMappingWithRefreshToken(.postProofInternal(internalProofCreateDto: internalProofCreateDto))
     }
     
@@ -107,4 +104,19 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestWithoutMappingWithRefreshToken(.postProofExternal(externalProofCreateDto: externalProofCreateDto))
     }
 
+    func postProofSpecial(specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.postProofSpecial(specialProofCreateDto: specialProofCreateDto))
+    }
+    
+    func getProofs() -> Single<Result<ProofDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getProofs, successType: ProofDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func deleteProof(id: String) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.deleteProof(id: id))
+    }
+    
+    func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getProofDetail(id: id), successType: ProofDetailDto.self, errorType: ErrorResponse.self)
+    }
 }

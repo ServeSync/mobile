@@ -21,7 +21,9 @@ protocol AppNetwork {
     func requestObjectWithTokenRefresh<T: BaseMappable, U: BaseMappable>(_ target: AppApi,
                                                                          successType: T.Type,
                                                                          errorType: U.Type) -> Single<Result<T, U>>
-    func requestArray<T: BaseMappable>(_ target: AppApi, type: T.Type) -> Single<[T]>
+    func requestArray<T: BaseMappable, U: BaseMappable>(_ target: AppApi,
+                                                        successType: T.Type,
+                                                        errorType: U.Type) -> Single<Result<[T], U>>
     func refreshToken<U: BaseMappable>(_ target: AppApi,
                                        errorType: U.Type) -> Single<Result<AuthCredentialDto, U>>
 }

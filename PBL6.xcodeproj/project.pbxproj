@@ -224,6 +224,15 @@
 		35E7AB122B0BB00700CF0E4B /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */; };
 		35E7AB142B0BB01400CF0E4B /* ChangePasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */; };
 		35E7AB182B0BCB0000CF0E4B /* ChangePassworDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E7AB172B0BCB0000CF0E4B /* ChangePassworDto.swift */; };
+		35F55CE72B2426F300D3041B /* ProofType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CE62B2426F300D3041B /* ProofType.swift */; };
+		35F55CE92B246EA700D3041B /* ProofDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CE82B246EA700D3041B /* ProofDto.swift */; };
+		35F55CEB2B246F2200D3041B /* SimpleStudentDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CEA2B246F2200D3041B /* SimpleStudentDto.swift */; };
+		35F55CED2B24707700D3041B /* ProofDtoPagedResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CEC2B24707700D3041B /* ProofDtoPagedResultDto.swift */; };
+		35F55CEF2B24739F00D3041B /* ProofStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CEE2B24739F00D3041B /* ProofStatus.swift */; };
+		35F55CF82B247E9B00D3041B /* SeeProofVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CF62B247E9B00D3041B /* SeeProofVC.swift */; };
+		35F55CF92B247E9B00D3041B /* SeeProofVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35F55CF72B247E9B00D3041B /* SeeProofVC.xib */; };
+		35F55CFB2B247EA500D3041B /* SeeProofVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CFA2B247EA500D3041B /* SeeProofVM.swift */; };
+		35F55CFD2B247FD900D3041B /* ProofDetailDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CFC2B247FD900D3041B /* ProofDetailDto.swift */; };
 		35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */; };
 		35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */; };
 		35FAD7F72AD713D6003381F1 /* CircleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD7F62AD713D6003381F1 /* CircleCharts.swift */; };
@@ -243,6 +252,9 @@
 		35FAD8CF2ADDA609003381F1 /* SeeAllEventVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD8CE2ADDA609003381F1 /* SeeAllEventVM.swift */; };
 		35FFD0422B3C55170006A6CC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD0402B3C55170006A6CC /* CalendarVC.swift */; };
 		35FFD0432B3C55170006A6CC /* CalendarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FFD0412B3C55170006A6CC /* CalendarVC.xib */; };
+		35FDCF5E2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDCF5D2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift */; };
+		35FDCF622B1DBF8B005A1D0E /* EventActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDCF612B1DBF8B005A1D0E /* EventActivityType.swift */; };
+		35FDCF662B1E2132005A1D0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDCF652B1E2132005A1D0E /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -465,6 +477,15 @@
 		35E7AB102B0BB00700CF0E4B /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVM.swift; sourceTree = "<group>"; };
 		35E7AB172B0BCB0000CF0E4B /* ChangePassworDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassworDto.swift; sourceTree = "<group>"; };
+		35F55CE62B2426F300D3041B /* ProofType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofType.swift; sourceTree = "<group>"; };
+		35F55CE82B246EA700D3041B /* ProofDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofDto.swift; sourceTree = "<group>"; };
+		35F55CEA2B246F2200D3041B /* SimpleStudentDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleStudentDto.swift; sourceTree = "<group>"; };
+		35F55CEC2B24707700D3041B /* ProofDtoPagedResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofDtoPagedResultDto.swift; sourceTree = "<group>"; };
+		35F55CEE2B24739F00D3041B /* ProofStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofStatus.swift; sourceTree = "<group>"; };
+		35F55CF62B247E9B00D3041B /* SeeProofVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeProofVC.swift; sourceTree = "<group>"; };
+		35F55CF72B247E9B00D3041B /* SeeProofVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeProofVC.xib; sourceTree = "<group>"; };
+		35F55CFA2B247EA500D3041B /* SeeProofVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeProofVM.swift; sourceTree = "<group>"; };
+		35F55CFC2B247FD900D3041B /* ProofDetailDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofDetailDto.swift; sourceTree = "<group>"; };
 		35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
 		35FAD7F62AD713D6003381F1 /* CircleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCharts.swift; sourceTree = "<group>"; };
@@ -484,6 +505,9 @@
 		35FAD8CE2ADDA609003381F1 /* SeeAllEventVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllEventVM.swift; sourceTree = "<group>"; };
 		35FFD0402B3C55170006A6CC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		35FFD0412B3C55170006A6CC /* CalendarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarVC.xib; sourceTree = "<group>"; };
+		35FDCF5D2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialProofCreateDto.swift; sourceTree = "<group>"; };
+		35FDCF612B1DBF8B005A1D0E /* EventActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActivityType.swift; sourceTree = "<group>"; };
+		35FDCF652B1E2132005A1D0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		9B1A66AD3F335B6F5D956256 /* Pods_PBL6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBL6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4F47EA6852A63FE606C298 /* Pods-PBL6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.debug.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4C3080F070549C0EACECE7 /* Pods-PBL6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.release.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.release.xcconfig"; sourceTree = "<group>"; };
@@ -701,6 +725,11 @@
 				35E353E12B1B86CC00F4D3AE /* InternalProofCreateDto.swift */,
 				35E353E32B1CDD2000F4D3AE /* StudentRegisteredEventDto.swift */,
 				35E353E52B1CDF0B00F4D3AE /* StudentRegisteredEventDtoPagedResultDto.swift */,
+				35FDCF5D2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift */,
+				35F55CE82B246EA700D3041B /* ProofDto.swift */,
+				35F55CEA2B246F2200D3041B /* SimpleStudentDto.swift */,
+				35F55CEC2B24707700D3041B /* ProofDtoPagedResultDto.swift */,
+				35F55CFC2B247FD900D3041B /* ProofDetailDto.swift */,
 			);
 			path = Proof;
 			sourceTree = "<group>";
@@ -933,6 +962,7 @@
 				35E372612AF923AA0078AACF /* Bundle.swift */,
 				35E372632AF924B60078AACF /* UIImage.swift */,
 				355D72C22B013F610036AE59 /* NSAttributedString.swift */,
+				35FDCF652B1E2132005A1D0E /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1428,6 +1458,16 @@
 			path = ChangePassword;
 			sourceTree = "<group>";
 		};
+		35F55CF32B247E6600D3041B /* SeeProof */ = {
+			isa = PBXGroup;
+			children = (
+				35F55CF62B247E9B00D3041B /* SeeProofVC.swift */,
+				35F55CF72B247E9B00D3041B /* SeeProofVC.xib */,
+				35F55CFA2B247EA500D3041B /* SeeProofVM.swift */,
+			);
+			path = SeeProof;
+			sourceTree = "<group>";
+		};
 		35FA42EA2AE19A6D0001F7B0 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1491,6 +1531,9 @@
 				35D15CE82AF2A2F200DA8E88 /* RegistrationInfoStatus.swift */,
 				35D15CEA2AF2A36F00DA8E88 /* AttendanceInfoStatus.swift */,
 				3585B31A2AF3F3BE001CE588 /* ButtonActionStatus.swift */,
+				35FDCF612B1DBF8B005A1D0E /* EventActivityType.swift */,
+				35F55CE62B2426F300D3041B /* ProofType.swift */,
+				35F55CEE2B24739F00D3041B /* ProofStatus.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -1639,6 +1682,7 @@
 				35E7AB0C2B0A430200CF0E4B /* EventDetailVC.xib in Resources */,
 				355D97EF2B179BAE0029969D /* ProofItemCell.xib in Resources */,
 				35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */,
+				35F55CF92B247E9B00D3041B /* SeeProofVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1702,11 +1746,13 @@
 				356C7F412A9F90BF00DDEDDD /* AppDelegate.swift in Sources */,
 				35281C9B2ABFF10C00329260 /* TokenInfo.swift in Sources */,
 				356C7F812A9F974500DDEDDD /* BaseTableViewCell.swift in Sources */,
+				35F55CE72B2426F300D3041B /* ProofType.swift in Sources */,
 				35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */,
 				356C7FAC2A9F9B7A00DDEDDD /* DBManager.swift in Sources */,
 				351C3DD22AA1F07D004E82B7 /* ITextField.swift in Sources */,
 				358905932AC89601000E687C /* RequestForgetPasswordDto.swift in Sources */,
 				356C7F932A9F98D700DDEDDD /* PermissionHelperDelegate.swift in Sources */,
+				35FDCF622B1DBF8B005A1D0E /* EventActivityType.swift in Sources */,
 				351C3DFD2AA33C96004E82B7 /* UIView+LoadNib.swift in Sources */,
 				35FAD8712ADB0892003381F1 /* FlatEventDto.swift in Sources */,
 				356C7F992A9F995400DDEDDD /* UITableView.swift in Sources */,
@@ -1714,12 +1760,14 @@
 				355D72BC2B00C21B0036AE59 /* StudentAttendanceEventDto.swift in Sources */,
 				355D97EE2B179BAE0029969D /* ProofItemCell.swift in Sources */,
 				3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */,
+				35F55CF82B247E9B00D3041B /* SeeProofVC.swift in Sources */,
 				35E372622AF923AA0078AACF /* Bundle.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
 				351C3DBA2AA1E8E6004E82B7 /* HomeVC.swift in Sources */,
 				351C3DD42AA1F102004E82B7 /* GradientView.swift in Sources */,
 				35D710FC2AA6168E00B71A34 /* JWTHelper.swift in Sources */,
 				356C7F912A9F98C500DDEDDD /* Permission.swift in Sources */,
+				35F55CEF2B24739F00D3041B /* ProofStatus.swift in Sources */,
 				3589056F2AC75461000E687C /* AnalysisVM.swift in Sources */,
 				35AB16DB2B3B371000FB24E1 /* EventCalendarVCViewController.swift in Sources */,
 				35E353DC2B1B82DC00F4D3AE /* RegisteredStudentInEventDto.swift in Sources */,
@@ -1731,6 +1779,7 @@
 				354527412B3C91AB0098E035 /* EventCalendarVC.swift in Sources */,
 				356C7FC52A9F9CAA00DDEDDD /* PostResponse.swift in Sources */,
 				351C3DDE2AA1F1ED004E82B7 /* ReachabilityHelper.swift in Sources */,
+				35F55CE92B246EA700D3041B /* ProofDto.swift in Sources */,
 				357192B72AE8FAEA009C429E /* RoleItemCell.swift in Sources */,
 				35E7AB112B0BB00700CF0E4B /* ChangePasswordVC.swift in Sources */,
 				353D2ACC2AC9D1A700C26BA3 /* EditProfileVM.swift in Sources */,
@@ -1743,6 +1792,7 @@
 				356D45702AB4CEA8004227A1 /* UITextField.swift in Sources */,
 				356C7F952A9F991E00DDEDDD /* String+Convert.swift in Sources */,
 				357192AB2AE81256009C429E /* EventRoleDto.swift in Sources */,
+				35F55CFD2B247FD900D3041B /* ProofDetailDto.swift in Sources */,
 				355D97EB2B179B7B0029969D /* ProofItem.swift in Sources */,
 				356C7FBA2A9F9C1400DDEDDD /* BaseDaoService.swift in Sources */,
 				356C7FB12A9F9BBC00DDEDDD /* RealmRepresentable.swift in Sources */,
@@ -1755,6 +1805,7 @@
 				35E353DE2B1B84EC00F4D3AE /* FlatEventDtoPageResultDto.swift in Sources */,
 				3538701A2B110DD0007DAE31 /* ExportStudentAttendanceEventsDto.swift in Sources */,
 				35281C962ABF43FE00329260 /* KeychainHelper.swift in Sources */,
+				35FDCF662B1E2132005A1D0E /* Date.swift in Sources */,
 				35E372642AF924B60078AACF /* UIImage.swift in Sources */,
 				351C3DBE2AA1EA6D004E82B7 /* HomeVM.swift in Sources */,
 				355FBB0A2B39670300A38BFA /* UpdateProofVM.swift in Sources */,
@@ -1797,6 +1848,7 @@
 				357192AE2AE81497009C429E /* BasicRepresentativeInEventDto.swift in Sources */,
 				357192A22AE80F05009C429E /* EventType.swift in Sources */,
 				3589059B2AC987E3000E687C /* KingFisher.swift in Sources */,
+				35F55CED2B24707700D3041B /* ProofDtoPagedResultDto.swift in Sources */,
 				3585B3272AF3F921001CE588 /* RegisterVC.swift in Sources */,
 				35E353E22B1B86CC00F4D3AE /* InternalProofCreateDto.swift in Sources */,
 				358905972AC9705B000E687C /* HomeRoomDto.swift in Sources */,
@@ -1831,6 +1883,7 @@
 				356C7FA32A9F9AAB00DDEDDD /* Localizable.strings in Sources */,
 				351C3DB72AA1E89E004E82B7 /* ApiServiceImp.swift in Sources */,
 				351C3DF22AA33B6C004E82B7 /* BaseError.swift in Sources */,
+				35FDCF5E2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift in Sources */,
 				355D72B72B0079B20036AE59 /* StudentEducationProgramDto.swift in Sources */,
 				351C3DF42AA33BA8004E82B7 /* LoggerUtils.swift in Sources */,
 				353D2AC92AC9D19C00C26BA3 /* EditProfileVC.swift in Sources */,
@@ -1842,6 +1895,7 @@
 				351C3DEB2AA33960004E82B7 /* SplashVM.swift in Sources */,
 				356C7F6B2A9F93AE00DDEDDD /* RemoteRespository.swift in Sources */,
 				351C3DC92AA1EF57004E82B7 /* AlertMessage.swift in Sources */,
+				35F55CFB2B247EA500D3041B /* SeeProofVM.swift in Sources */,
 				356C7FB32A9F9BD100DDEDDD /* ModelConvertibleType.swift in Sources */,
 				35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */,
 				3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */,
@@ -1865,6 +1919,7 @@
 				351C3DAB2AA1E7B2004E82B7 /* AppApi.swift in Sources */,
 				356C7F792A9F957000DDEDDD /* NetworkModule.swift in Sources */,
 				35281C982ABF4A4400329260 /* ErrorResponse.swift in Sources */,
+				35F55CEB2B246F2200D3041B /* SimpleStudentDto.swift in Sources */,
 				356C7FA12A9F9A0F00DDEDDD /* BaseNVC.swift in Sources */,
 				3585B3302AF3FAD8001CE588 /* RoleRegisterItemCell.swift in Sources */,
 				35FAD86F2ADB061A003381F1 /* EventStatus.swift in Sources */,
