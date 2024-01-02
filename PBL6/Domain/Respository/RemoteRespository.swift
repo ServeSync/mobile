@@ -35,6 +35,7 @@ protocol RemoteRepository {
     func registerEvent(eventRegisterDto: EventRegisterDto) -> Single<Moya.Response>
     func rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String) -> Single<Moya.Response>
     func getEventRegistered(studentId: String) -> Single<Result<StudentRegisteredEventDtoPagedResultDto, ErrorResponse>>
+    func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
     
     //MARK: - Proof
     func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>

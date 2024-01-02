@@ -37,6 +37,7 @@ enum AppApi {
     case registerEvent(eventRegisterDto: EventRegisterDto)
     case rollcallEvent(studentAttendEventDto: StudentAttendEventDto, eventId: String)
     case getEventRegistered(studentId: String)
+    case getAllYourEvents
     
     //MARK: - Proof
     case postProofInternal(internalProofCreateDto: InternalProofCreateDto)
@@ -72,7 +73,7 @@ extension AppApi: TargetType {
             return "auth/forget-password"
         case .postImage:
             return "images"
-        case .getEventsByStatus, .searchEvent:
+        case .getEventsByStatus, .searchEvent, .getAllYourEvents:
             return "events"
         case .getEventById(let id):
             return "events/\(id)"
@@ -263,6 +264,11 @@ extension AppApi: TargetType {
             } else {
                 return .requestPlain
             }
+        case .getAllYourEvents:
+            let params: [String: Any] = [
+                "IsPaging": "false"
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         default:
             return .requestPlain
         }

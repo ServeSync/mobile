@@ -51,6 +51,8 @@ target 'PBL6' do
   #drop down
   pod 'DropDown'
   pod "SearchTextField"
+  pod 'CalendarKit'
+  pod 'FSCalendar'
   
   post_install do |pi|
       pi.pods_project.targets.each do |target|

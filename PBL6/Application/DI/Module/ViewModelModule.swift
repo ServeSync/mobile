@@ -31,5 +31,7 @@ final class ViewModelModule{
         container.register(ExportFileVM.self) { _ in ExportFileVM()}
         container.register(ProofVM.self) { _ in ProofVM()}
         container.register(CreateProofVM.self) { _ in CreateProofVM()}
+        container.register(UpdateProofVM.self) { _ in UpdateProofVM()}
+        container.register(EventCalendarVM.self) { _ in EventCalendarVM()}
     }
 }

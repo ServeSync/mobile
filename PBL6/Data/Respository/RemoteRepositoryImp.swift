@@ -89,6 +89,10 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.getEventRegistered(studentId: studentId)
     }
     
+    func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getAllYourEvents()
+    }
+    
     //MARK: - Proof
     func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
         return apiService.postProofInternal(internalProofCreateDto: internalProofCreateDto)

@@ -94,6 +94,10 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestObjectWithTokenRefresh(.getEventRegistered(studentId: studentId), successType: StudentRegisteredEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
     
+    func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getAllYourEvents, successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
+    
     //MARK: - Proof
     func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
         return appNetwork.requestWithoutMappingWithRefreshToken(.postProofInternal(internalProofCreateDto: internalProofCreateDto))

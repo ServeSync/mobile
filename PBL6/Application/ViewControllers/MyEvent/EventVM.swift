@@ -8,5 +8,7 @@
 import Foundation
 
 class EventVM: BaseVM {
-    
+    var hapeningEvents: [FlatEventDto] = []
+    var upcomingEvents: [FlatEventDto] = []
+    var doneEvents: [FlatEventDto] = []
 }

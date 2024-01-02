@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventVC" customModule="PBL6" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="mbM-BS-lUL" id="Uqm-jr-p6g"/>
+                <outlet property="searchButton" destination="Nwm-mw-rX6" id="8UX-s5-DX7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
