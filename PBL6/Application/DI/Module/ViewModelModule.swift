@@ -33,6 +33,6 @@ final class ViewModelModule{
         container.register(CreateProofVM.self) { _ in CreateProofVM()}
         container.register(UpdateProofVM.self) { _ in UpdateProofVM()}
         container.register(EventCalendarVM.self) { _ in EventCalendarVM()}
-        container.register(SeeProofVM.self) { _ in SeeProofVM()}
+        container.register(SeeProofDetailVM.self) { _ in SeeProofDetailVM()}
     }
 }

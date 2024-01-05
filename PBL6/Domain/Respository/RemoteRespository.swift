@@ -23,11 +23,12 @@ protocol RemoteRepository {
     func postImage(image: UIImage) -> Single<Result<ImageResponse, ErrorResponse>>
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> Single<Moya.Response>
     func getEducationProgam() -> Single<Result<StudentEducationProgramDto, ErrorResponse>>
-    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>>
+    func getAttendanceEvents() -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>>
     func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response>
     
     //MARK: - Event
     func getEventsByStatus(status: EventStatus, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
+    func getEventForSelf(status: EventStatus) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
     func searchEvent(keyword: String, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
     func getEventById(id: String) -> Single<Result<EventDetailDto, ErrorResponse>>
     func registerEvent(eventRegisterDto: EventRegisterDto) -> Single<Moya.Response>
@@ -43,4 +44,7 @@ protocol RemoteRepository {
     func getProofs() -> Single<Result<ProofDtoPagedResultDto, ErrorResponse>>
     func deleteProof(id: String) -> Single<Moya.Response>
     func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>>
+    func updateInternalProof(proofId: String, internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>
+    func updateExternalProod(proofId: String, externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response>
+    func updateSpecialProof(proofId: String, specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response>
 }

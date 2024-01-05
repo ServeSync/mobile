@@ -195,6 +195,9 @@
 		358905972AC9705B000E687C /* HomeRoomDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905962AC9705B000E687C /* HomeRoomDto.swift */; };
 		358905992AC970E8000E687C /* EducationProgramDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358905982AC970E8000E687C /* EducationProgramDto.swift */; };
 		3589059B2AC987E3000E687C /* KingFisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3589059A2AC987E3000E687C /* KingFisher.swift */; };
+		35955D2F2B446E33004EA2A9 /* SeeProofDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35955D2E2B446E33004EA2A9 /* SeeProofDetailVM.swift */; };
+		35955D322B446E46004EA2A9 /* SeeProofDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35955D302B446E46004EA2A9 /* SeeProofDetailVC.swift */; };
+		35955D332B446E46004EA2A9 /* SeeProofDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35955D312B446E46004EA2A9 /* SeeProofDetailVC.xib */; };
 		35AB16DB2B3B371000FB24E1 /* EventCalendarVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB16D92B3B371000FB24E1 /* EventCalendarVCViewController.swift */; };
 		35AB16DF2B3B372B00FB24E1 /* EventCalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB16DE2B3B372B00FB24E1 /* EventCalendarVM.swift */; };
 		35AB16E12B3B44F600FB24E1 /* EKWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AB16E02B3B44F600FB24E1 /* EKWrapper.swift */; };
@@ -229,9 +232,6 @@
 		35F55CEB2B246F2200D3041B /* SimpleStudentDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CEA2B246F2200D3041B /* SimpleStudentDto.swift */; };
 		35F55CED2B24707700D3041B /* ProofDtoPagedResultDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CEC2B24707700D3041B /* ProofDtoPagedResultDto.swift */; };
 		35F55CEF2B24739F00D3041B /* ProofStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CEE2B24739F00D3041B /* ProofStatus.swift */; };
-		35F55CF82B247E9B00D3041B /* SeeProofVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CF62B247E9B00D3041B /* SeeProofVC.swift */; };
-		35F55CF92B247E9B00D3041B /* SeeProofVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35F55CF72B247E9B00D3041B /* SeeProofVC.xib */; };
-		35F55CFB2B247EA500D3041B /* SeeProofVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CFA2B247EA500D3041B /* SeeProofVM.swift */; };
 		35F55CFD2B247FD900D3041B /* ProofDetailDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F55CFC2B247FD900D3041B /* ProofDetailDto.swift */; };
 		35FA42ED2AE19A7D0001F7B0 /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */; };
 		35FA42F02AE19A830001F7B0 /* GridCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */; };
@@ -250,11 +250,11 @@
 		35FAD8CC2ADDA5FC003381F1 /* SeeAllEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD8CA2ADDA5FC003381F1 /* SeeAllEventVC.swift */; };
 		35FAD8CD2ADDA5FC003381F1 /* SeeAllEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FAD8CB2ADDA5FC003381F1 /* SeeAllEventVC.xib */; };
 		35FAD8CF2ADDA609003381F1 /* SeeAllEventVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAD8CE2ADDA609003381F1 /* SeeAllEventVM.swift */; };
-		35FFD0422B3C55170006A6CC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD0402B3C55170006A6CC /* CalendarVC.swift */; };
-		35FFD0432B3C55170006A6CC /* CalendarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FFD0412B3C55170006A6CC /* CalendarVC.xib */; };
 		35FDCF5E2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDCF5D2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift */; };
 		35FDCF622B1DBF8B005A1D0E /* EventActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDCF612B1DBF8B005A1D0E /* EventActivityType.swift */; };
 		35FDCF662B1E2132005A1D0E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FDCF652B1E2132005A1D0E /* Date.swift */; };
+		35FFD0422B3C55170006A6CC /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FFD0402B3C55170006A6CC /* CalendarVC.swift */; };
+		35FFD0432B3C55170006A6CC /* CalendarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FFD0412B3C55170006A6CC /* CalendarVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -448,6 +448,9 @@
 		358905962AC9705B000E687C /* HomeRoomDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRoomDto.swift; sourceTree = "<group>"; };
 		358905982AC970E8000E687C /* EducationProgramDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationProgramDto.swift; sourceTree = "<group>"; };
 		3589059A2AC987E3000E687C /* KingFisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisher.swift; sourceTree = "<group>"; };
+		35955D2E2B446E33004EA2A9 /* SeeProofDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeProofDetailVM.swift; sourceTree = "<group>"; };
+		35955D302B446E46004EA2A9 /* SeeProofDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeProofDetailVC.swift; sourceTree = "<group>"; };
+		35955D312B446E46004EA2A9 /* SeeProofDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeProofDetailVC.xib; sourceTree = "<group>"; };
 		35AB16D92B3B371000FB24E1 /* EventCalendarVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCalendarVCViewController.swift; sourceTree = "<group>"; };
 		35AB16DE2B3B372B00FB24E1 /* EventCalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCalendarVM.swift; sourceTree = "<group>"; };
 		35AB16E02B3B44F600FB24E1 /* EKWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKWrapper.swift; sourceTree = "<group>"; };
@@ -482,9 +485,6 @@
 		35F55CEA2B246F2200D3041B /* SimpleStudentDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleStudentDto.swift; sourceTree = "<group>"; };
 		35F55CEC2B24707700D3041B /* ProofDtoPagedResultDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofDtoPagedResultDto.swift; sourceTree = "<group>"; };
 		35F55CEE2B24739F00D3041B /* ProofStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofStatus.swift; sourceTree = "<group>"; };
-		35F55CF62B247E9B00D3041B /* SeeProofVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeProofVC.swift; sourceTree = "<group>"; };
-		35F55CF72B247E9B00D3041B /* SeeProofVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeProofVC.xib; sourceTree = "<group>"; };
-		35F55CFA2B247EA500D3041B /* SeeProofVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeProofVM.swift; sourceTree = "<group>"; };
 		35F55CFC2B247FD900D3041B /* ProofDetailDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofDetailDto.swift; sourceTree = "<group>"; };
 		35FA42EC2AE19A7D0001F7B0 /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		35FA42EF2AE19A830001F7B0 /* GridCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -503,11 +503,11 @@
 		35FAD8CA2ADDA5FC003381F1 /* SeeAllEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllEventVC.swift; sourceTree = "<group>"; };
 		35FAD8CB2ADDA5FC003381F1 /* SeeAllEventVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeAllEventVC.xib; sourceTree = "<group>"; };
 		35FAD8CE2ADDA609003381F1 /* SeeAllEventVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllEventVM.swift; sourceTree = "<group>"; };
-		35FFD0402B3C55170006A6CC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
-		35FFD0412B3C55170006A6CC /* CalendarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarVC.xib; sourceTree = "<group>"; };
 		35FDCF5D2B1DBCE7005A1D0E /* SpecialProofCreateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialProofCreateDto.swift; sourceTree = "<group>"; };
 		35FDCF612B1DBF8B005A1D0E /* EventActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventActivityType.swift; sourceTree = "<group>"; };
 		35FDCF652B1E2132005A1D0E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		35FFD0402B3C55170006A6CC /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		35FFD0412B3C55170006A6CC /* CalendarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarVC.xib; sourceTree = "<group>"; };
 		9B1A66AD3F335B6F5D956256 /* Pods_PBL6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PBL6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4F47EA6852A63FE606C298 /* Pods-PBL6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.debug.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4C3080F070549C0EACECE7 /* Pods-PBL6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PBL6.release.xcconfig"; path = "Target Support Files/Pods-PBL6/Pods-PBL6.release.xcconfig"; sourceTree = "<group>"; };
@@ -747,8 +747,8 @@
 		355FBB042B3966D600A38BFA /* UpdateProof */ = {
 			isa = PBXGroup;
 			children = (
-				355FBB052B3966F400A38BFA /* UpdateProofVC.swift */,
 				355FBB062B3966F400A38BFA /* UpdateProofVC.xib */,
+				355FBB052B3966F400A38BFA /* UpdateProofVC.swift */,
 				355FBB092B39670300A38BFA /* UpdateProofVM.swift */,
 			);
 			path = UpdateProof;
@@ -889,7 +889,7 @@
 		356C7F5C2A9F925000DDEDDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				35955D262B4464EA004EA2A9 /* SeeProof */,
+				35955D2D2B446DEC004EA2A9 /* SeeProofDetail */,
 				35FFD03F2B3C54EF0006A6CC /* Calendar */,
 				35AB16DD2B3B371700FB24E1 /* EventCalendar */,
 				355FBB042B3966D600A38BFA /* UpdateProof */,
@@ -1312,11 +1312,14 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
-		35955D262B4464EA004EA2A9 /* SeeProof */ = {
+		35955D2D2B446DEC004EA2A9 /* SeeProofDetail */ = {
 			isa = PBXGroup;
 			children = (
+				35955D2E2B446E33004EA2A9 /* SeeProofDetailVM.swift */,
+				35955D302B446E46004EA2A9 /* SeeProofDetailVC.swift */,
+				35955D312B446E46004EA2A9 /* SeeProofDetailVC.xib */,
 			);
-			path = SeeProof;
+			path = SeeProofDetail;
 			sourceTree = "<group>";
 		};
 		35AB16DD2B3B371700FB24E1 /* EventCalendar */ = {
@@ -1456,16 +1459,6 @@
 				35E7AB132B0BB01400CF0E4B /* ChangePasswordVM.swift */,
 			);
 			path = ChangePassword;
-			sourceTree = "<group>";
-		};
-		35F55CF32B247E6600D3041B /* SeeProof */ = {
-			isa = PBXGroup;
-			children = (
-				35F55CF62B247E9B00D3041B /* SeeProofVC.swift */,
-				35F55CF72B247E9B00D3041B /* SeeProofVC.xib */,
-				35F55CFA2B247EA500D3041B /* SeeProofVM.swift */,
-			);
-			path = SeeProof;
 			sourceTree = "<group>";
 		};
 		35FA42EA2AE19A6D0001F7B0 /* Layout */ = {
@@ -1679,10 +1672,10 @@
 				3585B3282AF3F921001CE588 /* RegisterVC.xib in Resources */,
 				356C7F4A2A9F90C000DDEDDD /* Assets.xcassets in Resources */,
 				351689EB2B3DEA2F00EA1E76 /* EventCalendarCell.xib in Resources */,
+				35955D332B446E46004EA2A9 /* SeeProofDetailVC.xib in Resources */,
 				35E7AB0C2B0A430200CF0E4B /* EventDetailVC.xib in Resources */,
 				355D97EF2B179BAE0029969D /* ProofItemCell.xib in Resources */,
 				35635D162AAE2A650083E3DB /* OpenSans-Italic.ttf in Resources */,
-				35F55CF92B247E9B00D3041B /* SeeProofVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1760,7 +1753,6 @@
 				355D72BC2B00C21B0036AE59 /* StudentAttendanceEventDto.swift in Sources */,
 				355D97EE2B179BAE0029969D /* ProofItemCell.swift in Sources */,
 				3586F28A2AFB6BF00035CA46 /* AppDataSource.swift in Sources */,
-				35F55CF82B247E9B00D3041B /* SeeProofVC.swift in Sources */,
 				35E372622AF923AA0078AACF /* Bundle.swift in Sources */,
 				351C3DFF2AA33CA5004E82B7 /* UIView+Shadow.swift in Sources */,
 				351C3DBA2AA1E8E6004E82B7 /* HomeVC.swift in Sources */,
@@ -1895,7 +1887,6 @@
 				351C3DEB2AA33960004E82B7 /* SplashVM.swift in Sources */,
 				356C7F6B2A9F93AE00DDEDDD /* RemoteRespository.swift in Sources */,
 				351C3DC92AA1EF57004E82B7 /* AlertMessage.swift in Sources */,
-				35F55CFB2B247EA500D3041B /* SeeProofVM.swift in Sources */,
 				356C7FB32A9F9BD100DDEDDD /* ModelConvertibleType.swift in Sources */,
 				35B7160B2AB1BBEE0089E829 /* SlideItem.swift in Sources */,
 				3589058A2AC8505F000E687C /* WebviewVM.swift in Sources */,
@@ -1908,6 +1899,7 @@
 				351C3DFB2AA33C87004E82B7 /* UIView+Border+Corner.swift in Sources */,
 				358905752AC7D339000E687C /* AccountVC.swift in Sources */,
 				35FAD8772ADB19FE003381F1 /* FlatEventDtoPagedResultDto.swift in Sources */,
+				35955D2F2B446E33004EA2A9 /* SeeProofDetailVM.swift in Sources */,
 				3589058E2AC8891F000E687C /* ForgotPasswordVC.swift in Sources */,
 				358869E82AECE1FA00F235E5 /* SpeakerItemCell.swift in Sources */,
 				351C3DAD2AA1E7F1004E82B7 /* NetworkConfig.swift in Sources */,
@@ -1920,6 +1912,7 @@
 				356C7F792A9F957000DDEDDD /* NetworkModule.swift in Sources */,
 				35281C982ABF4A4400329260 /* ErrorResponse.swift in Sources */,
 				35F55CEB2B246F2200D3041B /* SimpleStudentDto.swift in Sources */,
+				35955D322B446E46004EA2A9 /* SeeProofDetailVC.swift in Sources */,
 				356C7FA12A9F9A0F00DDEDDD /* BaseNVC.swift in Sources */,
 				3585B3302AF3FAD8001CE588 /* RoleRegisterItemCell.swift in Sources */,
 				35FAD86F2ADB061A003381F1 /* EventStatus.swift in Sources */,

@@ -33,7 +33,7 @@ class AnalysisVM: BaseVM {
                 }
             }
             
-        let attendanceEventsObservable = remoteRepository.getAttendanceEvents(page: 0)
+        let attendanceEventsObservable = remoteRepository.getAttendanceEvents()
             .trackError(errorTracker)
             .trackActivity(indicatorLoading)
             .map { status  in
@@ -68,25 +68,25 @@ class AnalysisVM: BaseVM {
             .observe(on: MainScheduler.instance)
     }
     
-    func loadMore() -> Observable<HandleStatus> {
-        self.currentPage += 1
-        if self.currentPage > self.totalPage {
-            return .just(.Success)
-        }
-         
-        return remoteRepository.getAttendanceEvents(page: self.currentPage)
-            .trackError(errorTracker)
-            .trackActivity(indicatorLoading)
-            .flatMap{ [weak self] status -> Observable<HandleStatus> in
-                guard let self = self else { return .just(.Error(error: nil)) }
-                switch status {
-                case .success(let response):
-                    attendanceEvents.append(contentsOf: response.data)
-                    attendanceEventsData.accept(attendanceEvents)
-                    return .just(.Success)
-                case .failure(let error):
-                    return .just(.Error(error: error))
-                }
-            }
-    }
+//    func loadMore() -> Observable<HandleStatus> {
+//        self.currentPage += 1
+//        if self.currentPage > self.totalPage {
+//            return .just(.Success)
+//        }
+//         
+//        return remoteRepository.getAttendanceEvents(page: self.currentPage)
+//            .trackError(errorTracker)
+//            .trackActivity(indicatorLoading)
+//            .flatMap{ [weak self] status -> Observable<HandleStatus> in
+//                guard let self = self else { return .just(.Error(error: nil)) }
+//                switch status {
+//                case .success(let response):
+//                    attendanceEvents.append(contentsOf: response.data)
+//                    attendanceEventsData.accept(attendanceEvents)
+//                    return .just(.Success)
+//                case .failure(let error):
+//                    return .just(.Error(error: error))
+//                }
+//            }
+//    }
 }

@@ -27,7 +27,7 @@ enum AppApi {
     
     //MARK: - Student
     case getEducationProgam
-    case getAttendanceEvents(page: Int)
+    case getAttendanceEvents
     case exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto)
     
     //MARK: - Event
@@ -39,14 +39,18 @@ enum AppApi {
     case getEventRegistered(studentId: String)
     case getAllYourEvents
     case getEventActivities(type: EventActivityType)
+    case getEventForSelf(status: EventStatus)
     
     //MARK: - Proof
-    case postProofInternal(internalProofCreateDto: InternalProofCreateDto)
-    case postProofExternal(externalProofCreateDto: ExternalProofCreateDto)
-    case postProofSpecial(specialProofCreateDto: SpecialProofCreateDto)
+    case postInternalProof(internalProofCreateDto: InternalProofCreateDto)
+    case postExternalProof(externalProofCreateDto: ExternalProofCreateDto)
+    case postSpecialProof(specialProofCreateDto: SpecialProofCreateDto)
     case getProofs
     case deleteProof(id: String)
     case getProofDetail(id: String)
+    case updateInternalProof(proofId: String, internalProofCreateDto: InternalProofCreateDto)
+    case updateExternalProof(proofId: String, externalProofCreateDto: ExternalProofCreateDto)
+    case updateSpecialProof(proofId: String, specialProofCreateDto: SpecialProofCreateDto)
 }
 
 extension AppApi: TargetType {
@@ -78,7 +82,7 @@ extension AppApi: TargetType {
             return "auth/forget-password"
         case .postImage:
             return "images"
-        case .getEventsByStatus, .searchEvent, .getAllYourEvents:
+        case .getEventsByStatus, .searchEvent, .getAllYourEvents, .getEventForSelf:
             return "events"
         case .getEventById(let id):
             return "events/\(id)"
@@ -94,11 +98,11 @@ extension AppApi: TargetType {
             return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events"
         case .exportFile:
             return "students/\(UserDefaultHelper.shared.studentId!)/attendance-events/export"
-        case .postProofInternal:
+        case .postInternalProof:
             return "proofs/internal"
-        case .postProofExternal:
+        case .postExternalProof:
             return "proofs/external"
-        case .postProofSpecial:
+        case .postSpecialProof:
             return "proofs/special"
         case .getProofs:
             return "proofs/\(UserDefaultHelper.shared.studentId!)/student"
@@ -108,15 +112,21 @@ extension AppApi: TargetType {
             return "proofs/\(id)"
         case .getEventActivities:
             return "event-activities"
+        case .updateInternalProof(let id, _):
+            return "proofs/\(id)/internal"
+        case .updateExternalProof(let id, _):
+            return "proofs/\(id)/external"
+        case .updateSpecialProof(let id, _):
+            return "proofs/\(id)/special"
         }
     }
     
     //MARK: -- method
     var method: Alamofire.HTTPMethod {
         switch self {
-        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile, .postProofInternal, .postProofExternal, .postProofSpecial:
+        case .signIn, .refreshToken, .forgetPassword, .postImage, .registerEvent, .rollcallEvent, .changePassword, .exportFile, .postInternalProof, .postExternalProof, .postSpecialProof:
             return .post
-        case .putProfile:
+        case .putProfile, .updateSpecialProof, .updateInternalProof, .updateExternalProof:
             return .put
         case .deleteProof:
             return .delete
@@ -188,6 +198,13 @@ extension AppApi: TargetType {
                 "EventStatus": status.rawValue
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .getEventForSelf(let status):
+            let params: [String: Any] = [
+                "IsPaging": "false",
+                "EventStatus": status.rawValue,
+                "DefaultFilters": "Personalized"
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .registerEvent(let eventRegisterDto):
             let body: [String: Any] = [
                 "eventRoleId": eventRegisterDto.eventRoleId,
@@ -215,10 +232,9 @@ extension AppApi: TargetType {
                 "Search": keyword
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
-        case .getAttendanceEvents(let page):
+        case .getAttendanceEvents:
             let params: [String: Any] = [
-                "Page": page,
-                "Size": 10
+                "IsPaging": "false",
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .changePassword(let changePassworDto):
@@ -247,7 +263,7 @@ extension AppApi: TargetType {
                 "Size": 100
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
-        case .postProofInternal(let internalProofCreateDto):
+        case .postInternalProof(let internalProofCreateDto):
             let body: [String: Any] = [
                 "eventId": internalProofCreateDto.eventId,
                 "eventRoleId": internalProofCreateDto.eventRoleId,
@@ -260,7 +276,7 @@ extension AppApi: TargetType {
             } else {
                 return .requestPlain
             }
-        case .postProofExternal(let externalProofCreateDto):
+        case .postExternalProof(let externalProofCreateDto):
             let body: [String: Any] = [
                 "eventName": externalProofCreateDto.eventName,
                 "address": externalProofCreateDto.address,
@@ -281,10 +297,11 @@ extension AppApi: TargetType {
             }
         case .getAllYourEvents:
             let params: [String: Any] = [
-                "IsPaging": "false"
+                "IsPaging": "false",
+//                "DefaultFilters": "Personalized"
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
-        case .postProofSpecial(let specialProofCreateDto):
+        case .postSpecialProof(let specialProofCreateDto):
             let body: [String: Any] = [
                 "title": specialProofCreateDto.title,
                 "role": specialProofCreateDto.role,
@@ -305,6 +322,54 @@ extension AppApi: TargetType {
                 "Type": type,
             ]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .updateSpecialProof(_,let  specialProofCreateDto):
+            let body: [String: Any] = [
+                "title": specialProofCreateDto.title,
+                "role": specialProofCreateDto.role,
+                "score": specialProofCreateDto.score,
+                "startAt": specialProofCreateDto.startAt,
+                "endAt": specialProofCreateDto.endAt,
+                "activityId": specialProofCreateDto.activityId,
+                "description": specialProofCreateDto.description,
+                "imageUrl": specialProofCreateDto.imageUrl
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .updateInternalProof(_, let internalProofCreateDto):
+            let body: [String: Any] = [
+                "eventId": internalProofCreateDto.eventId,
+                "eventRoleId": internalProofCreateDto.eventRoleId,
+                "description": internalProofCreateDto.description,
+                "imageUrl": internalProofCreateDto.imageUrl,
+                "attendanceAt": internalProofCreateDto.attendanceAt,
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
+        case .updateExternalProof(_, let externalProofCreateDto):
+            let body: [String: Any] = [
+                "eventName": externalProofCreateDto.eventName,
+                "address": externalProofCreateDto.address,
+                "organizationName": externalProofCreateDto.organizationName,
+                "role": externalProofCreateDto.role,
+                "score": externalProofCreateDto.score,
+                "attendanceAt": externalProofCreateDto.attendanceAt,
+                "startAt": externalProofCreateDto.startAt,
+                "endAt": externalProofCreateDto.endAt,
+                "activityId": externalProofCreateDto.activityId,
+                "description": externalProofCreateDto.description,
+                "imageUrl": externalProofCreateDto.imageUrl,
+            ]
+            if let jsonBody = try? JSONSerialization.data(withJSONObject: body) {
+                return .requestData(jsonBody)
+            } else {
+                return .requestPlain
+            }
         default:
             return .requestPlain
         }

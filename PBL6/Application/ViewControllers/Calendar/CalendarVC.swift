@@ -11,6 +11,8 @@ import FSCalendar
 class CalendarVC: BaseVC<EventCalendarVM> {
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,13 @@ class CalendarVC: BaseVC<EventCalendarVM> {
             .disposed(by: bag)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        viewModel.fetchDailysEvents(date: Date())
+        collectionView.reloadData()
+    }
+    
     override func initViews() {
         super.initViews()
         
@@ -46,6 +55,17 @@ class CalendarVC: BaseVC<EventCalendarVM> {
         collectionView.registerCellNib(EventCalendarCell.self)
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    override func addEventForViews() {
+        super.addEventForViews()
+        
+        backButton.rx.tap
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                self.popVC()
+            })
+            .disposed(by: bag)
     }
 }
 
@@ -69,6 +89,7 @@ extension CalendarVC: FSCalendarDelegate {
 
 extension CalendarVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        emptyView.isHidden = !(viewModel.dailyEvents.count < 1)
         return viewModel.dailyEvents.count
     }
     
@@ -89,5 +110,11 @@ extension CalendarVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
+    }
+}
+
+extension CalendarVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.pushVC(EventDetailVC(eventId: self.viewModel.dailyEvents[indexPath.row].id))
     }
 }

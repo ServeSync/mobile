@@ -72,7 +72,7 @@ class CreateProofVM: BaseVM {
                                                                      eventRoleId: self.studentRegisteredEventDto!.roleId,
                                                                      description: description,
                                                                      imageUrl: data.url,
-                                                                        attendanceAt: FormatUtils.formatDateToString(self.attendanceTime!, formatterString: "yyyy-MM-dd"))
+                                                                        attendanceAt: FormatUtils.formatDateToString(self.attendanceTime!, formatterString: "yyyy-MM-dd'T'HH:mm"))
                     return remoteRepository.postProofInternal(internalProofCreateDto: internalProofCreateDto)
                         .trackError(errorTracker)
                         .trackActivity(indicatorLoading)
@@ -109,9 +109,9 @@ class CreateProofVM: BaseVM {
                                                                         organizationName: organizationName,
                                                                         role: role,
                                                                         score: score,
-                                                                        attendanceAt: FormatUtils.formatDateToString(self.attendanceTime!, formatterString: "yyyy-MM-dd"),
-                                                                        startAt: FormatUtils.formatDateToString(self.startTime!, formatterString: "yyyy-MM-dd"),
-                                                                        endAt: FormatUtils.formatDateToString(self.endTime!, formatterString: "yyyy-MM-dd"),
+                                                                        attendanceAt: FormatUtils.formatDateToString(self.attendanceTime!, formatterString: "yyyy-MM-dd'T'HH:mm"),
+                                                                        startAt: FormatUtils.formatDateToString(self.startTime!, formatterString: "yyyy-MM-dd'T'HH:mm"),
+                                                                        endAt: FormatUtils.formatDateToString(self.endTime!, formatterString: "yyyy-MM-dd'T'HH:mm"),
                                                                         activityId: eventActivity!.id,
                                                                         description: description,
                                                                         imageUrl: data.url)
@@ -147,8 +147,8 @@ class CreateProofVM: BaseVM {
                     let specialProofCreateDto = SpecialProofCreateDto(title: title,
                                                                       role: role,
                                                                       score: score,
-                                                                      startAt: FormatUtils.formatDateToString(self.startTime!, formatterString: "yyyy-MM-dd"),
-                                                                      endAt: FormatUtils.formatDateToString(self.endTime!, formatterString: "yyyy-MM-dd"),
+                                                                      startAt: FormatUtils.formatDateToString(self.startTime!, formatterString: "yyyy-MM-dd'T'HH:mm"),
+                                                                      endAt: FormatUtils.formatDateToString(self.endTime!, formatterString: "yyyy-MM-dd'T'HH:mm"),
                                                                       activityId: eventActivity!.id,
                                                                       description: description,
                                                                       imageUrl: data.url)

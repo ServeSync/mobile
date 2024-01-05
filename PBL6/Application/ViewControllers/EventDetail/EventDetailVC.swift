@@ -263,8 +263,13 @@ private extension EventDetailVC {
             introductionLabel.text = item.introduction
             eventStatusLabel.text = item.status.lowercased().localized
             numberOfPeopleLabel.text = "\(item.capacity) \("people".localized)"
-            startTimeLabel.text = convertDateFormat(item.startAt)
-            endTimeLabel.text = convertDateFormat(item.endAt)
+            
+            var date = convertStringToDate(item.startAt)
+            date = date!.addingTimeInterval(7 * 60 * 60)
+            startTimeLabel.text = FormatUtils.formatDateToString(date!, formatterString: "HH:mm dd/MM/yyyy")
+            date = convertStringToDate(item.endAt)
+            date = date!.addingTimeInterval(7 * 60 * 60)
+            endTimeLabel.text = FormatUtils.formatDateToString(date!, formatterString: "HH:mm dd/MM/yyyy")
             addressLabel.text = item.address.fullAddress
             registeredQuantityLabel.text = "\(item.registered)"
             
@@ -302,6 +307,13 @@ private extension EventDetailVC {
     }
     
     private func updateStatusButton(_ item: EventDetailDto) {
+        if item.calculatedStatus == EventStatus.Registration.rawValue && item.isRegistered {
+            eventStatusLabel.text = "registered".localized
+            eventStatusView.startColor = "#F7D6FF".toUIColor()
+            eventStatusView.endColor = "#FEB6FF".toUIColor()
+            
+            return
+        }
         eventStatusLabel.text = item.calculatedStatus.lowercased().localized
         switch item.calculatedStatus {
         case EventStatus.Done.rawValue:
@@ -363,6 +375,9 @@ extension EventDetailVC: RegisterEventDelegate {
         self.showToast(message: "register_success".localized, state: .success)
         viewModel.updateRoleRegister(roleId: roleId)
         if !viewModel.eventDetailItem.roles.contains(where: { $0.isRegistered == false}) {
+            eventStatusLabel.text = "registered".localized
+            eventStatusView.startColor = "#F7D6FF".toUIColor()
+            eventStatusView.endColor = "#FEB6FF".toUIColor()
             actionButton.gone()
         }
     }

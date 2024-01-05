@@ -22,8 +22,12 @@ class EventCalendarCell: BaseCollectionViewCell {
 
     func configure(_ item: FlatEventDto) {
         eventNameLabel.text = item.name
-        startAtLabel.text = convertDateFormat(item.startAt)
-        endAtLabel.text = convertDateFormat(item.endAt)
+        var date = convertStringToDate(item.startAt)
+        date = date!.addingTimeInterval(7 * 60 * 60)
+        startAtLabel.text = FormatUtils.formatDateToString(date!, formatterString: "HH:mm dd/MM/yyyy")
+        date = convertStringToDate(item.endAt)
+        date = date!.addingTimeInterval(7 * 60 * 60)
+        endAtLabel.text = FormatUtils.formatDateToString(date!, formatterString: "HH:mm dd/MM/yyyy")
         loadImageFromURL(from: item.imageUrl, into: eventImage)
     }
 }

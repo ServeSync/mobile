@@ -65,7 +65,7 @@ class ProofVC: BaseVC<ProofVM> {
         collectionView.rx.modelSelected(ProofDto.self)
             .subscribe(onNext: {[weak self] item in
                 guard let self = self else { return }
-                let vc = SeeProofVC(id: item.id)
+                let vc = SeeProofDetailVC(proofId: item.id)
                 self.pushVC(vc)
             })
             .disposed(by: bag)
@@ -75,6 +75,14 @@ class ProofVC: BaseVC<ProofVM> {
         super.bindViewModel()
         
         viewModel.proofItemsData
+            .do{ [weak self] data in
+                guard let self = self else { return }
+                if data.isEmpty {
+                    collectionView.setEmptyMessage("no_proof".localized)
+                } else {
+                    collectionView.hideEmptyMessage()
+                }
+            }
             .map {[SectionModel(model: (), items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: getProofItemDataSource() {[weak self] proofItem in
                 guard let self = self else { return }
@@ -99,6 +107,25 @@ class ProofVC: BaseVC<ProofVM> {
                   }))
                 
                 self.presentVC(popupConfirm)
+            } onUpdateButtonTouched: { item in
+                if item.proofStatus != ProofStatus.Pending.rawValue {
+                    self.viewModel.messageData.accept(AlertMessage(type: .error, description: "edit_proof_warning".localized))
+                } else {
+                    switch item.proofType {
+                    case ProofType.External.rawValue:
+                        let vc = UpdateProofVC(proofId: item.id, proofType: .External)
+                        vc.delegate = self
+                        self.pushVC(vc)
+                    case ProofType.Internal.rawValue:
+                        let vc = UpdateProofVC(proofId: item.id, proofType: .Internal)
+                        vc.delegate = self
+                        self.pushVC(vc)
+                    default:
+                        let vc = UpdateProofVC(proofId: item.id, proofType: .Special)
+                        vc.delegate = self
+                        self.pushVC(vc)
+                    }
+                }
             }))
             .disposed(by: bag)
     }
@@ -107,5 +134,11 @@ class ProofVC: BaseVC<ProofVM> {
 extension ProofVC: CreateProofDelegate {
     func createProofSucces() {
         self.showToast(message: "create_proof_success".localized, state: .success)
+    }
+}
+
+extension ProofVC: UpdateProofDelegate {
+    func updateProofSucces() {
+        self.showToast(message: "update_proof_success".localized, state: .success)
     }
 }

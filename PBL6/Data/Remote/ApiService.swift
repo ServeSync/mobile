@@ -23,7 +23,7 @@ protocol ApiService {
     func postImage(image: UIImage) -> Single<Result<ImageResponse, ErrorResponse>>
     func editProfile(studentEditProfileDto: StudentEditProfileDto) -> Single<Moya.Response>
     func getEducationProgam() -> Single<Result<StudentEducationProgramDto, ErrorResponse>>
-    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>>
+    func getAttendanceEvents() -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>>
     func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response>
     
     //MARK: - Event
@@ -35,6 +35,7 @@ protocol ApiService {
     func getEventRegistered(studentId: String) -> Single<Result<StudentRegisteredEventDtoPagedResultDto, ErrorResponse>>
     func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
     func getEventActivities(type: EventActivityType) -> Single<Result<[EventActivityDto], ErrorResponse>>
+    func getEventForSelf(status: EventStatus) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>>
     
     //MARK: - Proof
     func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>
@@ -43,4 +44,7 @@ protocol ApiService {
     func getProofs() -> Single<Result<ProofDtoPagedResultDto, ErrorResponse>>
     func deleteProof(id: String) -> Single<Moya.Response>
     func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>>
+    func updateProofInternal(proofId: String, internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>
+    func updateProofExternal(proofId: String, externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response>
+    func updateProofSpecial(proofId: String, specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response>
 }

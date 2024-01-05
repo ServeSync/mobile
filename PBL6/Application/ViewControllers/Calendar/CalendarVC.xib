@@ -16,8 +16,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarVC" customModule="PBL6" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="HpM-gj-CGJ" id="tSh-1W-TuX"/>
                 <outlet property="calendar" destination="iRV-7T-eMa" id="y3b-8i-6TJ"/>
                 <outlet property="collectionView" destination="Ema-bc-eMD" id="sE3-k8-8Bn"/>
+                <outlet property="emptyView" destination="fdq-6n-Jzr" id="dJe-WZ-jLq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,6 +45,31 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdq-6n-Jzr">
+                            <rect key="frame" x="16" y="383.66666666666669" width="361" height="256.00000000000006"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_empty" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-1a-ct9">
+                                    <rect key="frame" x="120.66666666666666" y="16" width="120" height="120"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no_event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlB-AQ-OgP">
+                                    <rect key="frame" x="145.66666666666666" y="169.99999999999994" width="70" height="20.333333333333343"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="no_event"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="256" id="Ghv-jd-7kj"/>
+                                <constraint firstItem="xlB-AQ-OgP" firstAttribute="top" secondItem="3c9-1a-ct9" secondAttribute="bottom" constant="34" id="LRS-fR-aTw"/>
+                                <constraint firstItem="3c9-1a-ct9" firstAttribute="top" secondItem="fdq-6n-Jzr" secondAttribute="top" constant="16" id="RTf-tB-GKJ"/>
+                                <constraint firstItem="3c9-1a-ct9" firstAttribute="centerX" secondItem="fdq-6n-Jzr" secondAttribute="centerX" id="nHq-zT-f22"/>
+                                <constraint firstItem="xlB-AQ-OgP" firstAttribute="centerX" secondItem="fdq-6n-Jzr" secondAttribute="centerX" id="tpB-bT-9da"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ju2-3U-VpR">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
                             <subviews>
@@ -70,9 +97,12 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="fdq-6n-Jzr" firstAttribute="top" secondItem="Ema-bc-eMD" secondAttribute="top" id="6uO-I3-HoX"/>
                         <constraint firstAttribute="trailing" secondItem="ju2-3U-VpR" secondAttribute="trailing" id="Ite-9V-TmB"/>
+                        <constraint firstItem="fdq-6n-Jzr" firstAttribute="leading" secondItem="Ema-bc-eMD" secondAttribute="leading" id="J32-4I-fJq"/>
                         <constraint firstItem="ju2-3U-VpR" firstAttribute="leading" secondItem="PnP-9y-8s0" secondAttribute="leading" id="N2b-w9-55c"/>
                         <constraint firstItem="Ema-bc-eMD" firstAttribute="top" secondItem="iRV-7T-eMa" secondAttribute="bottom" constant="16" id="VPi-F6-E5v"/>
+                        <constraint firstItem="fdq-6n-Jzr" firstAttribute="trailing" secondItem="Ema-bc-eMD" secondAttribute="trailing" id="VjG-Ud-HiV"/>
                         <constraint firstItem="iRV-7T-eMa" firstAttribute="height" secondItem="PnP-9y-8s0" secondAttribute="height" multiplier="0.4" id="WiR-je-BTw"/>
                         <constraint firstAttribute="trailing" secondItem="Ema-bc-eMD" secondAttribute="trailing" constant="16" id="heP-qX-X1P"/>
                         <constraint firstItem="Ema-bc-eMD" firstAttribute="leading" secondItem="PnP-9y-8s0" secondAttribute="leading" constant="16" id="nde-rT-ZW6"/>
@@ -97,6 +127,7 @@
     </objects>
     <resources>
         <image name="ic_back" width="24" height="24"/>
+        <image name="img_empty" width="120" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

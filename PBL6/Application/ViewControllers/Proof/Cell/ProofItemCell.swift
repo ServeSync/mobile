@@ -16,6 +16,7 @@ class ProofItemCell: SwipeCollectionViewCell {
     @IBOutlet weak var proofStateView: UIView!
     
     private var onDeleteButtonTouched: ((ProofDto) -> Void)? = nil
+    private var onUpdateButtonTouched: ((ProofDto) -> Void)? = nil
     private var item: ProofDto!
     
     override func awakeFromNib() {
@@ -23,13 +24,16 @@ class ProofItemCell: SwipeCollectionViewCell {
         // Initialization code
     }
 
-    func configure(_ item: ProofDto, onDeleteButtonTouched: ((ProofDto) -> Void)?) {
+    func configure(_ item: ProofDto,
+                   onDeleteButtonTouched: ((ProofDto) -> Void)?,
+                   onUpdateButtonTouched: ((ProofDto) -> Void)?) {
         self.item = item
         
         proofNameLabel.text = item.eventName
         proofStateLabel.text = "\(item.proofStatus.lowercased())_proof".localized
         
         self.onDeleteButtonTouched = onDeleteButtonTouched
+        self.onUpdateButtonTouched = onUpdateButtonTouched
         switch item.proofStatus {
         case ProofStatus.Pending.rawValue:
             proofStateView.backgroundColor = "#F3DA65".toUIColor()
@@ -54,6 +58,7 @@ extension ProofItemCell: SwipeCollectionViewCellDelegate {
         
         let editAction = SwipeAction(style: .destructive, title: "Chỉnh sửa") { [weak self] action, indexPath in
             guard let self = self else { return }
+            self.onUpdateButtonTouched?(item)
         }
         editAction.backgroundColor = "26C6DA".toUIColor()
         

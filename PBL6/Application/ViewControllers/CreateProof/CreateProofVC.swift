@@ -326,7 +326,7 @@ class CreateProofVC: BaseVC<CreateProofVM> {
                     }
                     
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd/MM/yyyy"
+                    dateFormatter.dateFormat = "HH:mm dd/MM/yyyy"
                     
                     guard !dateFormatter.date(from: self.startTimeTextField.text!)!.isAfterDate(Date()) else {
                         viewModel.messageData.accept(AlertMessage(type: .error, description: "start_time_not_match_warning".localized))
@@ -400,7 +400,7 @@ class CreateProofVC: BaseVC<CreateProofVM> {
                     }
                     
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd/MM/yyyy"
+                    dateFormatter.dateFormat = "HH:mm dd/MM/yyyy"
                     
                     guard !dateFormatter.date(from: self.startTimeTextField.text!)!.isAfterDate(Date()) else {
                         viewModel.messageData.accept(AlertMessage(type: .error, description: "start_time_not_match_warning".localized))
@@ -579,11 +579,10 @@ extension CreateProofVC {
     }
     
     private func makeDatePickerForAttendanceTime() {
-        let inputView = UIView(frame: CGRectMake(0,0, self.view.frame.width, 350))
-        
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 40, width: 0, height: 0))
+        let inputView = UIView(frame: CGRectMake(0,0, self.view.frame.width, 150))
+        let datePicker = UIDatePicker(frame: CGRect(x: inputView.frame.width/4, y: 40, width: 0, height: 0))
         datePicker.datePickerMode = .dateAndTime
-        datePicker.preferredDatePickerStyle = .inline
+        datePicker.preferredDatePickerStyle = .compact
         inputView.addSubview(datePicker)
         datePicker.addTarget(self, action: #selector(handleDatePickerForAttendanceTime(sender:)), for: .valueChanged)
         
@@ -599,11 +598,10 @@ extension CreateProofVC {
     }
     
     private func makeDatePickerForStartTime() {
-        let inputView = UIView(frame: CGRectMake(0,0, self.view.frame.width, 350))
-        
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 40, width: 0, height: 0))
+        let inputView = UIView(frame: CGRectMake(0,0, self.view.frame.width, 150))
+        let datePicker = UIDatePicker(frame: CGRect(x: inputView.frame.width/4, y: 40, width: 0, height: 0))
         datePicker.datePickerMode = .dateAndTime
-        datePicker.preferredDatePickerStyle = .inline
+        datePicker.preferredDatePickerStyle = .compact
         inputView.addSubview(datePicker)
         datePicker.addTarget(self, action: #selector(handleDatePickerForStartTime(sender:)), for: .valueChanged)
         
@@ -619,11 +617,10 @@ extension CreateProofVC {
     }
     
     private func makeDatePickerForEndTime() {
-        let inputView = UIView(frame: CGRectMake(0,0, self.view.frame.width, 350))
-        
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 40, width: 0, height: 0))
+        let inputView = UIView(frame: CGRectMake(0,0, self.view.frame.width, 150))
+        let datePicker = UIDatePicker(frame: CGRect(x: inputView.frame.width/4, y: 40, width: 0, height: 0))
         datePicker.datePickerMode = .dateAndTime
-        datePicker.preferredDatePickerStyle = .inline
+        datePicker.preferredDatePickerStyle = .compact
         inputView.addSubview(datePicker)
         datePicker.addTarget(self, action: #selector(handleDatePickerForEndTime(sender:)), for: .valueChanged)
         
@@ -640,7 +637,7 @@ extension CreateProofVC {
     
     @objc func handleDatePickerForAttendanceTime(sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "HH:mm dd/MM/yyyy"
         attendanceTimeTextField.text = formatter.string(from: sender.date)
         viewModel.attendanceTime = sender.date
     }
@@ -651,7 +648,7 @@ extension CreateProofVC {
     
     @objc func handleDatePickerForStartTime(sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "HH:mm dd/MM/yyyy"
         startTimeTextField.text = formatter.string(from: sender.date)
         viewModel.startTime = sender.date
     }
@@ -662,7 +659,7 @@ extension CreateProofVC {
     
     @objc func handleDatePickerForEndTime(sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "HH:mm dd/MM/yyyy"
         endTimeTextField.text = formatter.string(from: sender.date)
         viewModel.endTime = sender.date
     }

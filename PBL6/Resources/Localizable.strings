@@ -132,7 +132,7 @@
 "happening" = "Đang diễn ra";
 "upcoming" = "Sắp diễn ra";
 "done" = "Đã tổ chức";
-"attendance" = "Đang tổ chức";
+"attendance" = "Đã điểm danh";
 "closedregistration"= "Đã đóng đăng ký";
 "registration" = "Đang mở đăng ký";
 "registered" = "Đã đăng ký";
@@ -235,3 +235,7 @@ Vui lòng thử lại";
 "create_proof_success" = "Tạo minh chứng thành công!";
 "delete" = "Xoá";
 "delete_proof_title_confirm" = "Bạn chắc chắn muốn xoá minh chứng";
+"edit_proof_warning" = "Chỉ được chỉnh sửa các minh chứng đang duyệt";
+"update_proof_success" = "Cập nhật minh chứng thành công";
+"no_proof" = "Hiện bạn không có minh chứng";
+"no_event" = "Không tìm thấy sự kiện!";

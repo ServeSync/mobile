@@ -51,8 +51,8 @@ final class RemoteRepositoryImp: RemoteRepository {
         return apiService.getEducationProgam()
     }
     
-    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>> {
-        return apiService.getAttendanceEvents(page: page)
+    func getAttendanceEvents() -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getAttendanceEvents()
     }
     
     func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response> {
@@ -63,6 +63,10 @@ final class RemoteRepositoryImp: RemoteRepository {
     
     func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return apiService.getEventsByStatus(status: status, page: page)
+    }
+    
+    func getEventForSelf(status: EventStatus) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return apiService.getEventForSelf(status: status)
     }
     
     func searchEvent(keyword: String, page: Int) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
@@ -116,5 +120,17 @@ final class RemoteRepositoryImp: RemoteRepository {
     
     func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>> {
         return apiService.getProofDetail(id: id)
+    }
+    
+    func updateInternalProof(proofId: String, internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
+        return apiService.updateProofInternal(proofId: proofId, internalProofCreateDto: internalProofCreateDto)
+    }
+    
+    func updateExternalProod(proofId: String, externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response> {
+        return apiService.updateProofExternal(proofId: proofId, externalProofCreateDto: externalProofCreateDto)
+    }
+    
+    func updateSpecialProof(proofId: String, specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response> {
+        return apiService.updateProofSpecial(proofId: proofId, specialProofCreateDto: specialProofCreateDto)
     }
 }
