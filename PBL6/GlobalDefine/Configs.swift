@@ -12,8 +12,8 @@ enum Configs {
     
     //MARK: -- Server
     enum Server {
-        static let baseURL = "https://ronle.whitemage.tech/api/"
-        static let forgotPasswordURL = "https://ronle.whitemage.tech/resetPassword"
+        static let baseURL = "http://20.255.59.197/api/"
+        static let forgotPasswordURL = "http://20.255.59.197/resetPassword"
         static let errorCodeRequiresLogin = "Student:000006"
     }
     
