@@ -10,8 +10,10 @@ import JWTDecode
 import ObjectMapper
 
 class JWTHelper {
-
-    static func decodeAndMap<T: Mappable>(jwtToken: String, to objectType: T.Type) -> T? {
+    static let shared = JWTHelper()
+    private init() {}
+    
+    func decodeAndMap<T: Mappable>(jwtToken: String, to objectType: T.Type) -> T? {
         do {
             let jwt = try decode(jwt: jwtToken)
             if let payload = jwt.body as? [String: Any] {
@@ -23,5 +25,10 @@ class JWTHelper {
             print("Error decoding JWT token: \(error)")
         }
         return nil
+    }
+    
+    func isTokenExpired(expirationDate: Date) -> Bool {
+        let currentDate = Date()
+        return currentDate > expirationDate
     }
 }

@@ -138,6 +138,7 @@ class BaseVC<VM: BaseVM>: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         keyboardIsShow = true
+       
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {

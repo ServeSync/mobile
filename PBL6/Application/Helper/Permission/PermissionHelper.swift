@@ -83,6 +83,9 @@ class PermissionHelper: NSObject {
             case .contact:
                 title = "contact_permission_is_not_granted_title".localized
                 message = "contact_permission_is_not_granted_message".localized
+            case .location:
+                title = "location_permission_is_not_granted_title".localized
+                message = "location_permission_is_not_granted_message".localized
             }
         }
         
@@ -92,6 +95,20 @@ class PermissionHelper: NSObject {
             AppUtils.goToAppSettings()
         }))
         parentVC.presentVC(alert)
+    }
+    
+    func showSettingPermissionDialog(parentVC: UIViewController, title: String, message: String, cancelCallback: (() -> Void)? = nil) {
+        print("showSettingPermissionDialog, @@@")
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Setting".localized, comment: ""), style: .default, handler: { _ in
+            AppUtils.goToAppSettings()
+        }))
+        if cancelCallback != nil {
+            alert.addAction(UIAlertAction(title: NSLocalizedString("cancel".localized, comment: ""), style: .cancel, handler: { _ in
+                cancelCallback?()
+            }))
+        }
+        parentVC.present(alert, animated: true, completion: nil)
     }
     
     private func checkPhotoPermission() -> Bool {

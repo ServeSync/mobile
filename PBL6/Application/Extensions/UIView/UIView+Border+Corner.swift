@@ -93,6 +93,23 @@ import UIKit
         })
     }
     
+    func addDashedBorder(_ color: UIColor = UIColor.black, withWidth width: CGFloat = 2, cornerRadius: CGFloat = 5, dashPattern: [NSNumber] = [10, 9]) {
+        
+        let shapeLayer = CAShapeLayer()
+        
+        shapeLayer.bounds = bounds
+        shapeLayer.position = CGPoint(x: bounds.width/2 - 2, y: bounds.height/2)
+        shapeLayer.fillColor = nil
+        shapeLayer.strokeColor = color.cgColor
+        shapeLayer.lineWidth = width
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
+        shapeLayer.lineDashPattern = dashPattern
+        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        
+        self.layer.insertSublayer(shapeLayer, at: .min)
+//        self.layer.addSublayer(shapeLayer)
+    }
+    
     func roundDifferentCorners(topLeft: CGFloat = 0, topRight: CGFloat = 0, bottomLeft: CGFloat = 0, bottomRight: CGFloat = 0) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             let topLeftRadius = CGSize(width: topLeft, height: topLeft)

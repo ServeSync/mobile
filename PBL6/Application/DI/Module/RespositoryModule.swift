@@ -11,7 +11,7 @@ import Swinject
 final class RepositoryModule {
     
     func register(container: Container) {
-        container.register(LocalRespository.self) { _ in LocalRespositoryImp()}
+        container.register(LocalRespository.self) { _ in LocalRespositoryImp() }
         container.register(RemoteRepository.self) { _ in RemoteRepositoryImp() }
     }
 }

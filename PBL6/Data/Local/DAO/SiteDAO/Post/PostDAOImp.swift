@@ -12,7 +12,6 @@ import RxSwift
 import RxRealm
 
 class PostDAOImp: BaseDAO, PostDAO {
-    
     func findAll() -> Observable<[Post]> {
         return Observable.deferred {
             let realm = self.realm

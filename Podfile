@@ -16,12 +16,12 @@ target 'PBL6' do
   #rx
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxSwiftExt'
   pod 'RxDataSources'
   
   #realm
   pod 'RealmSwift'
   pod 'RxRealm'
+  pod 'RxSwiftExt'
   
   #convert json object
   pod 'ObjectMapper', '~> 4.2.0'
@@ -44,6 +44,18 @@ target 'PBL6' do
 
   #jwt
   pod 'JWTDecode'
+
+  #scan QR
+  pod 'SwiftQRScanner', :git => ‘https://github.com/vinodiOS/SwiftQRScanner’
+
+  #drop down
+  pod 'DropDown'
+  pod "SearchTextField"
+  pod 'CalendarKit'
+  pod 'FSCalendar'
+
+  #swipe cell kit
+  pod 'SwipeCellKit'
   
   post_install do |pi|
       pi.pods_project.targets.each do |target|

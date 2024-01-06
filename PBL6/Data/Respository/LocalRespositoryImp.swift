@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 class LocalRespositoryImp: LocalRespository {
-    
+
     @Inject
     var postDAO: PostDAO
     
@@ -27,6 +27,29 @@ class LocalRespositoryImp: LocalRespository {
     
     func deleteAll() -> RxSwift.Observable<Void> {
         return postDAO.deleteAll()
+    }
+    
+    @Inject
+    var eventDAO: EventDAO
+    
+    func getEvents() -> RxSwift.Observable<[FlatEventDto]> {
+        return eventDAO.findAll()
+    }
+    
+    func addSite(event: FlatEventDto) -> RxSwift.Observable<FlatEventDto> {
+        return eventDAO.save(event.asRealm())
+    }
+    
+    func deleteEvent(withId id: String) -> RxSwift.Observable<Void> {
+        return eventDAO.delete(withId: id)
+    }
+    
+    func deleteAllEvent() -> RxSwift.Observable<Void> {
+        return eventDAO.deleteAll()
+    }
+    
+    func findEventById(withId id: String) -> RxSwift.Observable<FlatEventDto?> {
+        return eventDAO.find(withId: id)
     }
 }
 

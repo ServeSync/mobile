@@ -1,0 +1,241 @@
+//
+//  Localizable.swift
+//  PBL6
+//
+//  Created by KietKoy on 30/08/2023.
+//
+
+//Genernal
+"general_error_title" = "An unknown error";
+"general_error_message" = "An error occurred, please try again later.";
+"no_network_connect_message" = "No internet connection.\nPlease check your connection again and try again later";
+
+//Error Description
+
+//MARK: - Auth
+"userNotFound" = "User với username hoặc email đã cung cấp không tồn tại";
+"accountLocked" = "Tài khoản đã bị khóa";
+"incorrectPassword" = "Mật khẩu không đúng";
+"refreshTokenExpired" = "Token làm mới đã hết hạn";
+"refreshTokenNotFound" = "Token làm mới không tồn tại";
+"refreshTokenAlreadyAdded" = "Token làm mới đã được thêm vào người dùng";
+"accessTokenValid" = "Mã truy cập vẫn còn hiệu lực";
+
+//MARK: - Role
+"roleNotFound" = "Role với ID đã cung cấp không tồn tại";
+"permissionAlreadyGranted" = "Đã cấp quyền cho role";
+"permissionNotGrantedYet" = "Chưa cấp quyền cho vai trò";
+"cannotModifyAdminRole" = "Không thể tạo, cập nhật hoặc role 'Admin'";
+
+//MARK: - Permission
+"permissionNotFound" = "Quyền với ID đã cung cấp không tồn tại.";
+
+//MARK: - Student
+"studentRegistered" = "Sinh viên đã đăng kí tham gia sự kiện với vai trò đó";
+"studentAccepted" = "Sinh viên đã được chấp nhận tham gia sự kiện";
+"studentCheckedIn" = "Sinh viên đã điểm danh tham gia sự kiện đó";
+"studentNotApproved" = "Sinh viên không được duyệt tham gia sự kiện";
+"studentNotWithin200mRadius" = "Sinh viên không trong bán kính 200m lúc đăng kí sự kiện";
+"registrationRequestNotApproved" = "Đơn xin đăng ký tham gia sự kiện không ở trạng thái kiểm duyệt";
+"registrationRequestNotFound" = "Đơn xin đăng ký không tồn tại";
+
+//MARK: - EventAttendanceInfo
+
+"duplicateCheckInTime" = "Thời gian điểm danh bị trùng nhau";
+"checkInTimeLessThan15Minutes" = "Thời gian điểm danh diễn ra dưới 15 phút";
+"checkInTimeNotWithinEventTime" = "Thời gian điểm danh không nằm trong thời gian diễn ra sự kiện";
+"checkInTimeFrameNotFound" = "Khung giờ điểm danh không tồn tại";
+"invalidCheckInCode" = "Mã code điểm danh không hợp lệ";
+
+//MARK: - EventAttendanceInfo
+
+"eventNotExist" = "Sự kiện không tồn tại";
+
+
+// Launch Screen
+"launch_screen_title" = "Student Community Activity Scoring System";
+
+// Welcome Screem
+"slide_title_1" = "Một điều nhỏ nhặt, một tấm lòng to lớn";
+"slide_title_2" = "Học tập vì tương lai, hành động vì cộng đồng";
+"slide_title_3" = "Hãy cùng nhau thắp sáng ngọn lửa tuổi trẻ";
+"sologan" = "ServeSync luôn đồng hành cùng bạn";
+"welcome_title" = "Hãy cùng tham gia hoạt động cộng đồng";
+"started" = "Bắt đầu";
+
+//Login
+"error" = "Lỗi";
+"infomation" = "Thông báo";
+"login" = "Đăng nhập";
+"email" = "Email";
+"forgot_password" = "Quên mật khẩu";
+"password" = "Mật khẩu";
+"username_or_email_warning" = "User Name hoặc Email không được để trống";
+"password_warning" = "Password không được để trống";
+"permission_dont_allow_login_for_app" = "Ứng dụng này được thiết kế dành riêng cho sinh viên. Hãy truy cập website để đăng nhập vào tài khoản của bạn!";
+"login_failed_error" = "Đăng nhập không thành công. Xin vui lòng thử lại!";
+"account_locked_error" = "Tài khoản của bạn đã bị khoá!";
+"incorrect_password" = "Mật khẩu không chính xác!";
+"username_or_email_does_not_exist" = "Tên đăng nhập hoặc email không tồn tại!";
+"login_successful" = "Đăng nhập thành công!";
+"username_or_password_validation_error" = "Username hoặc Password không được để trống!";
+"ok" = "OK";
+
+//Acount
+"account" = "Tài khoản";
+"personal_information" = "Thông tin cá nhân";
+"grading_&_regulations" = "Mức điểm & Quy định";
+"setting" = "Cài đặt";
+"help" = "Help";
+"change_password" = "Đổi mật khẩu";
+"sign_out" = "Đăng xuất";
+"sign_out_title_confirm" = "Bạn chắc chắn muốn đăng xuất?";
+
+//Profile
+"student_ID" = "Mã sinh viên:";
+"gender" = "Giới tính:";
+"date_of_birth" = "Ngày sinh:";
+"citizen's_identity" = "CCCD:";
+"educational_system" = "Hệ đào tạo:";
+"faculty" = "Khoa:";
+"class" = "Lớp:";
+"hometown" = "Quê quán:";
+"address" = "Địa chỉ cư trú:";
+"email_info" = "Email:";
+"phone_number" = "Số điện thoại:";
+"male" = "Nam";
+"female" = "Nữ";
+
+//Edit Profile
+"save" = "Lưu";
+"hometown_edit" = "Quê quán";
+"address_edit" = "Địa chỉ cư trú";
+"phone_number_edit" = "Số điện thoại";
+"hometown_textfield_warning" = "Quê quán không hợp lệ";
+"address_textfield_warning" = "Địa chỉ không hợp lệ";
+"email_textfield_warning" = "Email không hợp lệ";
+"phone_textfield_warning" = "Số điện thoại không hợp lệ";
+"data_alert_warning" = "Dữ liệu không đúng định dạng";
+"edit_success" = "Cập nhật thông tin thành công";
+
+//Forgot Password
+"forgot_password" = "Quên mật khẩu";
+"forgot_password_description" = "Để đặt lại mật khẩu, vui lòng nhập email hoặc mã số sinh viên của bạn. Một thư xác nhận sẽ được gửi đến địa chỉ đã nhập. Xin kiểm tra và làm theo hướng dẫn để hoàn tất.";
+"send" = "Gửi";
+"email_or_username_warning" = "Email hoặc mã sinh viên không đúng định dạng";
+"email_or_username_alert" = "Email hoặc mã sinh viên không đúng định dạng hoặc để trống!";
+"check_email" = "Vui lòng kiểm tra tin nhắn trong email của bạn!";
+
+//Home
+"home" = "Trang chủ";
+"favorite" = "Yêu thích";
+"happening" = "Đang diễn ra";
+"upcoming" = "Sắp diễn ra";
+"done" = "Đã tổ chức";
+"attendance" = "Đã điểm danh";
+"closedregistration"= "Đã đóng đăng ký";
+"registration" = "Đang mở đăng ký";
+"registered" = "Đã đăng ký";
+"approved" = "Chưa mở đăng ký";
+"see_all" = "Xem tất cả";
+"no_event" = "Không có sự kiện nào";
+
+//Analysis
+"analysis" = "Phân tích";
+"detail" = "Chi tiết";
+"no_attendane_student" = "Bạn chưa tham dự sự kiện nào";
+"complete" = "Hoàn thành";
+
+//MyEvent
+"my_event" = "Sự kiện của tôi";
+
+//Event Detail
+"overview" = "Tổng quan";
+"description" = "Chi tiết";
+"role" = "Vị trí";
+"score" = "Điểm";
+"quantity" = "Số lượng";
+"internal" = "Hoạt động nội bộ";
+"external"= "Hoạt động bên ngoài";
+"collaboration" = "Hoạt động hợp tác";
+"general_information" = "Thông tin chung";
+"you_registerd" = "Bạn đã điểm danh";
+"complain" = "Khiếu nại";
+"roll_call" = "Điểm danh";
+"register" = "Đăng ký";
+"people" = "người";
+"event" = "Sự kiện";
+"start_event_detail" = "Bắt đầu: ";
+"end_event_detail" = "Kết thúc: ";
+"address_event_detail" = "Địa điểm: ";
+"registered_event_detail" = "Đã đăng ký: ";
+"speaker" = "Diễn giả";
+"organizational_units" = "Đơn vị tổ chức";
+"contact_info" = "Thông tin liên hệ";
+
+
+//Popup Message
+"popup_title" = "Đăng ký tham gia hoạt động?";
+"self_introduce" = "Tự giới thiệu";
+"confirm" = "Xác nhận";
+"cancel" = "Huỷ";
+"self_introduce" = "Tự giới thiệu";
+"self_introduce_placeholder" = "Kinh nghiệm, ...";
+"register_success" = "Gửi đơn dăng ký thành công";
+
+//Roll Call
+"location_permission_is_not_granted_title" = "Quyền truy cập địa điểm chưa được cấp phép.";
+"location_permission_is_not_granted_message" = "Bạn cần vào Cài đặt, cho phép quyền truy cập địa điểm để có thể tiếp tục sử dụng chức năng này.";
+"camera_permission_is_not_granted_title" = "Quyền truy cập camera chưa được cấp phép.";
+"camera_permission_is_not_granted_message" = "Bạn cần vào Cài đặt, cho phép quyền truy cập camera để có thể tiếp tục sử dụng chức năng này.";
+"roll_call_success" = "Điểm danh thành công";
+"roll_call_failed" = "Điểm danh thất bại!
+Vui lòng thử lại";
+
+//Search
+"search" = "Tìm kiếm";
+
+// Change password
+"alert_message_invalid_change_password" = "Vui lòng nhập đầy đủ dữ liệu trước khi tiếp tục";
+"new_password_not_match_confirm_password_alert_message" = "Mật khẩu mới và xác nhận mật khẩu không khớp";
+"change_password_success" = "Đổi mật khẩu thành công";
+"change_password_failed" = "Mật khẩu cũ không chính xác. Vui lòng thử lại";
+"new_password_not_has_more_than_six_character" = "Mật khẩu phải có ít nhất 6 ký tự. Vui lòng nhập một mật khẩu hợp lệ.";
+
+//Export File
+"pick_date_error" = "Ngày bắt đầu không được lớn ngày kết thúc";
+
+//Proof
+"proof" = "Minh chứng";
+"list" = "Danh sách";
+"create" = "Tạo";
+"approved_proof" = "Đã duyệt";
+"rejected_proof" = "Từ chối";
+"pending_proof" = "Đang duyệt";
+"create_proof" = "Tạo minh chứng";
+"internal_proof" = "Trong trường";
+"external_proof" = "Ngoài trường";
+"special_proof" = "Đặc biệt";
+"event_name" = "Tên sự kiện";
+"proof_name" = "Tên minh chứng";
+"proof_type_not_selected_warning" = "Vui lòng chọn loại minh chứng!";
+"event_name_not_selectd_warning" = "Vui lòng nhập tên sự kiện hoặc minh chứng";
+"attendance_time_not_match_warning" = "Thời gian tham gia phải nằm trong thời gian diễn ra sự kiện";
+"start_time_not_match_warning" = "Thời gian bắt đầu không lớn hơn thời gian hiện tại";
+"end_time_not_match_warning" = "Thời gian kết thúc không lớn hơn thời gian hiện tại";
+"start_and_end_time_not_match_warning" = "Thời gian bắt đầu không lớn hơn thời gian kết thúc";
+"score_empty_warning" = "Điểm hoạt động phải nằm trong khoảng điểm quy định";
+"score_not_match_warning" = "Điểm hoạt động phải nằm trong khoảng điểm quy định";
+"description_empty_warning" = "Vui lòng nhập mô tả";
+"activity_empty_warning" = "Vui lòng chọn hoạt động của sự kiện";
+"organizationName_empty_warning" = "Vui lòng nhập đơn vị tổ chức";
+"address_empty_warning" = "Vui lòng nhập địa điểm tổ chức";
+"role_empty_warning" = "Vui lòng nhập vai trò tham gia";
+"proof_image_not_choose" = "Vui lòng tải lên ảnh minh chứng tham gia sự kiện";
+"create_proof_success" = "Tạo minh chứng thành công!";
+"delete" = "Xoá";
+"delete_proof_title_confirm" = "Bạn chắc chắn muốn xoá minh chứng";
+"edit_proof_warning" = "Chỉ được chỉnh sửa các minh chứng đang duyệt";
+"update_proof_success" = "Cập nhật minh chứng thành công";
+"no_proof" = "Hiện bạn không có minh chứng";
+"no_event" = "Không tìm thấy sự kiện!";

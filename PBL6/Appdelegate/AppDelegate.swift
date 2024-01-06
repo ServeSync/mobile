@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import MKProgress
+import DropDown
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,15 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var orientationLock = UIInterfaceOrientationMask.all
     
+    @Inject
+    var remoteRepository: RemoteRepository
+    
     static func shared() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        windowMainConfig()
-        
+        windowSplashConfig()
+        mkProgressConfig()
         return true
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        DropDown.startListeningToKeyboard()
     }
 
 }
@@ -32,17 +43,21 @@ extension AppDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         window?.rootViewController = SplashVC()
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }
     
-    func windowMainConfig() {
-        windowSplashConfig()
-        
-        guard let window = window else { return }
-        let vc = HomeVC()
-        let nvc = BaseNVC(rootViewController: vc)
-        
-        window.rootViewController = nvc
+    func windowMainConfig(vc: UIViewController) {
+        let navigationController = BaseNVC(rootViewController: vc)
+        window?.rootViewController = navigationController
+        window?.overrideUserInterfaceStyle = .light
+        window?.makeKeyAndVisible()
+    }
+
+    private func mkProgressConfig() {
+        MKProgress.config.hudColor = .white
+        MKProgress.config.circleBorderColor = Theme.Colors.accent
+        MKProgress.config.logoImage = Bundle.main.icon?.withRoundedCorners()
     }
 }
 

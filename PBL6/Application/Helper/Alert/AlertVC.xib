@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -19,6 +18,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertVC" customModule="PBL6" customModuleProvider="target">
             <connections>
+                <outlet property="alertActionStackView" destination="P4B-zM-71q" id="NUV-zW-uMZ"/>
+                <outlet property="alertDescriptionLabel" destination="5DU-iM-Vhw" id="7zQ-MU-UYn"/>
+                <outlet property="alertInputTextField" destination="8c3-oR-tJZ" id="Uim-uY-Znv"/>
+                <outlet property="alertInputView" destination="Pm1-tX-ZoF" id="ydy-Ha-heq"/>
+                <outlet property="alertInputViewHC" destination="tHh-Nn-c3i" id="kmJ-s5-Kob"/>
+                <outlet property="alertTitleLabel" destination="6ms-mP-xcO" id="Hy5-M3-Zaa"/>
+                <outlet property="alertView" destination="KeH-Ap-QLB" id="Tn5-im-J7m"/>
+                <outlet property="contentView" destination="4YG-go-OFq" id="pGr-xb-6qp"/>
+                <outlet property="sheetActionView" destination="guK-bl-gdD" id="OS6-H2-bZL"/>
+                <outlet property="sheetActionViewHC" destination="2kx-Cm-rYI" id="Nfq-7p-a1d"/>
+                <outlet property="sheetDescriptionLabel" destination="uvx-hx-kHc" id="MDx-J2-pHh"/>
+                <outlet property="sheetTitleLabel" destination="iOX-NJ-dBZ" id="xTM-1S-ggr"/>
+                <outlet property="sheetView" destination="cAd-vb-tMi" id="okw-4O-fgI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +42,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-go-OFq">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
-                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAd-vb-tMi">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAd-vb-tMi">
                             <rect key="frame" x="31.666666666666657" y="362.66666666666669" width="330" height="126.66666666666669"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-NJ-dBZ">
@@ -91,7 +103,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pm1-tX-ZoF">
                                     <rect key="frame" x="24" y="73.333333333333371" width="282" height="60"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8c3-oR-tJZ" customClass="ITextField" customModule="BaseProject" customModuleProvider="target">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8c3-oR-tJZ" customClass="ITextField" customModule="PBL6" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="24" width="282" height="36"/>
                                             <color key="backgroundColor" red="0.87017275110000003" green="0.87017275110000003" blue="0.87017275110000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -166,7 +178,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="4YG-go-OFq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="75D-4I-JeT"/>
                 <constraint firstAttribute="bottom" secondItem="4YG-go-OFq" secondAttribute="bottom" id="Aze-EK-dUt"/>
@@ -181,9 +193,4 @@
             <size key="intrinsicContentSize" width="37" height="19.333333333333332"/>
         </designable>
     </designables>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -9,7 +9,6 @@ import Foundation
 import Realm
 import RealmSwift
 import RxSwift
-import RxRealm
 
 class BaseDAO: BaseDaoService {
 
