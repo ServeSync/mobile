@@ -20,5 +20,4 @@ class FormatUtils {
         formatter.dateFormat = formatterString
         return formatter.date(from: text) ?? Date()
     }
-    
 }

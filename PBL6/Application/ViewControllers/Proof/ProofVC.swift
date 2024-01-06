@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxDataSources
 
 class ProofVC: BaseVC<ProofVM> {
 
@@ -13,6 +14,22 @@ class ProofVC: BaseVC<ProofVM> {
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchData()
+            .subscribe(onNext: {[weak self] status in
+                guard let self = self else { return }
+                switch status {
+                case .Success:
+                    return
+                case .Error(let error):
+                    viewModel.messageData.accept(AlertMessage(type: .error,
+                                                              description: getErrorDescription(forErrorCode: error!.code)))
+                }
+            })
+            .disposed(by: bag)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +46,8 @@ class ProofVC: BaseVC<ProofVM> {
         super.configureListView()
         
         collectionView.registerCellNib(ProofItemCell.self)
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        let layout = ColumnFlowLayout(cellsPerRow: 1, ratio: 48/327, minimumLineSpacing: 12, scrollDirection: .vertical)
+        collectionView.collectionViewLayout = layout
     }
 
     override func addEventForViews() {
@@ -40,36 +56,89 @@ class ProofVC: BaseVC<ProofVM> {
         createButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
-                self.pushVC(CreateProofVC())
+                let vc = CreateProofVC()
+                vc.delegate = self
+                self.pushVC(vc)
             })
+            .disposed(by: bag)
+        
+        collectionView.rx.modelSelected(ProofDto.self)
+            .subscribe(onNext: {[weak self] item in
+                guard let self = self else { return }
+                let vc = SeeProofDetailVC(proofId: item.id)
+                self.pushVC(vc)
+            })
+            .disposed(by: bag)
+    }
+    
+    override func bindViewModel() {
+        super.bindViewModel()
+        
+        viewModel.proofItemsData
+            .do{ [weak self] data in
+                guard let self = self else { return }
+                if data.isEmpty {
+                    collectionView.setEmptyMessage("no_proof".localized)
+                } else {
+                    collectionView.hideEmptyMessage()
+                }
+            }
+            .map {[SectionModel(model: (), items: $0)]}
+            .bind(to: collectionView.rx.items(dataSource: getProofItemDataSource() {[weak self] proofItem in
+                guard let self = self else { return }
+                let popupConfirm = UIAlertController(title: "confirm".localized, message: "delete_proof_title_confirm".localized, preferredStyle: UIAlertController.Style.alert)
+
+                popupConfirm.addAction(UIAlertAction(title: "delete".localized, style: .destructive, handler: { (action: UIAlertAction!) in
+                    self.viewModel.handleDeleteProof(proofItem)
+                        .subscribe(onNext: {[weak self] status in
+                            guard let self = self else { return }
+                            switch status {
+                            case .Success:
+                                return
+                            case .Error(let error):
+                                viewModel.messageData.accept(AlertMessage(type: .error,
+                                                                          description: getErrorDescription(forErrorCode: error!.code)))
+                            }
+                        })
+                        .disposed(by: self.bag)
+                  }))
+
+                popupConfirm.addAction(UIAlertAction(title: "cancel".localized, style: .cancel, handler: { (action: UIAlertAction!) in
+                  }))
+                
+                self.presentVC(popupConfirm)
+            } onUpdateButtonTouched: { item in
+                if item.proofStatus != ProofStatus.Pending.rawValue {
+                    self.viewModel.messageData.accept(AlertMessage(type: .error, description: "edit_proof_warning".localized))
+                } else {
+                    switch item.proofType {
+                    case ProofType.External.rawValue:
+                        let vc = UpdateProofVC(proofId: item.id, proofType: .External)
+                        vc.delegate = self
+                        self.pushVC(vc)
+                    case ProofType.Internal.rawValue:
+                        let vc = UpdateProofVC(proofId: item.id, proofType: .Internal)
+                        vc.delegate = self
+                        self.pushVC(vc)
+                    default:
+                        let vc = UpdateProofVC(proofId: item.id, proofType: .Special)
+                        vc.delegate = self
+                        self.pushVC(vc)
+                    }
+                }
+            }))
             .disposed(by: bag)
     }
 }
 
-extension ProofVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.data.count
+extension ProofVC: CreateProofDelegate {
+    func createProofSucces() {
+        self.showToast(message: "create_proof_success".localized, state: .success)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReuseable(ofType: ProofItemCell.self, indexPath: indexPath)
-        cell.configure(viewModel.data[indexPath.row])
-        
-        return cell
-    }
-    
-    
 }
 
-extension ProofVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
-        let height = 48.0
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
+extension ProofVC: UpdateProofDelegate {
+    func updateProofSucces() {
+        self.showToast(message: "update_proof_success".localized, state: .success)
     }
 }

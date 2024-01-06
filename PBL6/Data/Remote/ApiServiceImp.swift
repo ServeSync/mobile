@@ -11,15 +11,8 @@ import Moya
 import ObjectMapper
 
 final class ApiServiceImp: ApiService {
-
     @Inject
     var appNetwork: AppNetwork
-    
-    //MARK: -- Demo
-    
-    func getPost() -> Single<[Post]> {
-        return appNetwork.requestArray(.posts, type: Post.self)
-    }
     
     //MARK: Authen
     
@@ -60,8 +53,8 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestObjectWithTokenRefresh(.getEducationProgam, successType: StudentEducationProgramDto.self, errorType: ErrorResponse.self)
     }
     
-    func getAttendanceEvents(page: Int) -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>> {
-        return appNetwork.requestObjectWithTokenRefresh(.getAttendanceEvents(page: page), successType: StudentAttendanceEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    func getAttendanceEvents() -> Single<Result<StudentAttendanceEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getAttendanceEvents, successType: StudentAttendanceEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
     
     func exportFile(exportStudentAttendanceEventsDto: ExportStudentAttendanceEventsDto) -> Single<Moya.Response> {
@@ -72,6 +65,10 @@ final class ApiServiceImp: ApiService {
     
     func getEventsByStatus(status: EventStatus, page: Int = 0) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
         return appNetwork.requestObjectWithTokenRefresh(.getEventsByStatus(status: status, page: page), successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func getEventForSelf(status: EventStatus) -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getEventForSelf(status: status), successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
     
     func getEventById(id: String) -> Single<Result<EventDetailDto, ErrorResponse>> {
@@ -94,13 +91,47 @@ final class ApiServiceImp: ApiService {
         return appNetwork.requestObjectWithTokenRefresh(.getEventRegistered(studentId: studentId), successType: StudentRegisteredEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
     }
     
+    func getAllYourEvents() -> Single<Result<FlatEventDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getAllYourEvents, successType: FlatEventDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func getEventActivities(type: EventActivityType) -> Single<Result<[EventActivityDto], ErrorResponse>> {
+        return appNetwork.requestArray(.getEventActivities(type: type), successType: EventActivityDto.self, errorType: ErrorResponse.self)
+    }
+    
     //MARK: - Proof
-    func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
-        return appNetwork.requestWithoutMappingWithRefreshToken(.postProofInternal(internalProofCreateDto: internalProofCreateDto))
+    func postProofInternal(internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response>{
+        return appNetwork.requestWithoutMappingWithRefreshToken(.postInternalProof(internalProofCreateDto: internalProofCreateDto))
     }
     
     func postProofExternal(externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response> {
-        return appNetwork.requestWithoutMappingWithRefreshToken(.postProofExternal(externalProofCreateDto: externalProofCreateDto))
+        return appNetwork.requestWithoutMappingWithRefreshToken(.postExternalProof(externalProofCreateDto: externalProofCreateDto))
     }
-
+    
+    func postProofSpecial(specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.postSpecialProof(specialProofCreateDto: specialProofCreateDto))
+    }
+    
+    func getProofs() -> Single<Result<ProofDtoPagedResultDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getProofs, successType: ProofDtoPagedResultDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func deleteProof(id: String) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.deleteProof(id: id))
+    }
+    
+    func getProofDetail(id: String) -> Single<Result<ProofDetailDto, ErrorResponse>> {
+        return appNetwork.requestObjectWithTokenRefresh(.getProofDetail(id: id), successType: ProofDetailDto.self, errorType: ErrorResponse.self)
+    }
+    
+    func updateProofInternal(proofId: String, internalProofCreateDto: InternalProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.updateInternalProof(proofId: proofId, 
+                                                                                     internalProofCreateDto: internalProofCreateDto))
+    }
+    func updateProofExternal(proofId: String, externalProofCreateDto: ExternalProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.updateExternalProof(proofId: proofId, externalProofCreateDto: externalProofCreateDto))
+    }
+    func updateProofSpecial(proofId: String, specialProofCreateDto: SpecialProofCreateDto) -> Single<Moya.Response> {
+        return appNetwork.requestWithoutMappingWithRefreshToken(.updateSpecialProof(proofId: proofId, specialProofCreateDto: specialProofCreateDto))
+    }
 }

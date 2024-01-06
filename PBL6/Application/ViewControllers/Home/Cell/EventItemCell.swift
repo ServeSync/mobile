@@ -25,7 +25,8 @@ class EventItemCell: BaseCollectionViewCell {
         thumbImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
         nameEventLabel.text = item.name
         
-        let date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        var date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        date = date.addingTimeInterval(7 * 60 * 60)
         let dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
         timeLabel.text = dateString
         
@@ -36,7 +37,8 @@ class EventItemCell: BaseCollectionViewCell {
         thumbImage.setImage(with: URL(string: item.imageUrl), placeholder: "img_event_thumb_default".toUIImage())
         nameEventLabel.text = item.name
         
-        let date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        var date = FormatUtils.formatStringToDate(item.startAt, formatterString: "yyyy-MM-dd'T'HH:mm:ss")
+        date = date.addingTimeInterval(7 * 60 * 60)
         let dateString = FormatUtils.formatDateToString(date, formatterString: "dd/MM/yyyy")
         timeLabel.text = dateString
         

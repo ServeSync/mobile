@@ -32,6 +32,29 @@ class HomeVC: BaseVC<HomeVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        viewModel.fetchDataRemote()
+//            .subscribe(onNext: {[weak self] status in
+//                guard let self = self else { return }
+//                switch status {
+//                case .Success:
+//                    return
+//                case .Error(let error):
+//                    if error?.code == Configs.Server.errorCodeRequiresLogin {
+//                        AppDelegate.shared().windowMainConfig(vc: LoginVC())
+//                    } else {
+//                        viewModel.messageData.accept(AlertMessage(type: .error,
+//                                                                  description: getErrorDescription(forErrorCode: error!.code)
+//                                                                 ))
+//                    }
+//                }
+//            })
+//            .disposed(by: bag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.fetchDataLocal()
         viewModel.fetchDataRemote()
             .subscribe(onNext: {[weak self] status in
                 guard let self = self else { return }
@@ -49,12 +72,6 @@ class HomeVC: BaseVC<HomeVM> {
                 }
             })
             .disposed(by: bag)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel.fetchDataLocal()
     }
     
     override func initViews() {

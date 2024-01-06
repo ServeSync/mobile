@@ -20,11 +20,34 @@ struct ExternalProofCreateDto: Mappable {
     var activityId: String = ""
     var description: String = ""
     var imageUrl: String = ""
-    var rejectReason: String = ""
     
     init() {}
     
     init?(map: Map) {}
+    
+    init(eventName: String,
+         address: String,
+         organizationName: String,
+         role: String, 
+         score: Double,
+         attendanceAt: String,
+         startAt: String, 
+         endAt: String,
+         activityId: String,
+         description: String,
+         imageUrl: String) {
+        self.eventName = eventName
+        self.address = address
+        self.organizationName = organizationName
+        self.role = role
+        self.score = score
+        self.attendanceAt = attendanceAt
+        self.startAt = startAt
+        self.endAt = endAt
+        self.activityId = activityId
+        self.description = description
+        self.imageUrl = imageUrl
+    }
     
     mutating func mapping(map: Map) {
         eventName <- map["eventName"]
@@ -37,6 +60,5 @@ struct ExternalProofCreateDto: Mappable {
         activityId <- map["activityId"]
         description <- map["description"]
         imageUrl <- map["imageUrl"]
-        rejectReason <- map["rejectReason"]
     }
 }

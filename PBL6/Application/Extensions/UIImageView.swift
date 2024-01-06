@@ -10,7 +10,7 @@ import Kingfisher
 
 extension UIImageView {
     func setImage(with resource: Resource?,
-                  placeholder: Placeholder? = #imageLiteral(resourceName: "ic_mod_temp"),
+                  placeholder: Placeholder? = #imageLiteral(resourceName: "img_avt_default"),
                   onSuccess: (() -> Void)? = nil,
                   onError: (() -> Void)? = nil) {
 

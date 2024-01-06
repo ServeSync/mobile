@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import MKProgress
+import DropDown
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         windowSplashConfig()
         mkProgressConfig()
         return true
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        DropDown.startListeningToKeyboard()
     }
 
 }

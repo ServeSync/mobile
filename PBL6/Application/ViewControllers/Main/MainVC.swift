@@ -86,55 +86,6 @@ class MainVC: BaseVC<BaseVM> {
 }
 
 extension MainVC {
-//    private func selectNavHome() {
-//        navHomeImageView.isHighlighted = true
-//        navEventImageView.isHighlighted = false
-//        navAnalysisImageView.isHighlighted = false
-//        navProofImageView.isHighlighted = false
-//        navProfileImageView.isHighlighted = false
-//        
-//        pageVC.handleUIChangePage(pageIndex: 0)
-//    }
-//    
-//    private func selectNavEvent() {
-//        navHomeImageView.isHighlighted = false
-//        navEventImageView.isHighlighted = true
-//        navAnalysisImageView.isHighlighted = false
-//        navProofImageView.isHighlighted = false
-//        navProfileImageView.isHighlighted = false
-//        
-//        pageVC.handleUIChangePage(pageIndex: 1)
-//    }
-//    
-//    private func selectNavAnalysis() {
-//        navHomeImageView.isHighlighted = false
-//        navEventImageView.isHighlighted = false
-//        navAnalysisImageView.isHighlighted = true
-//        navProofImageView.isHighlighted = false
-//        navProfileImageView.isHighlighted = false
-//        
-//        pageVC.handleUIChangePage(pageIndex: 2)
-//    }
-//    
-//    private func selectNavProof() {
-//        navHomeImageView.isHighlighted = false
-//        navEventImageView.isHighlighted = false
-//        navAnalysisImageView.isHighlighted = false
-//        navProofImageView.isHighlighted = true
-//        navProfileImageView.isHighlighted = false
-//        
-//        pageVC.handleUIChangePage(pageIndex: 3)
-//    }
-//    
-//    private func selectNavProfile() {
-//        navHomeImageView.isHighlighted = false
-//        navEventImageView.isHighlighted = false
-//        navAnalysisImageView.isHighlighted = false
-//        navProofImageView.isHighlighted = false
-//        navProfileImageView.isHighlighted = true
-//        
-//        pageVC.handleUIChangePage(pageIndex: 4)
-//    }
     
     private func selectNavHome() {
         selectNavItem(index: 0)

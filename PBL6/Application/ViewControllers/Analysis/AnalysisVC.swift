@@ -10,7 +10,6 @@ import RxSwift
 import RxDataSources
 
 class AnalysisVC: BaseVC<AnalysisVM> {
-    
     @IBOutlet weak var charts: CircleCharts!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var educationProgramNameLabel: UILabel!
@@ -21,7 +20,8 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     
     @IBOutlet weak var exportFileButton: UIButton!
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: IntrinsicCollectionView!
+    @IBOutlet weak var collectionViewHC: NSLayoutConstraint!
     
     @IBOutlet weak var shadowBackground: UIView!
     @IBOutlet weak var headerView: UIView!
@@ -32,6 +32,16 @@ class AnalysisVC: BaseVC<AnalysisVM> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if collectionView.intrinsicContentSize.height < 100 {
+            collectionViewHC.constant = 100
+        } else {
+            collectionViewHC.constant = collectionView.intrinsicContentSize.height
+        }
     }
     
     override func initViews() {
@@ -108,6 +118,7 @@ class AnalysisVC: BaseVC<AnalysisVM> {
         viewModel.attendanceEventsData
             .do { [weak self] data in
                 guard let self = self else { return }
+                print(data.count, "###")
                 if data.isEmpty {
                     collectionView.setEmptyMessage("no_attendane_student".localized)
                 } else {
@@ -116,29 +127,6 @@ class AnalysisVC: BaseVC<AnalysisVM> {
             }
             .map {[SectionModel(model: (), items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: getAnalysisEventItemDataSource()))
-            .disposed(by: bag)
-        
-        collectionView.rx.willDisplayCell
-            .subscribe(onNext: {[weak self] cell, indexPath in
-                guard let self = self else { return }
-                if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
-                    self.viewModel.loadMore()
-                        .subscribe(onNext: {[weak self] status in
-                            guard let self = self else { return }
-                            switch status {
-                            case .Success:
-                                return
-                            case .Error(let error):
-                                if error?.code == Configs.Server.errorCodeRequiresLogin {
-                                    AppDelegate.shared().windowMainConfig(vc: LoginVC())
-                                } else {
-                                    viewModel.messageData.accept(AlertMessage(type: .error, description: getErrorDescription(forErrorCode: error!.code)))
-                                }
-                            }
-                        })
-                        .disposed(by: bag)
-                }
-            })
             .disposed(by: bag)
     }
     

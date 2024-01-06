@@ -12,6 +12,8 @@
 	<string>This app needs your location to show nearby services</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>The application needs to access the photo library so that you can select photos from the album.</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>The app needs access to the the calendar to display events.</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>UIApplicationSceneManifest</key>
@@ -59,6 +61,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>ms-excel</string>
+		<string>calshow</string>
 	</array>
 </dict>
 </plist>

@@ -35,7 +35,7 @@ struct StudentRegisteredEventDto: Mappable {
     init?(map: Map) {}
     
     mutating func mapping(map: Map) {
-        roleId                      <- map["id"]
+        roleId                      <- map["roleId"]
         role                        <- map["role"]
         score                       <- map["score"]
         capacity                    <- map["capacity"]

@@ -147,17 +147,27 @@ class AppNetworkImp: AppNetwork {
         }
     }
     
-    func requestArray<T: BaseMappable>(_ target: AppApi, type: T.Type) -> Single<[T]> {
-        return provider.request(target)
-            .mapJSON()
-            .map { Mapper<T>().mapArray(JSONObject: $0) }
-            .observe(on: MainScheduler.instance)
-            .flatMap {
-                if let map = $0 {
-                    return Single.just(map)
-                } else {
-                    return Single.error(NSError(domain: "Map object failed", code: 1, userInfo: nil))
+    func requestArray<T: BaseMappable, U: BaseMappable>(_ target: AppApi, 
+                                                        successType: T.Type,
+                                                        errorType: U.Type) -> Single<Result<[T], U>> {
+        return Single.deferred {
+            return self.provider.request(target)
+                .flatMap { response in
+                    if 200...299 ~= response.statusCode {
+                        return Observable.just(response)
+                            .mapJSON()
+                            .map { Mapper<T>().mapArray(JSONObject: $0)! }
+                            .map { Result<[T], U>.success($0) }
+                            .asSingle()
+                    } else {
+                        return Observable.just(response)
+                            .mapJSON()
+                            .map { Mapper<U>().map(JSONObject: $0)! }
+                            .map { Result<[T], U>.failure($0) }
+                            .asSingle()
+                    }
                 }
-            }
+                .observe(on: MainScheduler.instance)
+        }
     }
 }

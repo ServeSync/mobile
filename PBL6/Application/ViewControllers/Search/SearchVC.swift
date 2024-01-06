@@ -13,12 +13,14 @@ class SearchVC: BaseVC<SearchVM> {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var headerView: UIView!
+    
     private var refreshControl = UIRefreshControl()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchTextField.becomeFirstResponder()
     }
     
     override func initViews() {
@@ -27,6 +29,9 @@ class SearchVC: BaseVC<SearchVM> {
         searchTextField.delegate = self
         searchTextField.setLeftPaddingPoints(56)
         searchTextField.setRightPaddingPoints(48)
+        
+        headerView.roundDifferentCorners(bottomLeft: 24,
+                                         bottomRight: 24)
     }
     
     override func addEventForViews() {
@@ -93,6 +98,14 @@ class SearchVC: BaseVC<SearchVM> {
             .disposed(by: bag)
         
         viewModel.eventsData
+            .do{ [weak self] data in
+                guard let self = self else { return }
+                if data.isEmpty {
+                    collectionView.setEmptyMessage("no_event".localized)
+                } else {
+                    collectionView.hideEmptyMessage()
+                }
+            }
             .map{[SectionModel(model: (), items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: getEventItemDataSource()))
             .disposed(by: bag)
